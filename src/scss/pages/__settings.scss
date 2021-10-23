@@ -24,7 +24,7 @@
   justify-content: space-evenly;
   gap: 2em;
   flex-wrap: wrap;
-  margin-top: 5em;
+  margin-top: var(--main-mt);
 }
 
 .settings-block {

@@ -45,29 +45,39 @@ export default class extends View {
   getHtml() {
     return `
     <header>
-      <div class="container">
-        <div class="header header-categories">
-          <a href="/" class="header-categories__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
-          <h1 class="header__title">Categories of ${this.type}</h1>
+        <div class="container">
+            <div class="header header-categories">
+                <a href="/" class="header-categories__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
+                <h1 class="header__title">Artists</h1>
+            </div>
         </div>
-      </div>
     </header>
 
     <main class="main">
-      <div class="container">
-        <div class="categories">
+        <div class="container">
+            <div class="categories">
+                <a class="category" href="category/artists/renaissance">
+                    <div class="category__score">
+                        <span class="score">10</span>/<span class="score-total">10</span>
+                    </div>
+                    <div class="category__name">Renaissance</div>
+
+                    <div class="category__image">
+                        <img src="../img/category/renaissance.jpg" alt="Renaissance">
+                    </div>
+                </a>
+            </div>
         </div>
-      </div>
     </main>
-    
+
     <footer>
-      <div class="container">
-        <div class="footer">
-            <a class="footer__github" href="https://github.com/liliyavoloshina">liliyavoloshina</a>
-            <div class="footer__year">© 2021</div>
-            <a class="footer__school" href="https://rs.school/js/" title="Rolling Scopes School"></a>
+        <div class="container">
+            <div class="footer">
+                <a class="footer__github" href="https://github.com/liliyavoloshina">liliyavoloshina</a>
+                <div class="footer__year">© 2021</div>
+                <a class="footer__school" href="https://rs.school/js/" title="Rolling Scopes School"></a>
+            </div>
         </div>
-      </div>
     </footer>
     `
   }
