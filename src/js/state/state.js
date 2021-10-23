@@ -1,5 +1,3 @@
-console.log('state statred')
-
 class State {
   constructor() {
     this.images = []
