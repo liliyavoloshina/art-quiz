@@ -24,11 +24,11 @@ export default class extends View {
           <div class="home-types">
             <a class="home-types__type" href="/categories/artists" data-link>
               <div class="home-types__image artist"></div>
-              <div class="home-types__text">Artists Quiz</div>
+              <div class="home-types__text">artists quiz</div>
             </a>
             <a class="home-types__type" href="/categories/pictures" data-link>
               <div class="home-types__image pictures"></div>
-              <div class="home-types__text">Pictures Quiz</div>
+              <div class="home-types__text">pictures quiz</div>
              </a>
           </div>
         </div>

@@ -16,7 +16,7 @@ const getParams = (match) => {
   return Object.fromEntries(keys.map((key, i) => [key, values[i]]))
 }
 
-const router = () => {
+const router = async () => {
   const routes = [
     { path: '/', View: Home },
     { path: '/settings', View: Settings },
@@ -38,6 +38,7 @@ const router = () => {
   }
 
   const view = new match.route.View(getParams(match))
+  await view.mount()
 
   document.querySelector('#app').innerHTML = view.getHtml()
 }

@@ -13,7 +13,7 @@ export default class extends View {
         <div class="container">
             <div class="header header-settings">
                 <a href="/" class="header-settings__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
-                <h1 class="header__title">Settings</h1>
+                <h1 class="header__title">settings.</h1>
             </div>
         </div>
     </header>
@@ -24,7 +24,7 @@ export default class extends View {
                 <div class="settings-block">
                     <i class="settings-block__icon fi fi-rr-volume"></i>
                     <div class="settings-block__input"><input class="range" type="range" id="volumeRange"></div>
-                    <div class="settings-block__text">Volume</div>
+                    <div class="settings-block__text">volume</div>
                 </div>
                 <div class="settings-block">
                     <i class="settings-block__icon fi fi-rr-hourglass-end"></i>
@@ -34,7 +34,7 @@ export default class extends View {
                             <label for="timerInput"><i class="fi fi-rr-check"></i></label>
                         </div>
                     </div>
-                    <div class="settings-block__text">Timer</div>
+                    <div class="settings-block__text">timer</div>
                 </div>
             </div>
         </div>
