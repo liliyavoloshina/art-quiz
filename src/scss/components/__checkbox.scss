@@ -1,0 +1,41 @@
+.checkbox {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+
+  input {
+    display: none;
+  }
+
+  label {
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+
+    &:hover i {
+      color: var(--accent);
+    }
+
+    i {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--grey);
+      transition: 0.3s ease;
+    }
+  }
+
+  & input:checked {
+    & ~ label {
+      box-shadow: var(--inner-shadow);
+      i {
+        color: var(--accent);
+      }
+    }
+  }
+}

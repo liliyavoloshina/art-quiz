@@ -1,0 +1,82 @@
+:root {
+  --home-row-g: 2em;
+  --home-text-fs: 2em;
+  --home-types-row-g: 2em;
+  --home-type-h: 35vh;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --home-type-h: 60vh;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --home-row-g: 5em;
+  }
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  // min-height: 100vh;
+  gap: var(--home-row-g);
+
+  &-logo {
+    width: 17em;
+    height: 7em;
+    margin-left: auto;
+    margin-right: auto;
+    background: url('../img/logo.png') no-repeat;
+    background-size: contain;
+  }
+}
+
+.home-types {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2em;
+  flex-wrap: wrap;
+
+  &__type {
+    flex: 1 1 35em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: var(--home-type-h);
+    background: var(--background-primary);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s ease;
+
+    &:hover {
+      box-shadow: var(--inner-shadow);
+    }
+  }
+
+  &__image {
+    height: 85%;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+
+    &.artist {
+      background-image: url('../img/artists.jpg');
+    }
+
+    &.pictures {
+      background-image: url('../img/pictures.jpg');
+    }
+  }
+
+  &__text {
+    pointer-events: none;
+    color: var(--text-dark);
+    line-height: var(--home-text-fs);
+    font-size: var(--home-text-fs);
+  }
+}

@@ -1,0 +1,23 @@
+:root {
+  --footer-fs: 1.5em;
+  --footer-logo-s: 5em;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+
+  &__github,
+  &__year {
+    font-size: var(--footer-fs);
+  }
+
+  &__school {
+    width: var(--footer-logo-s);
+    height: var(--footer-logo-s);
+    background: url('../icon/rss.svg') no-repeat center;
+    background-size: contain;
+  }
+}

@@ -1,0 +1,41 @@
+:root {
+  --header-title-fs: 1.5em;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --header-title-fs: 2em;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-title-fs: 2.5em;
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--section-p);
+
+  &__title {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: var(--header-title-fs);
+  }
+}
+
+.header-home {
+  &__nav {
+    margin-left: auto;
+  }
+}
+
+.header-settings {
+  &__nav {
+    margin-right: auto;
+  }
+}

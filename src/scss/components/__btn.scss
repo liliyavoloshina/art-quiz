@@ -1,0 +1,39 @@
+:root {
+  --btn-p: 10px;
+  --btn-fs: 20px;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --btn-p: 10px;
+    --btn-fs: 30px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --btn-p: 10px;
+    --btn-fs: 50px;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--btn-p);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 1.5s linear;
+
+  .fi {
+    &::before {
+      font-size: var(--btn-fs);
+    }
+  }
+
+  &:hover {
+    box-shadow: var(--inner-shadow);
+  }
+}

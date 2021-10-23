@@ -1,0 +1,52 @@
+:root {
+  --settings-row-g: 2em;
+  --settings-icon-fs: 5em;
+  --settings-block-h: 30vh;
+  --settings-text-fs: 2em;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --settings-block-h: 40vh;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --settings-block-h: 60vh;
+    --settings-icon-fs: 12em;
+    --settings-text-fs: 3em;
+  }
+}
+
+.settings {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-top: 5em;
+}
+
+.settings-block {
+  flex: 1 1 25em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--settings-block-h);
+  background: var(--background-primary);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  border-radius: 10px;
+
+  &__icon {
+    &::before {
+      font-size: var(--settings-icon-fs);
+    }
+  }
+
+  &__text {
+    font-size: var(--settings-text-fs);
+    text-transform: uppercase;
+  }
+}

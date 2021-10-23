@@ -1,0 +1,7 @@
+:root {
+  --main-p: 2em;
+}
+
+.main {
+  padding: var(--main-p) var(--section-p);
+}
