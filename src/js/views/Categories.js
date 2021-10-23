@@ -6,40 +6,63 @@ export default class extends View {
     super(params)
     this.setTitle('Art Quiz - Categories')
     this.type = this.params.type
-    this.categories = {
-      renaissance: [],
-      classicism: [],
-      baroque: [],
-      expressionism: [],
-      impressionism: [],
-      postimpressionism: [],
-      modernism: [],
-    }
+    this.categories = [
+      { name: 'renaissance', items: [] },
+      { name: 'classicism', items: [] },
+      { name: 'baroque', items: [] },
+      { name: 'expressionism', items: [] },
+      { name: 'impressionism', items: [] },
+      { name: 'postimpressionism', items: [] },
+      { name: 'modernism', items: [] },
+    ]
+    this.categoriesHtml = ''
     this.setCategories()
+    this.categoriesToHtml()
   }
 
   async setCategories() {
     const res = await fetch('/data/images.json')
-    // const res = await fetch('/data/artists.json')
     const data = await res.json()
     data.forEach((el) => {
       if (el.year <= 1600) {
-        this.categories.renaissance.push(el)
+        this.categories.find((cat) => cat.name === 'renaissance').items.push(el)
       } else if (el.year > 1600 && el.year <= 1700) {
-        this.categories.baroque.push(el)
+        this.categories.find((cat) => cat.name === 'classicism').items.push(el)
       } else if (el.year > 1700 && el.year <= 1820) {
-        this.categories.classicism.push(el)
+        this.categories.find((cat) => cat.name === 'baroque').items.push(el)
       } else if (el.year > 1820 && el.year <= 1860) {
-        this.categories.impressionism.push(el)
+        this.categories
+          .find((cat) => cat.name === 'expressionism')
+          .items.push(el)
       } else if (el.year > 1860 && el.year <= 1880) {
-        this.categories.expressionism.push(el)
+        this.categories
+          .find((cat) => cat.name === 'impressionism')
+          .items.push(el)
       } else if (el.year > 1880 && el.year <= 1890) {
-        this.categories.postimpressionism.push(el)
+        this.categories
+          .find((cat) => cat.name === 'postimpressionism')
+          .items.push(el)
       } else if (el.year > 1890) {
-        this.categories.modernism.push(el)
+        this.categories.find((cat) => cat.name === 'modernism').items.push(el)
       }
     })
-    console.log(this.categories)
+  }
+
+  categoriesToHtml() {
+    const items = []
+    this.categories.forEach((category) => {
+      items.push(`<a class="category" href="category/artists/renaissance">
+          <div class="category__score">
+            <span class="score">10</span>/<span class="score-total">10</span>
+           </div>
+           <div class="category__name">${category.name}</div>
+              <div class="category__image">
+                <img src="../img/category/renaissance.jpg" alt="Renaissance">
+            </div>
+        </a>`)
+    })
+
+    this.categoriesHtml = items.join('\n')
   }
 
   getHtml() {
@@ -56,16 +79,7 @@ export default class extends View {
     <main class="main">
         <div class="container">
             <div class="categories">
-                <a class="category" href="category/artists/renaissance">
-                    <div class="category__score">
-                        <span class="score">10</span>/<span class="score-total">10</span>
-                    </div>
-                    <div class="category__name">Renaissance</div>
-
-                    <div class="category__image">
-                        <img src="../img/category/renaissance.jpg" alt="Renaissance">
-                    </div>
-                </a>
+                ${this.categoriesHtml}
             </div>
         </div>
     </main>
