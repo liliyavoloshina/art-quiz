@@ -182,52 +182,60 @@
     "genre": "Baroque"
   },
   {
-    "author": "Рафаель",
-    "name": "Мадонна в кресле",
+    "author": "Raphael",
+    "name": "Madonna of the chair",
     "year": "1514",
-    "imageNum": "26"
+    "imageNum": "26",
+    "genre": "Renaissance"
   },
   {
-    "author": "Василий Суриков",
-    "name": "Взятие снежного городка",
+    "author": "Vasily Surikov",
+    "name": "The Capture of Snow Town",
     "year": "1891",
-    "imageNum": "27"
+    "imageNum": "27",
+    "genre": "Realism"
   },
   {
-    "author": "Иван Шишкин",
-    "name": "Ручей в берёзовом лесу",
+    "author": "Ivan Shishkin",
+    "name": "Stream in a Birch Forest",
     "year": "1883",
-    "imageNum": "28"
+    "imageNum": "28",
+    "genre": "Landscape"
   },
   {
-    "author": "Василий Суриков",
-    "name": "Покорение Сибири Ермаком Тимофеевичем",
+    "author": "Vasily Surikov",
+    "name": "The Conquest of Siberia by Yermak Timofeyevich",
     "year": "1895",
-    "imageNum": "29"
+    "imageNum": "29",
+    "genre": "Realism"
   },
   {
-    "author": "Владимир Боровиковский",
-    "name": "Портрет Лопухиной",
+    "author": "Vladimir Borovikovsky",
+    "name": "Portrait of Maria Lopukhina",
     "year": "1797",
-    "imageNum": "30"
+    "imageNum": "30",
+    "genre": "Portrait"
   },
   {
-    "author": "Рене Магритт",
-    "name": "Сын человеческий",
+    "author": "René Magritte",
+    "name": "The Son of Man",
     "year": "1964",
-    "imageNum": "31"
+    "imageNum": "31",
+    "genre": "Surrealism"
   },
   {
-    "author": "Веласкес",
-    "name": "Венера с зеркалом",
+    "author": "Diego Velázquez",
+    "name": "Venus at her Mirror",
     "year": "1651",
-    "imageNum": "32"
+    "imageNum": "32",
+    "genre": "Baroque"
   },
   {
-    "author": "Иван Богданов",
-    "name": "За расчётом",
+    "author": "Ivan Bogdanov",
+    "name": "For the calculation",
     "year": "1890",
-    "imageNum": "33"
+    "imageNum": "33",
+    "genre": "Realism"
   },
   {
     "author": "Rembrandt",
@@ -237,10 +245,11 @@
     "genre": "Baroque"
   },
   {
-    "author": "Джон Уильям Уотерхаус",
-    "name": "Волшебница Шалот",
+    "author": "John William Waterhouse",
+    "name": "The Lady of Shalott",
     "year": "1888",
-    "imageNum": "35"
+    "imageNum": "35",
+    "genre": "Symbolism"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -264,10 +273,11 @@
     "genre": "Realism"
   },
   {
-    "author": "Николай Богданов-Бельский",
-    "name": "Устный счёт",
+    "author": "Nikolay Bogdanov-Belsky",
+    "name": "Mental Arithmetic",
     "year": "1895",
-    "imageNum": "39"
+    "imageNum": "39",
+    "genre": "Realism"
   },
   {
     "author": "Viktor Vasnetsov",
@@ -277,22 +287,25 @@
     "genre": "Symbolism"
   },
   {
-    "author": "Анри Матисс",
-    "name": "Танец",
+    "author": "Henri Matisse",
+    "name": "Dance ",
     "year": "1910",
-    "imageNum": "41"
+    "imageNum": "41",
+    "genre": "Modernism"
   },
   {
-    "author": "Эдвард Мунк",
-    "name": "Мадонна",
+    "author": "Edvard Munch",
+    "name": "Madonna",
     "year": "1894",
-    "imageNum": "42"
+    "imageNum": "42",
+    "genre": "Symbolism"
   },
   {
-    "author": "Марк Шагал",
-    "name": "Прогулка",
+    "author": "Marc Chagall",
+    "name": "Walk",
     "year": "1918",
-    "imageNum": "43"
+    "imageNum": "43",
+    "genre": "Expressionism"
   },
   {
     "author": "Vasily Perov",
@@ -302,16 +315,18 @@
     "genre": "Realism"
   },
   {
-    "author": "Иероним Босх",
-    "name": "Страшный суд",
+    "author": "Hieronymus Bosch",
+    "name": "The Last Judgment",
     "year": "1504",
-    "imageNum": "45"
+    "imageNum": "45",
+    "genre": "Renaissance"
   },
   {
-    "author": "Карл Лемох",
-    "name": "Варька",
+    "author": "Kirill Lemokh",
+    "name": "Varka",
     "year": "1893",
-    "imageNum": "46"
+    "imageNum": "46",
+    "genre": "Portrait"
   },
   {
     "author": "Jean-Honoré Fragonard",
@@ -321,22 +336,25 @@
     "genre": "Rococo"
   },
   {
-    "author": "Франсуа Буше",
-    "name": "Венера, утешающая Амура",
+    "author": "François Boucher",
+    "name": "Venus Consoling Cupid",
     "year": "1751",
-    "imageNum": "48"
+    "imageNum": "48",
+    "genre": "Rococo"
   },
   {
-    "author": "Иван Шишкин",
-    "name": "Корабельная роща",
+    "author": "Ivan Shishkin",
+    "name": "Ship Grove",
     "year": "1898",
-    "imageNum": "49"
+    "imageNum": "49",
+    "genre": "Landscape"
   },
   {
-    "author": "Густав Климт",
-    "name": "Золотая Адель",
+    "author": "Gustav Klimt",
+    "name": "Lady in Gold",
     "year": "1907",
-    "imageNum": "50"
+    "imageNum": "50",
+    "genre": "Symbolism"
   },
   {
     "author": "Viktor Vasnetsov",
@@ -346,8 +364,8 @@
     "genre": "Symbolism"
   },
   {
-    "author": "Вильгельм фон Каульбах",
-    "name": "Разрушение Иерусалима",
+    "author": "Wilhelm von Kaulbach",
+    "name": "Destruction of Jerusalem",
     "year": "1846",
     "imageNum": "52"
   },
@@ -359,40 +377,45 @@
     "genre": "Mannerism"
   },
   {
-    "author": "Андрей Рублев",
-    "name": "Троица",
+    "author": "Andrei Rublev",
+    "name": "The Trinity",
     "year": "1411",
     "imageNum": "54"
   },
   {
-    "author": "Василий Суриков",
-    "name": "Утро стрелецкой казни",
+    "author": "Vasily Surikov",
+    "name": "The Morning of the Streltsy Execution",
     "year": "1881",
-    "imageNum": "55"
+    "imageNum": "55",
+    "genre": "Realism"
   },
   {
-    "author": "Тициан",
-    "name": "Вакханалия",
+    "author": "Titian",
+    "name": "Bacchanalia",
     "year": "1526",
-    "imageNum": "56"
+    "imageNum": "56",
+    "genre": "Renaissance"
   },
   {
-    "author": "Веласкес",
-    "name": "Вилла Медичи в Риме. Полдень",
+    "author": "Diego Velázquez",
+    "name": "Villa Medici in Rome",
     "year": "1630",
-    "imageNum": "57"
+    "imageNum": "57",
+    "genre": "Baroque"
   },
   {
-    "author": "Эдуард Мане",
-    "name": "Ланч на траве",
+    "author": "Édouard Manet",
+    "name": "The Luncheon on the Grass",
     "year": "1863",
-    "imageNum": "58"
+    "imageNum": "58",
+    "genre": "Impressionism"
   },
   {
-    "author": "Сальвадор Дали",
-    "name": "Постоянство памяти",
+    "author": "Salvador Dalí",
+    "name": "The Persistence of Memory",
     "year": "1931",
-    "imageNum": "59"
+    "imageNum": "59",
+    "genre": "Surrealism"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -408,10 +431,11 @@
     "imageNum": "61"
   },
   {
-    "author": "Веласкес",
-    "name": "Менины",
+    "author": "Diego Velázquez",
+    "name": "Las Meninas",
     "year": "1656",
-    "imageNum": "62"
+    "imageNum": "62",
+    "genre": "Baroque"
   },
   {
     "author": "Антонис ван Дейк",
@@ -433,16 +457,18 @@
     "imageNum": "65"
   },
   {
-    "author": "Леонардо да Винчи",
-    "name": "Дама с горностаем",
+    "author": "Leonardo da Vinci",
+    "name": "Lady with an Ermine",
     "year": "1490",
-    "imageNum": "66"
+    "imageNum": "66",
+    "genre": "Renaissance"
   },
   {
-    "author": "Веласкес",
-    "name": "Бахус",
+    "author": "Diego Velázquez",
+    "name": "Triumph of Bacchus",
     "year": "1628",
-    "imageNum": "67"
+    "imageNum": "67",
+    "genre": "Baroque"
   },
   {
     "author": "Bartolomeo Murillo",
@@ -458,10 +484,11 @@
     "imageNum": "69"
   },
   {
-    "author": "Иван Шишкин",
-    "name": "Утро в сосновом лесу",
+    "author": "Ivan Shishkin",
+    "name": "Morning in a Pine Forest",
     "year": "1889",
-    "imageNum": "70"
+    "imageNum": "70",
+    "genre": "Landscape"
   },
   {
     "author": "Жан Этьен Лиотар",
@@ -490,10 +517,11 @@
     "imageNum": "74"
   },
   {
-    "author": "Иван Богданов",
-    "name": "Новичок",
+    "author": "Ivan Bogdanov",
+    "name": "Beginner",
     "year": "1893",
-    "imageNum": "75"
+    "imageNum": "75",
+    "genre": "Realism"
   },
   {
     "author": "Анри де Тулуз-Лотрек",
@@ -502,58 +530,67 @@
     "imageNum": "76"
   },
   {
-    "author": "Тициан",
-    "name": "Кающаяся Марина Магдалина",
+    "author": "Titian",
+    "name": "Penitent Magdalene",
     "year": "1565",
-    "imageNum": "77"
+    "imageNum": "77",
+    "genre": "Renaissance"
   },
   {
-    "author": "Веласкес",
-    "name": "Инфанта Маргарита",
+    "author": "Diego Velázquez",
+    "name": "Infanta Margarita",
     "year": "1654",
-    "imageNum": "78"
+    "imageNum": "78",
+    "genre": "Baroque"
   },
   {
-    "author": "Тициан",
-    "name": "Динарий Кесаря",
+    "author": "Titian",
+    "name": "Denarius of Caesar",
     "year": "1516",
-    "imageNum": "79"
+    "imageNum": "79",
+    "genre": "Renaissance"
   },
   {
-    "author": "Карл Брюллов",
-    "name": "Всадница",
+    "author": "Karl Bryullov",
+    "name": "Horsewoman",
     "year": "1832",
-    "imageNum": "80"
+    "imageNum": "80",
+    "genre": "Romanticism"
   },
   {
-    "author": "Василий Верещагин",
-    "name": "Апофеоз войны",
+    "author": "Vasily Vereshchagin",
+    "name": "The Apotheosis of War",
     "year": "1817",
-    "imageNum": "81"
+    "imageNum": "81",
+    "genre": "Landscape"
   },
   {
-    "author": "Леонардо да Винчи",
-    "name": "Благовещение",
+    "author": "Leonardo da Vinci",
+    "name": "Annunciation",
     "year": "1475",
-    "imageNum": "82"
+    "imageNum": "82",
+    "genre": "Renaissance"
   },
   {
-    "author": "Алексей Саврасов",
-    "name": "Грачи прилетели",
+    "author": "Alexey Savrasov",
+    "name": "The Rooks Have Come Back",
     "year": "1871",
-    "imageNum": "83"
+    "imageNum": "83",
+    "genre": "Realism"
   },
   {
-    "author": "Тициан",
-    "name": "Любовь земная и Любовь небесная",
+    "author": "Titian",
+    "name": "Heavenly Love and Earthly Love",
     "year": "1516",
-    "imageNum": "84"
+    "imageNum": "84",
+    "genre": "Renaissance"
   },
   {
-    "author": "Жан Батист Грёз",
-    "name": "Деревенская помолвка",
+    "author": "Jean-Baptiste Greuze",
+    "name": "Engagement at the village",
     "year": "1761",
-    "imageNum": "85"
+    "imageNum": "85",
+    "genre": "Rococo"
   },
   {
     "author": "Pablo Picasso",
@@ -576,10 +613,11 @@
     "imageNum": "88"
   },
   {
-    "author": "Рафаэль",
-    "name": "Мадонна Бельведерская",
+    "author": "Raphael",
+    "name": "Madonna of the Meadow",
     "year": "1506",
-    "imageNum": "89"
+    "imageNum": "89",
+    "genre": "Renaissance"
   },
   {
     "author": "Василий тропинин",
@@ -601,16 +639,18 @@
     "genre": "Realism"
   },
   {
-    "author": "Леонардо да Винчи",
-    "name": "Тайная вечеря",
+    "author": "Leonardo da Vinci",
+    "name": "The Last Supper",
     "year": "1498",
-    "imageNum": "93"
+    "imageNum": "93",
+    "genre": "Renaissance"
   },
   {
-    "author": "Жан Батист Грёз",
-    "name": "Избалованное дитя",
+    "author": "Jean-Baptiste Greuze",
+    "name": "Spoiled Child",
     "year": "1765",
-    "imageNum": "94"
+    "imageNum": "94",
+    "genre": "Rococo"
   },
   {
     "author": "Адольф Вильям Бугро",
@@ -625,16 +665,18 @@
     "imageNum": "96"
   },
   {
-    "author": "Густав Климт",
-    "name": "Поцелуй",
+    "author": "Gustav Klimt",
+    "name": "The Kiss",
     "year": "1908",
-    "imageNum": "97"
+    "imageNum": "97",
+    "genre": "Symbolism"
   },
   {
-    "author": "Иван Шишкин",
-    "name": "Рожь",
+    "author": "Ivan Shishkin",
+    "name": "Rye",
     "year": "1878",
-    "imageNum": "98"
+    "imageNum": "98",
+    "genre": "Landscape"
   },
   {
     "author": "Жан-Леон Жером",
@@ -643,10 +685,11 @@
     "imageNum": "99"
   },
   {
-    "author": "Василий Суриков",
-    "name": "Боярыня Морозова",
+    "author": "Vasily Surikov",
+    "name": "Boyarina Morozova",
     "year": "1887",
-    "imageNum": "100"
+    "imageNum": "100",
+    "genre": "Realism"
   },
   {
     "author": "Исаак Левитан",
@@ -667,10 +710,11 @@
     "imageNum": "103"
   },
   {
-    "author": "Тициан",
-    "name": "Саломея",
+    "author": "Titian",
+    "name": "Salome",
     "year": "1515",
-    "imageNum": "104"
+    "imageNum": "104",
+    "genre": "Renaissance"
   },
   {
     "author": "Василий Кандинский",
@@ -692,10 +736,11 @@
     "imageNum": "107"
   },
   {
-    "author": "Сальвадор Дали",
-    "name": "Сон, вызванный полётом пчелы вокруг граната, за секунду до пробуждения",
+    "author": "Salvador Dalí",
+    "name": "Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening",
     "year": "1944",
-    "imageNum": "108"
+    "imageNum": "108",
+    "genre": "Surrealism"
   },
   {
     "author": "Jan Vermeer",
@@ -705,10 +750,11 @@
     "genre": "Baroque"
   },
   {
-    "author": "Анри Руссо",
-    "name": "Спящая цыганка",
+    "author": "Henri Rousseau",
+    "name": "The Sleeping Gypsy",
     "year": "1897",
-    "imageNum": "110"
+    "imageNum": "110",
+    "genre": "Modernism"
   },
   {
     "author": "Vasily Polenov",
@@ -718,16 +764,18 @@
     "genre": "Realism"
   },
   {
-    "author": "Эдвард Мунк",
-    "name": "Крик",
+    "author": "Edvard Munch",
+    "name": "The Scream",
     "year": "1893",
-    "imageNum": "112"
+    "imageNum": "112",
+    "genre": "Symbolism"
   },
   {
-    "author": "Карл Брюллов",
-    "name": "Последний день Помпеи",
+    "author": "Karl Bryullov",
+    "name": "The Last Day of Pompeii",
     "year": "1833",
-    "imageNum": "113"
+    "imageNum": "113",
+    "genre": "Romanticism"
   },
   {
     "author": "Ilya Repin",
@@ -799,10 +847,11 @@
     "imageNum": "124"
   },
   {
-    "author": "Леонардо да Винчи",
-    "name": "Мадонна Литта",
+    "author": "Leonardo da Vinci",
+    "name": "Madonna Litta",
     "year": "1491",
-    "imageNum": "125"
+    "imageNum": "125",
+    "genre": "Renaissance"
   },
   {
     "author": "Казимир Малевич",
@@ -844,10 +893,11 @@
     "genre": "Landscape"
   },
   {
-    "author": "Анри Матисс",
-    "name": "Семейный портрет",
+    "author": "Henri Matisse",
+    "name": "Family Portrait",
     "year": "1911",
-    "imageNum": "132"
+    "imageNum": "132",
+    "genre": "Modernism"
   },
   {
     "author": "Konstantin Makovsky",
@@ -864,10 +914,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "Сандро Боттичелли",
-    "name": "Весна",
+    "author": "Sandro Botticelli",
+    "name": "Spring",
     "year": "1482",
-    "imageNum": "135"
+    "imageNum": "135",
+    "genre": "Renaissance"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -910,10 +961,11 @@
     "imageNum": "141"
   },
   {
-    "author": "Веласкес",
-    "name": "Кузница вулкана",
+    "author": "Diego Velázquez",
+    "name": "Forge of the Volcano",
     "year": "1630",
-    "imageNum": "142"
+    "imageNum": "142",
+    "genre": "Baroque"
   },
   {
     "author": "Ilya Repin",
@@ -923,10 +975,11 @@
     "genre": "Realism"
   },
   {
-    "author": "Рафаэль",
-    "name": "Дама с единорогом",
+    "author": "Raphael",
+    "name": "Portrait of Young Woman with Unicorn",
     "year": "1506",
-    "imageNum": "144"
+    "imageNum": "144",
+    "genre": "Renaissance"
   },
   {
     "author": "Александр Иванов",
@@ -935,16 +988,18 @@
     "imageNum": "145"
   },
   {
-    "author": "Эдуард Мане",
-    "name": "Женщина с кувшином",
+    "author": "Édouard Manet",
+    "name": "Woman with a Jug",
     "year": "1858",
-    "imageNum": "146"
+    "imageNum": "146",
+    "genre": "Impressionism"
   },
   {
-    "author": "Тициан",
-    "name": "Конный портрет Карла V",
+    "author": "Titian",
+    "name": "Equestrian Portrait of Charles V",
     "year": "1548",
-    "imageNum": "147"
+    "imageNum": "147",
+    "genre": "Renaissance"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -954,10 +1009,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "Карл Брюллов",
-    "name": "Итальянский полдень",
+    "author": "Karl Bryullov",
+    "name": "Italian Midday",
     "year": "1827",
-    "imageNum": "149"
+    "imageNum": "149",
+    "genre": "Romanticism"
   },
   {
     "author": "Viktor Vasnetsov",
@@ -981,16 +1037,18 @@
     "genre": "Symbolism"
   },
   {
-    "author": "Марк Шагал",
-    "name": "Я и деревня",
+    "author": "Marc Chagall",
+    "name": "I and the Village",
     "year": "1911",
-    "imageNum": "153"
+    "imageNum": "153",
+    "genre": "Expressionism"
   },
   {
-    "author": "Леонардо да Винчи",
-    "name": "Мона Лиза",
+    "author": "Leonardo da Vinci",
+    "name": "Mona Lisa",
     "year": "1505",
-    "imageNum": "154"
+    "imageNum": "154",
+    "genre": "Renaissance"
   },
   {
     "author": "Франческо Баккьякка",
@@ -1037,10 +1095,11 @@
     "imageNum": "161"
   },
   {
-    "author": "Рафаэль",
-    "name": "Триумф Галатеи",
+    "author": "Raphael",
+    "name": "Triumph of Galatea",
     "year": "1512",
-    "imageNum": "162"
+    "imageNum": "162",
+    "genre": "Renaissance"
   },
   {
     "author": "Михаил Врубель",
@@ -1073,16 +1132,18 @@
     "imageNum": "167"
   },
   {
-    "author": "Франсуа Буше",
+    "author": "François Boucher",
     "name": "Четыре сезона - Весна",
     "year": "1755",
-    "imageNum": "168"
+    "imageNum": "168",
+    "genre": "Rococo"
   },
   {
-    "author": "Рафаэль",
-    "name": "Мадонна с розой",
+    "author": "Raphael",
+    "name": "Madonna of the Rose",
     "year": "1518",
-    "imageNum": "169"
+    "imageNum": "169",
+    "genre": "Renaissance"
   },
   {
     "author": "Василий Тропинин",
@@ -1098,10 +1159,11 @@
     "genre": "Baroque"
   },
   {
-    "author": "Василий Суриков",
-    "name": "Переход Суворова через Альпы",
+    "author": "Vasily Surikov",
+    "name": "Suvorov Crossing the Alps",
     "year": "1899",
-    "imageNum": "172"
+    "imageNum": "172",
+    "genre": "Realism"
   },
   {
     "author": "Исаак Левитан",
@@ -1117,10 +1179,11 @@
     "genre": "Landscape"
   },
   {
-    "author": "Веласкес",
-    "name": "Сдача Бреды",
+    "author": "Diego Velázquez",
+    "name": "Surrender of Delirium",
     "year": "1635",
-    "imageNum": "175"
+    "imageNum": "175",
+    "genre": "Baroque"
   },
   {
     "author": "Ilya Repin",
@@ -1130,10 +1193,11 @@
     "genre": "Realism"
   },
   {
-    "author": "Франсуа Буше",
+    "author": "François Boucher",
     "name": "Купание Дианы",
     "year": "1742",
-    "imageNum": "177"
+    "imageNum": "177",
+    "genre": "Rococo"
   },
   {
     "author": "Альбрехт Дюрер",
@@ -1163,10 +1227,11 @@
     "genre": "Landscape"
   },
   {
-    "author": "Веласкес",
-    "name": "Поклонение волхвов",
+    "author": "Diego Velázquez",
+    "name": "Adoration of the Magi",
     "year": "1619",
-    "imageNum": "182"
+    "imageNum": "182",
+    "genre": "Baroque"
   },
   {
     "author": "Николай Богданов-Бельский",
@@ -1175,10 +1240,11 @@
     "imageNum": "183"
   },
   {
-    "author": "Иероним Босх",
-    "name": "Сад земных наслаждений",
+    "author": "Hieronymus Bosch",
+    "name": "The Garden of Earthly Delights",
     "year": "1510",
-    "imageNum": "184"
+    "imageNum": "184",
+    "genre": "Renaissance"
   },
   {
     "author": "Корреджо",
@@ -1199,10 +1265,11 @@
     "imageNum": "187"
   },
   {
-    "author": "Рафаэль",
-    "name": "Сикстинская Мадонна",
+    "author": "Raphael",
+    "name": "Sistine Madonna",
     "year": "1520",
-    "imageNum": "188"
+    "imageNum": "188",
+    "genre": "Renaissance"
   },
   {
     "author": "Rembrandt",
@@ -1258,10 +1325,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "Никола Пуссен",
-    "name": "Пейзаж с Полифемом",
+    "author": "Nicolas Poussin",
+    "name": "Landscape with Polyphemus",
     "year": "1649",
-    "imageNum": "197"
+    "imageNum": "197",
+    "genre": "Landscape"
   },
   {
     "author": "Pieter Bruegel the Elder",
@@ -1278,9 +1346,10 @@
     "genre": "Realism"
   },
   {
-    "author": "Сандро Боттичелли",
-    "name": "Рождение Венеры",
+    "author": "Sandro Botticelli",
+    "name": "The Birth of Venus",
     "year": "1486",
-    "imageNum": "200"
+    "imageNum": "200",
+    "genre": "Renaissance"
   }
 ]
