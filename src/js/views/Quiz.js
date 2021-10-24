@@ -11,8 +11,19 @@ export default class extends View {
     return `
     <header>
       <div class="container">
-        <div class="header header-home">
-            <a href="/settings" class="header-home__nav btn" data-link><i class="fi fi-rr-settings"></i></a>
+        <div class="header header-quiz">
+            <a href="/" class="header-quiz__nav btn" title="Home" data-link><i class="fi fi-rr-home"></i></a>
+            <div class="timer">
+            <div class="timer__display">
+                <div class="display minute"></div>
+                <span class="display colon">:</span>
+                <div class="display seconds"></div>
+            </div>
+            <svg class="circle" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 521.17 521.17"
+                style="overflow: visible; enable-background: new 0 0 521.17 521.17">
+                <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
+            </svg>
+        </div>
         </div>
       </div>
     </header>
