@@ -343,11 +343,11 @@
     "genre": "Baroque"
   },
   {
-    "author": "Ivan Shishkin",
-    "name": "Ship Grove",
-    "year": "1898",
+    "author": "Salvador Dalí",
+    "name": "Metamorphosis of Narcissus",
+    "year": "1937",
     "imageNum": "49",
-    "genre": "Landscape"
+    "genre": "Modernism"
   },
   {
     "author": "Gustav Klimt",
@@ -399,11 +399,11 @@
     "genre": "Renaissance"
   },
   {
-    "author": "Diego Velázquez",
-    "name": "Villa Medici in Rome",
-    "year": "1630",
+    "author": "Piet Mondrian",
+    "name": "Composition C with Red, Yellow and Blue",
+    "year": "1921",
     "imageNum": "57",
-    "genre": "Landscape"
+    "genre": "Modernism"
   },
   {
     "author": "Édouard Manet",
@@ -553,11 +553,11 @@
     "genre": "Portrait"
   },
   {
-    "author": "Titian",
-    "name": "Denarius of Caesar",
-    "year": "1516",
+    "author": "Pablo Picasso",
+    "name": "Absinthe Drinker",
+    "year": "1901",
     "imageNum": "79",
-    "genre": "Renaissance"
+    "genre": "Modernism"
   },
   {
     "author": "Karl Bryullov",
@@ -651,11 +651,11 @@
     "genre": "Realism"
   },
   {
-    "author": "Leonardo da Vinci",
-    "name": "The Last Supper",
-    "year": "1498",
+    "author": "Vincent van Gogh",
+    "name": "Road with Cypress and Star",
+    "year": "1890",
     "imageNum": "93",
-    "genre": "Historical"
+    "genre": "Modernism"
   },
   {
     "author": "Jean-Baptiste Greuze",
@@ -686,11 +686,11 @@
     "genre": "Symbolism"
   },
   {
-    "author": "Ivan Shishkin",
-    "name": "Rye",
-    "year": "1878",
+    "author": "Andy Warhol",
+    "name": "Marlin Diptych",
+    "year": "1962",
     "imageNum": "98",
-    "genre": "Landscape"
+    "genre": "Modernism"
   },
   {
     "author": "Edvard Munch",
@@ -735,7 +735,7 @@
     "genre": "Portrait"
   },
   {
-    "author": "Wassily Kandinsky",
+    "author": "Vassily Kandinsky",
     "name": "Composition 8",
     "year": "1923",
     "imageNum": "105",
@@ -889,11 +889,11 @@
     "genre": "Modernism"
   },
   {
-    "author": "El Greco",
-    "name": "Apostles Peter and Paul",
-    "year": "1592",
+    "author": "Henri Matisse",
+    "name": "Dance",
+    "year": "1909",
     "imageNum": "127",
-    "genre": "Historical"
+    "genre": "Modernism"
   },
   {
     "author": "Viktor Vasnetsov",
@@ -1155,11 +1155,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "Paul Delaroche",
-    "name": "The Execution of Lady Jane Grey",
-    "year": "1833",
+    "author": "Pablo Picasso",
+    "name": "The Blind Man's Meal",
+    "year": "1903",
     "imageNum": "165",
-    "genre": "Historical"
+    "genre": "Symbolism"
   },
   {
     "author": "John Constable",
@@ -1225,11 +1225,11 @@
     "genre": "Landscape"
   },
   {
-    "author": "Diego Velázquez",
-    "name": "Surrender of Delirium",
-    "year": "1635",
+    "author": "Georges Seurat",
+    "name": "Models",
+    "year": "1887",
     "imageNum": "175",
-    "genre": "Baroque"
+    "genre": "Modernism"
   },
   {
     "author": "Ilya Repin",
@@ -1274,11 +1274,11 @@
     "genre": "Landscape"
   },
   {
-    "author": "Diego Velázquez",
-    "name": "Adoration of the Magi",
-    "year": "1619",
+    "author": "Jean Metzinger",
+    "name": "Two Nudes in an Exotic Landscape",
+    "year": "1905",
     "imageNum": "182",
-    "genre": "Baroque"
+    "genre": "Modernism"
   },
   {
     "author": "Nikolay Bogdanov-Belsky",
@@ -1288,11 +1288,11 @@
     "genre": "Realism"
   },
   {
-    "author": "Hieronymus Bosch",
-    "name": "The Garden of Earthly Delights",
-    "year": "1510",
+    "author": "Vassily Kandinsky",
+    "name": "On White II",
+    "year": "1923",
     "imageNum": "184",
-    "genre": "Renaissance"
+    "genre": "Modernism"
   },
   {
     "author": "Antonio da Correggio",
@@ -1302,11 +1302,11 @@
     "genre": "Renaissance"
   },
   {
-    "author": "Peter Paul Rubens",
-    "name": "Rape of the Daughters of Leucippus",
-    "year": "1618",
+    "author": "Carlos Schwabe",
+    "name": "Death and the Grave Digger",
+    "year": "1895",
     "imageNum": "186",
-    "genre": "Baroque"
+    "genre": "Symbolism"
   },
   {
     "author": "Jean Ingres",
@@ -1379,11 +1379,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "Nicolas Poussin",
-    "name": "Landscape with Polyphemus",
-    "year": "1649",
+    "author": "Mikhail Vrubel",
+    "name": "The Swan Princess",
+    "year": "1900",
     "imageNum": "197",
-    "genre": "Landscape"
+    "genre": "Symbolism"
   },
   {
     "author": "Pieter Bruegel the Elder",
