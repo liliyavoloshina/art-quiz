@@ -305,7 +305,7 @@
     "name": "Walk",
     "year": "1918",
     "imageNum": "43",
-    "genre": "Expressionism"
+    "genre": "Modernism"
   },
   {
     "author": "Vasily Perov",
@@ -343,11 +343,11 @@
     "genre": "Baroque"
   },
   {
-    "author": "Salvador Dalí",
-    "name": "Metamorphosis of Narcissus",
-    "year": "1937",
+    "author": "Sandro Botticelli",
+    "name": "The Birth of Venus",
+    "year": "1486",
     "imageNum": "49",
-    "genre": "Modernism"
+    "genre": "Renaissance"
   },
   {
     "author": "Gustav Klimt",
@@ -473,14 +473,14 @@
     "name": "Triumph of Bacchus",
     "year": "1628",
     "imageNum": "67",
-    "genre": "Baroque"
+    "genre": "Historical"
   },
   {
-    "author": "Francisco Goya",
-    "name": "The Game of Horse and Rider",
-    "year": "1792",
+    "author": "Claude Mone",
+    "name": "Impression, Sunrise",
+    "year": "1872",
     "imageNum": "68",
-    "genre": "Romanticism"
+    "genre": "Impressionism"
   },
   {
     "author": "Théodore Géricault",
@@ -686,11 +686,11 @@
     "genre": "Symbolism"
   },
   {
-    "author": "Andy Warhol",
-    "name": "Marlin Diptych",
-    "year": "1962",
+    "author": "Mary Cassatt",
+    "name": "Lydia Leaning on Her Arms",
+    "year": "1879",
     "imageNum": "98",
-    "genre": "Modernism"
+    "genre": "Impressionism"
   },
   {
     "author": "Edvard Munch",
@@ -1075,7 +1075,7 @@
     "name": "I and the Village",
     "year": "1911",
     "imageNum": "153",
-    "genre": "Expressionism"
+    "genre": "Modernism"
   },
   {
     "author": "Leonardo da Vinci",
@@ -1355,7 +1355,7 @@
     "name": "Summer, Reaping",
     "year": "1827",
     "imageNum": "193",
-    "genre": "Romanticism"
+    "genre": "Landscape"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -1398,12 +1398,5 @@
     "year": "1888",
     "imageNum": "199",
     "genre": "Symbolism"
-  },
-  {
-    "author": "Sandro Botticelli",
-    "name": "The Birth of Venus",
-    "year": "1486",
-    "imageNum": "200",
-    "genre": "Renaissance"
   }
 ]
