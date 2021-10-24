@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import View from './View'
+import Timer from '../components/timer'
 
 export default class extends View {
   constructor(params) {
@@ -7,13 +8,19 @@ export default class extends View {
     this.setTitle('Art Quiz - Quiz')
   }
 
-  getHtml() {
+  mounted() {
+    const timer = new Timer()
+    timer.initTimer()
+  }
+
+  mount() {
     return `
     <header>
       <div class="container">
         <div class="header header-quiz">
             <a href="/" class="header-quiz__nav btn" title="Home" data-link><i class="fi fi-rr-home"></i></a>
             <div class="timer">
+            <div class="timer__pauses" id="pauses">0/2</div>
             <div class="timer__display">
                 <div class="display minute"></div>
                 <span class="display colon">:</span>

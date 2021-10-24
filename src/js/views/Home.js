@@ -7,7 +7,9 @@ export default class extends View {
     this.setTitle('Art Quiz - Home')
   }
 
-  getHtml() {
+  mounted() {}
+
+  mount() {
     return `
     <header>
       <div class="container">

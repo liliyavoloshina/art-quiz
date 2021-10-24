@@ -1,17 +1,18 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable class-methods-use-this, no-plusplus */
 
-class Timer {
+export default class {
   constructor() {
     this.timer = document.querySelector('.timer')
     this.disMinutes = document.querySelector('.minute')
     this.disSeconds = document.querySelector('.seconds')
+    this.pausesEl = document.querySelector('#pauses')
     this.circleSvg = document.querySelector('circle')
 
     this.resume = false
     this.interval = 0
-    this.totalTime = 0
-
-    this.initTimer()
+    this.pauses = 2
+    this.totalTime = this.timer.addEventListener('click', () => this.pause())
   }
 
   initTimer() {
@@ -56,54 +57,49 @@ class Timer {
     return this.totalTime
   }
 
+  pause() {
+    if (this.pauses === 0) {
+      console.log('pauses Over!!!')
+      return
+    }
+
+    if (
+      this.circleSvg.style.animationPlayState === 'running' ||
+      this.disMinutes.style.animationPlayState === 'running' ||
+      this.disSeconds.style.animationPlayState === 'running'
+    ) {
+      this.circleSvg.style.animationPlayState = 'paused'
+      this.disMinutes.style.animationPlayState = 'paused'
+      this.disSeconds.style.animationPlayState = 'paused'
+    } else {
+      this.circleSvg.style.animationPlayState = 'running'
+      this.disMinutes.style.animationPlayState = 'running'
+      this.disSeconds.style.animationPlayState = 'running'
+    }
+
+    if (!this.resume) {
+      clearInterval(this.interval)
+      this.resume = true
+      this.interval = false
+    } else if (!this.interval) {
+      this.interval = setInterval(() => {
+        const minutes = Math.floor(this.totalTime / 60)
+        const seconds = this.totalTime % 60
+
+        this.textCorrection(this.disMinutes, minutes)
+        this.textCorrection(this.disSeconds, seconds)
+
+        if (this.totalTime > 0) {
+          this.totalTime--
+        }
+      }, 1000)
+      this.resume = false
+      this.pauses--
+      this.pausesEl.innerHTML = this.pauses
+    }
+  }
+
   textCorrection(element, value) {
     element.innerHTML = value < 10 ? `0${value}` : value
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  // const timer = new Timer()
-})
-
-// init()
-
-// pause timer
-// timer.addEventListener('click', () => {
-//   if (
-//     circleSvg.style.animationPlayState === 'running' ||
-//     disMinutes.style.animationPlayState === 'running' ||
-//     disSeconds.style.animationPlayState === 'running'
-//   ) {
-//     circleSvg.style.animationPlayState = 'paused'
-//     disMinutes.style.animationPlayState = 'paused'
-//     disSeconds.style.animationPlayState = 'paused'
-//   } else {
-//     circleSvg.style.animationPlayState = 'running'
-//     disMinutes.style.animationPlayState = 'running'
-//     disSeconds.style.animationPlayState = 'running'
-//   }
-
-//   if (!resume) {
-//     // pauseResume.innerHTML = 'Resume'
-//     clearInterval(interval)
-//     resume = true
-//     interval = false
-//   } else {
-//     console.log('paues')
-//     // pauseResume.innerHTML = 'Pause'
-//     if (!interval) {
-//       interval = setInterval(() => {
-//         const minutes = Math.floor(totalTime / 60)
-//         const seconds = totalTime % 60
-
-//         textCorrection(disMinutes, minutes)
-//         textCorrection(disSeconds, seconds)
-
-//         if (totalTime > 0) {
-//           totalTime--
-//         }
-//       }, 1000)
-//       resume = false
-//     }
-//   }
-// })

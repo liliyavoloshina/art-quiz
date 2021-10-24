@@ -1,6 +1,7 @@
 :root {
   --timer-w: 4em;
   --timer-fs: 1.1em;
+  --timer-pauses-fs: 1em;
   --timer-circle-red: #db222a;
   --timer-circle-yellow: #ffcd00;
 }
@@ -16,10 +17,12 @@
   :root {
     --timer-w: 5.5em;
     --timer-fs: 1.4em;
+    --timer-pauses-fs: 1.2em;
   }
 }
 
 .timer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,12 +32,18 @@
   border: 0.3rem solid var(--grey);
   border-radius: 50%;
   box-shadow: var(--shadow);
-}
 
-.timer__display {
-  font-weight: 600;
-  font-size: var(--timer-fs);
-  display: flex;
+  &__display {
+    font-weight: 600;
+    font-size: var(--timer-fs);
+    display: flex;
+  }
+
+  &__pauses {
+    position: absolute;
+    left: -3em;
+    font-size: var(--timer-pauses-fs);
+  }
 }
 
 .display {

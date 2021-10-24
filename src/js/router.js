@@ -41,7 +41,8 @@ const router = async () => {
 
   const view = new match.route.View(getParams(match))
 
-  document.querySelector('#app').innerHTML = view.getHtml()
+  document.querySelector('#app').innerHTML = view.mount()
+  view.mounted()
 }
 
 const navigateTo = (url) => {

@@ -22,6 +22,8 @@ export default class extends View {
     this.categoriesToHtml()
   }
 
+  mounted() {}
+
   categoriesToHtml() {
     const items = []
     this.categories.forEach((category) => {
@@ -40,7 +42,7 @@ export default class extends View {
     this.categoriesHtml = items.join('\n')
   }
 
-  getHtml() {
+  mount() {
     return `
     <header>
         <div class="container">

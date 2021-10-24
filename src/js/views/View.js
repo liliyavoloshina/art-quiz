@@ -10,7 +10,7 @@ export default class {
     document.title = title
   }
 
-  getHtml() {
+  mount() {
     return ''
   }
 }
