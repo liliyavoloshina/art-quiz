@@ -18,21 +18,21 @@
     "name": "The Feast in the House of Levi",
     "year": "1563",
     "imageNum": "2",
-    "genre": "Mannerism"
+    "genre": "Historical"
   },
   {
     "author": "Ilya Repin",
     "name": "Ivan the Terrible and His Son Ivan",
     "year": "1885",
     "imageNum": "3",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Konstantin Makovsky",
     "name": "Portrait of S. L. Stroganova",
     "year": "1890",
     "imageNum": "4",
-    "genre": "Realism"
+    "genre": "Portrait"
   },
   {
     "author": "Vasily Perov",
@@ -67,7 +67,7 @@
     "name": "Moscow Courtyard",
     "year": "1877",
     "imageNum": "9",
-    "genre": "Realism"
+    "genre": "Landscape"
   },
   {
     "author": "Fyodor Vasilyev",
@@ -88,21 +88,21 @@
     "name": "Mars and Venus United by Love",
     "year": "1560",
     "imageNum": "12",
-    "genre": "Mannerism"
+    "genre": "Renaissance"
   },
   {
     "author": "Viktor Vasnetsov",
     "name": "Alenushka",
     "year": "1881",
     "imageNum": "13",
-    "genre": "Symbolism"
+    "genre": "Romanticism"
   },
   {
-    "author": "Claude Lorrain",
-    "name": "Seaport with the Embarkation of Saint Ursula",
-    "year": "1614",
+    "author": "Claude Monet",
+    "name": "Springtime",
+    "year": "1872",
     "imageNum": "14",
-    "genre": "Baroque"
+    "genre": "Romanticism"
   },
   {
     "author": "Ilya Repin",
@@ -116,7 +116,7 @@
     "name": "The Swing",
     "year": "1767",
     "imageNum": "16",
-    "genre": "Rococo"
+    "genre": "Baroque"
   },
   {
     "author": "Arkhip Kuindzhi",
@@ -130,7 +130,7 @@
     "name": "Guernica",
     "year": "1937",
     "imageNum": "18",
-    "genre": "Surrealism"
+    "genre": "Modernism"
   },
   {
     "author": "Paul Gauguin",
@@ -158,14 +158,14 @@
     "name": "Arnolfini Portrait",
     "year": "1434",
     "imageNum": "22",
-    "genre": "Renaissance"
+    "genre": "Portrait"
   },
   {
     "author": "Pieter Bruegel the Elder",
     "name": "Massacre of the Innocents",
     "year": "1567",
     "imageNum": "23",
-    "genre": "Renaissance"
+    "genre": "Historical"
   },
   {
     "author": "Konstantin Makovsky",
@@ -207,7 +207,7 @@
     "name": "The Conquest of Siberia by Yermak Timofeyevich",
     "year": "1895",
     "imageNum": "29",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Vladimir Borovikovsky",
@@ -221,7 +221,7 @@
     "name": "The Son of Man",
     "year": "1964",
     "imageNum": "31",
-    "genre": "Surrealism"
+    "genre": "Modernism"
   },
   {
     "author": "Diego Velázquez",
@@ -249,7 +249,7 @@
     "name": "The Lady of Shalott",
     "year": "1888",
     "imageNum": "35",
-    "genre": "Symbolism"
+    "genre": "Romanticism"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -288,7 +288,7 @@
   },
   {
     "author": "Henri Matisse",
-    "name": "Dance ",
+    "name": "Dance",
     "year": "1910",
     "imageNum": "41",
     "genre": "Modernism"
@@ -333,14 +333,14 @@
     "name": "The Stolen Kiss",
     "year": "1788",
     "imageNum": "47",
-    "genre": "Rococo"
+    "genre": "Baroque"
   },
   {
     "author": "François Boucher",
     "name": "Venus Consoling Cupid",
     "year": "1751",
     "imageNum": "48",
-    "genre": "Rococo"
+    "genre": "Baroque"
   },
   {
     "author": "Ivan Shishkin",
@@ -354,7 +354,7 @@
     "name": "Lady in Gold",
     "year": "1907",
     "imageNum": "50",
-    "genre": "Symbolism"
+    "genre": "Portrait"
   },
   {
     "author": "Viktor Vasnetsov",
@@ -367,27 +367,29 @@
     "author": "Wilhelm von Kaulbach",
     "name": "Destruction of Jerusalem",
     "year": "1846",
-    "imageNum": "52"
+    "imageNum": "52",
+    "genre": "Historical"
   },
   {
-    "author": "Paolo Veronese",
-    "name": "Брак в Кане Галилейской",
-    "year": "1562",
+    "author": "George Watts",
+    "name": "Hope",
+    "year": "1886",
     "imageNum": "53",
-    "genre": "Mannerism"
+    "genre": "Symbolism"
   },
   {
-    "author": "Andrei Rublev",
-    "name": "The Trinity",
-    "year": "1411",
-    "imageNum": "54"
+    "author": "James Ensor",
+    "name": "Death and the Masks",
+    "year": "1897",
+    "imageNum": "54",
+    "genre": "Symbolism"
   },
   {
     "author": "Vasily Surikov",
     "name": "The Morning of the Streltsy Execution",
     "year": "1881",
     "imageNum": "55",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Titian",
@@ -401,7 +403,7 @@
     "name": "Villa Medici in Rome",
     "year": "1630",
     "imageNum": "57",
-    "genre": "Baroque"
+    "genre": "Landscape"
   },
   {
     "author": "Édouard Manet",
@@ -415,7 +417,7 @@
     "name": "The Persistence of Memory",
     "year": "1931",
     "imageNum": "59",
-    "genre": "Surrealism"
+    "genre": "Modernism"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -436,7 +438,7 @@
     "name": "Las Meninas",
     "year": "1656",
     "imageNum": "62",
-    "genre": "Baroque"
+    "genre": "Historical"
   },
   {
     "author": "Anthony van Dyck",
@@ -450,7 +452,7 @@
     "name": "Girl on a Ball",
     "year": "1905",
     "imageNum": "64",
-    "genre": "Surrealism"
+    "genre": "Modernism"
   },
   {
     "author": "Giovanni Bellini",
@@ -464,7 +466,7 @@
     "name": "Lady with an Ermine",
     "year": "1490",
     "imageNum": "66",
-    "genre": "Renaissance"
+    "genre": "Portrait"
   },
   {
     "author": "Diego Velázquez",
@@ -474,11 +476,11 @@
     "genre": "Baroque"
   },
   {
-    "author": "Bartolomeo Murillo",
-    "name": "The Immaculate Conception of the Blessed Virgin Mary",
-    "year": "1678",
+    "author": "Francisco Goya",
+    "name": "The Game of Horse and Rider",
+    "year": "1792",
     "imageNum": "68",
-    "genre": "Baroque"
+    "genre": "Romanticism"
   },
   {
     "author": "Théodore Géricault",
@@ -503,7 +505,7 @@
   },
   {
     "author": "Rembrandt",
-    "name": "Self-Portrait with Saskia",
+    "name": "Self-portrait with Saskia",
     "year": "1635",
     "imageNum": "72",
     "genre": "Portrait"
@@ -513,7 +515,7 @@
     "name": "Procession",
     "year": "1883",
     "imageNum": "73",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Alexey Venetsianov",
@@ -548,7 +550,7 @@
     "name": "Infanta Margarita",
     "year": "1654",
     "imageNum": "78",
-    "genre": "Baroque"
+    "genre": "Portrait"
   },
   {
     "author": "Titian",
@@ -572,18 +574,18 @@
     "genre": "Landscape"
   },
   {
-    "author": "Leonardo da Vinci",
-    "name": "Annunciation",
-    "year": "1475",
+    "author": "Claude Monet",
+    "name": "Woman with a Parasol",
+    "year": "1875",
     "imageNum": "82",
-    "genre": "Renaissance"
+    "genre": "Impressionism"
   },
   {
     "author": "Alexey Savrasov",
     "name": "The Rooks Have Come Back",
     "year": "1871",
     "imageNum": "83",
-    "genre": "Realism"
+    "genre": "Landscape"
   },
   {
     "author": "Titian",
@@ -593,25 +595,25 @@
     "genre": "Renaissance"
   },
   {
-    "author": "Jean-Baptiste Greuze",
-    "name": "Engagement at the village",
-    "year": "1761",
+    "author": "Gustav Klimt",
+    "name": "Death and Life",
+    "year": "1908",
     "imageNum": "85",
-    "genre": "Rococo"
+    "genre": "Symbolism"
   },
   {
     "author": "Pablo Picasso",
     "name": "Les Demoiselles d'Avignon",
     "year": "1907",
     "imageNum": "86",
-    "genre": "Surrealism"
+    "genre": "Modernism"
   },
   {
     "author": "Ilya Repin",
-    "name": "Бурлаки на Волге",
+    "name": "Barge Haulers on the Volga",
     "year": "1873",
     "imageNum": "87",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Mikhail Nesterov",
@@ -632,7 +634,7 @@
     "name": "Girl with a pot of roses",
     "year": "1850",
     "imageNum": "90",
-    "genre": "Romanticism"
+    "genre": "Portrait"
   },
   {
     "author": "Caravaggio",
@@ -653,21 +655,21 @@
     "name": "The Last Supper",
     "year": "1498",
     "imageNum": "93",
-    "genre": "Renaissance"
+    "genre": "Historical"
   },
   {
     "author": "Jean-Baptiste Greuze",
     "name": "Spoiled Child",
     "year": "1765",
     "imageNum": "94",
-    "genre": "Rococo"
+    "genre": "Baroque"
   },
   {
     "author": "William-Adolphe Bouguereau",
     "name": "The Wave",
     "year": "1896",
     "imageNum": "95",
-    "genre": "Realism"
+    "genre": "Symbolism"
   },
   {
     "author": "Kuzma Petrov-Vodkin",
@@ -691,17 +693,18 @@
     "genre": "Landscape"
   },
   {
-    "author": "Jean-Léon Gérôme",
-    "name": "Pollice Verso",
-    "year": "1872",
-    "imageNum": "99"
+    "author": "Edvard Munch",
+    "name": "The Dance of Life",
+    "year": "1899",
+    "imageNum": "99",
+    "genre": "Symbolism"
   },
   {
     "author": "Vasily Surikov",
     "name": "Boyarina Morozova",
     "year": "1887",
     "imageNum": "100",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Isaac Levitan",
@@ -729,7 +732,7 @@
     "name": "Salome",
     "year": "1515",
     "imageNum": "104",
-    "genre": "Renaissance"
+    "genre": "Portrait"
   },
   {
     "author": "Wassily Kandinsky",
@@ -743,28 +746,28 @@
     "name": "In the Park",
     "year": "1874",
     "imageNum": "106",
-    "genre": "Realism"
+    "genre": "Landscape"
   },
   {
     "author": "Louis Lagrenée",
     "name": "Mars and Venus",
     "year": "1770",
     "imageNum": "107",
-    "genre": "Rococo"
+    "genre": "Baroque"
   },
   {
     "author": "Salvador Dalí",
     "name": "Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening",
     "year": "1944",
     "imageNum": "108",
-    "genre": "Surrealism"
+    "genre": "Modernism"
   },
   {
     "author": "Jan Vermeer",
     "name": "Girl with a Pearl Earring",
     "year": "1665",
     "imageNum": "109",
-    "genre": "Baroque"
+    "genre": "Portrait"
   },
   {
     "author": "Henri Rousseau",
@@ -778,7 +781,7 @@
     "name": "Crossing of the River Oyat",
     "year": "1872",
     "imageNum": "111",
-    "genre": "Realism"
+    "genre": "Romanticism"
   },
   {
     "author": "Edvard Munch",
@@ -792,7 +795,7 @@
     "name": "The Last Day of Pompeii",
     "year": "1833",
     "imageNum": "113",
-    "genre": "Romanticism"
+    "genre": "Historical"
   },
   {
     "author": "Ilya Repin",
@@ -810,7 +813,7 @@
   },
   {
     "author": "Ivan Aivazovsky",
-    "name": "The Ninth Wave ",
+    "name": "The Ninth Wave",
     "year": "1850",
     "imageNum": "116",
     "genre": "Landscape"
@@ -848,7 +851,7 @@
     "name": "The Expulsion of Merchants from the Temple",
     "year": "1600",
     "imageNum": "121",
-    "genre": "Mannerism"
+    "genre": "Historical"
   },
   {
     "author": "Ilya Repin",
@@ -868,7 +871,8 @@
     "author": "William-Adolphe Bouguereau",
     "name": "A Young Girl Defending Herself Against Eros",
     "year": "1880",
-    "imageNum": "124"
+    "imageNum": "124",
+    "genre": "Symbolism"
   },
   {
     "author": "Leonardo da Vinci",
@@ -889,7 +893,7 @@
     "name": "Apostles Peter and Paul",
     "year": "1592",
     "imageNum": "127",
-    "genre": "Mannerism"
+    "genre": "Historical"
   },
   {
     "author": "Viktor Vasnetsov",
@@ -907,7 +911,7 @@
   },
   {
     "author": "Eugène Delacroix",
-    "name": "Liberty Leading the People ",
+    "name": "Liberty Leading the People",
     "year": "1830",
     "imageNum": "130",
     "genre": "Romanticism"
@@ -924,7 +928,7 @@
     "name": "Family Portrait",
     "year": "1911",
     "imageNum": "132",
-    "genre": "Modernism"
+    "genre": "Portrait"
   },
   {
     "author": "Konstantin Makovsky",
@@ -941,11 +945,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "Sandro Botticelli",
-    "name": "Spring",
-    "year": "1482",
+    "author": "Francisco Goya",
+    "name": "Witches' Sabbath",
+    "year": "1798",
     "imageNum": "135",
-    "genre": "Renaissance"
+    "genre": "Romanticism"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -966,14 +970,14 @@
     "name": "The Village Of Okulova Gora",
     "year": "1860",
     "imageNum": "138",
-    "genre": "Realism"
+    "genre": "Landscape"
   },
   {
     "author": "Konstantin Makovsky",
     "name": "Muhammed's carpet moving from Mecca to Cairo",
     "year": "1875",
     "imageNum": "139",
-    "genre": "Realism"
+    "genre": "Romanticism"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -994,21 +998,21 @@
     "name": "Forge of the Volcano",
     "year": "1630",
     "imageNum": "142",
-    "genre": "Baroque"
+    "genre": "Historical"
   },
   {
     "author": "Ilya Repin",
-    "name": "Запорожцы",
+    "name": "Zaporozhian Cossacks",
     "year": "1891",
     "imageNum": "143",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Raphael",
     "name": "Portrait of Young Woman with Unicorn",
     "year": "1506",
     "imageNum": "144",
-    "genre": "Renaissance"
+    "genre": "Portrait"
   },
   {
     "author": "Alexander Ivanov",
@@ -1029,7 +1033,7 @@
     "name": "Equestrian Portrait of Charles V",
     "year": "1548",
     "imageNum": "147",
-    "genre": "Renaissance"
+    "genre": "Portrait"
   },
   {
     "author": "Pierre-Auguste Renoir",
@@ -1050,7 +1054,7 @@
     "name": "Tsar Ivan the Terrible",
     "year": "1896",
     "imageNum": "150",
-    "genre": "Symbolism"
+    "genre": "Historical"
   },
   {
     "author": "Pieter Bruegel the Elder",
@@ -1061,7 +1065,7 @@
   },
   {
     "author": "Viktor Vasnetsov",
-    "name": "Ковер-самолёт",
+    "name": "Magic Carpet",
     "year": "1880",
     "imageNum": "152",
     "genre": "Symbolism"
@@ -1092,21 +1096,21 @@
     "name": "Oath of the Horatii",
     "year": "1784",
     "imageNum": "156",
-    "genre": "Rococo"
+    "genre": "Historical"
   },
   {
-    "author": "Albrecht Dürer",
-    "name": "Adam and Eve",
-    "year": "1507",
+    "author": "John Singer Sargent",
+    "name": "Girl reading by a stream",
+    "year": "1888",
     "imageNum": "157",
-    "genre": "Renaissance"
+    "genre": "Romanticism"
   },
   {
-    "author": "Bartolomeo Murillo",
-    "name": "Apparition of the Virgin to St. Ildefonsus",
-    "year": "1655",
+    "author": "William Blake",
+    "name": "The Ancient of Days",
+    "year": "1794",
     "imageNum": "158",
-    "genre": "Baroque"
+    "genre": "Romanticism"
   },
   {
     "author": "Vasily Perov",
@@ -1127,14 +1131,14 @@
     "name": "The Third of May 1808",
     "year": "1808",
     "imageNum": "161",
-    "genre": "Romanticism"
+    "genre": "Historical"
   },
   {
-    "author": "Raphael",
-    "name": "Triumph of Galatea",
-    "year": "1512",
+    "author": "Henry Fuseli",
+    "name": "The Nightmare",
+    "year": "1781",
     "imageNum": "162",
-    "genre": "Renaissance"
+    "genre": "Romanticism"
   },
   {
     "author": "Mikhail Vrubel",
@@ -1155,7 +1159,7 @@
     "name": "The Execution of Lady Jane Grey",
     "year": "1833",
     "imageNum": "165",
-    "genre": "Romanticism"
+    "genre": "Historical"
   },
   {
     "author": "John Constable",
@@ -1172,11 +1176,11 @@
     "genre": "Impressionism"
   },
   {
-    "author": "François Boucher",
-    "name": "Four seasons - Spring",
-    "year": "1755",
+    "author": "Francisco Goya",
+    "name": "The Colossus",
+    "year": "1808",
     "imageNum": "168",
-    "genre": "Rococo"
+    "genre": "Romanticism"
   },
   {
     "author": "Raphael",
@@ -1197,14 +1201,14 @@
     "name": "Belshazzar's Feast",
     "year": "1635",
     "imageNum": "171",
-    "genre": "Baroque"
+    "genre": "Historical"
   },
   {
     "author": "Vasily Surikov",
     "name": "Suvorov Crossing the Alps",
     "year": "1899",
     "imageNum": "172",
-    "genre": "Realism"
+    "genre": "Historical"
   },
   {
     "author": "Isaac Levitan",
@@ -1239,21 +1243,21 @@
     "name": "Diana Bathing",
     "year": "1742",
     "imageNum": "177",
-    "genre": "Rococo"
+    "genre": "Baroque"
   },
   {
-    "author": "Albrecht Dürer",
-    "name": "Feast of the Rosary",
-    "year": "1506",
+    "author": "Francisco Goya",
+    "name": "Saturn Devouring One of His Sons",
+    "year": "1819",
     "imageNum": "178",
-    "genre": "Renaissance"
+    "genre": "Romanticism"
   },
   {
     "author": "Pierre-Auguste Renoir",
     "name": "Portrait of Jeanne Samary",
     "year": "1877",
     "imageNum": "179",
-    "genre": "Impressionism"
+    "genre": "Portrait"
   },
   {
     "author": "Ilya Repin",
@@ -1393,7 +1397,7 @@
     "name": "Ivan Tsarevich Riding the Grey Wolf",
     "year": "1888",
     "imageNum": "199",
-    "genre": "Realism"
+    "genre": "Symbolism"
   },
   {
     "author": "Sandro Botticelli",
