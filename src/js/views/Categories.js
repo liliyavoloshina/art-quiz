@@ -7,90 +7,32 @@ export default class extends View {
     this.setTitle('Art Quiz - Categories')
     this.type = this.params.type
     this.categories = [
-      { name: 'renaissance', items: [] },
-      { name: 'classicism', items: [] },
-      { name: 'baroque', items: [] },
-      { name: 'expressionism', items: [] },
-      { name: 'impressionism', items: [] },
-      { name: 'modern', items: [] },
-      { name: 'surrealism', items: [] },
+      'baroque',
+      'historical',
+      'impressionism',
+      'landscape',
+      'modernism',
+      'portrait',
+      'realism',
+      'renaissance',
+      'romanticism',
+      'symbolism',
     ]
     this.categoriesHtml = ''
-  }
-
-  async mount() {
-    await this.splitCategories()
     this.categoriesToHtml()
-    this.test()
-  }
-
-  async test() {
-    const res = await fetch('/data/images.json')
-    const data = await res.json()
-    data.sort((a, b) => a.year - b.year)
-    const newM = data.map((el) => {
-      if (el.year <= 1500) {
-        return { ...el, category: 'renaissance' }
-      }
-      if (el.year > 1600 && el.year <= 1700) {
-        return { ...el, category: 'classicism' }
-      }
-      if (el.year > 1700 && el.year <= 1820) {
-        return { ...el, category: 'baroque' }
-      }
-      if (el.year > 1820 && el.year <= 1860) {
-        return { ...el, category: 'expressionism' }
-      }
-      if (el.year > 1860 && el.year <= 1880) {
-        return { ...el, category: 'impressionism' }
-      }
-      if (el.year > 1880 && el.year <= 1890) {
-        return { ...el, category: 'modern' }
-      }
-      return { ...el, category: 'surrealism' }
-    })
-
-    console.log(newM)
-  }
-
-  async splitCategories() {
-    // const res = await fetch('/data/artists.json')
-    const res = await fetch('/data/images.json')
-    const data = await res.json()
-
-    data.forEach((el) => {
-      if (el.year <= 1540) {
-        this.categories.find((cat) => cat.name === 'renaissance').items.push(el)
-      } else if (el.year > 1550 && el.year <= 1650) {
-        this.categories.find((cat) => cat.name === 'classicism').items.push(el)
-      } else if (el.year > 1650 && el.year <= 1800) {
-        this.categories.find((cat) => cat.name === 'baroque').items.push(el)
-      } else if (el.year > 1800 && el.year <= 1860) {
-        this.categories
-          .find((cat) => cat.name === 'expressionism')
-          .items.push(el)
-      } else if (el.year > 1860 && el.year <= 1880) {
-        this.categories
-          .find((cat) => cat.name === 'impressionism')
-          .items.push(el)
-      } else if (el.year > 1880 && el.year <= 1890) {
-        this.categories.find((cat) => cat.name === 'modern').items.push(el)
-      } else if (el.year > 1890) {
-        this.categories.find((cat) => cat.name === 'surrealism').items.push(el)
-      }
-    })
   }
 
   categoriesToHtml() {
     const items = []
     this.categories.forEach((category) => {
-      items.push(`<a class="category" href="category/artists/renaissance">
+      items.push(`
+        <a class="category" href="/quiz/${this.type}/${category}" data-link>
           <div class="category__score">
-            <span class="score">10</span>/<span class="score-total">${category.items.length}</span>
+            <span class="score">10</span>/<span class="score-total">20</span>
            </div>
-           <div class="category__name">${category.name}</div>
+           <div class="category__name">${category}</div>
               <div class="category__image">
-                <img src="../img/category/${category.name}.jpg" alt="${category.name}">
+                <img src="../img/category/${category}.jpg" alt="${category} quiz">
             </div>
         </a>`)
     })
@@ -104,7 +46,7 @@ export default class extends View {
         <div class="container">
             <div class="header header-categories">
                 <a href="/" class="header-categories__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
-                <h1 class="header__title">artists.</h1>
+                <h1 class="header__title">${this.type}.</h1>
             </div>
         </div>
     </header>

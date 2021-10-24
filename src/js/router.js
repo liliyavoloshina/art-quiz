@@ -1,6 +1,7 @@
 import Home from './views/Home'
 import Settings from './views/Settings'
 import Categories from './views/Categories'
+import Quiz from './views/Quiz'
 
 // get query from path
 const pathRegex = (path) =>
@@ -21,6 +22,7 @@ const router = async () => {
     { path: '/', View: Home },
     { path: '/settings', View: Settings },
     { path: '/categories/:type', View: Categories },
+    { path: '/quiz/:type/:category', View: Quiz },
   ]
 
   const potentialMatches = routes.map((route) => ({
@@ -38,7 +40,6 @@ const router = async () => {
   }
 
   const view = new match.route.View(getParams(match))
-  await view.mount()
 
   document.querySelector('#app').innerHTML = view.getHtml()
 }

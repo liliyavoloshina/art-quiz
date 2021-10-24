@@ -4,7 +4,7 @@ import View from './View'
 export default class extends View {
   constructor(params) {
     super(params)
-    this.setTitle('Art Quiz - Home')
+    this.setTitle('Art Quiz - Quiz')
   }
 
   getHtml() {
@@ -19,18 +19,8 @@ export default class extends View {
 
     <main class="main">
       <div class="container">
-        <div class="home">
-          <div class="home-logo"></div>
-          <div class="home-types">
-            <a class="home-types__type" href="/categories/artists" data-link>
-              <div class="home-types__image artist"></div>
-              <div class="home-types__text">artists quiz.</div>
-            </a>
-            <a class="home-types__type" href="/categories/pictures" data-link>
-              <div class="home-types__image pictures"></div>
-              <div class="home-types__text">pictures quiz.</div>
-             </a>
-          </div>
+        <div class="quiz">
+          <h1>quiz!!!</h1>
         </div>
       </div>
     </main>
