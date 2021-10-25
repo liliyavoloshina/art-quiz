@@ -44,8 +44,26 @@ export default class extends View {
     }
 
     const imagesHtml = items.join('\n')
-    const images = document.querySelector('#images')
+    const images = document.querySelector('#quizImages')
     images.innerHTML = imagesHtml
+  }
+
+  nextQuestion() {
+    console.log(this.currentQuestion)
+    this.currentQuestion += 1
+    this.rightAnswer = ''
+    this.isCorrect = false
+    this.closeModal()
+    this.showNextImage()
+    this.generateAnswers()
+  }
+
+  showNextImage() {
+    const slider = document.querySelector('#quizImages')
+    const images = slider.querySelectorAll('.image')
+    // images.forEach((image) => {
+    //   image.style.transform = `translateY(${this.currentQuestion * -100}%)`
+    // })
   }
 
   generateAnswers() {
@@ -77,11 +95,25 @@ export default class extends View {
 
     answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
     answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target)))
+    answersEl.forEach((el) => {
+      el.classList.remove('correct')
+      el.classList.remove('incorrect')
+    })
+  }
+
+  closeModal() {
+    const modal = document.querySelector('.modal')
+    modal.classList.add('hidden')
+  }
+
+  openModal() {
+    const modal = document.querySelector('.modal')
+    modal.classList.remove('hidden')
   }
 
   generateModal() {
-    const modal = document.querySelector('.modal')
     const modalNameEl = document.querySelector('#modalName')
+    const modalBtn = document.querySelector('#modalBtn')
     const modalAuthorEl = document.querySelector('#modalAuthor')
     const modalYearEl = document.querySelector('#modalYear')
     const modalImage = document.querySelector('#modalImage')
@@ -92,12 +124,16 @@ export default class extends View {
     const modalAuthor = this.questions[this.currentQuestion].author
     const modalYear = this.questions[this.currentQuestion].year
 
+    modalBtn.addEventListener('click', () => this.nextQuestion())
+
     modalImage.src = `/img/full/${modalImageNum}full.webp`
 
     if (this.isCorrect) {
+      modalStatus.classList.remove('incorrect')
       modalStatus.classList.add('correct')
       modalStatus.innerHTML = `<i class="fi fi-rr-check"></i>`
     } else {
+      modalStatus.classList.remove('correct')
       modalStatus.classList.add('incorrect')
       modalStatus.innerHTML = `<i class="fi fi-rr-cross"></i>`
     }
@@ -111,8 +147,6 @@ export default class extends View {
     }
 
     modalAuthorEl.textContent = modalAuthor
-
-    modal.classList.remove('hidden')
   }
 
   answer(answer) {
@@ -126,6 +160,7 @@ export default class extends View {
     }
 
     this.generateModal()
+    this.openModal()
   }
 
   async mounted() {
@@ -171,7 +206,7 @@ export default class extends View {
     <div class="container">
       <div class="quiz">
         <div class="quiz__question">Who is the author of this picture?</div>
-        <div class="quiz__images" id="images"></div>
+        <div class="quiz__images" id="quizImages"></div>
         <div class="quiz__pag">
           <div class="success"></div>
           <div class="failure"></div>
@@ -209,7 +244,7 @@ export default class extends View {
     <div class="modal__main">
       <div class="modal__image">
         <img
-          src="https://images.unsplash.com/photo-1496889196885-5ddcec5eef4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+          src=""
           alt=""
           id="modalImage"
         />
@@ -221,7 +256,7 @@ export default class extends View {
       </div>
     </div>
     <div class="modal__btn">
-      <button class="btn-lg">next</button>
+      <button class="btn-lg" id="modalBtn">next</button>
     </div>
   </div>
     `

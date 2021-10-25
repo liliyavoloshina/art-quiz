@@ -7,16 +7,16 @@ export default class extends View {
     this.setTitle('Art Quiz - Categories')
     this.type = this.params.type
     this.categories = [
-      'Baroque',
-      'Historical',
-      'Impressionism',
-      'Landscape',
-      'Modernism',
-      'Portrait',
-      'Realism',
-      'Renaissance',
-      'Romanticism',
-      'Symbolism',
+      'baroque',
+      'historical',
+      'impressionism',
+      'landscape',
+      'modernism',
+      'portrait',
+      'realism',
+      'renaissance',
+      'romanticism',
+      'symbolism',
     ]
     this.categoriesHtml = ''
     this.categoriesToHtml()

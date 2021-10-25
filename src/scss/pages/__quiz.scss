@@ -48,6 +48,7 @@
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    transition: 1s ease;
 
     &.artists {
       flex: 0 0 100%;
