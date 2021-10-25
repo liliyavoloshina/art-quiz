@@ -10,7 +10,7 @@ export default class {
     this.circleSvg = document.querySelector('circle')
 
     this.paused = false
-    this.interval = 0
+    this.interval = false
     this.pauses = 0
     this.totalTime = 20
     this.timer.addEventListener('click', () => this.toggleTimer())
@@ -53,7 +53,7 @@ export default class {
   initTimer() {
     this.disMinutes.innerHTML = '00'
     this.disSeconds.innerHTML = '20'
-    this.circleSvg.style.animation = `loop ${this.totalTime}s linear 1s`
+    this.circleSvg.style.animation = `loop ${this.totalTime + 1.5}s linear 1s`
     this.circleSvg.style.animationPlayState = 'running'
     this.setInterval()
   }
@@ -63,6 +63,7 @@ export default class {
       this.setInterval()
       this.paused = false
     }
+
     this.circleSvg.style.animationPlayState = 'running'
     this.disMinutes.style.animationPlayState = 'running'
     this.disSeconds.style.animationPlayState = 'running'
@@ -82,6 +83,7 @@ export default class {
   }
 
   toggleTimer() {
+    console.log(this.interval, this.totalTime)
     if (!this.paused) {
       if (this.pauses === 2) {
         console.log('pauses Over!!!')
