@@ -76,7 +76,7 @@ export default class extends View {
     shuffle(answers)
 
     answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
-    answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target.innerHTML)))
+    answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target)))
   }
 
   generateModal() {
@@ -116,11 +116,15 @@ export default class extends View {
   }
 
   answer(answer) {
-    if (answer === this.rightAnswer) {
+    const answerText = answer.innerHTML
+    if (answerText === this.rightAnswer) {
       this.isCorrect = true
+      answer.classList.add('correct')
     } else {
       this.isCorrect = false
+      answer.classList.add('incorrect')
     }
+
     this.generateModal()
   }
 
