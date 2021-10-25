@@ -1,4 +1,5 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign */
+
 import View from './View'
 // import Timer from '../components/timer'
 
@@ -11,13 +12,16 @@ export default class extends View {
 
     this.allQuestions = []
     this.questions = []
+
+    this.currentQuestion = 0
+    this.rightAnswer = ''
+    this.isCorrect = false
   }
 
   async getQuestions() {
     const res = await fetch(`/data/${this.type}.json`)
     const data = await res.json()
     this.allQuestions = data
-    // this.filterQuestions()
   }
 
   async filterQuestions() {
@@ -27,11 +31,11 @@ export default class extends View {
   generateImages() {
     const items = []
     if (this.type === 'artists') {
-      this.questions.forEach((question) => {
+      this.questions.forEach((question, idx) => {
         items.push(`
-        <div class="image artists">
+        <div class="image artists" id="${idx}">
             <img
-              src="/img/artists.jpg"
+              src="/img/full/${question.imageNum}full.webp"
               alt=""
             />
           </div>
@@ -44,6 +48,82 @@ export default class extends View {
     images.innerHTML = imagesHtml
   }
 
+  generateAnswers() {
+    const answersEl = document.querySelectorAll('.answer')
+    const answers = []
+
+    if (this.type === 'artists') {
+      const rightAnswer = this.questions[this.currentQuestion].author
+      this.rightAnswer = rightAnswer
+      answers.push(rightAnswer)
+
+      while (answers.length < 4) {
+        const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
+        if (!answers.includes(randomAnswer.author)) {
+          answers.push(randomAnswer.author)
+        }
+      }
+    }
+
+    const shuffle = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[array[i], array[j]] = [array[j], array[i]]
+      }
+      return array
+    }
+
+    shuffle(answers)
+
+    answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
+    answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target.innerHTML)))
+  }
+
+  generateModal() {
+    const modal = document.querySelector('.modal')
+    const modalNameEl = document.querySelector('#modalName')
+    const modalAuthorEl = document.querySelector('#modalAuthor')
+    const modalYearEl = document.querySelector('#modalYear')
+    const modalImage = document.querySelector('#modalImage')
+    const modalStatus = document.querySelector('#modalStatus')
+
+    const modalImageNum = this.questions[this.currentQuestion].imageNum
+    const modalName = this.questions[this.currentQuestion].name
+    const modalAuthor = this.questions[this.currentQuestion].author
+    const modalYear = this.questions[this.currentQuestion].year
+
+    modalImage.src = `/img/full/${modalImageNum}full.webp`
+
+    if (this.isCorrect) {
+      modalStatus.classList.add('correct')
+      modalStatus.innerHTML = `<i class="fi fi-rr-check"></i>`
+    } else {
+      modalStatus.classList.add('incorrect')
+      modalStatus.innerHTML = `<i class="fi fi-rr-cross"></i>`
+    }
+
+    if (this.type === 'artists') {
+      modalNameEl.textContent = `${modalName} was created by`
+      modalYearEl.textContent = `in ${modalYear}`
+    } else {
+      modalNameEl.textContent = modalName
+      modalYearEl.textContent = modalYear
+    }
+
+    modalAuthorEl.textContent = modalAuthor
+
+    modal.classList.remove('hidden')
+  }
+
+  answer(answer) {
+    if (answer === this.rightAnswer) {
+      this.isCorrect = true
+    } else {
+      this.isCorrect = false
+    }
+    this.generateModal()
+  }
+
   async mounted() {
     // const timer = new Timer()
     // timer.initTimer()
@@ -51,6 +131,7 @@ export default class extends View {
     await this.getQuestions()
     await this.filterQuestions()
     this.generateImages()
+    this.generateAnswers()
   }
 
   mount() {
@@ -100,10 +181,10 @@ export default class extends View {
           <div></div>
         </div>
         <div class="quiz__answers">
-          <div class="answer">Pablo Picasso</div>
-          <div class="answer">Pieter Bruegel the Elder</div>
-          <div class="answer">Pieter Bruegel the Elder</div>
-          <div class="answer">Peter Paul Rubens</div>
+          <div class="answer"></div>
+          <div class="answer"></div>
+          <div class="answer"></div>
+          <div class="answer"></div>
         </div>
       </div>
     </div>
@@ -120,18 +201,19 @@ export default class extends View {
   </footer>
 
   <div class="modal hidden">
-    <div class="modal__status"><i class="fi fi-rr-check"></i></div>
+    <div class="modal__status" id="modalStatus"></div>
     <div class="modal__main">
       <div class="modal__image">
         <img
           src="https://images.unsplash.com/photo-1496889196885-5ddcec5eef4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
           alt=""
+          id="modalImage"
         />
       </div>
       <div class="modal__text">
-        <div class="name">Girl with a Pearl Earring</div>
-        <div class="author">Johannes Vermeer</div>
-        <div class="year">1665</div>
+        <div class="name" id="modalName"></div>
+        <div class="author" id="modalAuthor"></div>
+        <div class="year" id="modalYear"></div>
       </div>
     </div>
     <div class="modal__btn">

@@ -30,7 +30,7 @@
   height: 80vh;
   border-radius: 10px;
   background-color: white;
-  transition: 1.5s ease-in;
+  transition: 1s ease-in;
 
   &.hidden {
     bottom: -150%;
@@ -48,7 +48,14 @@
     height: var(--modal-icon-s);
     border-radius: 100%;
     border: 15px solid white;
-    background: var(--green);
+
+    &.correct {
+      background: var(--green);
+    }
+
+    &.incorrect {
+      background: var(--red);
+    }
 
     .fi {
       padding-top: 10px;
