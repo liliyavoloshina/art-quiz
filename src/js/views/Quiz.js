@@ -49,7 +49,6 @@ export default class extends View {
   }
 
   nextQuestion() {
-    console.log(this.currentQuestion)
     this.currentQuestion += 1
     this.rightAnswer = ''
     this.isCorrect = false
@@ -94,7 +93,6 @@ export default class extends View {
     shuffle(answers)
 
     answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
-    answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target)))
     answersEl.forEach((el) => {
       el.classList.remove('correct')
       el.classList.remove('incorrect')
@@ -146,13 +144,26 @@ export default class extends View {
     modalAuthorEl.textContent = modalAuthor
   }
 
+  bindListeners() {
+    const answersEl = document.querySelectorAll('.answer')
+    const modalBtn = document.querySelector('#modalBtn')
+    answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target)))
+    modalBtn.addEventListener('click', () => {
+      this.nextQuestion()
+    })
+  }
+
   answer(answer) {
+    const pagination = document.querySelectorAll('.pag-item')
     const answerText = answer.innerHTML
+
     if (answerText === this.rightAnswer) {
       this.isCorrect = true
+      pagination[this.currentQuestion].classList.add('correct')
       answer.classList.add('correct')
     } else {
       this.isCorrect = false
+      pagination[this.currentQuestion].classList.add('incorrect')
       answer.classList.add('incorrect')
     }
 
@@ -163,11 +174,8 @@ export default class extends View {
   async mounted() {
     // const timer = new Timer()
     // timer.initTimer()
+    this.bindListeners()
 
-    const modalBtn = document.querySelector('#modalBtn')
-    modalBtn.addEventListener('click', () => {
-      this.nextQuestion()
-    })
     await this.getQuestions()
     await this.filterQuestions()
     this.generateImages()
@@ -209,16 +217,16 @@ export default class extends View {
         <div class="quiz__question">Who is the author of this picture?</div>
         <div class="quiz__images" id="quizImages"></div>
         <div class="quiz__pag">
-          <div class="success"></div>
-          <div class="failure"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
+          <div class="pag-item"></div>
         </div>
         <div class="quiz__answers">
           <div class="answer"></div>

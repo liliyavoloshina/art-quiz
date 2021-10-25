@@ -4,12 +4,19 @@
 
 @media (min-width: 420px) {
   :root {
-    --btn-lg-fs: 2em;
+    --btn-lg-fs: 1.2em;
   }
 }
+
 @media (min-width: 768px) {
   :root {
-    // --btn-lg-fs: 5em;
+    --btn-lg-fs: 1.2em;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --btn-lg-fs: 2em;
   }
 }
 

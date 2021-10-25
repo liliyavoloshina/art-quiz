@@ -71,17 +71,17 @@
   display: flex;
   justify-content: space-between;
 
-  & > * {
+  .pag-item {
     width: var(--quiz-pag-s);
     height: var(--quiz-pag-s);
     border-radius: 100%;
     background-color: var(--grey);
 
-    &.success {
+    &.correct {
       background-color: var(--green);
     }
 
-    &.failure {
+    &.incorrect {
       background-color: var(--red);
     }
   }
