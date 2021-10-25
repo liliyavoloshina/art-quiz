@@ -1,12 +1,19 @@
 :root {
   --quiz-question-fs: 2em;
-  --quiz-images-h: 65vh;
+  --quiz-images-h: 15em;
   --quiz-answer-fs: 1.2em;
   --quiz-pag-s: 1em;
 }
 
+@media (min-width: 420px) {
+  :root {
+    --quiz-images-h: 20em;
+  }
+}
+
 @media (min-width: 768px) {
   :root {
+    --quiz-images-h: 30em;
     --quiz-answer-fs: 1.5em;
     --quiz-pag-s: 1.5em;
   }
@@ -15,7 +22,7 @@
 @media (min-width: 1024px) {
   :root {
     --quiz-question-fs: 3em;
-    --quiz-images-h: 65vh;
+    --quiz-images-h: 45em;
     --quiz-answer-fs: 1.7em;
   }
 }
@@ -24,6 +31,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 2em;
+
   &__question {
     font-size: var(--quiz-question-fs);
   }
@@ -31,10 +39,20 @@
 
 .quiz__images {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
   height: var(--quiz-images-h);
+  overflow: hidden;
 
   .image {
-    flex: 1 1 18em;
+    &.artists {
+      flex: 0 0 100%;
+    }
+
+    &.pictures {
+      width: calc(50% - 1em);
+      height: calc(50% - 1em);
+    }
 
     img {
       width: 100%;

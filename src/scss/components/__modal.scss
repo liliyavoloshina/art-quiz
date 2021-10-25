@@ -30,6 +30,11 @@
   height: 80vh;
   border-radius: 10px;
   background-color: white;
+  transition: 1.5s ease-in;
+
+  &.hidden {
+    bottom: -150%;
+  }
 
   &__status {
     position: absolute;
