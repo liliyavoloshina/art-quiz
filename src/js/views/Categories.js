@@ -30,7 +30,7 @@ export default class extends View {
       items.push(`
         <a class="category" href="/quiz/${this.type}/${category}" data-link>
           <div class="category__score">
-            <span class="score">10</span>/<span class="score-total">20</span>
+            <span class="score">10</span>/<span class="score-total">10</span>
            </div>
            <div class="category__name">${category}</div>
               <div class="category__image">

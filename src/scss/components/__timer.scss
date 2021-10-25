@@ -2,8 +2,6 @@
   --timer-w: 4em;
   --timer-fs: 1.1em;
   --timer-pauses-fs: 1em;
-  --timer-circle-green: #60db41;
-  --timer-circle-red: #db222a;
   --timer-circle-yellow: #ffcd00;
 }
 
@@ -19,6 +17,12 @@
     --timer-w: 5.5em;
     --timer-fs: 1.4em;
     --timer-pauses-fs: 1.2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --timer-pauses-fs: 1.5em;
   }
 }
 

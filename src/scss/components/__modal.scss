@@ -1,0 +1,15 @@
+// :root {
+//   --modal-w: 10
+// }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 500px;
+  height: 200px;
+  background-color: red;
+}

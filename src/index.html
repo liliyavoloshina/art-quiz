@@ -1,41 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title || 'Webpack App'%></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet" />
 
     <!-- main css  -->
-    <link href="<%= htmlWebpackPlugin.files.css[1] %>" rel="stylesheet">
-</head>
+    <link href="<%= htmlWebpackPlugin.files.css[1] %>" rel="stylesheet" />
+  </head>
 
-<body>
-
-    <!-- <div class="timer">
-        <div class="timer__display">
-            <div class="display minute"></div>
-            <span class="display colon">:</span>
-            <div class="display seconds"></div>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header header-quiz">
+          <a href="/" class="header-quiz__nav btn" title="Home" data-link><i class="fi fi-rr-home"></i></a>
+          <div class="timer">
+            <div class="timer__pauses"><span id="pauses">0</span>/2</div>
+            <div class="timer__display">
+              <div class="display minute"></div>
+              <span class="display colon">:</span>
+              <div class="display seconds"></div>
+            </div>
+            <svg
+              class="circle"
+              x="0px"
+              y="0px"
+              width="500px"
+              height="500px"
+              viewBox="0 0 521.17 521.17"
+              style="overflow: visible; enable-background: new 0 0 521.17 521.17"
+            >
+              <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
+            </svg>
+          </div>
         </div>
-        <svg class="circle" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 521.17 521.17"
-            style="overflow: visible; enable-background: new 0 0 521.17 521.17">
-            <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
-        </svg>
-    </div> -->
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="quiz">
+          <div class="quiz__question">Who is the author of this picture?</div>
+          <div class="quiz__images">
+            <div class="image">
+              <img
+                src="https://images.unsplash.com/photo-1606113014706-4aed0562853b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1159&q=80"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="quiz__pag">
+            <div class="success"></div>
+            <div class="failure"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="quiz__answers">
+            <div class="answer">Pablo Picasso</div>
+            <div class="answer">Pieter Bruegel the Elder</div>
+            <div class="answer">Pieter Bruegel the Elder</div>
+            <div class="answer">Peter Paul Rubens</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer">
+          <a class="footer__github" href="https://github.com/liliyavoloshina">liliyavoloshina</a>
+          <div class="footer__year">© 2021</div>
+          <a class="footer__school" href="https://rs.school/js/" title="Rolling Scopes School"></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal">
+      <div class="modal__status"></div>
+      <div class="modal__image"></div>
+      <div class="modal__text"></div>
+      <div class="modal__btn"></div>
+    </div>
 
     <div id="app"></div>
-
 
     <!-- critical js  -->
     <script src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
 
     <!-- main js  -->
     <script src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
-</body>
-
+  </body>
 </html>

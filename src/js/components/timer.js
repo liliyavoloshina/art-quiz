@@ -22,7 +22,7 @@ export default class {
       const seconds = this.totalTime % 60
 
       if (this.totalTime <= 5) {
-        this.circleSvg.style.stroke = 'var(--timer-circle-red)'
+        this.circleSvg.style.stroke = 'var(--red)'
         this.disMinutes.style.animation = 'popup 1s infinite ease-in-out'
         this.disMinutes.style.animationPlayState = 'running'
         this.disSeconds.style.animation = 'popup 1s infinite ease-in-out'
@@ -32,7 +32,7 @@ export default class {
         this.disMinutes.style.animation = 'none'
         this.disSeconds.style.animation = 'none'
       } else {
-        this.circleSvg.style.stroke = 'var(--timer-circle-green)'
+        this.circleSvg.style.stroke = 'var(--green)'
         this.disMinutes.style.animation = 'none'
         this.disSeconds.style.animation = 'none'
       }
