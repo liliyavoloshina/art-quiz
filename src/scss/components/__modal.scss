@@ -1,15 +1,90 @@
-// :root {
-//   --modal-w: 10
-// }
+:root {
+  --modal-icon-s: 7em;
+  --modal-icon-fs: 3em;
+  --modal-text-fs: 1.5em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --modal-icon-s: 10em;
+    --modal-icon-fs: 5em;
+    --modal-text-fs: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    // --modal-icon-s: 10em;
+  }
+}
 
 .modal {
   position: fixed;
-  top: 50%;
+  bottom: 0;
   right: 50%;
-  transform: translate(50%, -50%);
+  transform: translateX(50%);
+  display: flex;
   flex-direction: column;
-  min-width: 200px;
-  max-width: 500px;
-  height: 200px;
-  background-color: red;
+  justify-content: space-between;
+  width: 100%;
+  height: 80vh;
+  border-radius: 10px;
+  background-color: white;
+
+  &__status {
+    position: absolute;
+    top: calc(var(--modal-icon-s) / 2 * -1);
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--modal-icon-s);
+    height: var(--modal-icon-s);
+    border-radius: 100%;
+    border: 15px solid white;
+    background: var(--green);
+
+    .fi {
+      padding-top: 10px;
+      font-size: var(--modal-icon-fs);
+      color: white;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2em;
+    padding: 0 2em;
+    width: 100%;
+    margin-top: calc(var(--modal-icon-s) / 2 + 10px);
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 20em;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
+  &__text {
+    font-size: var(--modal-text-fs);
+    text-align: center;
+  }
+
+  &__btn {
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+  }
 }

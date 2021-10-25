@@ -1,0 +1,33 @@
+:root {
+  --btn-lg-fs: 1em;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --btn-lg-fs: 2em;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    // --btn-lg-fs: 5em;
+  }
+}
+
+.btn-lg {
+  width: 10em;
+  padding: 10px;
+  font-size: var(--btn-lg-fs);
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 1.5s linear;
+  background-color: white;
+
+  &:hover {
+    box-shadow: var(--inner-shadow);
+  }
+}
