@@ -20,7 +20,7 @@ export default class extends View {
         <div class="header header-quiz">
             <a href="/" class="header-quiz__nav btn" title="Home" data-link><i class="fi fi-rr-home"></i></a>
             <div class="timer">
-            <div class="timer__pauses" id="pauses">0/2</div>
+            <div class="timer__pauses"><span id="pauses">0</span>/2</div>
             <div class="timer__display">
                 <div class="display minute"></div>
                 <span class="display colon">:</span>
