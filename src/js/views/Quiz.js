@@ -61,9 +61,9 @@ export default class extends View {
   showNextImage() {
     const slider = document.querySelector('#quizImages')
     const images = slider.querySelectorAll('.image')
-    // images.forEach((image) => {
-    //   image.style.transform = `translateY(${this.currentQuestion * -100}%)`
-    // })
+    images.forEach((image) => {
+      image.style.transform = `translateY(${this.currentQuestion * -100}%)`
+    })
   }
 
   generateAnswers() {
@@ -113,7 +113,6 @@ export default class extends View {
 
   generateModal() {
     const modalNameEl = document.querySelector('#modalName')
-    const modalBtn = document.querySelector('#modalBtn')
     const modalAuthorEl = document.querySelector('#modalAuthor')
     const modalYearEl = document.querySelector('#modalYear')
     const modalImage = document.querySelector('#modalImage')
@@ -123,8 +122,6 @@ export default class extends View {
     const modalName = this.questions[this.currentQuestion].name
     const modalAuthor = this.questions[this.currentQuestion].author
     const modalYear = this.questions[this.currentQuestion].year
-
-    modalBtn.addEventListener('click', () => this.nextQuestion())
 
     modalImage.src = `/img/full/${modalImageNum}full.webp`
 
@@ -167,6 +164,10 @@ export default class extends View {
     // const timer = new Timer()
     // timer.initTimer()
 
+    const modalBtn = document.querySelector('#modalBtn')
+    modalBtn.addEventListener('click', () => {
+      this.nextQuestion()
+    })
     await this.getQuestions()
     await this.filterQuestions()
     this.generateImages()
