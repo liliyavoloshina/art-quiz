@@ -49,7 +49,6 @@ export default class extends View {
   }
 
   nextQuestion() {
-    this.currentQuestion += 1
     this.rightAnswer = ''
     this.isCorrect = false
     this.closeModal()
@@ -166,6 +165,8 @@ export default class extends View {
       pagination[this.currentQuestion].classList.add('incorrect')
       answer.classList.add('incorrect')
     }
+
+    this.currentQuestion++
 
     this.generateModal()
     this.openModal()
