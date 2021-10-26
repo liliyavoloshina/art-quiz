@@ -4,20 +4,8 @@ import View from './View'
 export default class extends View {
   constructor(params) {
     super(params)
-    this.setTitle('Art Quiz - Categories')
+    this.setTitle('artquiz. - categories')
     this.type = this.params.type
-    this.categories = [
-      'baroque',
-      'historical',
-      'impressionism',
-      'landscape',
-      'modernism',
-      'portrait',
-      'realism',
-      'renaissance',
-      'romanticism',
-      'symbolism',
-    ]
     this.categoriesHtml = ''
     this.categoriesToHtml()
   }

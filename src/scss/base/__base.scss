@@ -1,5 +1,11 @@
 :root {
-  --section-p: 1em;
+  --section-p: 0.7em;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --section-p: 1em;
+  }
 }
 
 * {

@@ -6,12 +6,15 @@ import View from './View'
 export default class extends View {
   constructor(params) {
     super(params)
-    this.setTitle('Art Quiz - Quiz')
+    this.setTitle('artquiz. - quiz')
     this.type = params.type
     this.category = params.category
 
+    this.playedCategories.push(this.category)
+
     this.allQuestions = []
     this.questions = []
+    this.correctAnswers = []
 
     this.currentQuestion = 0
     this.rightAnswer = ''
@@ -49,7 +52,6 @@ export default class extends View {
   }
 
   nextQuestion() {
-    const modalResult = document.querySelector('#modalResult')
     this.rightAnswer = ''
     this.isCorrect = false
     this.closeModal()
@@ -58,7 +60,7 @@ export default class extends View {
       this.showNextImage()
       this.generateAnswers()
     } else {
-      modalResult.classList.remove('hidden')
+      this.showResults()
     }
   }
 
@@ -68,6 +70,36 @@ export default class extends View {
     images.forEach((image) => {
       image.style.transform = `translateY(${this.currentQuestion * -100}%)`
     })
+  }
+
+  showResults() {
+    const modalResult = document.querySelector('#modalResult')
+    const resultsText = document.querySelector('#resultsText')
+    const nextQuizLink = document.querySelector('#nextQuizLink')
+    const correctAnswersCount = document.querySelector('#correctAnswersCount')
+    const correctNum = this.correctAnswers.length
+
+    if (correctNum === 10) {
+      resultsText.textContent = 'are you an art expert?!'
+    } else if (correctNum > 8 && correctNum < 10) {
+      resultsText.textContent = 'wow, you are on fire!'
+    } else if (correctNum < 8 && correctNum > 5) {
+      resultsText.textContent = 'you can do better!'
+    } else {
+      resultsText.textContent = 'maybe another time?'
+    }
+
+    const currentCategoryIndex = this.categories.findIndex((el) => el === this.category)
+
+    if (currentCategoryIndex !== 9) {
+      const nextCategory = this.categories[currentCategoryIndex + 1]
+      nextQuizLink.href = `/quiz/artists/${nextCategory}`
+    } else {
+      nextQuizLink.classList.add('disabled')
+    }
+
+    correctAnswersCount.textContent = correctNum
+    modalResult.classList.remove('hidden')
   }
 
   generateAnswers() {
@@ -106,7 +138,10 @@ export default class extends View {
 
   closeModal() {
     const modal = document.querySelector('.modal')
+    const answersEl = document.querySelectorAll('.answer')
     modal.classList.add('hidden')
+
+    answersEl.forEach((btn) => (btn.disabled = false))
   }
 
   openModal() {
@@ -139,20 +174,23 @@ export default class extends View {
     }
 
     if (this.type === 'artists') {
-      modalNameEl.textContent = `${modalName} was created by`
+      modalNameEl.textContent = `${modalName} was created`
+      modalAuthorEl.textContent = `by ${modalAuthor}`
       modalYearEl.textContent = `in ${modalYear}`
     } else {
       modalNameEl.textContent = modalName
       modalYearEl.textContent = modalYear
     }
-
-    modalAuthorEl.textContent = modalAuthor
   }
 
   bindListeners() {
     const answersEl = document.querySelectorAll('.answer')
     const modalBtn = document.querySelector('#modalBtn')
-    answersEl.forEach((el) => el.addEventListener('click', (e) => this.answer(e.target)))
+    answersEl.forEach((el) =>
+      el.addEventListener('click', (e) => {
+        this.answer(e.target)
+      })
+    )
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
     })
@@ -165,6 +203,7 @@ export default class extends View {
     if (answerText === this.rightAnswer) {
       this.isCorrect = true
       pagination[this.currentQuestion].classList.add('correct')
+      this.correctAnswers.push(this.questions[this.currentQuestion])
       answer.classList.add('correct')
     } else {
       this.isCorrect = false
@@ -178,6 +217,9 @@ export default class extends View {
     }
 
     this.currentQuestion++
+
+    const answersEl = document.querySelectorAll('.answer')
+    answersEl.forEach((btn) => (btn.disabled = true))
   }
 
   async mounted() {
@@ -223,7 +265,7 @@ export default class extends View {
   <main class="main">
     <div class="container">
       <div class="quiz">
-        <div class="quiz__question">Who is the author of this picture?</div>
+        <div class="quiz__question">who is the author of this picture?</div>
         <div class="quiz__images" id="quizImages"></div>
         <div class="quiz__pag">
           <div class="pag-item"></div>
@@ -238,10 +280,10 @@ export default class extends View {
           <div class="pag-item"></div>
         </div>
         <div class="quiz__answers">
-          <div class="answer"></div>
-          <div class="answer"></div>
-          <div class="answer"></div>
-          <div class="answer"></div>
+          <button class="answer"></button>
+          <button class="answer"></button>
+          <button class="answer"></button>
+          <button class="answer"></button>
         </div>
       </div>
     </div>
@@ -280,11 +322,11 @@ export default class extends View {
 
   <div class="modal-center hidden" id="modalResult">
     <div class="modal-center__content">
-      <div class="modal-center__title">congrats!</div>
-      <div class="modal-center__info"><span id="correctAnswersCount">10</span>/10</div>
+      <div class="modal-center__title" id="resultsText"></div>
+      <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
       <div class="modal-center__actions">
-        <a class="btn" href="/">home</a>
-        <a class="btn" href="/quiz/artists/modernism">next quiz</a>
+        <a class="btn" href="/" data-link>home</a>
+        <a class="btn" id="nextQuizLink" data-link>next quiz</a>
       </div>
   </div>
 </div>

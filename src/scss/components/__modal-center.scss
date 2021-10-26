@@ -69,6 +69,10 @@
     width: 47%;
     padding: 1em;
     font-weight: 700;
+
+    &.disabled {
+      display: none;
+    }
   }
 
   &__actions {
