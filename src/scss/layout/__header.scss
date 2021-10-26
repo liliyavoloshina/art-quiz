@@ -40,3 +40,11 @@
     margin-right: auto;
   }
 }
+
+.header-quiz {
+  &__nav {
+    background: url('/icon/home.png') center center;
+    // background-image: url('/icon/home-glass.png');
+    background-size: contain;
+  }
+}

@@ -49,11 +49,17 @@ export default class extends View {
   }
 
   nextQuestion() {
+    const modalResult = document.querySelector('#modalResult')
     this.rightAnswer = ''
     this.isCorrect = false
     this.closeModal()
-    this.showNextImage()
-    this.generateAnswers()
+
+    if (this.currentQuestion !== 10) {
+      this.showNextImage()
+      this.generateAnswers()
+    } else {
+      modalResult.classList.remove('hidden')
+    }
   }
 
   showNextImage() {
@@ -166,10 +172,12 @@ export default class extends View {
       answer.classList.add('incorrect')
     }
 
-    this.currentQuestion++
+    if (this.currentQuestion !== 10) {
+      this.generateModal()
+      this.openModal()
+    }
 
-    this.generateModal()
-    this.openModal()
+    this.currentQuestion++
   }
 
   async mounted() {
@@ -188,7 +196,7 @@ export default class extends View {
     <header>
     <div class="container">
       <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav btn" title="Home" data-link><i class="fi fi-rr-home"></i></a>
+        <a href="/" class="header-quiz__nav btn" title="Home" data-link></a>
         <div class="timer">
           <div class="timer__pauses"><span id="pauses">0</span>/2</div>
           <div class="timer__display">
@@ -269,6 +277,17 @@ export default class extends View {
       <button class="btn-lg" id="modalBtn">next</button>
     </div>
   </div>
+
+  <div class="modal-center hidden" id="modalResult">
+    <div class="modal-center__content">
+      <div class="modal-center__title">congrats!</div>
+      <div class="modal-center__info"><span id="correctAnswersCount">10</span>/10</div>
+      <div class="modal-center__actions">
+        <a class="btn" href="/">home</a>
+        <a class="btn" href="/quiz/artists/modernism">next quiz</a>
+      </div>
+  </div>
+</div>
     `
   }
 }

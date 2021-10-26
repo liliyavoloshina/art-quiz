@@ -1,37 +1,40 @@
 :root {
-  --btn-p: 10px;
-  --btn-fs: 20px;
+  --btn-w: 2em;
+  --btn-h: 2em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --btn-p: 10px;
-    --btn-fs: 30px;
+    --btn-w: 2em;
+    --btn-h: 2em;
   }
 }
 @media (min-width: 768px) {
   :root {
-    --btn-p: 10px;
-    --btn-fs: 50px;
+    --btn-w: 4em;
+    --btn-h: 4em;
   }
 }
 
 .btn {
+  width: var(--btn-w);
+  height: var(--btn-h);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--btn-p);
+  // padding: var(--btn-p);
   border-radius: 10px;
   box-shadow: var(--shadow);
   cursor: pointer;
   text-decoration: none;
   transition: all 1.5s linear;
+  color: var(--dark);
 
-  .fi {
-    &::before {
-      font-size: var(--btn-fs);
-    }
-  }
+  // .fi {
+  //   &::before {
+  //     font-size: var(--btn-fs);
+  //   }
+  // }
 
   &:hover {
     box-shadow: var(--inner-shadow);
