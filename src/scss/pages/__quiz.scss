@@ -52,23 +52,35 @@
     &.artists {
       flex: 0 0 100%;
       height: 100%;
+
+      img {
+        width: auto;
+        min-height: 100%;
+        height: auto;
+      }
     }
 
     &.pictures {
-      width: calc(50% - 1em);
-      height: calc(50% - 1em);
+      width: calc(50%);
+      height: calc(50%);
+      padding: 0.6em;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     img {
-      width: 100%;
-      height: 100%;
       border-radius: 10px;
-      height: auto;
+      // width: 100%;
+      // height: 100%;
 
-      @media (min-width: 350px) {
-        min-height: 100%;
-        width: auto;
-      }
+      // @media (min-width: 350px) {
+      //   min-height: 100%;
+      //   width: auto;
+      // }
     }
   }
 }

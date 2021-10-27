@@ -1,4 +1,4 @@
-/* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign */
+/* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign, no-inner-declarations */
 
 import View from './View'
 // import Timer from '../components/timer'
@@ -44,16 +44,34 @@ export default class extends View {
         `)
       })
     } else {
-      this.questions.forEach((question, idx) => {
-        items.push(`
-        <div class="image pictures" id="${idx}">
-            <img
-              src="/img/full/${question.imageNum}full.webp"
-              alt=""
-            />
-          </div>
-        `)
+      const correctImages = []
+      this.questions.forEach((question) => {
+        correctImages.push(question.imageNum)
       })
+      const randomImages = []
+
+      while (randomImages.length < 30) {
+        const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
+        if (!randomImages.includes(randomImage.imageNum)) {
+          randomImages.push(randomImage.imageNum)
+        }
+      }
+
+      const randomIndexes = []
+
+      function getRandomIdx(min, max) {
+        const rand = min + Math.random() * (max + 1 - min)
+        return Math.floor(rand)
+      }
+
+      for (let i = 0; i < 40; i += 4) {
+        const randomIdx = getRandomIdx(i, i + 3)
+        randomIndexes.push(randomIdx)
+      }
+
+      for (let i = 0; i < correctImages.length; i++) {
+        randomImages.splice(randomIndexes[i], 0, correctImages[i])
+      }
     }
 
     const imagesHtml = items.join('\n')
@@ -79,9 +97,16 @@ export default class extends View {
   showNextImage() {
     const slider = document.querySelector('#quizImages')
     const images = slider.querySelectorAll('.image')
-    images.forEach((image) => {
-      image.style.transform = `translateY(${this.currentQuestion * -100}%)`
-    })
+
+    if (this.type === 'artist') {
+      images.forEach((image) => {
+        image.style.transform = `translateY(${this.currentQuestion * -100}%)`
+      })
+    } else {
+      images.forEach((image) => {
+        image.style.transform = `translateY(${this.currentQuestion * -200}%)`
+      })
+    }
   }
 
   showNextAnswers() {
