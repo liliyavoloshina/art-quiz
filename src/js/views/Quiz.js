@@ -9,6 +9,7 @@ export default class extends View {
     this.setTitle('artquiz. - quiz')
     this.type = params.type
     this.category = params.category
+    this.questionText = ''
 
     this.allQuestions = []
     this.questions = []
@@ -32,9 +33,20 @@ export default class extends View {
   generateImages() {
     const items = []
     if (this.type === 'artists') {
+      this.questions.forEach((question) => {
+        items.push(`
+        <div class="image artists">
+            <img
+              src="/img/full/${question.imageNum}full.webp"
+              alt=""
+            />
+          </div>
+        `)
+      })
+    } else {
       this.questions.forEach((question, idx) => {
         items.push(`
-        <div class="image artists" id="${idx}">
+        <div class="image pictures" id="${idx}">
             <img
               src="/img/full/${question.imageNum}full.webp"
               alt=""
@@ -55,6 +67,7 @@ export default class extends View {
     this.closeModal()
 
     if (this.currentQuestion !== 10) {
+      this.generateQuestion()
       this.showNextImage()
       this.generateAnswers()
     } else {
@@ -113,6 +126,14 @@ export default class extends View {
     modalResult.classList.remove('hidden')
   }
 
+  generateQuestion() {
+    if (this.type === 'artists') {
+      this.questionText = `who is the author of this picture?`
+    } else {
+      this.questionText = `which is Edvard Munch picture?`
+    }
+  }
+
   generateAnswers() {
     const answersEl = document.querySelectorAll('.answer')
     const answers = []
@@ -147,10 +168,17 @@ export default class extends View {
     })
   }
 
+  animateAnswers() {
+    const quizAnswers = document.querySelector('#quizAnswers')
+    quizAnswers.classList.toggle('hidden')
+  }
+
   closeModal() {
     const modal = document.querySelector('.modal')
     const answersEl = document.querySelectorAll('.answer')
     modal.classList.add('hidden')
+    modal.addEventListener('transitionstart', this.animateAnswers)
+    modal.removeEventListener('transitionend', this.animateAnswers)
 
     answersEl.forEach((btn) => (btn.disabled = false))
   }
@@ -158,6 +186,8 @@ export default class extends View {
   openModal() {
     const modal = document.querySelector('.modal')
     modal.classList.remove('hidden')
+    modal.addEventListener('transitionend', this.animateAnswers)
+    modal.removeEventListener('transitionstart', this.animateAnswers)
   }
 
   generateModal() {
@@ -240,6 +270,7 @@ export default class extends View {
 
     await this.getQuestions()
     await this.filterQuestions()
+    this.generateQuestion()
     this.generateImages()
     this.generateAnswers()
   }
@@ -276,7 +307,7 @@ export default class extends View {
   <main class="main">
     <div class="container">
       <div class="quiz">
-        <div class="quiz__question">who is the author of this picture?</div>
+        <div class="quiz__question"></div>
         <div class="quiz__images" id="quizImages"></div>
         <div class="quiz__pag">
           <div class="pag-item"></div>
@@ -290,7 +321,7 @@ export default class extends View {
           <div class="pag-item"></div>
           <div class="pag-item"></div>
         </div>
-        <div class="quiz__answers">
+        <div class="quiz__answers" id="quizAnswers">
           <button class="answer"></button>
           <button class="answer"></button>
           <button class="answer"></button>
