@@ -135,16 +135,16 @@ export default class extends View {
         `)
       })
     } else {
-      const correctImages = []
-      this.questions.forEach((question) => {
-        correctImages.push(question.imageNum)
-      })
+      // const correctImages = []
+      // this.questions.forEach((question) => {
+      //   correctImages.push(question.imageNum)
+      // })
       const randomImages = []
 
       while (randomImages.length < 30) {
         const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
-        if (!randomImages.includes(randomImage.imageNum)) {
-          randomImages.push(randomImage.imageNum)
+        if (!randomImages.includes(randomImage)) {
+          randomImages.push(randomImage)
         }
       }
 
@@ -160,17 +160,18 @@ export default class extends View {
         randomIndexes.push(randomIdx)
       }
 
-      for (let i = 0; i < correctImages.length; i++) {
-        randomImages.splice(randomIndexes[i], 0, correctImages[i])
+      for (let i = 0; i < this.questions.length; i++) {
+        randomImages.splice(randomIndexes[i], 0, this.questions[i])
       }
 
-      randomImages.forEach((imageNum) => {
+      randomImages.forEach((image) => {
         items.push(`
         <div class="image pictures">
             <img
-              src="/img/full/${imageNum}full.webp"
+              src="/img/full/${image.imageNum}full.webp"
               alt=""
             />
+            <div class="image__info">${image.name}</div>
           </div>
         `)
       })

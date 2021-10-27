@@ -1,19 +1,3 @@
-@mixin pictures-img($content) {
-  position: relative;
-
-  &::after {
-    content: $content;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 20px;
-    width: 20px;
-    text-align: center;
-    background-color: var(--grey);
-    border-radius: 10px;
-  }
-}
-
 :root {
   --quiz-row-g: 1em;
   --quiz-question-fs: 2em;
@@ -86,26 +70,22 @@
     }
 
     &.pictures {
+      position: relative;
       width: 50%;
       height: 50%;
       padding: var(--quiz-pictures-img-p);
 
-      // &:first-child,
-      // &:nth-child(3n + 2) {
-      //   @include pictures-img('a');
-      // }
-
-      // &:nth-child(2) {
-      //   @include pictures-img('b');
-      // }
-
-      // &:nth-child(3) {
-      //   @include pictures-img('c');
-      // }
-
-      // &:nth-child(4) {
-      //   @include pictures-img('d');
-      // }
+      .image__info {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: auto;
+        padding: 5px;
+        text-align: center;
+        font-size: 10px;
+        background-color: var(--grey-light);
+        border-radius: 10px;
+      }
 
       img {
         width: 100%;
