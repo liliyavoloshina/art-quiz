@@ -9,7 +9,6 @@ export default class extends View {
     this.setTitle('artquiz. - quiz')
     this.type = params.type
     this.category = params.category
-    this.questionText = ''
 
     this.allQuestions = []
     this.questions = []
@@ -28,55 +27,6 @@ export default class extends View {
 
   async filterQuestions() {
     this.questions = this.allQuestions.filter((question) => question.genre === this.category)
-  }
-
-  generateImages() {
-    const items = []
-    if (this.type === 'artists') {
-      this.questions.forEach((question) => {
-        items.push(`
-        <div class="image artists">
-            <img
-              src="/img/full/${question.imageNum}full.webp"
-              alt=""
-            />
-          </div>
-        `)
-      })
-    } else {
-      const correctImages = []
-      this.questions.forEach((question) => {
-        correctImages.push(question.imageNum)
-      })
-      const randomImages = []
-
-      while (randomImages.length < 30) {
-        const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
-        if (!randomImages.includes(randomImage.imageNum)) {
-          randomImages.push(randomImage.imageNum)
-        }
-      }
-
-      const randomIndexes = []
-
-      function getRandomIdx(min, max) {
-        const rand = min + Math.random() * (max + 1 - min)
-        return Math.floor(rand)
-      }
-
-      for (let i = 0; i < 40; i += 4) {
-        const randomIdx = getRandomIdx(i, i + 3)
-        randomIndexes.push(randomIdx)
-      }
-
-      for (let i = 0; i < correctImages.length; i++) {
-        randomImages.splice(randomIndexes[i], 0, correctImages[i])
-      }
-    }
-
-    const imagesHtml = items.join('\n')
-    const images = document.querySelector('#quizImages')
-    images.innerHTML = imagesHtml
   }
 
   nextQuestion() {
@@ -98,7 +48,7 @@ export default class extends View {
     const slider = document.querySelector('#quizImages')
     const images = slider.querySelectorAll('.image')
 
-    if (this.type === 'artist') {
+    if (this.type === 'artists') {
       images.forEach((image) => {
         image.style.transform = `translateY(${this.currentQuestion * -100}%)`
       })
@@ -161,11 +111,74 @@ export default class extends View {
   }
 
   generateQuestion() {
+    const questionTextEl = document.querySelector('#quizQuestionText')
     if (this.type === 'artists') {
-      this.questionText = `who is the author of this picture?`
+      questionTextEl.textContent = `who is the author of this picture?`
     } else {
-      this.questionText = `which is Edvard Munch picture?`
+      const artistName = this.questions[this.currentQuestion].author
+      questionTextEl.textContent = `which is ${artistName} picture?`
     }
+  }
+
+  generateImages() {
+    const items = []
+
+    if (this.type === 'artists') {
+      this.questions.forEach((question) => {
+        items.push(`
+        <div class="image artists">
+            <img
+              src="/img/full/${question.imageNum}full.webp"
+              alt=""
+            />
+          </div>
+        `)
+      })
+    } else {
+      const correctImages = []
+      this.questions.forEach((question) => {
+        correctImages.push(question.imageNum)
+      })
+      const randomImages = []
+
+      while (randomImages.length < 30) {
+        const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
+        if (!randomImages.includes(randomImage.imageNum)) {
+          randomImages.push(randomImage.imageNum)
+        }
+      }
+
+      const randomIndexes = []
+
+      function getRandomIdx(min, max) {
+        const rand = min + Math.random() * (max + 1 - min)
+        return Math.floor(rand)
+      }
+
+      for (let i = 0; i < 40; i += 4) {
+        const randomIdx = getRandomIdx(i, i + 3)
+        randomIndexes.push(randomIdx)
+      }
+
+      for (let i = 0; i < correctImages.length; i++) {
+        randomImages.splice(randomIndexes[i], 0, correctImages[i])
+      }
+
+      randomImages.forEach((imageNum) => {
+        items.push(`
+        <div class="image pictures">
+            <img
+              src="/img/full/${imageNum}full.webp"
+              alt=""
+            />
+          </div>
+        `)
+      })
+    }
+
+    const imagesHtml = items.join('\n')
+    const images = document.querySelector('#quizImages')
+    images.innerHTML = imagesHtml
   }
 
   generateAnswers() {
@@ -181,6 +194,17 @@ export default class extends View {
         const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
         if (!answers.includes(randomAnswer.author)) {
           answers.push(randomAnswer.author)
+        }
+      }
+    } else {
+      const rightAnswer = this.questions[this.currentQuestion].name
+      this.rightAnswer = rightAnswer
+      answers.push(rightAnswer)
+
+      while (answers.length < 4) {
+        const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
+        if (!answers.includes(randomAnswer.name)) {
+          answers.push(randomAnswer.name)
         }
       }
     }
@@ -220,18 +244,18 @@ export default class extends View {
   }
 
   generateModal() {
-    const modalNameEl = document.querySelector('#modalName')
-    const modalAuthorEl = document.querySelector('#modalAuthor')
+    const modalFirstLineEl = document.querySelector('#modalFirstLine')
+    const modalSecondLineEl = document.querySelector('#modalSecondLine')
     const modalYearEl = document.querySelector('#modalYear')
     const modalImage = document.querySelector('#modalImage')
     const modalStatus = document.querySelector('#modalStatus')
 
-    const modalImageNum = this.questions[this.currentQuestion].imageNum
-    const modalName = this.questions[this.currentQuestion].name
-    const modalAuthor = this.questions[this.currentQuestion].author
-    const modalYear = this.questions[this.currentQuestion].year
+    const currentImageNum = this.questions[this.currentQuestion].imageNum
+    const currentName = this.questions[this.currentQuestion].name
+    const currentAuthor = this.questions[this.currentQuestion].author
+    const currentYear = this.questions[this.currentQuestion].year
 
-    modalImage.src = `/img/full/${modalImageNum}full.webp`
+    modalImage.src = `/img/full/${currentImageNum}full.webp`
 
     if (this.isCorrect) {
       modalStatus.classList.remove('incorrect')
@@ -244,12 +268,13 @@ export default class extends View {
     }
 
     if (this.type === 'artists') {
-      modalNameEl.textContent = `${modalName} was created`
-      modalAuthorEl.textContent = `by ${modalAuthor}`
-      modalYearEl.textContent = `in ${modalYear}`
+      modalFirstLineEl.textContent = `"${currentName}" was created`
+      modalSecondLineEl.textContent = `by ${currentAuthor}`
+      modalYearEl.textContent = `in ${currentYear}`
     } else {
-      modalNameEl.textContent = modalName
-      modalYearEl.textContent = modalYear
+      modalFirstLineEl.textContent = `${currentAuthor} created`
+      modalSecondLineEl.textContent = `"${currentName}"`
+      modalYearEl.textContent = `in ${currentYear}`
     }
   }
 
@@ -336,7 +361,7 @@ export default class extends View {
   <main class="main">
     <div class="container">
       <div class="quiz">
-        <div class="quiz__question"></div>
+        <div class="quiz__question" id="quizQuestionText"></div>
         <div class="quiz__images" id="quizImages"></div>
         <div class="quiz__pag">
           <div class="pag-item"></div>
@@ -381,8 +406,8 @@ export default class extends View {
         />
       </div>
       <div class="modal__text">
-        <div class="name" id="modalName"></div>
-        <div class="author" id="modalAuthor"></div>
+        <div class="name" id="modalFirstLine"></div>
+        <div class="author" id="modalSecondLine"></div>
         <div class="year" id="modalYear"></div>
       </div>
     </div>

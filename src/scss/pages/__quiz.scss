@@ -1,8 +1,27 @@
+@mixin pictures-img($content) {
+  position: relative;
+
+  &::after {
+    content: $content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    background-color: var(--grey);
+    border-radius: 10px;
+  }
+}
+
 :root {
+  --quiz-row-g: 1em;
   --quiz-question-fs: 2em;
   --quiz-images-h: 15em;
   --quiz-answer-fs: 1.2em;
-  --quiz-pag-s: 1em;
+  --quiz-pag-s: 0.5em;
+  --quiz-pictures-img-p: 0.2em;
+  --quiz-answers-g: 1em;
 }
 
 @media (min-width: 420px) {
@@ -13,26 +32,38 @@
 
 @media (min-width: 768px) {
   :root {
-    --quiz-images-h: 30em;
+    --quiz-row-g: 2em;
+    --quiz-images-h: 40em;
+    --quiz-pictures-img-p: 0.6em;
+    // --quiz-images-h: 30em;
     --quiz-answer-fs: 1.5em;
     --quiz-pag-s: 1.5em;
+    --quiz-answers-g: 2em;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
     --quiz-question-fs: 3em;
-    --quiz-images-h: 35em;
+    --quiz-images-h: 50em;
+    // --quiz-images-h: 35em;
     --quiz-answer-fs: 1.7em;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --quiz-images-h: 70em;
   }
 }
 
 .quiz {
   display: flex;
   flex-direction: column;
-  row-gap: 2em;
+  row-gap: var(--quiz-row-g);
 
   &__question {
+    text-align: center;
     font-size: var(--quiz-question-fs);
   }
 }
@@ -52,18 +83,29 @@
     &.artists {
       flex: 0 0 100%;
       height: 100%;
-
-      img {
-        width: auto;
-        min-height: 100%;
-        height: auto;
-      }
     }
 
     &.pictures {
-      width: calc(50%);
-      height: calc(50%);
-      padding: 0.6em;
+      width: 50%;
+      height: 50%;
+      padding: var(--quiz-pictures-img-p);
+
+      // &:first-child,
+      // &:nth-child(3n + 2) {
+      //   @include pictures-img('a');
+      // }
+
+      // &:nth-child(2) {
+      //   @include pictures-img('b');
+      // }
+
+      // &:nth-child(3) {
+      //   @include pictures-img('c');
+      // }
+
+      // &:nth-child(4) {
+      //   @include pictures-img('d');
+      // }
 
       img {
         width: 100%;
@@ -73,14 +115,10 @@
     }
 
     img {
-      border-radius: 10px;
-      // width: 100%;
-      // height: 100%;
-
-      // @media (min-width: 350px) {
-      //   min-height: 100%;
-      //   width: auto;
-      // }
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
     }
   }
 }
@@ -88,6 +126,7 @@
 .quiz__pag {
   display: flex;
   justify-content: space-between;
+  padding: 0 1em;
 
   .pag-item {
     width: var(--quiz-pag-s);
@@ -108,7 +147,7 @@
 .quiz__answers {
   display: flex;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: var(--quiz-answers-g);
   // transition: 1s ease;
 
   // &.hidden {

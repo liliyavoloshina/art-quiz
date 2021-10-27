@@ -1,9 +1,11 @@
 :root {
+  --header-p: 1.5em;
   --header-title-fs: 1.5em;
 }
 
 @media (min-width: 420px) {
   :root {
+    --header-p: 1.5em;
     --header-title-fs: 2em;
   }
 }
@@ -18,7 +20,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: var(--section-p);
+  padding: var(--header-p) var(--section-p);
 
   &__title {
     position: absolute;
