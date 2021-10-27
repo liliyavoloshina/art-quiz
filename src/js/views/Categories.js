@@ -16,13 +16,11 @@ export default class extends View {
     const items = []
     this.categories.forEach((category) => {
       items.push(`
-        <a class="category" href="/quiz/${this.type}/${category}" data-link>
-          <div class="category__score">
-            <span class="score">10</span>/<span class="score-total">10</span>
-           </div>
-           <div class="category__name">${category}</div>
+        <a class="category" href="/quiz/${this.type}/${category.name}" data-link>
+          <div class="category__score">${category.results}/10</div>
+           <div class="category__name">${category.name}</div>
               <div class="category__image">
-                <img src="../img/category/${category}.jpg" alt="${category} quiz">
+                <img src="../img/category/${category.name}.jpg" alt="${category} quiz">
             </div>
         </a>`)
     })

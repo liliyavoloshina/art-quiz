@@ -10,8 +10,6 @@ export default class extends View {
     this.type = params.type
     this.category = params.category
 
-    this.playedCategories.push(this.category)
-
     this.allQuestions = []
     this.questions = []
     this.correctAnswers = []
@@ -72,6 +70,23 @@ export default class extends View {
     })
   }
 
+  setResultsToStorage() {
+    console.log('setResultsToStorage')
+    const updatedCategory = { name: this.category, isPlayed: true, results: this.correctAnswers }
+
+    const categoryToUpdateIdx = this.categories.findIndex((el) => el.name === this.category)
+
+    this.categories[categoryToUpdateIdx] = updatedCategory
+    console.log(this.categories)
+
+    localStorage.setItem(`${this.type}Results`, JSON.stringify(this.categories))
+  }
+
+  calcNextCategory() {
+    const nextCategory = this.categories.find((cat) => !cat.isPlayed)
+    return nextCategory.name
+  }
+
   showResults() {
     const modalResult = document.querySelector('#modalResult')
     const resultsText = document.querySelector('#resultsText')
@@ -89,11 +104,11 @@ export default class extends View {
       resultsText.textContent = 'maybe another time?'
     }
 
-    const currentCategoryIndex = this.categories.findIndex((el) => el === this.category)
+    this.setResultsToStorage()
+    const nextCategoryName = this.calcNextCategory()
 
-    if (currentCategoryIndex !== 9) {
-      const nextCategory = this.categories[currentCategoryIndex + 1]
-      nextQuizLink.href = `/quiz/artists/${nextCategory}`
+    if (nextCategoryName) {
+      nextQuizLink.href = `/quiz/artists/${nextCategoryName}`
     } else {
       nextQuizLink.classList.add('disabled')
     }
