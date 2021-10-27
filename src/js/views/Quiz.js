@@ -105,7 +105,11 @@ export default class extends View {
     const nextCategoryName = this.calcNextCategory()
 
     if (nextCategoryName) {
-      nextQuizLink.href = `/quiz/artists/${nextCategoryName}`
+      if (this.type === 'artists') {
+        nextQuizLink.href = `/quiz/artists/${nextCategoryName}`
+      } else {
+        nextQuizLink.href = `/quiz/pictures/${nextCategoryName}`
+      }
     } else {
       nextQuizLink.classList.add('disabled')
     }
@@ -198,24 +202,30 @@ export default class extends View {
           answers.push(randomAnswer.author)
         }
       }
+
+      const shuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1))
+          ;[array[i], array[j]] = [array[j], array[i]]
+        }
+        return array
+      }
+
+      shuffle(answers)
     } else {
       const rightAnswer = this.questions[this.currentQuestion].name
       this.rightAnswer = rightAnswer
-      const currentAnswers = this.picturesImages.splice(0, 4)
+      let currentAnswers = []
+
+      if (this.picturesImages.length === 0) {
+        currentAnswers = this.picturesImages
+      } else {
+        currentAnswers = this.picturesImages.splice(0, 4)
+      }
       currentAnswers.forEach((answer) => {
         answers.push(answer.name)
       })
     }
-
-    const shuffle = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1))
-        ;[array[i], array[j]] = [array[j], array[i]]
-      }
-      return array
-    }
-
-    shuffle(answers)
 
     answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
     answersEl.forEach((el) => {
@@ -324,7 +334,7 @@ export default class extends View {
 
   mount() {
     return `
-    <header>
+  <header>
     <div class="container">
       <div class="header header-quiz">
         <a href="/" class="header-quiz__nav btn" title="Home" data-link></a>
