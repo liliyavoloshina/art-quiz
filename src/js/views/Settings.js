@@ -7,6 +7,8 @@ export default class extends View {
     this.setTitle('Art Quiz - Settings')
   }
 
+  mounted() {}
+
   mount() {
     return `
     <header>

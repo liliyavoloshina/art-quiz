@@ -2,17 +2,15 @@ import Home from './views/Home'
 import Settings from './views/Settings'
 import Categories from './views/Categories'
 import Quiz from './views/Quiz'
+import Score from './views/Score'
 
 // get query from path
-const pathRegex = (path) =>
-  new RegExp(`^${path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)')}$`)
+const pathRegex = (path) => new RegExp(`^${path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)')}$`)
 
 // get query value
 const getParams = (match) => {
   const values = match.result.slice(1)
-  const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(
-    (result) => result[1]
-  )
+  const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map((result) => result[1])
 
   return Object.fromEntries(keys.map((key, i) => [key, values[i]]))
 }
@@ -23,6 +21,7 @@ const router = async () => {
     { path: '/settings', View: Settings },
     { path: '/categories/:type', View: Categories },
     { path: '/quiz/:type/:category', View: Quiz },
+    { path: '/score/:type/:category', View: Score },
   ]
 
   const potentialMatches = routes.map((route) => ({
@@ -30,9 +29,7 @@ const router = async () => {
     result: window.location.pathname.match(pathRegex(route.path)),
   }))
 
-  let match = potentialMatches.find(
-    (potentialMatch) => potentialMatch.result !== null
-  )
+  let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null)
 
   if (!match) {
     match = { route: routes[0], result: [window.location.pathname] }

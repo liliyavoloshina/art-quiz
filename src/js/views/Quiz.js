@@ -146,8 +146,8 @@ export default class extends View {
 
       while (randomImages.length < 30) {
         const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
-        const randomImageName = randomImage.name
-        const isExist = !!randomImages.find((el) => el.name === randomImageName)
+        const randomImageAuthor = randomImage.author
+        const isExist = !!randomImages.find((el) => el.author === randomImageAuthor)
         if (isExist === false) {
           randomImages.push(randomImage)
         }
