@@ -97,10 +97,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
-  transition: 2s ease;
+  // transition: 1s ease;
 
+  // &.hidden {
+  //   transform: translateY(100%);
+  // }
   &.hidden {
-    transform: translateY(100%);
+    animation: slide-in-slide-out 2s ease;
   }
 
   .answer {
@@ -157,5 +160,14 @@
 @keyframes zoom-in-zoom-out {
   50% {
     transform: scale(1.1, 1.1);
+  }
+}
+
+@keyframes slide-in-slide-out {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }

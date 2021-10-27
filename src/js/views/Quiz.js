@@ -69,6 +69,7 @@ export default class extends View {
     if (this.currentQuestion !== 10) {
       this.generateQuestion()
       this.showNextImage()
+      this.showNextAnswers()
       this.generateAnswers()
     } else {
       this.showResults()
@@ -80,6 +81,14 @@ export default class extends View {
     const images = slider.querySelectorAll('.image')
     images.forEach((image) => {
       image.style.transform = `translateY(${this.currentQuestion * -100}%)`
+    })
+  }
+
+  showNextAnswers() {
+    const quizAnswers = document.querySelector('#quizAnswers')
+    quizAnswers.classList.add('hidden')
+    quizAnswers.addEventListener('animationend', () => {
+      quizAnswers.classList.remove('hidden')
     })
   }
 
@@ -177,17 +186,12 @@ export default class extends View {
     const modal = document.querySelector('.modal')
     const answersEl = document.querySelectorAll('.answer')
     modal.classList.add('hidden')
-    modal.addEventListener('transitionstart', this.animateAnswers)
-    modal.removeEventListener('transitionend', this.animateAnswers)
-
     answersEl.forEach((btn) => (btn.disabled = false))
   }
 
   openModal() {
     const modal = document.querySelector('.modal')
     modal.classList.remove('hidden')
-    modal.addEventListener('transitionend', this.animateAnswers)
-    modal.removeEventListener('transitionstart', this.animateAnswers)
   }
 
   generateModal() {
