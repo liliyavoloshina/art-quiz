@@ -17,6 +17,8 @@ export default class extends View {
     this.currentQuestion = 0
     this.rightAnswer = ''
     this.isCorrect = false
+
+    this.picturesImages = []
   }
 
   async getQuestions() {
@@ -60,10 +62,12 @@ export default class extends View {
   }
 
   showNextAnswers() {
-    const quizAnswers = document.querySelector('#quizAnswers')
-    quizAnswers.classList.add('hidden')
-    quizAnswers.addEventListener('animationend', () => {
-      quizAnswers.classList.remove('hidden')
+    const answersEl = document.querySelectorAll('.answer')
+    answersEl.forEach((answer) => {
+      answer.classList.add('hidden')
+      answer.addEventListener('animationend', () => {
+        answer.classList.remove('hidden')
+      })
     })
   }
 
@@ -122,7 +126,6 @@ export default class extends View {
 
   generateImages() {
     const items = []
-
     if (this.type === 'artists') {
       this.questions.forEach((question) => {
         items.push(`
@@ -135,10 +138,6 @@ export default class extends View {
         `)
       })
     } else {
-      // const correctImages = []
-      // this.questions.forEach((question) => {
-      //   correctImages.push(question.imageNum)
-      // })
       const randomImages = []
 
       while (randomImages.length < 30) {
@@ -163,6 +162,8 @@ export default class extends View {
       for (let i = 0; i < this.questions.length; i++) {
         randomImages.splice(randomIndexes[i], 0, this.questions[i])
       }
+
+      this.picturesImages = randomImages
 
       randomImages.forEach((image) => {
         items.push(`
@@ -200,14 +201,10 @@ export default class extends View {
     } else {
       const rightAnswer = this.questions[this.currentQuestion].name
       this.rightAnswer = rightAnswer
-      answers.push(rightAnswer)
-
-      while (answers.length < 4) {
-        const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
-        if (!answers.includes(randomAnswer.name)) {
-          answers.push(randomAnswer.name)
-        }
-      }
+      const currentAnswers = this.picturesImages.splice(0, 4)
+      currentAnswers.forEach((answer) => {
+        answers.push(answer.name)
+      })
     }
 
     const shuffle = (array) => {
@@ -225,11 +222,6 @@ export default class extends View {
       el.classList.remove('correct')
       el.classList.remove('incorrect')
     })
-  }
-
-  animateAnswers() {
-    const quizAnswers = document.querySelector('#quizAnswers')
-    quizAnswers.classList.toggle('hidden')
   }
 
   closeModal() {
