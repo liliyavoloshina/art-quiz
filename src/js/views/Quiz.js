@@ -71,13 +71,9 @@ export default class extends View {
   }
 
   setResultsToStorage() {
-    console.log('setResultsToStorage')
     const updatedCategory = { name: this.category, isPlayed: true, results: this.correctAnswers }
-
     const categoryToUpdateIdx = this.categories.findIndex((el) => el.name === this.category)
-
     this.categories[categoryToUpdateIdx] = updatedCategory
-    console.log(this.categories)
 
     localStorage.setItem(`${this.type}Results`, JSON.stringify(this.categories))
   }

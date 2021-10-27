@@ -6,8 +6,6 @@ export default class {
 
     this.categories = []
     this.getCategoriesFromStorage()
-
-    console.log('view created')
   }
 
   setTitle(title) {

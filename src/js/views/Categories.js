@@ -15,11 +15,12 @@ export default class extends View {
   categoriesToHtml() {
     const items = []
     this.categories.forEach((category) => {
+      const { isPlayed } = category
       items.push(`
         <a class="category" href="/quiz/${this.type}/${category.name}" data-link>
-          <div class="category__score">${category.results}/10</div>
+          <div class="category__score ${!isPlayed ? 'hidden' : ''}">${category.results.length}/10</div>
            <div class="category__name">${category.name}</div>
-              <div class="category__image">
+              <div class="category__image ${!isPlayed ? 'inversed' : ''}">
                 <img src="../img/category/${category.name}.jpg" alt="${category} quiz">
             </div>
         </a>`)

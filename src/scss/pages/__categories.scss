@@ -39,6 +39,10 @@
   &__score {
     align-self: flex-end;
     font-size: var(--category-score-fs);
+
+    &.hidden {
+      opacity: 0;
+    }
   }
 
   &__image {
@@ -52,7 +56,7 @@
       object-fit: cover;
     }
 
-    &.inverse {
+    &.inversed {
       filter: grayscale(100%);
     }
   }
