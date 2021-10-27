@@ -146,7 +146,9 @@ export default class extends View {
 
       while (randomImages.length < 30) {
         const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
-        if (!randomImages.includes(randomImage)) {
+        const randomImageName = randomImage.name
+        const isExist = !!randomImages.find((el) => el.name === randomImageName)
+        if (isExist === false) {
           randomImages.push(randomImage)
         }
       }
@@ -217,11 +219,12 @@ export default class extends View {
       this.rightAnswer = rightAnswer
       let currentAnswers = []
 
-      if (this.picturesImages.length === 0) {
+      if (this.picturesImages.length === 4) {
         currentAnswers = this.picturesImages
       } else {
         currentAnswers = this.picturesImages.splice(0, 4)
       }
+
       currentAnswers.forEach((answer) => {
         answers.push(answer.name)
       })
