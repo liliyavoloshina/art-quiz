@@ -14,7 +14,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-home">
-            <a href="/settings" class="header-home__nav btn" data-link><i class="fi fi-rr-settings"></i></a>
+            <a href="/settings" class="header-home__nav btn" title="Settings" data-link></a>
         </div>
       </div>
     </header>

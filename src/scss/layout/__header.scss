@@ -33,6 +33,8 @@
 .header-home {
   &__nav {
     margin-left: auto;
+    background: url('/icon/settings.svg') center center no-repeat;
+    background-size: 40%;
   }
 }
 
@@ -43,9 +45,23 @@
   }
 }
 
+.header-settings {
+  &__nav {
+    background: url('/icon/back.png') center center no-repeat;
+    background-size: 40%;
+  }
+}
+
 .header-quiz {
   &__nav {
-    background: url('/icon/home.svg') center center;
-    background-size: contain;
+    background: url('/icon/home.svg') center center no-repeat;
+    background-size: 40%;
+  }
+}
+
+.header-categories {
+  &__nav {
+    background: url('/icon/back.png') center center no-repeat;
+    background-size: 40%;
   }
 }

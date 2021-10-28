@@ -147,14 +147,17 @@
     &:first-child.hidden {
       animation: slide-in-slide-out 0.5s ease;
     }
+
     &:nth-child(2).hidden {
-      animation: slide-in-slide-out 1.2s ease;
+      animation: slide-in-slide-out 1s ease;
     }
+
     &:nth-child(3).hidden {
-      animation: slide-in-slide-out 2.3s ease;
+      animation: slide-in-slide-out 1.5s ease;
     }
+
     &:last-child.hidden {
-      animation: slide-in-slide-out 2.7s ease;
+      animation: slide-in-slide-out 2s ease;
     }
 
     &:hover {

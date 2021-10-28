@@ -14,7 +14,7 @@ export default class extends View {
     <header>
         <div class="container">
             <div class="header header-settings">
-                <a href="/" class="header-settings__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
+                <a href="/" class="header-settings__nav btn" title="Back" data-link></a>
                 <h1 class="header__title">settings.</h1>
             </div>
         </div>

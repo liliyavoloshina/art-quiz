@@ -17,7 +17,6 @@ export default class extends View {
     this.categories.forEach((category) => {
       const { isPlayed } = category
       items.push(`
-      <a href="/score/${this.type}/${category.name}" data-link>score</a>
         <a class="category" href="/quiz/${this.type}/${category.name}" data-link>
           <div class="category__header">
             <div class="category__score ${!isPlayed ? 'hidden' : ''}">${category.results.length}/10</div>
@@ -32,14 +31,22 @@ export default class extends View {
     this.categoriesHtml = items.join('\n')
   }
 
-  mounted() {}
+  mounted() {
+    const categoryBoxes = document.querySelectorAll('.category')
+    categoryBoxes.forEach((box) => {
+      box.classList.add('hidden')
+      box.addEventListener('animationend', () => {
+        box.classList.remove('hidden')
+      })
+    })
+  }
 
   mount() {
     return `
     <header>
         <div class="container">
             <div class="header header-categories">
-                <a href="/" class="header-categories__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
+                <a href="/" class="header-categories__nav btn" title="Back" data-link></a>
                 <h1 class="header__title">${this.type}.</h1>
             </div>
         </div>
