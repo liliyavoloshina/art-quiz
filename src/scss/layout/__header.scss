@@ -16,6 +16,12 @@
   }
 }
 
+@media (min-width: 1920px) {
+  :root {
+    --header-p: 1.5em 0;
+  }
+}
+
 .header {
   position: relative;
   display: flex;

@@ -2,6 +2,7 @@
 
 import View from './View'
 // import Timer from '../components/timer'
+import Confetti from '../components/confetti'
 
 export default class extends View {
   constructor(params) {
@@ -126,6 +127,13 @@ export default class extends View {
 
     correctAnswersCount.textContent = correctNum
     modalResult.classList.remove('hidden')
+
+    if (correctNum === 10 || (correctNum > 8 && correctNum < 10)) {
+      modalResult.addEventListener('transitionend', () => {
+        const confettiWrapper = document.querySelector('.confetti-wrapper')
+        const confetti = new Confetti(confettiWrapper)
+      })
+    }
   }
 
   generateQuestion() {
@@ -442,6 +450,7 @@ export default class extends View {
       </div>
   </div>
 </div>
+<div class="confetti-wrapper" id="quizConfetti"></div>
     `
   }
 }

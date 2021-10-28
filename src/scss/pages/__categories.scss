@@ -7,7 +7,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
-  margin-top: var(--main-mt);
 }
 
 .category {
@@ -76,8 +75,12 @@
     font-size: var(--category-name-fs);
   }
 
+  &__header {
+    display: flex;
+  }
+
   &__score {
-    align-self: flex-end;
+    margin-left: auto;
     font-size: var(--category-score-fs);
 
     &.hidden {
