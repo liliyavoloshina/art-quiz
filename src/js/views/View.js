@@ -5,7 +5,9 @@ export default class {
     this.params = params
 
     this.categories = []
+    this.soundStatus = null
     this.getCategoriesFromStorage()
+    this.getSoundStatus()
   }
 
   setTitle(title) {
@@ -28,6 +30,10 @@ export default class {
     ]
     const results = JSON.parse(localStorage.getItem(`${type}Results`)) || initialResults
     this.categories = results
+  }
+
+  getSoundStatus() {
+    this.soundStatus = localStorage.getItem('soundStatus') || true
   }
 
   mount() {

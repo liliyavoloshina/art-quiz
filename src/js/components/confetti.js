@@ -4,14 +4,12 @@ export default class {
     this.containerEl = null
 
     this.confettiFrequency = 3
+    this.confettiSize = 15
     this.confettiColors = ['#fce18a', '#ff726d', '#b48def', '#f4306d']
     this.confettiAnimations = ['slow', 'medium', 'fast']
-
-    this.setupElements()
-    this.renderConfetti()
   }
 
-  setupElements() {
+  init() {
     const containerEl = document.createElement('div')
     const elPosition = this.el.style.position
 
@@ -24,12 +22,14 @@ export default class {
     this.el.appendChild(containerEl)
 
     this.containerEl = containerEl
+
+    this.render()
   }
 
-  renderConfetti() {
+  render() {
     this.confettiInterval = setInterval(() => {
       const confettiEl = document.createElement('div')
-      const confettiSize = `${Math.floor(Math.random() * 3) + 15}px`
+      const confettiSize = `${Math.floor(Math.random() * 3) + this.confettiSize}px`
       const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)]
       const confettiLeft = `${Math.floor(Math.random() * this.el.offsetWidth)}px`
       const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)]
@@ -48,5 +48,3 @@ export default class {
     }, 25)
   }
 }
-
-// const confetti = new Confettiful(document.querySelector('.js-container'))

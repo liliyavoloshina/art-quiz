@@ -32,6 +32,20 @@ export default class extends View {
     this.questions = this.allQuestions.filter((question) => question.genre === this.category)
   }
 
+  playSound() {
+    const sound = new Audio()
+
+    if (this.isCorrect) {
+      sound.src = '/audio/correct.wav'
+    } else {
+      sound.src = '/audio/incorrect.wav'
+    }
+
+    sound.play()
+
+    // console.log(this.soundStatus)
+  }
+
   nextQuestion() {
     this.rightAnswer = ''
     this.isCorrect = false
@@ -102,15 +116,23 @@ export default class extends View {
     const correctAnswersCount = document.querySelector('#correctAnswersCount')
     const correctNum = this.correctAnswers.length
 
+    const sound = new Audio()
+
     if (correctNum === 10) {
       resultsText.textContent = 'are you an art expert?!'
+      sound.src = '/audio/applause.wav'
     } else if (correctNum > 8 && correctNum < 10) {
       resultsText.textContent = 'wow, you are on fire!'
+      sound.src = '/audio/applause.wav'
     } else if (correctNum < 8 && correctNum > 5) {
       resultsText.textContent = 'you can do better!'
+      sound.src = '/audio/failure.wav'
     } else {
       resultsText.textContent = 'maybe another time?'
+      sound.src = '/audio/failure.mp3'
     }
+
+    sound.play()
 
     this.setResultsToStorage()
     const nextCategoryName = this.calcNextCategory()
@@ -132,6 +154,7 @@ export default class extends View {
       modalResult.addEventListener('transitionend', () => {
         const confettiWrapper = document.querySelector('.confetti-wrapper')
         const confetti = new Confetti(confettiWrapper)
+        confetti.init()
       })
     }
   }
@@ -329,6 +352,8 @@ export default class extends View {
       pagination[this.currentQuestion].classList.add('incorrect')
       answer.classList.add('incorrect')
     }
+
+    this.playSound()
 
     if (this.currentQuestion !== 10) {
       this.generateModal()

@@ -4,7 +4,7 @@ import View from './View'
 export default class extends View {
   constructor(params) {
     super(params)
-    this.setTitle('Art Quiz - Home')
+    this.setTitle('artquiz. - home')
   }
 
   mounted() {}
