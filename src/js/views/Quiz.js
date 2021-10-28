@@ -76,9 +76,9 @@ export default class extends View {
 
     this.questions.forEach((el) => {
       if (this.correctAnswers.includes(el)) {
-        results.push({ ...el, correct: true })
+        results.push({ ...el, isCorrect: true })
       } else {
-        results.push({ ...el, correct: false })
+        results.push({ ...el, isCorrect: false })
       }
     })
 

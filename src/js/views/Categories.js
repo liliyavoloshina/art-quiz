@@ -12,8 +12,6 @@ export default class extends View {
 
   // <a href="/score/${this.type}/${category.name}" data-link>score</a>
 
-  mounted() {}
-
   categoriesToHtml() {
     const items = []
     this.categories.forEach((category) => {
