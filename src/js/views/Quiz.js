@@ -383,7 +383,7 @@ export default class extends View {
   <header>
     <div class="container">
       <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav btn" title="Home" data-link></a>
+        <a href="/" class="header-quiz__nav btn" data-link><span class="material-icons">home</span></a>
         <div class="timer">
           <div class="timer__pauses"><span id="pauses">0</span>/2</div>
           <div class="timer__display">

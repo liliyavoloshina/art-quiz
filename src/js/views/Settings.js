@@ -14,7 +14,7 @@ export default class extends View {
     <header>
         <div class="container">
             <div class="header header-settings">
-                <a href="/" class="header-settings__nav btn" title="Back" data-link></a>
+                <a href="/" class="header-settings__nav btn" title="Back" data-link><span class="material-icons">home</span></a>
                 <h1 class="header__title">settings.</h1>
             </div>
         </div>
@@ -24,12 +24,18 @@ export default class extends View {
         <div class="container">
             <div class="settings">
                 <div class="settings-block">
-                    <i class="settings-block__icon fi fi-rr-volume"></i>
-                    <div class="settings-block__input"><input class="range" type="range" id="volumeRange"></div>
-                    <div class="settings-block__text">volume</div>
+                    <div class="settings-block__image music"></div>
+                    <div class="settings-block__input">
+                        <div class="checkbox">
+                            <input id="musicInput" type="checkbox">
+                            <label for="musicInput"><i class="fi fi-rr-check"></i></label>
+                        </div>
+                        <input class="range" type="range" id="musicRange">
+                    </div>
+                    <div class="settings-block__text">music</div>
                 </div>
                 <div class="settings-block">
-                    <i class="settings-block__icon fi fi-rr-hourglass-end"></i>
+                    <div class="settings-block__image clock"></div>
                     <div class="settings-block__input">
                         <div class="checkbox">
                             <input id="timerInput" type="checkbox">

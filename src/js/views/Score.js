@@ -31,7 +31,6 @@ export default class extends View {
         )
       })
     } else {
-      console.log('scoretoHtml')
       await this.getFullCategory()
       this.scoreCategory.forEach((item) => {
         items.push(
@@ -80,7 +79,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-score">
-          <a href="/" class="header-score__nav btn" data-link><i class="fi fi-rr-angle-small-left"></i></a>
+          <a href="/" class="header-score__nav btn" data-link><span class="material-icons">home</span></a>
           <h1 class="header__title">score.</h1>
         </div>
       </div>

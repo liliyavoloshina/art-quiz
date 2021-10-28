@@ -1,12 +1,14 @@
 :root {
   --settings-row-g: 2em;
-  --settings-icon-fs: 5em;
+  --settings-image-s: 20%;
   --settings-block-h: 30vh;
   --settings-text-fs: 2em;
+  --settings-input-m: 10% 0;
 }
 
 @media (min-width: 420px) {
   :root {
+    --settings-image-s: 30%;
     --settings-block-h: 40vh;
   }
 }
@@ -14,8 +16,9 @@
 @media (min-width: 768px) {
   :root {
     --settings-block-h: 60vh;
-    --settings-icon-fs: 12em;
+    --settings-image-s: 50%;
     --settings-text-fs: 3em;
+    --settings-input-m: 20% 0;
   }
 }
 
@@ -31,7 +34,7 @@
   flex: 1 1 25em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: var(--settings-block-h);
   background: var(--background-primary);
@@ -39,10 +42,27 @@
   padding: 30px;
   border-radius: 10px;
 
-  &__icon {
-    &::before {
-      font-size: var(--settings-icon-fs);
-    }
+  &__image {
+    width: var(--settings-image-s);
+    height: var(--settings-image-s);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__image.music {
+    background-image: url('../icon/music.svg');
+  }
+
+  &__image.clock {
+    background-image: url('../icon/clock.svg');
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--settings-input-m);
   }
 
   &__text {
