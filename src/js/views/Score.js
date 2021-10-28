@@ -6,6 +6,7 @@ export default class extends View {
     super(params)
     this.setTitle('artquiz. - score')
     this.type = this.params.type
+    this.category = this.params.category
     this.scoreHtml = ''
     this.scoreToHtml()
   }
@@ -14,6 +15,8 @@ export default class extends View {
 
   scoreToHtml() {
     const items = []
+    const scoreCategories = this.categories.filter((el) => el.name === this.category)
+    console.log(scoreCategories)
 
     this.scoreHtml = items.join('\n')
   }

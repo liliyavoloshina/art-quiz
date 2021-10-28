@@ -72,7 +72,17 @@ export default class extends View {
   }
 
   setResultsToStorage() {
-    const updatedCategory = { name: this.category, isPlayed: true, results: this.correctAnswers }
+    const results = []
+
+    this.questions.forEach((el) => {
+      if (this.correctAnswers.includes(el)) {
+        results.push({ ...el, correct: true })
+      } else {
+        results.push({ ...el, correct: false })
+      }
+    })
+
+    const updatedCategory = { name: this.category, isPlayed: true, results }
     const categoryToUpdateIdx = this.categories.findIndex((el) => el.name === this.category)
     this.categories[categoryToUpdateIdx] = updatedCategory
 
