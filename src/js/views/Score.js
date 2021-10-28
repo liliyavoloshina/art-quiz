@@ -21,7 +21,7 @@ export default class extends View {
                 <div class="score__img ${!isCorrect ? 'inversed' : ''}">
                   <img src="/img/small/${item.imageNum}full.webp" alt="${item.name}" />
                 </div>
-                <div class="popup-score hidden" data-id="${item.name}">
+                <div class="popup-score hidden">
                     <div class="popup-score__name">${item.name}</div>
                     <div class="popup-score__author">${item.author}</div>
                     <div class="popup-score__year">${item.year}</div>
@@ -31,6 +31,7 @@ export default class extends View {
         )
       })
     } else {
+      console.log('scoretoHtml')
       await this.getFullCategory()
       this.scoreCategory.forEach((item) => {
         items.push(
@@ -39,8 +40,9 @@ export default class extends View {
                     <img src="/img/small/${item.imageNum}full.webp" alt="${item.name}" />
                 </div>
                 <div class="popup-score hidden">
-                        <div class="popup-score__title"></div>
-                        <div class="popup-score__info">info here</div>
+                    <div class="popup-score__name">${item.name}</div>
+                    <div class="popup-score__author">${item.author}</div>
+                    <div class="popup-score__year">${item.year}</div>
                 </div>
             </div>
                 `
@@ -55,7 +57,7 @@ export default class extends View {
     const items = document.querySelectorAll('.score__item')
     items.forEach((item) => {
       const popup = item.querySelector('.popup-score')
-      item.addEventListener('click', (e) => {
+      item.addEventListener('click', () => {
         popup.classList.toggle('hidden')
       })
     })
@@ -67,9 +69,9 @@ export default class extends View {
     this.scoreCategory = data.filter((el) => el.genre === this.category)
   }
 
-  mounted() {
+  async mounted() {
     this.scoreHtml = document.querySelector('#scoreHtml')
-    this.scoreToHtml()
+    await this.scoreToHtml()
     this.bindListeners()
   }
 

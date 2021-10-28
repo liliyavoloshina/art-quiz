@@ -32,6 +32,8 @@ export default class extends View {
     this.categoriesHtml = items.join('\n')
   }
 
+  mounted() {}
+
   mount() {
     return `
     <header>
