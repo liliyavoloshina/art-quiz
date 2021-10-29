@@ -7,7 +7,7 @@ export default class {
     this.categories = []
     this.soundStatus = null
     this.getCategoriesFromStorage()
-    this.getSoundStatus()
+    this.getSettings()
   }
 
   setTitle(title) {
@@ -32,8 +32,10 @@ export default class {
     this.categories = results
   }
 
-  getSoundStatus() {
-    this.soundStatus = localStorage.getItem('soundStatus') || true
+  getSettings() {
+    this.isWithSound = JSON.parse(localStorage.getItem('isWithSound') || true)
+    this.isWithTimer = JSON.parse(localStorage.getItem('isWithTimer') || true)
+    this.soundValue = JSON.parse(localStorage.getItem('soundValue') || 50)
   }
 
   mount() {

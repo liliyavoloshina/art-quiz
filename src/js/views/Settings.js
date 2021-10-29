@@ -4,17 +4,47 @@ import View from './View'
 export default class extends View {
   constructor(params) {
     super(params)
-    this.setTitle('Art Quiz - Settings')
+    this.setTitle('artquiz. - settings')
+    this.soundCheckbox = null
+    this.timerCheckbox = null
   }
 
-  mounted() {}
+  updateSettings(name, value) {
+    localStorage.setItem(name, value)
+  }
+
+  bindListeners() {
+    this.soundCheckbox.addEventListener('change', (e) => {
+      this.updateSettings('isWithSound', e.target.checked)
+    })
+    this.timerCheckbox.addEventListener('change', (e) => {
+      this.updateSettings('isWithTimer', e.target.checked)
+    })
+    this.soundRange.addEventListener('input', (e) => {
+      const volumeForAudio = (e.target.value * 0.01).toFixed(2)
+      this.updateSettings('soundValue', volumeForAudio)
+    })
+  }
+
+  mounted() {
+    this.soundCheckbox = document.querySelector('#soundCheckbox')
+    this.timerCheckbox = document.querySelector('#timerCheckbox')
+    this.soundRange = document.querySelector('#soundRange')
+
+    this.soundCheckbox.checked = this.isWithSound
+    this.timerCheckbox.checked = this.isWithTimer
+
+    this.soundRange.value = this.soundValue * 100
+
+    this.bindListeners()
+  }
 
   mount() {
     return `
     <header>
         <div class="container">
             <div class="header header-settings">
-                <a href="/" class="header-settings__nav btn" title="Back" data-link><span class="material-icons">home</span></a>
+                <a href="/" class="header-settings__nav btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
                 <h1 class="header__title">settings.</h1>
             </div>
         </div>
@@ -24,23 +54,26 @@ export default class extends View {
         <div class="container">
             <div class="settings">
                 <div class="settings-block">
-                    <div class="settings-block__image music"></div>
                     <div class="settings-block__input">
                         <div class="checkbox">
-                            <input id="musicInput" type="checkbox">
-                            <label for="musicInput"><i class="fi fi-rr-check"></i></label>
+                            <input id="soundCheckbox" type="checkbox">
+                            <label for="soundCheckbox"><span class="material-icons-round">done</span></label>
                         </div>
-                        <input class="range" type="range" id="musicRange">
+                    </div>
+                    <div class="settings-block__input">
+                        <input class="range" type="range" min="1" id="soundRange">
                     </div>
                     <div class="settings-block__text">music</div>
                 </div>
                 <div class="settings-block">
-                    <div class="settings-block__image clock"></div>
                     <div class="settings-block__input">
                         <div class="checkbox">
-                            <input id="timerInput" type="checkbox">
-                            <label for="timerInput"><i class="fi fi-rr-check"></i></label>
+                            <input id="timerCheckbox" type="checkbox">
+                            <label for="timerCheckbox"><span class="material-icons-round">done</span></label>
                         </div>
+                    </div>
+                    <div class="settings-block__input">
+                        <input class="input-number" type="number" id="timerInput">
                     </div>
                     <div class="settings-block__text">timer</div>
                 </div>

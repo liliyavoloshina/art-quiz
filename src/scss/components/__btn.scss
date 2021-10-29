@@ -1,28 +1,24 @@
 :root {
-  --btn-w: 2em;
-  --btn-h: 2em;
+  --btn-fs: 1em;
+  --btn-p: 0.5em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --btn-w: 2em;
-    --btn-h: 2em;
+    --btn-fs: 1.5em;
   }
 }
 @media (min-width: 768px) {
   :root {
-    --btn-w: 4em;
-    --btn-h: 4em;
+    --btn-fs: 2em;
   }
 }
 
 .btn {
-  width: var(--btn-w);
-  height: var(--btn-h);
   display: flex;
   justify-content: center;
   align-items: center;
-  // padding: var(--btn-p);
+  padding: var(--btn-p);
   border-radius: 10px;
   box-shadow: var(--shadow);
   cursor: pointer;
@@ -30,13 +26,22 @@
   transition: all 1.5s linear;
   color: var(--dark);
 
-  // .fi {
-  //   &::before {
-  //     font-size: var(--btn-fs);
-  //   }
-  // }
+  span[class^='material-icons'] {
+    pointer-events: none;
+    color: var(--grey);
+    font-size: var(--btn-fs);
+    transition: 0.6s ease;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
 
   &:hover {
     box-shadow: var(--inner-shadow);
+
+    span[class^='material-icons'] {
+      color: var(--accent);
+    }
   }
 }

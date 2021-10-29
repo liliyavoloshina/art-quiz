@@ -34,6 +34,9 @@ export default class extends View {
 
   playSound() {
     const sound = new Audio()
+    sound.volume = this.soundValue
+
+    console.log(sound.volume)
 
     if (this.isCorrect) {
       sound.src = '/audio/correct.wav'
@@ -42,8 +45,6 @@ export default class extends View {
     }
 
     sound.play()
-
-    // console.log(this.soundStatus)
   }
 
   nextQuestion() {
@@ -117,6 +118,7 @@ export default class extends View {
     const correctNum = this.correctAnswers.length
 
     const sound = new Audio()
+    sound.volume = this.soundValue
 
     if (correctNum === 10) {
       resultsText.textContent = 'are you an art expert?!'
@@ -132,7 +134,9 @@ export default class extends View {
       sound.src = '/audio/failure.mp3'
     }
 
-    sound.play()
+    if (this.isWithSound) {
+      sound.play()
+    }
 
     this.setResultsToStorage()
     const nextCategoryName = this.calcNextCategory()
@@ -353,7 +357,9 @@ export default class extends View {
       answer.classList.add('incorrect')
     }
 
-    this.playSound()
+    if (this.isWithSound) {
+      this.playSound()
+    }
 
     if (this.currentQuestion !== 10) {
       this.generateModal()
@@ -383,7 +389,7 @@ export default class extends View {
   <header>
     <div class="container">
       <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav btn" data-link><span class="material-icons">home</span></a>
+        <a href="/" class="header-quiz__nav btn" data-link><span class="material-icons-round">home</span></a>
         <div class="timer">
           <div class="timer__pauses"><span id="pauses">0</span>/2</div>
           <div class="timer__display">
