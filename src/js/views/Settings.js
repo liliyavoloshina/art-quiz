@@ -13,16 +13,40 @@ export default class extends View {
     localStorage.setItem(name, value)
   }
 
+  incrTimer() {
+    if (this.timerValue < 30 && this.timerValue >= 0) {
+      this.timerValue += 5
+    }
+    this.timerInput.value = this.timerValue
+  }
+
+  decrTimer() {
+    if (this.timerValue <= 30 && this.timerValue > 5) {
+      this.timerValue -= 5
+    }
+    this.timerInput.value = this.timerValue
+  }
+
   bindListeners() {
     this.soundCheckbox.addEventListener('change', (e) => {
       this.updateSettings('isWithSound', e.target.checked)
     })
+
     this.timerCheckbox.addEventListener('change', (e) => {
       this.updateSettings('isWithTimer', e.target.checked)
     })
+
     this.soundRange.addEventListener('input', (e) => {
       const volumeForAudio = (e.target.value * 0.01).toFixed(2)
       this.updateSettings('soundValue', volumeForAudio)
+    })
+
+    this.incrTimerBtn.addEventListener('click', () => {
+      this.incrTimer()
+    })
+
+    this.decrTimerBtn.addEventListener('click', () => {
+      this.decrTimer()
     })
   }
 
@@ -30,11 +54,15 @@ export default class extends View {
     this.soundCheckbox = document.querySelector('#soundCheckbox')
     this.timerCheckbox = document.querySelector('#timerCheckbox')
     this.soundRange = document.querySelector('#soundRange')
+    this.decrTimerBtn = document.querySelector('#decrTimerBtn')
+    this.incrTimerBtn = document.querySelector('#incrTimerBtn')
+    this.timerInput = document.querySelector('#timerInput')
 
     this.soundCheckbox.checked = this.isWithSound
     this.timerCheckbox.checked = this.isWithTimer
 
     this.soundRange.value = this.soundValue * 100
+    this.timerInput.value = this.timerValue
 
     this.bindListeners()
   }
@@ -74,9 +102,9 @@ export default class extends View {
                     </div>
                     <div class="settings-block__input">
                         <div class="input-number">
-                          <button class="input-number__btn" type="number" id="decrTimer"><span class="material-icons-round">remove</span></button>
-                          <input class="input-number__input" type="number" id="timerInput">
-                          <button class="input-number__btn" type="number" id="incrTimer"><span class="material-icons-round">add</span></button>
+                          <button class="input-number__btn" type="number" id="decrTimerBtn"><span class="material-icons-round">remove</span></button>
+                          <input class="input-number__input" type="number" id="timerInput" disabled>
+                          <button class="input-number__btn" type="number" id="incrTimerBtn"><span class="material-icons-round">add</span></button>
                         </div>
                     </div>
                     <div class="settings-block__text">timer</div>

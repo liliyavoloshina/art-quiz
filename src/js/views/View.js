@@ -36,6 +36,7 @@ export default class {
     this.isWithSound = JSON.parse(localStorage.getItem('isWithSound') || true)
     this.isWithTimer = JSON.parse(localStorage.getItem('isWithTimer') || true)
     this.soundValue = JSON.parse(localStorage.getItem('soundValue') || 50)
+    this.timerValue = JSON.parse(localStorage.getItem('timerValue') || 30)
   }
 
   mount() {
