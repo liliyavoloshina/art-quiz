@@ -20,8 +20,6 @@
   box-shadow: var(--shadow);
   padding: 30px;
   border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
 
   &:first-child.hidden {
     animation: slide-in-slide-out 0.5s ease;
@@ -63,29 +61,37 @@
     animation: slide-in-slide-out 2.5s ease;
   }
 
-  & > * {
-    pointer-events: none;
-  }
-
   &:hover {
+    transition: 0.5s ease;
     box-shadow: var(--inner-shadow);
   }
 
   &__name {
+    color: var(--text-dark);
+    cursor: pointer;
+    text-decoration: none;
     font-size: var(--category-name-fs);
+    transition: 0.5s ease;
+
+    &:hover {
+      color: var(--accent);
+    }
   }
 
   &__header {
     display: flex;
   }
 
-  &__score {
-    margin-left: auto;
-    font-size: var(--category-score-fs);
-
+  &__score,
+  &__results {
     &.hidden {
       opacity: 0;
     }
+  }
+
+  &__results {
+    margin-left: auto;
+    font-size: var(--category-score-fs);
   }
 
   &__image {

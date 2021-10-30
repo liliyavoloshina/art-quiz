@@ -12,16 +12,6 @@
   }
 }
 
-@media (min-width: 1920px) {
-  :root {
-    --modal-h: 45em;
-    --modal-image-h: 20em;
-    --modal-icon-s: 10em;
-    --modal-icon-fs: 5em;
-    --modal-text-fs: 2em;
-  }
-}
-
 .modal {
   position: fixed;
   bottom: 0;
@@ -35,6 +25,7 @@
   border-radius: 10px;
   background-color: white;
   transition: 1s ease-in;
+  box-shadow: var(--inner-shadow);
 
   &.hidden {
     bottom: -150%;
@@ -53,6 +44,7 @@
     border-radius: 100%;
     border: 15px solid white;
     background-color: #fff;
+    box-shadow: var(--inner-shadow);
   }
 
   &__main {

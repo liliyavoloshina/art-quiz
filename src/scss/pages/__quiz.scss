@@ -20,7 +20,6 @@
     --quiz-row-g: 2em;
     --quiz-images-h: 40em;
     --quiz-pictures-img-p: 0.6em;
-    // --quiz-images-h: 30em;
     --quiz-answer-fs: 1.5em;
     --quiz-pag-s: 1.5em;
     --quiz-answers-g: 2em;
@@ -32,15 +31,8 @@
   :root {
     --quiz-question-fs: 3em;
     --quiz-images-h: 50em;
-    // --quiz-images-h: 35em;
     --quiz-answer-fs: 1.7em;
     --quiz-image-info-fs: 2em;
-  }
-}
-
-@media (min-width: 1920px) {
-  :root {
-    --quiz-images-h: 70em;
   }
 }
 

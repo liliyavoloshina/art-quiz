@@ -10,22 +10,23 @@ export default class extends View {
     this.categoriesToHtml()
   }
 
-  // <a href="/score/${this.type}/${category.name}" data-link>score</a>
-
   categoriesToHtml() {
     const items = []
     this.categories.forEach((category) => {
       const { isPlayed } = category
       items.push(`
-        <a class="category" href="/quiz/${this.type}/${category.name}" data-link>
+        <div class="category">
           <div class="category__header">
-            <div class="category__score ${!isPlayed ? 'hidden' : ''}">${category.results.length}/10</div>
+          <a class="category__score btn ${!isPlayed ? 'hidden' : ''}" href="/score/${this.type}/${category.name}" data-link>
+            <span class="material-icons-round">star</span>
+          </a>
+            <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.results.length}/10</div>
           </div>
-           <div class="category__name">${category.name}</div>
-              <div class="category__image ${!isPlayed ? 'inversed' : ''}">
-                <img src="../img/category/${category.name}.jpg" alt="${category} quiz">
-            </div>
-        </a>`)
+          <a class="category__name" href="/quiz/${this.type}/${category.name}" data-link>${category.name}</a>
+          <div class="category__image ${!isPlayed ? 'inversed' : ''}">
+              <img src="../img/category/${category.name}.jpg" alt="${category} quiz">
+          </div>
+        </div>`)
     })
 
     this.categoriesHtml = items.join('\n')

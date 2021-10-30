@@ -1,20 +1,20 @@
-.checkmark__circle {
+#checkmark.hidden {
+  display: none;
+}
+
+.checkmark.animated .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
   stroke-width: 2;
   stroke-miterlimit: 10;
   stroke: var(--green);
-  fill: none;
+  // fill: var(--green);
   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards;
 }
 
-#checkmark.hidden {
-  display: none;
-}
-
-.checkmark {
-  width: 56px;
-  height: 56px;
+.checkmark.animated {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   display: block;
   stroke-width: 2;
@@ -25,11 +25,11 @@
   animation: fill 0.4s ease-in-out 1.4s forwards, scale 0.3s ease-in-out 1.9s both;
 }
 
-.checkmark__check.animated {
+.checkmark.animated .checkmark__check {
   transform-origin: 50% 50%;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
-  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 1.8s forwards;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 2s forwards;
 }
 
 @keyframes stroke {
@@ -46,9 +46,10 @@
     transform: scale3d(1.1, 1.1, 1);
   }
 }
+
 @keyframes fill {
   100% {
-    box-shadow: inset 0px 0px 0px 30px var(--green);
+    box-shadow: inset 0px 0px 0px 100px var(--green);
   }
 }
 
@@ -57,8 +58,8 @@
 }
 
 .crossmark.animated {
-  width: 56px;
-  height: 56px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   display: block;
   stroke-width: 2;
@@ -66,7 +67,7 @@
   stroke-miterlimit: 10;
   margin: 10% auto;
   box-shadow: inset 0px 0px 0px var(--red);
-  animation: fillred 0.4s ease-in-out 1.4s forwards, scale 1.3s ease-in-out 1.9s both;
+  animation: fillred 0.4s ease-in-out 1.4s forwards, scale 1.3s ease-in-out 2.2s both;
 }
 
 .crossmark.animated .crossmark__circle {
@@ -87,16 +88,16 @@
 }
 
 .crossmark.animated .cross__path--right {
-  animation: 0.3s ease 1.8s normal forwards 1 running stroke;
+  animation: 0.3s ease 2s normal forwards 1 running stroke;
 }
 
 .crossmark.animated .cross__path--left {
-  animation: 1s ease 1.8s normal forwards 1 running stroke;
+  animation: 1s ease 2s normal forwards 1 running stroke;
 }
 
 @keyframes fillred {
   100% {
-    box-shadow: inset 0px 0px 0px 30px var(--red);
+    box-shadow: inset 0px 0px 0px 100px var(--red);
   }
 }
 

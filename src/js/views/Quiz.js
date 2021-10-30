@@ -291,8 +291,10 @@ export default class extends View {
     modal.classList.add('hidden')
     answersEl.forEach((btn) => (btn.disabled = false))
 
-    this.crossmarkCheck.classList.remove('animated')
-    this.checkmarkCheck.classList.remove('animated')
+    setTimeout(() => {
+      this.crossmarkCheck.classList.remove('animated')
+      this.checkmarkCheck.classList.remove('animated')
+    }, 1000)
   }
 
   openModal() {
@@ -338,7 +340,7 @@ export default class extends View {
 
   findElements() {
     this.crossmarkCheck = document.querySelector('.crossmark')
-    this.checkmarkCheck = document.querySelector('.checkmark__check')
+    this.checkmarkCheck = document.querySelector('.checkmark')
   }
 
   bindListeners() {
