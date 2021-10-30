@@ -52,20 +52,7 @@
     height: var(--modal-icon-s);
     border-radius: 100%;
     border: 15px solid white;
-
-    &.correct {
-      background: var(--green);
-    }
-
-    &.incorrect {
-      background: var(--red);
-    }
-
-    .fi {
-      padding-top: 15px;
-      font-size: var(--modal-icon-fs);
-      color: white;
-    }
+    background-color: #fff;
   }
 
   &__main {

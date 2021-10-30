@@ -21,6 +21,9 @@ export default class extends View {
 
     this.picturesImages = []
     this.timerTimeout = false
+
+    this.crossmarkCheck = null
+    this.checkmarkCheck = null
   }
 
   async getQuestions() {
@@ -287,6 +290,9 @@ export default class extends View {
     const answersEl = document.querySelectorAll('.answer')
     modal.classList.add('hidden')
     answersEl.forEach((btn) => (btn.disabled = false))
+
+    this.crossmarkCheck.classList.remove('animated')
+    this.checkmarkCheck.classList.remove('animated')
   }
 
   openModal() {
@@ -299,7 +305,8 @@ export default class extends View {
     const modalSecondLineEl = document.querySelector('#modalSecondLine')
     const modalYearEl = document.querySelector('#modalYear')
     const modalImage = document.querySelector('#modalImage')
-    const modalStatus = document.querySelector('#modalStatus')
+    const checkmarkStatus = document.querySelector('#checkmark')
+    const crossmarkStatus = document.querySelector('#crossmark')
 
     const currentImageNum = this.questions[this.currentQuestion].imageNum
     const currentName = this.questions[this.currentQuestion].name
@@ -309,13 +316,13 @@ export default class extends View {
     modalImage.src = `/img/full/${currentImageNum}full.webp`
 
     if (this.isCorrect) {
-      modalStatus.classList.remove('incorrect')
-      modalStatus.classList.add('correct')
-      modalStatus.innerHTML = `<i class="fi fi-rr-check"></i>`
+      crossmarkStatus.classList.add('hidden')
+      checkmarkStatus.classList.remove('hidden')
+      this.checkmarkCheck.classList.add('animated')
     } else {
-      modalStatus.classList.remove('correct')
-      modalStatus.classList.add('incorrect')
-      modalStatus.innerHTML = `<i class="fi fi-rr-cross"></i>`
+      checkmarkStatus.classList.add('hidden')
+      crossmarkStatus.classList.remove('hidden')
+      this.crossmarkCheck.classList.add('animated')
     }
 
     if (this.type === 'artists') {
@@ -327,6 +334,11 @@ export default class extends View {
       modalSecondLineEl.textContent = `"${currentName}"`
       modalYearEl.textContent = `in ${currentYear}`
     }
+  }
+
+  findElements() {
+    this.crossmarkCheck = document.querySelector('.crossmark')
+    this.checkmarkCheck = document.querySelector('.checkmark__check')
   }
 
   bindListeners() {
@@ -388,6 +400,7 @@ export default class extends View {
   }
 
   async mounted() {
+    this.findElements()
     this.initTimer()
     this.bindListeners()
 
@@ -462,7 +475,14 @@ export default class extends View {
   </footer>
 
   <div class="modal hidden">
-    <div class="modal__status" id="modalStatus"></div>
+    <div class="modal__status" id="modalStatus">
+    <div id="checkmark"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg></div>
+    <div id="crossmark"><svg class="crossmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                          <path class="cross__path cross__path--right" fill="none" d="M16,16 l20,20" />
+                          <path class="cross__path cross__path--left" fill="none" d="M16,36 l20,-20" />
+                        </svg>
+    </div>
+    </div>
     <div class="modal__main">
       <div class="modal__image">
         <img
