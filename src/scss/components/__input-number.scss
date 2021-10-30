@@ -1,20 +1,74 @@
+:root {
+  --input-number-br: 2em;
+}
+
 .input-number {
-  width: 5em;
-  height: 4rem;
-  border: none;
-  border-radius: 1rem;
-  font-size: 1.4rem;
-  padding-left: 1.4rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 10em;
+  height: 3.3em;
+  border-radius: var(--input-number-br);
   box-shadow: var(--inner-shadow);
   background: none;
-  font-family: inherit;
-  color: var(--grey);
 
-  &::placeholder {
-    color: var(--grey-medium);
+  &__input {
+    width: 20%;
+    border: none;
+    font-size: 1.4rem;
+    background: none;
+    font-family: inherit;
+    color: var(--grey);
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    &::placeholder {
+      color: var(--grey-medium);
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
-  &:focus {
-    outline: none;
+
+  &__btn {
+    position: absolute;
+    top: 0.5em;
+    bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    border-radius: var(--input-number-br);
     box-shadow: var(--shadow);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 1.5s linear;
+    color: var(--dark);
+    background: transparent;
+    transition: all 0.5s ease;
+    border: none;
+    outline: none;
+    color: var(--grey);
+
+    &:first-of-type {
+      left: 0.5em;
+    }
+
+    &:last-of-type {
+      right: 0.5em;
+    }
+
+    &:active {
+      box-shadow: var(--inner-shadow);
+      color: var(--primary);
+    }
+
+    &:hover {
+      color: var(--accent);
+    }
   }
 }

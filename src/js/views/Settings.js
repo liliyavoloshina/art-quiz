@@ -73,7 +73,11 @@ export default class extends View {
                         </div>
                     </div>
                     <div class="settings-block__input">
-                        <input class="input-number" type="number" id="timerInput">
+                        <div class="input-number">
+                          <button class="input-number__btn" type="number" id="decrTimer"><span class="material-icons-round">remove</span></button>
+                          <input class="input-number__input" type="number" id="timerInput">
+                          <button class="input-number__btn" type="number" id="incrTimer"><span class="material-icons-round">add</span></button>
+                        </div>
                     </div>
                     <div class="settings-block__text">timer</div>
                 </div>
