@@ -20,12 +20,11 @@
 .home {
   display: flex;
   flex-direction: column;
-  // min-height: 100vh;
   gap: var(--home-row-g);
 
   &-logo {
     width: 17em;
-    height: 7em;
+    height: 5em;
     margin-left: auto;
     margin-right: auto;
     background: url('../img/logo.png') no-repeat;
@@ -40,7 +39,7 @@
   flex-wrap: wrap;
 
   &__type {
-    flex: 1 1 35em;
+    flex: 1 1 25em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -18,6 +18,10 @@
 }
 
 .timer {
+  position: fixed;
+  top: 1em;
+  right: var(--section-p);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +30,11 @@
   margin-left: auto;
   border: 0.3rem solid var(--grey);
   border-radius: 50%;
-  box-shadow: var(--shadow);
+  background-color: var(--background-primary);
+
+  &.hidden {
+    display: none;
+  }
 
   &__display {
     font-weight: 600;

@@ -30,7 +30,7 @@
 @media (min-width: 1024px) {
   :root {
     --quiz-question-fs: 3em;
-    --quiz-images-h: 50em;
+    // --quiz-images-h: 40em;
     --quiz-answer-fs: 1.7em;
     --quiz-image-info-fs: 2em;
   }
@@ -94,6 +94,7 @@
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+      transition: 0.3s;
     }
   }
 }

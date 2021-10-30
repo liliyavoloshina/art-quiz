@@ -24,6 +24,7 @@ export default class extends View {
 
     this.crossmarkCheck = null
     this.checkmarkCheck = null
+    this.imagesEl = null
   }
 
   async getQuestions() {
@@ -302,6 +303,24 @@ export default class extends View {
     modal.classList.remove('hidden')
   }
 
+  fullscreenImage(e) {
+    const image = e.target
+    const modalFullscreen = document.querySelector('#modalFullscreen')
+
+    const imageFullscreen = document.querySelector('#imageFullscreen')
+
+    modalFullscreen.style.display = 'block'
+    imageFullscreen.src = image.src
+
+    modalFullscreen.addEventListener('click', () => {
+      imageFullscreen.className += ' out'
+      setTimeout(() => {
+        modalFullscreen.style.display = 'none'
+        imageFullscreen.className = 'modal-image__image'
+      }, 400)
+    })
+  }
+
   generateModal() {
     const modalFirstLineEl = document.querySelector('#modalFirstLine')
     const modalSecondLineEl = document.querySelector('#modalSecondLine')
@@ -341,9 +360,13 @@ export default class extends View {
   findElements() {
     this.crossmarkCheck = document.querySelector('.crossmark')
     this.checkmarkCheck = document.querySelector('.checkmark')
+    this.imagesEl = document.querySelectorAll('img')
   }
 
   bindListeners() {
+    this.imagesEl.forEach((image) => {
+      image.addEventListener('click', (e) => this.fullscreenImage(e))
+    })
     const answersEl = document.querySelectorAll('.answer')
     const modalBtn = document.querySelector('#modalBtn')
     answersEl.forEach((el) =>
@@ -402,39 +425,40 @@ export default class extends View {
   }
 
   async mounted() {
-    this.findElements()
     this.initTimer()
-    this.bindListeners()
 
     await this.getQuestions()
     await this.filterQuestions()
     this.generateQuestion()
     this.generateImages()
     this.generateAnswers()
+
+    this.findElements()
+    this.bindListeners()
   }
 
   mount() {
     return `
   <header>
+  <div class="timer ${this.isWithTimer ? '' : 'hidden'}">
+  <div class="timer__display">
+    <div class="display seconds"></div>
+  </div>
+  <svg
+    class="circle"
+    x="0px"
+    y="0px"
+    width="500px"
+    height="500px"
+    viewBox="0 0 521.17 521.17"
+    style="overflow: visible;"
+  >
+    <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
+  </svg>
+</div>
     <div class="container">
       <div class="header header-quiz">
         <a href="/" class="header-quiz__nav btn" data-link><span class="material-icons-round">home</span></a>
-        <div class="timer">
-          <div class="timer__display">
-            <div class="display seconds"></div>
-          </div>
-          <svg
-            class="circle"
-            x="0px"
-            y="0px"
-            width="500px"
-            height="500px"
-            viewBox="0 0 521.17 521.17"
-            style="overflow: visible;"
-          >
-            <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
-          </svg>
-        </div>
       </div>
     </div>
   </header>
@@ -479,10 +503,11 @@ export default class extends View {
   <div class="modal hidden">
     <div class="modal__status" id="modalStatus">
     <div id="checkmark"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg></div>
-    <div id="crossmark"><svg class="crossmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                          <path class="cross__path cross__path--right" fill="none" d="M16,16 l20,20" />
-                          <path class="cross__path cross__path--left" fill="none" d="M16,36 l20,-20" />
-                        </svg>
+    <div id="crossmark">
+      <svg class="crossmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="cross__path cross__path--right" fill="none" d="M16,16 l20,20" />
+        <path class="cross__path cross__path--left" fill="none" d="M16,36 l20,-20" />
+      </svg>
     </div>
     </div>
     <div class="modal__main">
@@ -514,6 +539,10 @@ export default class extends View {
       </div>
   </div>
 </div>
+
+<div class="modal-image" id="modalFullscreen">
+    <img class="modal-image__image" id="imageFullscreen">
+  </div>
 <div class="confetti-wrapper" id="quizConfetti"></div>
     `
   }
