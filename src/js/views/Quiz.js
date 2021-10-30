@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign, no-inner-declarations */
 
 import View from './View'
-// import Timer from '../components/timer'
+import Timer from '../components/timer'
 import Confetti from '../components/confetti'
 
 export default class extends View {
@@ -20,6 +20,7 @@ export default class extends View {
     this.isCorrect = false
 
     this.picturesImages = []
+    this.timerTimeout = false
   }
 
   async getQuestions() {
@@ -35,8 +36,6 @@ export default class extends View {
   playSound() {
     const sound = new Audio()
     sound.volume = this.soundValue
-
-    console.log(sound.volume)
 
     if (this.isCorrect) {
       sound.src = '/audio/correct.wav'
@@ -57,6 +56,7 @@ export default class extends View {
       this.showNextImage()
       this.showNextAnswers()
       this.generateAnswers()
+      this.initTimer()
     } else {
       this.showResults()
     }
@@ -343,14 +343,19 @@ export default class extends View {
   }
 
   answer(answer) {
+    this.timer.pauseTimer()
+    clearTimeout(this.timerTimeout)
     const pagination = document.querySelectorAll('.pag-item')
-    const answerText = answer.innerHTML
+    const answerText = answer === 'timeout' ? 'timeout' : answer.innerHTML
 
     if (answerText === this.rightAnswer) {
       this.isCorrect = true
       pagination[this.currentQuestion].classList.add('correct')
       this.correctAnswers.push(this.questions[this.currentQuestion])
       answer.classList.add('correct')
+    } else if (answerText === 'timeout') {
+      this.isCorrect = false
+      pagination[this.currentQuestion].classList.add('incorrect')
     } else {
       this.isCorrect = false
       pagination[this.currentQuestion].classList.add('incorrect')
@@ -372,9 +377,18 @@ export default class extends View {
     answersEl.forEach((btn) => (btn.disabled = true))
   }
 
+  initTimer() {
+    if (this.isWithTimer) {
+      this.timer = new Timer(this.timerValue)
+      this.timer.initTimer()
+      this.timerTimeout = setTimeout(() => {
+        this.answer('timeout')
+      }, this.timerValue * 1000)
+    }
+  }
+
   async mounted() {
-    // const timer = new Timer()
-    // timer.initTimer()
+    this.initTimer()
     this.bindListeners()
 
     await this.getQuestions()
@@ -391,10 +405,7 @@ export default class extends View {
       <div class="header header-quiz">
         <a href="/" class="header-quiz__nav btn" data-link><span class="material-icons-round">home</span></a>
         <div class="timer">
-          <div class="timer__pauses"><span id="pauses">0</span>/2</div>
           <div class="timer__display">
-            <div class="display minute"></div>
-            <span class="display colon">:</span>
             <div class="display seconds"></div>
           </div>
           <svg
@@ -404,7 +415,7 @@ export default class extends View {
             width="500px"
             height="500px"
             viewBox="0 0 521.17 521.17"
-            style="overflow: visible; enable-background: new 0 0 521.17 521.17"
+            style="overflow: visible;"
           >
             <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
           </svg>

@@ -13,18 +13,27 @@ export default class extends View {
     localStorage.setItem(name, value)
   }
 
-  incrTimer() {
-    if (this.timerValue < 30 && this.timerValue >= 0) {
-      this.timerValue += 5
+  changeTimerValue(type) {
+    if (type === 'decr') {
+      if (this.timerValue <= 30 && this.timerValue > 5) {
+        this.timerValue -= 5
+      }
     }
-    this.timerInput.value = this.timerValue
-  }
 
-  decrTimer() {
-    if (this.timerValue <= 30 && this.timerValue > 5) {
-      this.timerValue -= 5
+    if (type === 'incr') {
+      if (this.timerValue < 30 && this.timerValue >= 5) {
+        this.timerValue += 5
+      }
     }
+
+    this.timerInput.classList.add('changed')
+    this.timerInput.addEventListener('transitionend', () => {
+      this.timerInput.classList.remove('changed')
+    })
+
     this.timerInput.value = this.timerValue
+
+    this.updateSettings('timerValue', this.timerValue)
   }
 
   bindListeners() {
@@ -42,11 +51,11 @@ export default class extends View {
     })
 
     this.incrTimerBtn.addEventListener('click', () => {
-      this.incrTimer()
+      this.changeTimerValue('incr')
     })
 
     this.decrTimerBtn.addEventListener('click', () => {
-      this.decrTimer()
+      this.changeTimerValue('decr')
     })
   }
 

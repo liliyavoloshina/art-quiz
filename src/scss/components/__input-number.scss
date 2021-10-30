@@ -20,6 +20,12 @@
     font-family: inherit;
     color: var(--grey);
 
+    transition: 0.5s ease;
+
+    &.changed {
+      color: var(--accent);
+    }
+
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
       -webkit-appearance: none;

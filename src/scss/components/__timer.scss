@@ -1,33 +1,23 @@
 :root {
   --timer-w: 4em;
   --timer-fs: 1.1em;
-  --timer-pauses-fs: 1em;
   --timer-circle-yellow: #ffcd00;
 }
 
 @media (min-width: 420px) {
   :root {
     --timer-w: 4em;
-    --timer-fs: 1.1em;
   }
 }
 
 @media (min-width: 768px) {
   :root {
     --timer-w: 5.5em;
-    --timer-fs: 1.4em;
     --timer-pauses-fs: 1.2em;
   }
 }
 
-@media (min-width: 1024px) {
-  :root {
-    --timer-pauses-fs: 1.5em;
-  }
-}
-
 .timer {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,12 +32,6 @@
     font-weight: 600;
     font-size: var(--timer-fs);
     display: flex;
-  }
-
-  &__pauses {
-    position: absolute;
-    left: -3em;
-    font-size: var(--timer-pauses-fs);
   }
 }
 
@@ -71,14 +55,15 @@
   width: var(--timer-w);
   height: var(--timer-w);
   position: absolute;
+  overflow: visible;
+  enable-background: new 0 0 521.17 521.17;
 }
 
 circle {
   fill: none;
-  stroke: var(--timer-circle-yellow);
+  stroke: var(--green);
   stroke-width: 18;
   stroke-dasharray: 1590;
-  stroke-dashoffset: 1590;
   stroke-linecap: round;
   transform: rotate(270deg);
   transform-origin: center;
