@@ -8,6 +8,12 @@ export default class extends View {
     this.type = this.params.type
     this.categoriesHtml = ''
     this.categoriesToHtml()
+    this.correctResults = this.categories
+  }
+
+  getCorrectNumber(results) {
+    const correctResults = results.filter((item) => item.isCorrect)
+    return correctResults.length
   }
 
   categoriesToHtml() {
@@ -20,7 +26,7 @@ export default class extends View {
           <a class="category__score btn ${!isPlayed ? 'hidden' : ''}" href="/score/${this.type}/${category.name}" data-link>
             <span class="material-icons-round">star</span>
           </a>
-            <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.results.length}/10</div>
+            <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.isPlayed ? this.getCorrectNumber(category.results) : ''}/10</div>
           </div>
           <a class="category__name" href="/quiz/${this.type}/${category.name}" data-link>${category.name}</a>
           <a class="category__image ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
