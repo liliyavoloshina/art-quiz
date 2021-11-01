@@ -8,20 +8,28 @@ export default class {
     this.circleSvg = document.querySelector('circle')
 
     this.interval = false
+    this.isPaused = false
     this.totalTime = this.timerValue
     this.yellow = Math.floor(this.totalTime / 2)
     this.red = Math.floor(this.totalTime / 4)
+
+    window.addEventListener('popstate', this.pauseTimer)
   }
 
   pauseTimer() {
-    clearInterval(this.interval)
-    this.circleSvg.style.animationPlayState = 'paused'
-    this.disSeconds.style.animationPlayState = 'paused'
-    this.circleSvg.style.animation = 'none'
+    if (!this.isPaused) {
+      this.isPaused = true
+      clearInterval(this.interval)
+      this.circleSvg.style.animationPlayState = 'paused'
+      this.disSeconds.style.animationPlayState = 'paused'
+    }
   }
 
   playTimer() {
+    if (this.isPaused) return
     const seconds = this.totalTime % 60
+    this.circleSvg.style.animationPlayState = 'running'
+    this.disSeconds.style.animationPlayState = 'running'
 
     if (this.totalTime <= this.red) {
       this.circleSvg.style.stroke = 'var(--red)'
@@ -39,6 +47,7 @@ export default class {
     if (this.totalTime > 0) {
       this.totalTime--
     } else {
+      clearTimeout(this.interval)
       this.circleSvg.style.animation = 'none'
       this.disSeconds.style.animation = 'none'
     }
@@ -57,12 +66,16 @@ export default class {
     this.play()
   }
 
+  resumeTimer() {
+    if (this.isPaused) {
+      this.play()
+      this.isPaused = false
+    }
+  }
+
   play() {
     this.playTimer()
     this.setInterval()
-
-    this.circleSvg.style.animationPlayState = 'running'
-    this.disSeconds.style.animationPlayState = 'running'
   }
 
   validateTime(element, value) {

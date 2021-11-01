@@ -18,6 +18,12 @@
   }
 }
 
+@media (min-width: 1497px) {
+  :root {
+    --header-nav-p: 0;
+  }
+}
+
 @media (min-width: 1920px) {
   :root {
     --header-p: 1.5em 0;

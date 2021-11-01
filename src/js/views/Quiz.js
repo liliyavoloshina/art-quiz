@@ -241,6 +241,8 @@ export default class extends View {
     const imagesHtml = items.join('\n')
     const images = document.querySelector('#quizImages')
     images.innerHTML = imagesHtml
+
+    this.imagesEl = document.querySelectorAll('.image')
   }
 
   generateAnswers() {
@@ -307,7 +309,12 @@ export default class extends View {
   }
 
   fullscreenImage(e) {
-    const image = e.target
+    if (this.isWithTimer) {
+      clearTimeout(this.timerTimeout)
+      this.timer.pauseTimer()
+    }
+
+    const image = e.target.querySelector('img')
     const modalFullscreen = document.querySelector('#modalFullscreen')
 
     const imageFullscreen = document.querySelector('#imageFullscreen')
@@ -316,7 +323,12 @@ export default class extends View {
     imageFullscreen.src = image.src
 
     modalFullscreen.addEventListener('click', () => {
-      imageFullscreen.className += ' out'
+      imageFullscreen.classList.add('out')
+      if (this.isWithTimer) {
+        this.timer.resumeTimer()
+        clearTimeout(this.timerTimeout)
+        this.setTimeout(this.timer.totalTime + 1)
+      }
       setTimeout(() => {
         modalFullscreen.style.display = 'none'
         imageFullscreen.className = 'modal-image__image'
@@ -364,7 +376,6 @@ export default class extends View {
     this.answersEl = document.querySelectorAll('.answer')
     this.crossmarkCheck = document.querySelector('.crossmark')
     this.checkmarkCheck = document.querySelector('.checkmark')
-    this.imagesEl = document.querySelectorAll('img')
     this.questionTextEl = document.querySelector('#quizQuestionText')
   }
 
@@ -380,6 +391,9 @@ export default class extends View {
     )
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
+    })
+    window.addEventListener('popstate', () => {
+      clearTimeout(this.timerTimeout)
     })
   }
 
@@ -420,13 +434,17 @@ export default class extends View {
     this.answersEl.forEach((btn) => (btn.disabled = true))
   }
 
+  setTimeout(value) {
+    this.timerTimeout = setTimeout(() => {
+      this.answer('timeout')
+    }, value * 1000)
+  }
+
   initTimer() {
     if (this.isWithTimer) {
       this.timer = new Timer(this.timerValue)
       this.timer.initTimer()
-      this.timerTimeout = setTimeout(() => {
-        this.answer('timeout')
-      }, this.timerValue * 1000)
+      this.setTimeout(this.timerValue)
     }
   }
 
@@ -550,7 +568,8 @@ export default class extends View {
 
 <div class="modal-image" id="modalFullscreen">
     <img class="modal-image__image" id="imageFullscreen">
-  </div>
+</div>
+
 <div class="confetti-wrapper hidden" id="quizConfetti"></div>
     `
   }

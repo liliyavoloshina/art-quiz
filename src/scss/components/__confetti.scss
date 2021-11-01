@@ -4,6 +4,7 @@
   height: 100vh;
 
   &.hidden {
+    height: 0;
     z-index: -1;
   }
 }
