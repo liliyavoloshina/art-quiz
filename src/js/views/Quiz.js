@@ -132,12 +132,12 @@ export default class extends View {
     if (correctNum === 10) {
       resultsText.textContent = 'are you an art expert?!'
       sound.src = '/audio/applause.wav'
-    } else if (correctNum > 8 && correctNum < 10) {
+    } else if (correctNum >= 8 && correctNum < 10) {
       resultsText.textContent = 'wow, you are on fire!'
       sound.src = '/audio/applause.wav'
-    } else if (correctNum < 8 && correctNum > 5) {
+    } else if (correctNum < 8 && correctNum >= 5) {
       resultsText.textContent = 'you can do better!'
-      sound.src = '/audio/failure.wav'
+      sound.src = '/audio/failure.mp3'
     } else {
       resultsText.textContent = 'maybe another time?'
       sound.src = '/audio/failure.mp3'
@@ -447,22 +447,23 @@ export default class extends View {
   mount() {
     return `
   <header>
-  <div class="timer ${this.isWithTimer ? '' : 'hidden'}">
-  <div class="timer__display">
-    <div class="display seconds"></div>
-  </div>
-  <svg
-    class="circle"
-    x="0px"
-    y="0px"
-    width="500px"
-    height="500px"
-    viewBox="0 0 521.17 521.17"
-    style="overflow: visible;"
-  >
-    <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
-  </svg>
-</div>
+    <div class="timer ${this.isWithTimer ? '' : 'hidden'}">
+      <div class="timer__display">
+        <div class="display seconds"></div>
+      </div>
+      <svg
+      class="circle"
+      x="0px"
+      y="0px"
+      width="500px"
+      height="500px"
+      viewBox="0 0 521.17 521.17"
+      style="overflow: visible;"
+      >
+      <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
+      </svg>
+    </div>
+
     <div class="container">
       <div class="header header-quiz">
         <a href="/" class="header-quiz__nav header__nav header__nav--left btn" data-link><span class="material-icons-round">home</span></a>
