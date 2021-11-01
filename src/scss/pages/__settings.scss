@@ -26,6 +26,12 @@
   gap: 2em;
   flex-wrap: wrap;
   margin-top: var(--main-mt);
+
+  @for $i from 1 through 2 {
+    &:nth-child(#{$i}) {
+      @include page-ainimation($i, 1s);
+    }
+  }
 }
 
 .settings-block {
@@ -40,22 +46,6 @@
   box-shadow: var(--shadow);
   padding: 30px;
   border-radius: 10px;
-
-  // &__image {
-  //   width: var(--settings-image-s);
-  //   height: var(--settings-image-s);
-  //   background-position: center;
-  //   background-size: contain;
-  //   background-repeat: no-repeat;
-  // }
-
-  // &__image.music {
-  //   background-image: url('../icon/music.svg');
-  // }
-
-  // &__image.clock {
-  //   background-image: url('../icon/clock.svg');
-  // }
 
   &__input {
     display: flex;

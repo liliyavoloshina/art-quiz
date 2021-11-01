@@ -1,11 +1,13 @@
 :root {
   --header-p: 1.5em;
+  --header-nav-p: 0.5em;
   --header-title-fs: 1.5em;
 }
 
 @media (min-width: 420px) {
   :root {
     --header-p: 1.5em;
+    --header-nav-p: 2em;
     --header-title-fs: 2em;
   }
 }
@@ -19,32 +21,32 @@
 @media (min-width: 1920px) {
   :root {
     --header-p: 1.5em 0;
+    --header-nav-p: 0;
   }
 }
 
 .header {
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: var(--header-p) var(--section-p);
 
-  &__title {
+  &__nav {
     position: absolute;
-    right: 50%;
-    transform: translateX(50%);
+    top: var(--header-p);
+
+    &--left {
+      left: var(--header-nav-p);
+    }
+
+    &--right {
+      right: var(--header-nav-p);
+    }
+  }
+
+  &__title {
     font-size: var(--header-title-fs);
-  }
-}
-
-.header-home {
-  &__nav {
-    margin-left: auto;
-  }
-}
-
-.header-settings,
-.header-quiz {
-  &__nav {
-    margin-right: auto;
+    @include heading-ainimation(1s);
   }
 }

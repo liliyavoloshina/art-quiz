@@ -137,20 +137,10 @@
     box-shadow: var(--shadow);
     border-radius: 10px;
 
-    &:first-child.hidden {
-      animation: slide-in-slide-out 0.5s ease;
-    }
-
-    &:nth-child(2).hidden {
-      animation: slide-in-slide-out 1s ease;
-    }
-
-    &:nth-child(3).hidden {
-      animation: slide-in-slide-out 1.5s ease;
-    }
-
-    &:last-child.hidden {
-      animation: slide-in-slide-out 2s ease;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}).hidden {
+        animation: slide-in-slide-out $i * 0.3s ease;
+      }
     }
 
     &:hover {

@@ -72,7 +72,6 @@ export default class extends View {
 
     this.soundRange.value = this.soundValue * 100
     this.timerInput.value = this.timerValue
-
     this.bindListeners()
   }
 
@@ -81,7 +80,7 @@ export default class extends View {
     <header>
         <div class="container">
             <div class="header header-settings">
-                <a href="/" class="header-settings__nav btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
+                <a href="/" class="header-settings__nav header__nav header__nav--left btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
                 <h1 class="header__title">settings.</h1>
             </div>
         </div>

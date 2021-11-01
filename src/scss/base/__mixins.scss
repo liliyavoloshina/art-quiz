@@ -1,0 +1,25 @@
+@mixin page-ainimation($num, $speed) {
+  animation: slide-in-slide-out $num * $speed ease-in-out;
+}
+
+@mixin heading-ainimation($speed) {
+  animation: slide-out $speed ease;
+}
+
+@keyframes slide-in-slide-out {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

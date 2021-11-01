@@ -161,6 +161,7 @@ export default class extends View {
     if (correctNum === 10 || (correctNum > 8 && correctNum < 10)) {
       modalResult.addEventListener('transitionend', () => {
         const confettiWrapper = document.querySelector('.confetti-wrapper')
+        confettiWrapper.classList.remove('hidden')
         const confetti = new Confetti(confettiWrapper)
         confetti.init()
       })
@@ -380,8 +381,11 @@ export default class extends View {
   }
 
   answer(answer) {
-    this.timer.pauseTimer()
-    clearTimeout(this.timerTimeout)
+    if (this.isWithTimer) {
+      this.timer.pauseTimer()
+      clearTimeout(this.timerTimeout)
+    }
+
     const pagination = document.querySelectorAll('.pag-item')
     const answerText = answer === 'timeout' ? 'timeout' : answer.innerHTML
 
@@ -458,7 +462,7 @@ export default class extends View {
 </div>
     <div class="container">
       <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav btn" data-link><span class="material-icons-round">home</span></a>
+        <a href="/" class="header-quiz__nav header__nav header__nav--left btn" data-link><span class="material-icons-round">home</span></a>
       </div>
     </div>
   </header>
@@ -543,7 +547,7 @@ export default class extends View {
 <div class="modal-image" id="modalFullscreen">
     <img class="modal-image__image" id="imageFullscreen">
   </div>
-<div class="confetti-wrapper" id="quizConfetti"></div>
+<div class="confetti-wrapper hidden" id="quizConfetti"></div>
     `
   }
 }
