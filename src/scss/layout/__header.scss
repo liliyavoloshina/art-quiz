@@ -34,7 +34,7 @@
 
   &__nav {
     position: absolute;
-    top: var(--header-p);
+    top: 1.5em;
 
     &--left {
       left: var(--header-nav-p);
@@ -47,6 +47,6 @@
 
   &__title {
     font-size: var(--header-title-fs);
-    @include heading-ainimation(1s);
+    @include heading-animation;
   }
 }

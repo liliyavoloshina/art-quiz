@@ -1,9 +1,9 @@
-@mixin page-ainimation($num, $speed) {
+@mixin page-animation($num, $speed) {
   animation: slide-in-slide-out $num * $speed ease-in-out;
 }
 
-@mixin heading-ainimation($speed) {
-  animation: slide-out $speed ease;
+@mixin heading-animation {
+  animation: slide-out 0.5s ease;
 }
 
 @keyframes slide-in-slide-out {

@@ -23,7 +23,7 @@
 
   @for $i from 1 through 10 {
     &:nth-child(#{$i}).hidden {
-      animation: slide-in-slide-out $i * 0.5s ease;
+      @include page-animation($i, 0.2s);
     }
   }
 
@@ -38,10 +38,6 @@
     text-decoration: none;
     font-size: var(--category-name-fs);
     transition: 0.5s ease;
-
-    &:hover {
-      color: var(--accent);
-    }
   }
 
   &__header {
@@ -69,19 +65,11 @@
       height: 100%;
       border-radius: 10px;
       object-fit: cover;
+      pointer-events: none;
     }
 
     &.inversed {
       filter: grayscale(100%);
     }
-  }
-}
-
-@keyframes slide-in-slide-out {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
   }
 }

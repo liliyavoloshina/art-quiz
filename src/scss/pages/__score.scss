@@ -29,6 +29,12 @@
     border-radius: 100%;
     cursor: pointer;
 
+    @for $i from 1 through 10 {
+      &:nth-of-type(#{$i}) {
+        @include page-animation($i, 0.2s);
+      }
+    }
+
     &:hover {
       box-shadow: var(--inner-shadow);
     }

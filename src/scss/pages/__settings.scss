@@ -29,7 +29,7 @@
 
   @for $i from 1 through 2 {
     &:nth-child(#{$i}) {
-      @include page-ainimation($i, 1s);
+      @include page-animation($i, 0.4s);
     }
   }
 }

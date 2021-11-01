@@ -30,7 +30,6 @@
 @media (min-width: 1024px) {
   :root {
     --quiz-question-fs: 3em;
-    // --quiz-images-h: 40em;
     --quiz-answer-fs: 1.7em;
     --quiz-image-info-fs: 2em;
   }
@@ -41,9 +40,19 @@
   flex-direction: column;
   row-gap: var(--quiz-row-g);
 
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      @include page-animation($i, 0.4s);
+    }
+  }
+
   &__question {
     text-align: center;
     font-size: var(--quiz-question-fs);
+
+    &.hidden {
+      @include heading-animation;
+    }
   }
 }
 

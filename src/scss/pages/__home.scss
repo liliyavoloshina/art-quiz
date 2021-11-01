@@ -29,6 +29,7 @@
     margin-right: auto;
     background: url('../img/logo.png') no-repeat;
     background-size: contain;
+    @include heading-animation;
   }
 }
 
@@ -37,6 +38,12 @@
   justify-content: space-evenly;
   gap: 2em;
   flex-wrap: wrap;
+
+  @for $i from 1 through 2 {
+    &:nth-child(#{$i}) {
+      @include page-animation($i, 0.2s);
+    }
+  }
 
   &__type {
     flex: 1 1 25em;

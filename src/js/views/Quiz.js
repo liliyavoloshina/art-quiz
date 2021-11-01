@@ -25,6 +25,8 @@ export default class extends View {
     this.crossmarkCheck = null
     this.checkmarkCheck = null
     this.imagesEl = null
+    this.questionTextEl = null
+    this.answersEl = null
   }
 
   async getQuestions() {
@@ -82,8 +84,11 @@ export default class extends View {
   }
 
   showNextAnswers() {
-    const answersEl = document.querySelectorAll('.answer')
-    answersEl.forEach((answer) => {
+    this.questionTextEl.classList.add('hidden')
+    this.questionTextEl.addEventListener('animationend', () => {
+      this.questionTextEl.classList.remove('hidden')
+    })
+    this.answersEl.forEach((answer) => {
       answer.classList.add('hidden')
       answer.addEventListener('animationend', () => {
         answer.classList.remove('hidden')
@@ -169,12 +174,11 @@ export default class extends View {
   }
 
   generateQuestion() {
-    const questionTextEl = document.querySelector('#quizQuestionText')
     if (this.type === 'artists') {
-      questionTextEl.textContent = `who is the author of this picture?`
+      this.questionTextEl.textContent = `who is the author of this picture?`
     } else {
       const artistName = this.questions[this.currentQuestion].author
-      questionTextEl.textContent = `which is ${artistName} picture?`
+      this.questionTextEl.textContent = `which is ${artistName} picture?`
     }
   }
 
@@ -240,7 +244,6 @@ export default class extends View {
   }
 
   generateAnswers() {
-    const answersEl = document.querySelectorAll('.answer')
     const answers = []
 
     if (this.type === 'artists') {
@@ -280,8 +283,8 @@ export default class extends View {
       })
     }
 
-    answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
-    answersEl.forEach((el) => {
+    this.answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
+    this.answersEl.forEach((el) => {
       el.classList.remove('correct')
       el.classList.remove('incorrect')
     })
@@ -289,9 +292,8 @@ export default class extends View {
 
   closeModal() {
     const modal = document.querySelector('.modal')
-    const answersEl = document.querySelectorAll('.answer')
     modal.classList.add('hidden')
-    answersEl.forEach((btn) => (btn.disabled = false))
+    this.answersEl.forEach((btn) => (btn.disabled = false))
 
     setTimeout(() => {
       this.crossmarkCheck.classList.remove('animated')
@@ -359,18 +361,19 @@ export default class extends View {
   }
 
   findElements() {
+    this.answersEl = document.querySelectorAll('.answer')
     this.crossmarkCheck = document.querySelector('.crossmark')
     this.checkmarkCheck = document.querySelector('.checkmark')
     this.imagesEl = document.querySelectorAll('img')
+    this.questionTextEl = document.querySelector('#quizQuestionText')
   }
 
   bindListeners() {
     this.imagesEl.forEach((image) => {
       image.addEventListener('click', (e) => this.fullscreenImage(e))
     })
-    const answersEl = document.querySelectorAll('.answer')
     const modalBtn = document.querySelector('#modalBtn')
-    answersEl.forEach((el) =>
+    this.answersEl.forEach((el) =>
       el.addEventListener('click', (e) => {
         this.answer(e.target)
       })
@@ -414,8 +417,7 @@ export default class extends View {
 
     this.currentQuestion++
 
-    const answersEl = document.querySelectorAll('.answer')
-    answersEl.forEach((btn) => (btn.disabled = true))
+    this.answersEl.forEach((btn) => (btn.disabled = true))
   }
 
   initTimer() {
@@ -429,15 +431,16 @@ export default class extends View {
   }
 
   async mounted() {
+    this.findElements()
     this.initTimer()
 
     await this.getQuestions()
     await this.filterQuestions()
     this.generateQuestion()
     this.generateImages()
+
     this.generateAnswers()
 
-    this.findElements()
     this.bindListeners()
   }
 
