@@ -2,6 +2,8 @@
   --quiz-row-g: 1em;
   --quiz-question-fs: 2em;
   --quiz-images-h: 15em;
+  --quiz-images-pictures-h: 45em;
+  --quiz-answer-w: 100%;
   --quiz-answer-fs: 1.2em;
   --quiz-pag-s: 0.5em;
   --quiz-pictures-img-p: 0.2em;
@@ -12,6 +14,7 @@
 @media (min-width: 420px) {
   :root {
     --quiz-images-h: 20em;
+    --quiz-images-pictures-h: 45em;
   }
 }
 
@@ -19,10 +22,12 @@
   :root {
     --quiz-row-g: 1em;
     --quiz-images-h: 30em;
+    --quiz-images-pictures-h: 45em;
     --quiz-pictures-img-p: 1em;
+    --quiz-answer-w: 40%;
     --quiz-answer-fs: 1.5em;
     --quiz-pag-s: 1em;
-    --quiz-answers-g: 2em;
+    --quiz-answers-g: 1em;
     --quiz-image-info-fs: 1em;
   }
 }
@@ -30,6 +35,7 @@
 @media (min-width: 1024px) {
   :root {
     --quiz-question-fs: 3em;
+    --quiz-answers-g: 0.5em;
     --quiz-answer-fs: 1.7em;
     --quiz-image-info-fs: 2em;
   }
@@ -62,6 +68,10 @@
   height: var(--quiz-images-h);
   overflow: hidden;
 
+  &.pictures {
+    height: var(--quiz-images-pictures-h);
+  }
+
   .image {
     position: relative;
     display: flex;
@@ -92,8 +102,14 @@
     }
 
     &.pictures {
-      width: 50%;
-      height: 50%;
+      width: 100%;
+      height: 25%;
+
+      @media (min-width: 768px) {
+        width: 50%;
+        height: 50%;
+      }
+
       padding: var(--quiz-pictures-img-p);
 
       .image__info {
@@ -169,7 +185,7 @@
   }
 
   .answer-btn {
-    flex: 1 1 25em;
+    flex: 1 1 var(--quiz-answer-w);
     padding: 1.5em;
     font-size: var(--quiz-answer-fs);
     background-color: var(--background-primary);
