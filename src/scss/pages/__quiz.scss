@@ -63,10 +63,45 @@
   overflow: hidden;
 
   .image {
+    position: relative;
     display: flex;
     justify-content: center;
     border-radius: 10px;
     transition: 1s ease;
+    z-index: 5;
+
+    &.disabled {
+      pointer-events: none;
+    }
+
+    &__hint {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      z-index: 2;
+      cursor: pointer;
+
+      &-content {
+        background-color: #fff;
+      }
+
+      span[class^='material-icons'] {
+        pointer-events: none;
+        color: var(--grey);
+        font-size: var(--btn-fs);
+        transition: 0.6s ease;
+
+        &:hover {
+          color: var(--accent);
+        }
+      }
+
+      &:hover {
+        span[class^='material-icons'] {
+          color: var(--accent);
+        }
+      }
+    }
 
     &.artists {
       flex: 0 0 100%;
@@ -74,7 +109,6 @@
     }
 
     &.pictures {
-      position: relative;
       width: 50%;
       height: 50%;
       padding: var(--quiz-pictures-img-p);
@@ -89,6 +123,7 @@
         font-size: var(--quiz-image-info-fs);
         background-color: var(--grey-light);
         border-radius: 10px;
+        z-index: 2;
       }
 
       img {
@@ -98,13 +133,13 @@
       }
     }
 
-    img {
+    &__img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
       transition: 0.3s;
-      pointer-events: none;
+      z-index: 1;
     }
   }
 }

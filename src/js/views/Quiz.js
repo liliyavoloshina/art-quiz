@@ -3,6 +3,7 @@
 import View from './View'
 import Timer from '../components/timer'
 import Confetti from '../components/confetti'
+import generateHint from '../helpers/generateHint'
 
 export default class extends View {
   constructor(params) {
@@ -189,9 +190,11 @@ export default class extends View {
         items.push(`
         <div class="image artists">
             <img
+              class="image__img"
               src="/img/full/${question.imageNum}full.webp"
               alt=""
             />
+            <span class="image__hint"><span class="material-icons-round">help_outline</span></span>
           </div>
         `)
       })
@@ -226,12 +229,19 @@ export default class extends View {
       this.picturesImages = randomImages
 
       randomImages.forEach((image) => {
+        const { author } = this.allQuestions.find((el) => el.imageNum === image.imageNum)
+        const hint = generateHint(author)
         items.push(`
         <div class="image pictures">
             <img
+              class="image__img"
               src="/img/full/${image.imageNum}full.webp"
               alt=""
             />
+            <div class="image__hint">
+              <span class="material-icons-round">help_outline</span>
+              <div class="image__hint-content">This picture was written in ${hint}</div>
+            </div>
             <div class="image__info">${image.name}</div>
           </div>
         `)
@@ -242,7 +252,7 @@ export default class extends View {
     const images = document.querySelector('#quizImages')
     images.innerHTML = imagesHtml
 
-    this.imagesEl = document.querySelectorAll('.image')
+    this.imagesEl = document.querySelectorAll('.image__img')
   }
 
   generateAnswers() {
@@ -297,6 +307,8 @@ export default class extends View {
     modal.classList.add('hidden')
     this.answersEl.forEach((btn) => (btn.disabled = false))
 
+    this.imagesEl.forEach((image) => image.classList.remove('disabled'))
+
     setTimeout(() => {
       this.crossmarkCheck.classList.remove('animated')
       this.checkmarkCheck.classList.remove('animated')
@@ -314,7 +326,7 @@ export default class extends View {
       this.timer.pauseTimer()
     }
 
-    const image = e.target.querySelector('img')
+    const image = e.target
     const modalFullscreen = document.querySelector('#modalFullscreen')
 
     const imageFullscreen = document.querySelector('#imageFullscreen')
@@ -381,8 +393,10 @@ export default class extends View {
   }
 
   stopTimer() {
-    clearTimeout(this.timerTimeout)
-    this.timer.pauseTimer()
+    if (this.isWithTimer) {
+      clearTimeout(this.timerTimeout)
+      this.timer.pauseTimer()
+    }
   }
 
   observeHref() {
@@ -393,16 +407,28 @@ export default class extends View {
     })
   }
 
+  showHint() {
+    this.classList.add('opened')
+  }
+
   bindListeners() {
+    const hintBtns = document.querySelectorAll('.image__hint')
+
+    hintBtns.forEach((btn) => {
+      btn.addEventListener('click', this.showHint)
+    })
+
     this.imagesEl.forEach((image) => {
       image.addEventListener('click', (e) => this.fullscreenImage(e))
     })
+
     const modalBtn = document.querySelector('#modalBtn')
     this.answersEl.forEach((el) =>
       el.addEventListener('click', (e) => {
         this.answer(e.target)
       })
     )
+
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
     })
@@ -443,6 +469,7 @@ export default class extends View {
     this.currentQuestion++
 
     this.answersEl.forEach((btn) => (btn.disabled = true))
+    this.imagesEl.forEach((image) => image.classList.add('disabled'))
   }
 
   setTimeout(value) {

@@ -28,7 +28,7 @@ export default class extends View {
           </a>
             <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.isPlayed ? this.getCorrectNumber(category.results) : ''}/10</div>
           </div>
-          <a class="category__name" href="/quiz/${this.type}/${category.name}" data-link>${category.name}</a>
+          <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link>${category.name}</a>
           <a class="category__image ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
               <img src="../img/category/${category.name}.jpg" alt="${category.name} quiz">
           </a>

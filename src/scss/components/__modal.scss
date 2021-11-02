@@ -26,6 +26,7 @@
   background-color: white;
   transition: 1s ease-in;
   box-shadow: var(--inner-shadow);
+  z-index: 100;
 
   &.hidden {
     bottom: -150%;
