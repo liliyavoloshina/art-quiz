@@ -86,16 +86,19 @@ export default class extends View {
   }
 
   showNextAnswers() {
-    this.questionTextEl.classList.add('hidden')
-    this.questionTextEl.addEventListener('animationend', () => {
-      this.questionTextEl.classList.remove('hidden')
-    })
-    this.answersEl.forEach((answer) => {
-      answer.classList.add('hidden')
-      answer.addEventListener('animationend', () => {
-        answer.classList.remove('hidden')
+    if (this.type === 'artists') {
+      this.questionTextEl.classList.add('hidden')
+      this.questionTextEl.addEventListener('animationend', () => {
+        this.questionTextEl.classList.remove('hidden')
       })
-    })
+
+      this.answersEl.forEach((answer) => {
+        answer.classList.add('hidden')
+        answer.addEventListener('animationend', () => {
+          answer.classList.remove('hidden')
+        })
+      })
+    }
   }
 
   setResultsToStorage() {
@@ -219,14 +222,15 @@ export default class extends View {
       this.picturesImages = randomImages
 
       randomImages.forEach((image) => {
-        const { author } = this.allQuestions.find((el) => el.imageNum === image.imageNum)
+        const { author, name } = this.allQuestions.find((el) => el.imageNum === image.imageNum)
         const hint = generateHint(author)
         items.push(`
         <div class="image pictures">
             <img
-              class="image__img"
+              class="image__img answer"
               src="/img/full/${image.imageNum}full.webp"
               alt=""
+              data-name="${name}"
             />
             <div class="image__hint">
               <div class="tooltip btn-anim">
@@ -245,6 +249,10 @@ export default class extends View {
     images.innerHTML = imagesHtml
 
     this.imagesEl = document.querySelectorAll('.image__img')
+
+    if (this.type === 'pictures') {
+      this.answersEl = document.querySelectorAll('.answer')
+    }
   }
 
   generateAnswers() {
@@ -271,6 +279,8 @@ export default class extends View {
       }
 
       shuffle(answers)
+
+      this.answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
     } else {
       const rightAnswer = this.questions[this.currentQuestion].name
       this.rightAnswer = rightAnswer
@@ -287,7 +297,6 @@ export default class extends View {
       })
     }
 
-    this.answersEl.forEach((el, idx) => (el.textContent = answers[idx]))
     this.answersEl.forEach((el) => {
       el.classList.remove('correct')
       el.classList.remove('incorrect')
@@ -297,7 +306,10 @@ export default class extends View {
   closeModal() {
     const modal = document.querySelector('.modal')
     modal.classList.add('hidden')
-    this.answersEl.forEach((btn) => (btn.disabled = false))
+
+    if (this.type === 'artists') {
+      this.answersEl.forEach((btn) => (btn.disabled = false))
+    }
 
     this.imagesEl.forEach((image) => image.classList.remove('disabled'))
 
@@ -410,13 +422,14 @@ export default class extends View {
       btn.addEventListener('click', this.showHint)
     })
 
-    this.imagesEl.forEach((image) => {
-      image.addEventListener('click', (e) => this.fullscreenImage(e))
-    })
+    // this.imagesEl.forEach((image) => {
+    //   image.addEventListener('click', (e) => this.fullscreenImage(e))
+    // })
 
     const modalBtn = document.querySelector('#modalBtn')
     this.answersEl.forEach((el) =>
       el.addEventListener('click', (e) => {
+        console.log(e.target)
         this.answer(e.target)
       })
     )
@@ -435,7 +448,12 @@ export default class extends View {
     }
 
     const pagination = document.querySelectorAll('.pag-item')
-    const answerText = answer === 'timeout' ? 'timeout' : answer.innerHTML
+    let answerText
+    if (this.type === 'artists') {
+      answerText = answer === 'timeout' ? 'timeout' : answer.innerHTML
+    } else {
+      answerText = answer.dataset.name
+    }
 
     if (answerText === this.rightAnswer) {
       this.isCorrect = true
@@ -462,7 +480,10 @@ export default class extends View {
 
     this.currentQuestion++
 
-    this.answersEl.forEach((btn) => (btn.disabled = true))
+    if (this.type === 'artists') {
+      this.answersEl.forEach((btn) => (btn.disabled = true))
+    }
+
     this.imagesEl.forEach((image) => image.classList.add('disabled'))
   }
 
@@ -539,12 +560,16 @@ export default class extends View {
           <div class="pag-item"></div>
           <div class="pag-item"></div>
         </div>
-        <div class="quiz__answers" id="quizAnswers">
-          <button class="answer"></button>
-          <button class="answer"></button>
-          <button class="answer"></button>
-          <button class="answer"></button>
-        </div>
+        ${
+          this.type === 'pictures'
+            ? ''
+            : `<div class="quiz__answers " id="quizAnswers">
+        <button class="answer-btn answer"></button>
+        <button class="answer-btn answer"></button>
+        <button class="answer-btn answer"></button>
+        <button class="answer-btn answer"></button>
+      </div>`
+        }
       </div>
     </div>
   </main>
