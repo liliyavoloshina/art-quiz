@@ -324,12 +324,13 @@ export default class extends View {
 
     modalFullscreen.addEventListener('click', () => {
       imageFullscreen.classList.add('out')
-      if (this.isWithTimer) {
-        this.timer.resumeTimer()
-        clearTimeout(this.timerTimeout)
-        this.setTimeout(this.timer.totalTime + 1)
-      }
       setTimeout(() => {
+        if (this.isWithTimer) {
+          this.timer.resumeTimer()
+          clearTimeout(this.timerTimeout)
+          this.setTimeout(this.timer.totalTime + 1)
+        }
+
         modalFullscreen.style.display = 'none'
         imageFullscreen.className = 'modal-image__image'
       }, 400)
@@ -379,6 +380,19 @@ export default class extends View {
     this.questionTextEl = document.querySelector('#quizQuestionText')
   }
 
+  stopTimer() {
+    clearTimeout(this.timerTimeout)
+    this.timer.pauseTimer()
+  }
+
+  observeHref() {
+    const backBtn = document.querySelector('#backBtn')
+
+    backBtn.addEventListener('click', () => {
+      this.stopTimer()
+    })
+  }
+
   bindListeners() {
     this.imagesEl.forEach((image) => {
       image.addEventListener('click', (e) => this.fullscreenImage(e))
@@ -391,9 +405,6 @@ export default class extends View {
     )
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
-    })
-    window.addEventListener('popstate', () => {
-      clearTimeout(this.timerTimeout)
     })
   }
 
@@ -451,6 +462,7 @@ export default class extends View {
   async mounted() {
     this.findElements()
     this.initTimer()
+    this.observeHref()
 
     await this.getQuestions()
     await this.filterQuestions()
@@ -484,7 +496,7 @@ export default class extends View {
 
     <div class="container">
       <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav header__nav header__nav--left btn" data-link><span class="material-icons-round">home</span></a>
+        <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
       </div>
     </div>
   </header>

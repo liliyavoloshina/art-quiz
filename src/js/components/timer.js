@@ -12,8 +12,6 @@ export default class {
     this.totalTime = this.timerValue
     this.yellow = Math.floor(this.totalTime / 2)
     this.red = Math.floor(this.totalTime / 4)
-
-    window.addEventListener('popstate', this.pauseTimer)
   }
 
   pauseTimer() {
@@ -63,6 +61,7 @@ export default class {
     this.validateTime(this.disSeconds, this.totalTime)
     this.circleSvg.style.animation = `loop ${this.totalTime}s linear`
     this.circleSvg.style.animationPlayState = 'running'
+    this.disSeconds.style.animationPlayState = 'running'
     this.play()
   }
 
