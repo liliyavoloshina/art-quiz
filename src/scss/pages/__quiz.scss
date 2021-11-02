@@ -76,14 +76,14 @@
 
     &__hint {
       position: absolute;
-      top: 0.5em;
-      left: 0.5em;
+      top: 1em;
+      left: 1em;
       z-index: 2;
 
-      @media (min-width: 420px) {
-        top: 1em;
-        left: 1em;
-      }
+      // @media (min-width: 420px) {
+      //   top: 1em;
+      //   left: 1em;
+      // }
     }
 
     &.artists {
