@@ -6,7 +6,7 @@
   --quiz-pag-s: 0.5em;
   --quiz-pictures-img-p: 0.2em;
   --quiz-answers-g: 1em;
-  --quiz-image-info-fs: 0.6em;
+  --quiz-image-info-fs: 0.9em;
 }
 
 @media (min-width: 420px) {
@@ -19,7 +19,7 @@
   :root {
     --quiz-row-g: 2em;
     --quiz-images-h: 40em;
-    --quiz-pictures-img-p: 0.6em;
+    --quiz-pictures-img-p: 1em;
     --quiz-answer-fs: 1.5em;
     --quiz-pag-s: 1.5em;
     --quiz-answers-g: 2em;
@@ -76,9 +76,14 @@
 
     &__hint {
       position: absolute;
-      top: 1em;
-      left: 1em;
+      top: 0.5em;
+      left: 0.5em;
       z-index: 2;
+
+      @media (min-width: 420px) {
+        top: 1em;
+        left: 1em;
+      }
     }
 
     &.artists {

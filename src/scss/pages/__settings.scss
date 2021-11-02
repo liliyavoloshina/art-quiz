@@ -25,7 +25,7 @@
   justify-content: space-evenly;
   gap: 2em;
   flex-wrap: wrap;
-  margin-top: var(--main-mt);
+  // margin-top: var(--main-mt);
 
   @for $i from 1 through 2 {
     &:nth-child(#{$i}) {

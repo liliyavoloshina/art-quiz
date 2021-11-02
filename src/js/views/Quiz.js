@@ -187,6 +187,7 @@ export default class extends View {
   generateImages() {
     const items = []
     if (this.type === 'artists') {
+      const { year } = this.questions[this.currentQuestion]
       this.questions.forEach((question) => {
         items.push(`
         <div class="image artists">
@@ -195,7 +196,12 @@ export default class extends View {
               src="/img/full/${question.imageNum}full.webp"
               alt=""
             />
-            <span class="image__hint"><span class="material-icons-round">help_outline</span></span>
+            <div class="image__hint">
+              <div class="tooltip btn-anim">
+                <span class="material-icons-round">help_outline</span>
+                <div class="tooltip__content">this picture was painted in ${year}</div>
+              </div>
+            </div>
           </div>
         `)
       })

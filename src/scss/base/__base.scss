@@ -24,6 +24,14 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+img::selection {
+  background: transparent;
+}
+
+::selection {
+  background: var(--grey-light);
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;
