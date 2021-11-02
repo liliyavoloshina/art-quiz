@@ -132,8 +132,8 @@ export default class extends View {
       resultsText.textContent = 'wow, you are on fire!'
       sound.src = '/audio/applause.wav'
     } else if (correctNum < 8 && correctNum >= 5) {
-      resultsText.textContent = 'you can do better!'
-      sound.src = '/audio/failure.mp3'
+      resultsText.textContent = 'amazing results!'
+      sound.src = '/audio/applause.wav'
     } else {
       resultsText.textContent = 'maybe another time?'
       sound.src = '/audio/failure.mp3'
@@ -148,7 +148,7 @@ export default class extends View {
     correctAnswersCount.textContent = correctNum
     modalResult.classList.remove('hidden')
 
-    if (correctNum === 10 || (correctNum > 8 && correctNum < 10)) {
+    if (correctNum >= 5) {
       modalResult.addEventListener('transitionend', () => {
         const confettiWrapper = document.querySelector('.confetti-wrapper')
         confettiWrapper.classList.remove('hidden')

@@ -87,7 +87,7 @@ export default class extends View {
     </header>
 
     <main class="main">
-        <div class="container">
+        <div class="container container-settings">
             <div class="settings">
                 <div class="settings-block">
                     <div class="settings-block__input">
