@@ -116,15 +116,9 @@ export default class extends View {
     localStorage.setItem(`${this.type}Results`, JSON.stringify(this.categories))
   }
 
-  calcNextCategory() {
-    const nextCategory = this.categories.find((cat) => !cat.isPlayed)
-    return nextCategory.name
-  }
-
   showResults() {
     const modalResult = document.querySelector('#modalResult')
     const resultsText = document.querySelector('#resultsText')
-    const nextQuizLink = document.querySelector('#nextQuizLink')
     const correctAnswersCount = document.querySelector('#correctAnswersCount')
     const correctNum = this.correctAnswers.length
 
@@ -150,17 +144,6 @@ export default class extends View {
     }
 
     this.setResultsToStorage()
-    const nextCategoryName = this.calcNextCategory()
-
-    if (nextCategoryName) {
-      if (this.type === 'artists') {
-        nextQuizLink.href = `/quiz/artists/${nextCategoryName}`
-      } else {
-        nextQuizLink.href = `/quiz/pictures/${nextCategoryName}`
-      }
-    } else {
-      nextQuizLink.classList.add('disabled')
-    }
 
     correctAnswersCount.textContent = correctNum
     modalResult.classList.remove('hidden')
@@ -611,7 +594,7 @@ export default class extends View {
       <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
       <div class="modal-center__actions">
         <a class="btn" href="/" data-link>home</a>
-        <a class="btn" id="nextQuizLink" data-link>next quiz</a>
+        <a href="/categories/${this.type}" class="btn" data-link>next quiz</a>
       </div>
   </div>
 </div>

@@ -9,6 +9,15 @@
   align-items: center;
   padding: 1em;
 
+  &__github {
+    text-decoration: none;
+    color: var(--text-dark);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
   &__github,
   &__year {
     font-size: var(--footer-fs);
