@@ -1,0 +1,10 @@
+span[class^='material-icons'] {
+  pointer-events: none;
+  color: var(--grey);
+  font-size: var(--btn-fs);
+  transition: 0.6s ease;
+
+  &:hover {
+    color: var(--accent);
+  }
+}

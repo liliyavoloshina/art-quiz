@@ -79,28 +79,6 @@
       top: 1em;
       left: 1em;
       z-index: 2;
-      cursor: pointer;
-
-      &-content {
-        background-color: #fff;
-      }
-
-      span[class^='material-icons'] {
-        pointer-events: none;
-        color: var(--grey);
-        font-size: var(--btn-fs);
-        transition: 0.6s ease;
-
-        &:hover {
-          color: var(--accent);
-        }
-      }
-
-      &:hover {
-        span[class^='material-icons'] {
-          color: var(--accent);
-        }
-      }
     }
 
     &.artists {

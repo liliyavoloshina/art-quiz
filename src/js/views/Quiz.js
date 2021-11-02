@@ -4,6 +4,7 @@ import View from './View'
 import Timer from '../components/timer'
 import Confetti from '../components/confetti'
 import generateHint from '../helpers/generateHint'
+import findBtnAnims from '../components/btn-anim'
 
 export default class extends View {
   constructor(params) {
@@ -239,8 +240,10 @@ export default class extends View {
               alt=""
             />
             <div class="image__hint">
-              <span class="material-icons-round">help_outline</span>
-              <div class="image__hint-content">This picture was written in ${hint}</div>
+              <div class="tooltip btn-anim">
+                <span class="material-icons-round">help_outline</span>
+                <div class="tooltip__content">${hint}</div>
+              </div>
             </div>
             <div class="image__info">${image.name}</div>
           </div>
@@ -408,11 +411,11 @@ export default class extends View {
   }
 
   showHint() {
-    this.classList.add('opened')
+    this.classList.toggle('opened')
   }
 
   bindListeners() {
-    const hintBtns = document.querySelectorAll('.image__hint')
+    const hintBtns = document.querySelectorAll('.tooltip')
 
     hintBtns.forEach((btn) => {
       btn.addEventListener('click', this.showHint)
@@ -432,6 +435,8 @@ export default class extends View {
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
     })
+
+    findBtnAnims()
   }
 
   answer(answer) {
