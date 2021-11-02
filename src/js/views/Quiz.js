@@ -429,7 +429,6 @@ export default class extends View {
     const modalBtn = document.querySelector('#modalBtn')
     this.answersEl.forEach((el) =>
       el.addEventListener('click', (e) => {
-        console.log(e.target)
         this.answer(e.target)
       })
     )
