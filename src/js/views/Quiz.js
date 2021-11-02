@@ -139,7 +139,7 @@ export default class extends View {
       sound.src = '/audio/applause.wav'
     } else {
       resultsText.textContent = 'maybe another time?'
-      sound.src = '/audio/failure.mp3'
+      sound.src = '/audio/failure.wav'
     }
 
     if (this.isWithSound) {
