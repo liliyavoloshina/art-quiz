@@ -32,8 +32,6 @@ export default class {
     if (this.isPaused) return
     const seconds = this.totalTime % 60
 
-    console.log(getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset'))
-
     if (this.totalTime <= this.red) {
       this.circleSvg.style.stroke = 'var(--red)'
       this.disSeconds.style.animation = 'popup 1s infinite ease-in-out'

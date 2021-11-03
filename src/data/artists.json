@@ -698,5 +698,82 @@
     "year": "1911",
     "imageNum": "153",
     "genre": "modernism"
+  },
+  {
+    "author": "Édouard Vuillard",
+    "name": "Self-portrait with cane and straw hat",
+    "year": "1891",
+    "imageNum": "200",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Lawrence Atkinson",
+    "name": "The Lake",
+    "year": "1915",
+    "imageNum": "201",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Sonia Delaunay",
+    "name": "Rythme",
+    "year": "1938",
+    "imageNum": "202",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Oskar Schlemmer",
+    "name": "Bauhaus Stairway",
+    "year": "1932",
+    "imageNum": "203",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Aristarkh Lentulov",
+    "name": "Saint Basil's Cathedral",
+    "year": "1913",
+    "imageNum": "204",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Kazimir Malevich",
+    "name": "The Knifegrinder",
+    "year": "1912",
+    "imageNum": "205",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Robert Falk",
+    "name": "Lisa in a Chair",
+    "year": "1910",
+    "imageNum": "206",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Vladimir Tatlin",
+    "name": "The Fishmonger",
+    "year": "1911",
+    "imageNum": "207",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Olga Rozanova",
+    "name": "Lady in pink",
+    "year": "1911",
+    "imageNum": "208",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "David Kakabadze",
+    "name": "Red mountain",
+    "year": "1944",
+    "imageNum": "209",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Vasyl Yermylov",
+    "name": "Bread",
+    "year": "1914",
+    "imageNum": "210",
+    "genre": "avant-garde"
   }
 ]

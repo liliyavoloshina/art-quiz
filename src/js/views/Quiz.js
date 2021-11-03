@@ -29,6 +29,9 @@ export default class extends View {
     this.imagesEl = null
     this.questionTextEl = null
     this.answersEl = null
+    this.modal = null
+
+    this.isModalOpened = false
   }
 
   async getQuestions() {
@@ -315,24 +318,22 @@ export default class extends View {
   }
 
   closeModal() {
-    const modal = document.querySelector('.modal')
-    modal.classList.add('hidden')
+    this.modal.classList.add('hidden')
 
-    if (this.type === 'artists') {
-      this.answersEl.forEach((btn) => (btn.disabled = false))
-    }
-
-    this.imagesEl.forEach((image) => image.classList.remove('disabled'))
+    this.isModalOpened = false
 
     setTimeout(() => {
-      this.crossmarkCheck.classList.remove('animated')
-      this.checkmarkCheck.classList.remove('animated')
+      if (this.type === 'artists') {
+        this.answersEl.forEach((btn) => (btn.disabled = false))
+      }
+
+      this.imagesEl.forEach((image) => image.classList.remove('disabled'))
     }, 1000)
   }
 
   openModal() {
-    const modal = document.querySelector('.modal')
-    modal.classList.remove('hidden')
+    this.modal.classList.remove('hidden')
+    this.isModalOpened = true
   }
 
   fullscreenImage(e) {
@@ -405,6 +406,8 @@ export default class extends View {
     this.crossmarkCheck = document.querySelector('.crossmark')
     this.checkmarkCheck = document.querySelector('.checkmark')
     this.questionTextEl = document.querySelector('#quizQuestionText')
+
+    this.modal = document.querySelector('.modal')
   }
 
   stopTimer() {
@@ -446,6 +449,13 @@ export default class extends View {
 
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
+    })
+
+    this.modal.addEventListener('transitionend', () => {
+      if (this.isModalOpened === false) {
+        this.crossmarkCheck.classList.remove('animated')
+        this.checkmarkCheck.classList.remove('animated')
+      }
     })
 
     findBtnAnims()
