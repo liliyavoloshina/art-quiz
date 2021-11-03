@@ -704,6 +704,139 @@
     "name": "Woman with Guitar",
     "year": "1913",
     "imageNum": "211",
-    "genre": "avant-garde"
+    "genre": "avant garde"
+  },
+  {
+    "author": "Victor Palmov",
+    "name": "A Date",
+    "year": "1926",
+    "imageNum": "212",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Olexandr Archipenko",
+    "name": "Two Nude Female Figures with a Cloth",
+    "year": "1921",
+    "imageNum": "213",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Sonia Delaunay",
+    "name": "Portrait of Philomene",
+    "year": "1907",
+    "imageNum": "214",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Max Oppenheimer",
+    "name": "Six-day race",
+    "year": "1929",
+    "imageNum": "215",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Georgy Yakulov",
+    "name": "Spring walk",
+    "year": "1925",
+    "imageNum": "216",
+    "genre": "avant garde"
+  },
+  {
+    "author": "David Burliuk",
+    "name": "Peasant and horse",
+    "year": "1910",
+    "imageNum": "217",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Aleksandra Ekster",
+    "name": "Three Female Figures",
+    "year": "1910",
+    "imageNum": "218",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Natalia Goncharova",
+    "name": "Haycutting",
+    "year": "1910",
+    "imageNum": "219",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Mikhail Larionov",
+    "name": "Natalia Goncharova",
+    "year": "1925",
+    "imageNum": "220",
+    "genre": "avant garde"
+  },
+  {
+    "author": "Paul Cezanne",
+    "name": "Jug, Curtain and Fruit Bowl",
+    "year": "1984",
+    "imageNum": "221",
+    "genre": "still life"
+  },
+  {
+    "author": "Caravaggio",
+    "name": "Basket of Fruit",
+    "year": "1599",
+    "imageNum": "222",
+    "genre": "still life"
+  },
+  {
+    "author": "Pieter Claesz",
+    "name": "Vanitas with Violin and Glass Ball",
+    "year": "1628",
+    "imageNum": "223",
+    "genre": "still life"
+  },
+  {
+    "author": "Tom Wesselmann",
+    "name": "Still Life Series",
+    "year": "1962",
+    "imageNum": "224",
+    "genre": "still life"
+  },
+  {
+    "author": "Giorgio Morandi",
+    "name": "Natura Morta",
+    "year": "1951",
+    "imageNum": "225",
+    "genre": "still life"
+  },
+  {
+    "author": "Adriaen van der Spelt",
+    "name": "Still Life with a Flower Garland and a Curtain",
+    "year": "1658",
+    "imageNum": "226",
+    "genre": "still life"
+  },
+  {
+    "author": "Paul Gauguin",
+    "name": "Wood Tankard and Metal Pitcher",
+    "year": "1880",
+    "imageNum": "227",
+    "genre": "still life"
+  },
+  {
+    "author": "Henri Matisse",
+    "name": "Still Life with a Pewter Jug and Pink Statuette",
+    "year": "1910",
+    "imageNum": "228",
+    "genre": "still life"
+  },
+  {
+    "author": "Mary Cassatt",
+    "name": "Lilacs in a Window",
+    "year": "1879",
+    "imageNum": "229",
+    "genre": "still life"
+  },
+  {
+    "author": "Ambrosius Bosschaert",
+    "name": "Still-Life of Flowers",
+    "year": "1614",
+    "imageNum": "230",
+    "genre": "still life"
   }
 ]
