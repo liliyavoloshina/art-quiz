@@ -151,6 +151,11 @@ export default class extends View {
     correctAnswersCount.textContent = correctNum
     modalResult.classList.remove('hidden')
 
+    const nextQuizBtn = document.querySelector('#nextQuiz')
+    nextQuizBtn.addEventListener('click', () => {
+      sound.pause()
+    })
+
     if (correctNum >= 5) {
       modalResult.addEventListener('transitionend', () => {
         const confettiWrapper = document.querySelector('.confetti-wrapper')
@@ -229,7 +234,7 @@ export default class extends View {
             <img
               class="image__img answer"
               src="/img/full/${image.imageNum}full.webp"
-              alt=""
+              alt="${name}"
               data-name="${name}"
             />
             <div class="image__hint">
@@ -617,7 +622,7 @@ export default class extends View {
       <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
       <div class="modal-center__actions">
         <a class="btn" href="/" data-link>home</a>
-        <a href="/categories/${this.type}" class="btn" data-link>next quiz</a>
+        <a href="/categories/${this.type}" class="btn" id="nextQuiz" data-link>next quiz</a>
       </div>
   </div>
 </div>
