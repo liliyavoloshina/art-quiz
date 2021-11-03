@@ -4,6 +4,8 @@
 }
 
 .main {
-  overflow: hidden;
+  display: flex;
+  align-items: center;
   padding: var(--main-p) var(--section-p);
+  overflow: hidden;
 }

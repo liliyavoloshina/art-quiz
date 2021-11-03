@@ -18,10 +18,9 @@
 }
 
 .timer {
-  position: fixed;
+  position: absolute;
   top: 1em;
-  right: var(--section-p);
-  z-index: 1000;
+  right: var(--header-nav-p);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,8 +62,6 @@
   width: var(--timer-w);
   height: var(--timer-w);
   position: absolute;
-  overflow: visible;
-  enable-background: new 0 0 521.17 521.17;
 }
 
 circle {
@@ -72,10 +69,16 @@ circle {
   stroke: var(--green);
   stroke-width: 18;
   stroke-dasharray: 1590;
+  stroke-dashoffset: 1590;
   stroke-linecap: round;
   transform: rotate(270deg);
   transform-origin: center;
-  transition: stroke 300ms ease;
+  transition: all 300ms ease;
+
+  &.animated {
+    animation-name: loop;
+    animation-timing-function: linear;
+  }
 }
 
 @keyframes loop {

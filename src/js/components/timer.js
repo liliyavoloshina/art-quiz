@@ -18,16 +18,21 @@ export default class {
     if (!this.isPaused) {
       this.isPaused = true
       clearInterval(this.interval)
-      this.circleSvg.style.animationPlayState = 'paused'
-      this.disSeconds.style.animationPlayState = 'paused'
+
+      const oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
+
+      this.circleSvg.style.animation = 'none'
+      this.circleSvg.style.strokeDashoffset = oldValue
+      // this.circleSvg.style.animationPlayState = 'paused'
+      // this.disSeconds.style.animationPlayState = 'paused'
     }
   }
 
   playTimer() {
     if (this.isPaused) return
     const seconds = this.totalTime % 60
-    this.circleSvg.style.animationPlayState = 'running'
-    this.disSeconds.style.animationPlayState = 'running'
+
+    console.log(getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset'))
 
     if (this.totalTime <= this.red) {
       this.circleSvg.style.stroke = 'var(--red)'
@@ -40,8 +45,6 @@ export default class {
       this.circleSvg.style.stroke = 'var(--green)'
       this.disSeconds.style.animation = 'none'
     }
-    this.validateTime(this.disSeconds, seconds)
-
     if (this.totalTime > 0) {
       this.totalTime--
     } else {
@@ -49,6 +52,7 @@ export default class {
       this.circleSvg.style.animation = 'none'
       this.disSeconds.style.animation = 'none'
     }
+    this.validateTime(this.disSeconds, seconds)
   }
 
   setInterval() {
@@ -58,10 +62,9 @@ export default class {
   }
 
   initTimer() {
+    clearTimeout(this.interval)
     this.validateTime(this.disSeconds, this.totalTime)
     this.circleSvg.style.animation = `loop ${this.totalTime}s linear`
-    this.circleSvg.style.animationPlayState = 'running'
-    this.disSeconds.style.animationPlayState = 'running'
     this.play()
   }
 
@@ -75,6 +78,8 @@ export default class {
   play() {
     this.playTimer()
     this.setInterval()
+    this.disSeconds.style.animationPlayState = 'running'
+    this.circleSvg.style.animationPlayState = 'running'
   }
 
   validateTime(element, value) {
