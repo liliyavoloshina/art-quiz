@@ -238,7 +238,6 @@ export default class extends View {
                 <div class="tooltip__content">${hint}</div>
               </div>
             </div>
-            <div class="image__info">${image.name}</div>
           </div>
         `)
       })
