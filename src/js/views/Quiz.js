@@ -151,8 +151,12 @@ export default class extends View {
     correctAnswersCount.textContent = correctNum
     modalResult.classList.remove('hidden')
 
-    const nextQuizBtn = document.querySelector('#nextQuiz')
+    const nextQuizBtn = document.querySelector('#nextQuizBtn')
+    const homeBtn = document.querySelector('#homeBtn')
     nextQuizBtn.addEventListener('click', () => {
+      sound.pause()
+    })
+    homeBtn.addEventListener('click', () => {
       sound.pause()
     })
 
@@ -624,8 +628,8 @@ export default class extends View {
       <div class="modal-center__title" id="resultsText"></div>
       <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
       <div class="modal-center__actions">
-        <a class="btn" href="/" data-link>home</a>
-        <a href="/categories/${this.type}" class="btn" id="nextQuiz" data-link>next quiz</a>
+        <a href="/" class="btn" id="homeBtn" data-link>home</a>
+        <a href="/categories/${this.type}" class="btn" id="nextQuizBtn" data-link>next quiz</a>
       </div>
   </div>
 </div>
