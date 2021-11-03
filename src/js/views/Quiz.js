@@ -131,12 +131,12 @@ export default class extends View {
     if (correctNum === 10) {
       resultsText.textContent = 'are you an art expert?!'
       sound.src = '/audio/applause.wav'
-    } else if (correctNum >= 8 && correctNum < 10) {
+    } else if (correctNum >= 6 && correctNum < 10) {
       resultsText.textContent = 'wow, you are on fire!'
       sound.src = '/audio/applause.wav'
-    } else if (correctNum < 8 && correctNum >= 5) {
-      resultsText.textContent = 'amazing results!'
-      sound.src = '/audio/applause.wav'
+    } else if (correctNum < 6 && correctNum >= 3) {
+      resultsText.textContent = 'you can do better!'
+      sound.src = '/audio/failure.wav'
     } else {
       resultsText.textContent = 'maybe another time?'
       sound.src = '/audio/failure.wav'
@@ -156,7 +156,7 @@ export default class extends View {
       sound.pause()
     })
 
-    if (correctNum >= 5) {
+    if (correctNum >= 6) {
       modalResult.addEventListener('transitionend', () => {
         const confettiWrapper = document.querySelector('.confetti-wrapper')
         confettiWrapper.classList.remove('hidden')
@@ -202,8 +202,11 @@ export default class extends View {
       while (randomImages.length < 30) {
         const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
         const randomImageAuthor = randomImage.author
+        const randomImageImageNum = randomImage.imageNum
+
+        const isWillAddLater = this.questions.some((question) => question.imageNum === randomImageImageNum)
         const isExist = !!randomImages.find((el) => el.author === randomImageAuthor)
-        if (isExist === false) {
+        if (isExist === false && isWillAddLater === false) {
           randomImages.push(randomImage)
         }
       }
