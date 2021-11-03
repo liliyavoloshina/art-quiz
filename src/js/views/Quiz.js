@@ -450,7 +450,7 @@ export default class extends View {
     if (this.type === 'artists') {
       answerText = answer === 'timeout' ? 'timeout' : answer.innerHTML
     } else {
-      answerText = answer.dataset.name
+      answerText = answer.dataset ? answer.dataset.name : 'timeout'
     }
 
     if (answerText === this.rightAnswer) {
