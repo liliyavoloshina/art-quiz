@@ -21,10 +21,6 @@
   padding: 1.5em;
   border-radius: 10px;
 
-  @media (min-width: 1024px) {
-    max-width: 17em;
-  }
-
   @for $i from 1 through 12 {
     &:nth-child(#{$i}).hidden {
       @include page-animation($i, 0.2s);

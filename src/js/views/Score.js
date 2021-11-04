@@ -7,6 +7,7 @@ export default class extends View {
     this.setTitle('artquiz. - score')
     this.type = this.params.type
     this.category = this.params.category
+    this.totalScore = 0
   }
 
   async scoreToHtml() {
@@ -16,6 +17,9 @@ export default class extends View {
     if (scoreCategory.isPlayed) {
       results.forEach((item) => {
         const { isCorrect } = item
+        if (isCorrect) {
+          this.totalScore += 1
+        }
         items.push(
           `<div class="score__item">
                 <div class="score__img ${!isCorrect ? 'inversed' : ''}">
@@ -71,6 +75,9 @@ export default class extends View {
   async mounted() {
     this.scoreHtml = document.querySelector('#scoreHtml')
     await this.scoreToHtml()
+
+    const totalScore = document.querySelector('#totalScore')
+    totalScore.textContent = this.totalScore
     this.bindListeners()
   }
 
@@ -87,6 +94,7 @@ export default class extends View {
 
     <main class="main">
       <div class="container">
+        <div class="score-header" id="scoreHeader">${this.category} ${this.type}: <span id="totalScore"></span>/10</div>
         <div class="score" id="scoreHtml"></div>
       </div>
     </main>

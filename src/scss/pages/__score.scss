@@ -1,5 +1,6 @@
 :root {
   --score-item-s: 15em;
+  --score-header-fs: 1.5em;
 }
 
 @media (min-width: 420px) {
@@ -11,7 +12,15 @@
 @media (min-width: 768px) {
   :root {
     --score-item-s: 12em;
+    --score-header-fs: 2em;
   }
+}
+
+.score-header {
+  margin-bottom: 2em;
+  text-align: center;
+  font-size: var(--score-header-fs);
+  font-weight: bold;
 }
 
 .score {
