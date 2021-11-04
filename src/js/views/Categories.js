@@ -1,5 +1,7 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable class-methods-use-this */
 import View from './View'
+import preloadImages from '../helpers/preloadImages'
 
 export default class extends View {
   constructor(params) {
@@ -40,11 +42,15 @@ export default class extends View {
   }
 
   loadImages() {
-    const categoriesBlocks = document.querySelectorAll('.categories')
-    categoriesBlocks
+    for (let i = 0; i < 12; i++) {
+      const imageName = this.categories[i].name
+      const url = `../img/category/${imageName}.webp`
+      preloadImages(url)
+    }
   }
 
   mounted() {
+    this.loadImages()
     const categoryBoxes = document.querySelectorAll('.category')
     categoryBoxes.forEach((box) => {
       box.classList.add('hidden')
