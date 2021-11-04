@@ -1,4 +1,0 @@
-# a path:
-/src/index.html
-  # headers for that path:
-  cache-control: max-age=31536000
