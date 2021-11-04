@@ -1,12 +1,11 @@
 :root {
-  --header-p: 1.5em;
+  --header-p: 2em;
   --header-nav-p: 0.5em;
   --header-title-fs: 1.5em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --header-p: 1.5em;
     --header-nav-p: 2em;
     --header-title-fs: 2em;
   }

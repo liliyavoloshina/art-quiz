@@ -191,7 +191,7 @@ export default class extends View {
         <div class="image artists">
             <img
               class="image__img"
-              src="/img/full/${question.imageNum}full.webp"
+              src="/img/thumbnails/${question.imageNum}full.webp"
               alt=""
             />
             <div class="image__hint">
@@ -243,7 +243,7 @@ export default class extends View {
         <div class="image pictures">
             <img
               class="image__img answer"
-              src="/img/full/${image.imageNum}full.webp"
+              src="/img/thumbnails/${image.imageNum}full.webp"
               alt="${name}"
               data-name="${name}"
             />

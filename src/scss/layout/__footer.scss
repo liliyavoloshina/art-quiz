@@ -1,13 +1,23 @@
 :root {
-  --footer-fs: 1.5em;
+  --footer-fs: 1em;
   --footer-logo-s: 3em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --footer-fs: 1.5em;
+  }
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1em;
+  padding: 2em 2em;
+
+  @media (min-width: 768px) {
+    padding: 0 1em;
+  }
 
   &__github {
     text-decoration: none;
