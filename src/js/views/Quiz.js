@@ -189,9 +189,9 @@ export default class extends View {
 
     if (this.type === 'artists') {
       const { year } = this.questions[this.currentQuestion]
-      this.questions.forEach((question) => {
+      this.questions.forEach(async (question) => {
         srcForPreload.push(`/img/full/${question.imageNum}full.webp`)
-        items.push(`
+        const item = `
         <div class="image artists image-loading">
             <img
               class="image__img"
@@ -205,7 +205,8 @@ export default class extends View {
               </div>
             </div>
           </div>
-        `)
+        `
+        items.push(item)
       })
     } else {
       const randomImages = []
@@ -270,7 +271,12 @@ export default class extends View {
     images.innerHTML = imagesHtml
 
     const preloader = new ImagePreloader(srcForPreload)
-    await preloader.preloadImages()
+
+    if (this.type === 'pictures') {
+      await preloader.preloadImages('four')
+    } else {
+      await preloader.preloadImages()
+    }
 
     this.imagesEl = document.querySelectorAll('.image__img')
 

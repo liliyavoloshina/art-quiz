@@ -25,8 +25,13 @@ class ImagePreloader {
     el.classList.remove('one-image-loading')
   }
 
-  async preloadImages() {
-    await Promise.all(this.arr.map((src) => this.preloadImage(src)))
+  async preloadImages(type = 'all') {
+    if (type === 'all') {
+      await Promise.all(this.arr.map((src) => this.preloadImage(src)))
+    } else if (type === 'four') {
+      const fourGroup = this.arr.slice(0, 4)
+      await Promise.all(fourGroup.map((src) => this.preloadImage(src)))
+    }
     this.thumbs.forEach((thumb) => {
       thumb.classList.remove('image-loading')
     })
