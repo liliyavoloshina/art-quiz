@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable class-methods-use-this */
 import View from './View'
-import preloadImage from '../helpers/preloadImage'
+import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
   constructor(params) {
@@ -32,7 +32,7 @@ export default class extends View {
             <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.isPlayed ? this.getCorrectNumber(category.results) : ''}/10</div>
           </div>
           <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link>${splittedName}</a>
-          <a class="category__image ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
+          <a class="category__image image-loading ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
               <img src="../img/category/${category.name}.webp" alt="${category.name} quiz">
           </a>
         </div>`)
@@ -43,19 +43,18 @@ export default class extends View {
 
   async loadImages() {
     const images = []
+    const thumbs = document.querySelectorAll('.category__image')
     for (let i = 0; i < 12; i++) {
       const imageName = this.categories[i].name
       const url = `../img/category/${imageName}.webp`
       images.push(url)
     }
 
-    await Promise.all(images.map((src) => preloadImage(src)))
-
-    console.log('loaded')
+    const preloader = new ImagePreloader(images, thumbs)
+    await preloader.preloadImages()
   }
 
   async mounted() {
-    await this.loadImages()
     const categoryBoxes = document.querySelectorAll('.category')
     categoryBoxes.forEach((box) => {
       box.classList.add('hidden')
@@ -63,6 +62,8 @@ export default class extends View {
         box.classList.remove('hidden')
       })
     })
+
+    await this.loadImages()
   }
 
   mount() {
@@ -76,7 +77,7 @@ export default class extends View {
         </div>
     </header>
 
-    <main class="main">
+    <main class="main loading">
         <div class="container">
             <div class="categories">
                 ${this.categoriesHtml}
