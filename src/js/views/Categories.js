@@ -41,16 +41,18 @@ export default class extends View {
     this.categoriesHtml = items.join('\n')
   }
 
-  loadImages() {
+  async loadImages() {
     for (let i = 0; i < 12; i++) {
       const imageName = this.categories[i].name
       const url = `../img/category/${imageName}.webp`
       preloadImages(url)
     }
+
+    console.log('loaded')
   }
 
-  mounted() {
-    this.loadImages()
+  async mounted() {
+    await this.loadImages()
     const categoryBoxes = document.querySelectorAll('.category')
     categoryBoxes.forEach((box) => {
       box.classList.add('hidden')
