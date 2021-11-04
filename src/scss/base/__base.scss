@@ -62,6 +62,19 @@ img::selection {
 
 .image-loading {
   position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150px;
+    z-index: 2;
+    height: 100%;
+    width: 200px;
+    background: linear-gradient(to right, transparent 0%, #e7e7e7 50%, transparent 100%);
+    animation: loading 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
 
   &::after {
     content: '';
@@ -70,6 +83,16 @@ img::selection {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: grey;
+    z-index: 1;
+    background-color: #d1d1d1;
+  }
+}
+
+@keyframes loading {
+  from {
+    left: -200px;
+  }
+  to {
+    left: 100%;
   }
 }

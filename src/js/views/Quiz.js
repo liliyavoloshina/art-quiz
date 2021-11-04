@@ -5,6 +5,7 @@ import Timer from '../components/timer'
 import Confetti from '../components/confetti'
 import generateHint from '../helpers/generateHint'
 import findBtnAnims from '../components/btn-anim'
+import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
   constructor(params) {
@@ -182,13 +183,16 @@ export default class extends View {
     }
   }
 
-  generateImages() {
+  async generateImages() {
     const items = []
+    const srcForPreload = []
+
     if (this.type === 'artists') {
       const { year } = this.questions[this.currentQuestion]
       this.questions.forEach((question) => {
+        srcForPreload.push(`/img/full/${question.imageNum}full.webp`)
         items.push(`
-        <div class="image artists">
+        <div class="image artists image-loading">
             <img
               class="image__img"
               src="/img/full/${question.imageNum}full.webp"
@@ -239,8 +243,9 @@ export default class extends View {
       randomImages.forEach((image) => {
         const { author, name } = this.allQuestions.find((el) => el.imageNum === image.imageNum)
         const hint = generateHint(author)
-        items.push(`
-        <div class="image pictures">
+        srcForPreload.push(`/img/full/${image.imageNum}full.webp`)
+        const item = `
+        <div class="image pictures image-loading">
             <img
               class="image__img answer"
               src="/img/full/${image.imageNum}full.webp"
@@ -254,13 +259,18 @@ export default class extends View {
               </div>
             </div>
           </div>
-        `)
+        `
+
+        items.push(item)
       })
     }
 
     const imagesHtml = items.join('\n')
     const images = document.querySelector('#quizImages')
     images.innerHTML = imagesHtml
+
+    const preloader = new ImagePreloader(srcForPreload)
+    await preloader.preloadImages()
 
     this.imagesEl = document.querySelectorAll('.image__img')
 
@@ -520,6 +530,19 @@ export default class extends View {
       this.setTimeout(this.timerValue)
     }
   }
+
+  // async loadImages() {
+  //   const images = []
+  //   const thumbs = document.querySelectorAll('.category__image')
+  //   for (let i = 0; i < 12; i++) {
+  //     const imageName = this.categories[i].name
+  //     const url = `../img/category/${imageName}.webp`
+  //     images.push(url)
+  //   }
+
+  //   const preloader = new ImagePreloader(images, thumbs)
+  //   await preloader.preloadImages()
+  // }
 
   async mounted() {
     this.findElements()

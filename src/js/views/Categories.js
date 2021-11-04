@@ -43,14 +43,13 @@ export default class extends View {
 
   async loadImages() {
     const images = []
-    const thumbs = document.querySelectorAll('.category__image')
     for (let i = 0; i < 12; i++) {
       const imageName = this.categories[i].name
       const url = `../img/category/${imageName}.webp`
       images.push(url)
     }
 
-    const preloader = new ImagePreloader(images, thumbs)
+    const preloader = new ImagePreloader(images)
     await preloader.preloadImages()
   }
 
