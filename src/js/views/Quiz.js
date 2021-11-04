@@ -347,7 +347,7 @@ export default class extends View {
   }
 
   fullscreenImage(e) {
-    if (this.isWithTimer) {
+    if (this.isWithTimer && this.timer) {
       clearTimeout(this.timerTimeout)
       this.timer.pauseTimer()
     }
@@ -427,7 +427,7 @@ export default class extends View {
   }
 
   stopTimer() {
-    if (this.isWithTimer) {
+    if (this.isWithTimer && this.timer) {
       clearTimeout(this.timerTimeout)
       this.timer.pauseTimer()
     }
@@ -478,7 +478,7 @@ export default class extends View {
   }
 
   async answer(answer) {
-    if (this.isWithTimer) {
+    if (this.isWithTimer && this.timer) {
       this.timer.pauseTimer()
       clearTimeout(this.timerTimeout)
     }
