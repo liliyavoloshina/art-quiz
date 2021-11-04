@@ -4,13 +4,13 @@
 }
 
 .categories {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
+  align-items: stretch;
 }
 
 .category {
-  flex: 1 1 15em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,6 +20,10 @@
   box-shadow: var(--shadow);
   padding: 1.5em;
   border-radius: 10px;
+
+  @media (min-width: 1024px) {
+    max-width: 17em;
+  }
 
   @for $i from 1 through 12 {
     &:nth-child(#{$i}).hidden {
