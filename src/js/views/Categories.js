@@ -33,7 +33,7 @@ export default class extends View {
           </div>
           <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link>${splittedName}</a>
           <a class="category__image image-loading ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
-              <img src="../img/category/${category.name}.webp" alt="${category.name} quiz">
+              <img src="../img/category/${this.type}/${category.name}.webp" alt="${category.name} quiz">
           </a>
         </div>`)
     })
