@@ -375,7 +375,7 @@ export default class extends View {
     })
   }
 
-  generateModal() {
+  async generateModal() {
     const modalFirstLineEl = document.querySelector('#modalFirstLine')
     const modalSecondLineEl = document.querySelector('#modalSecondLine')
     const modalYearEl = document.querySelector('#modalYear')
@@ -388,7 +388,10 @@ export default class extends View {
     const currentAuthor = this.questions[this.currentQuestion].author
     const currentYear = this.questions[this.currentQuestion].year
 
-    modalImage.src = `/img/full/${currentImageNum}full.webp`
+    const imageSrc = `/img/full/${currentImageNum}full.webp`
+    const oneImagePreload = document.querySelector('.modal__image')
+
+    modalImage.src = imageSrc
 
     if (this.isCorrect) {
       crossmarkStatus.classList.add('hidden')
@@ -409,6 +412,9 @@ export default class extends View {
       modalSecondLineEl.textContent = `"${currentName}"`
       modalYearEl.textContent = `in ${currentYear}`
     }
+
+    const preloader = new ImagePreloader()
+    preloader.preloadOneImage(imageSrc, oneImagePreload)
   }
 
   findElements() {
@@ -471,7 +477,7 @@ export default class extends View {
     findBtnAnims()
   }
 
-  answer(answer) {
+  async answer(answer) {
     if (this.isWithTimer) {
       this.timer.pauseTimer()
       clearTimeout(this.timerTimeout)
@@ -504,7 +510,7 @@ export default class extends View {
     }
 
     if (this.currentQuestion !== 10) {
-      this.generateModal()
+      await this.generateModal()
       this.openModal()
     }
 
@@ -546,15 +552,15 @@ export default class extends View {
 
   async mounted() {
     this.findElements()
-    this.initTimer()
     this.observeHref()
 
     await this.getQuestions()
     await this.filterQuestions()
     this.generateQuestion()
-    this.generateImages()
-
+    await this.generateImages()
     this.generateAnswers()
+
+    this.initTimer()
 
     this.bindListeners()
   }
@@ -636,7 +642,7 @@ export default class extends View {
     </div>
     </div>
     <div class="modal__main">
-      <div class="modal__image">
+      <div class="modal__image one-image-loading">
         <img
           src=""
           alt=""

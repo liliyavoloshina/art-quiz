@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import View from './View'
+import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
   constructor(params) {
@@ -7,7 +8,11 @@ export default class extends View {
     this.setTitle('artquiz. - home')
   }
 
-  mounted() {}
+  async mounted() {
+    const imagesSrc = ['../img/artists.webp', '../img/pictures.webp', '../img/logo.png']
+    const preloader = new ImagePreloader(imagesSrc)
+    await preloader.preloadImages()
+  }
 
   mount() {
     return `
@@ -22,14 +27,14 @@ export default class extends View {
     <main class="main">
       <div class="container">
         <div class="home">
-          <div class="home-logo"></div>
+          <div class="home-logo image-loading"></div>
           <div class="home-types">
             <a class="home-types__type" href="/categories/artists" data-link>
-              <div class="home-types__image artist"></div>
+              <div class="home-types__image artist image-loading"></div>
               <div class="home-types__text">artists quiz</div>
             </a>
             <a class="home-types__type" href="/categories/pictures" data-link>
-              <div class="home-types__image pictures"></div>
+              <div class="home-types__image pictures image-loading"></div>
               <div class="home-types__text">pictures quiz</div>
              </a>
           </div>

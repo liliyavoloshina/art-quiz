@@ -22,13 +22,11 @@ class ImagePreloader {
       image.onerror = resolve
       image.src = src
     })
-    console.log(el)
-    el.classList.remove('image-loading')
+    el.classList.remove('one-image-loading')
   }
 
   async preloadImages() {
     await Promise.all(this.arr.map((src) => this.preloadImage(src)))
-    // console.log(this.thumbs)
     this.thumbs.forEach((thumb) => {
       thumb.classList.remove('image-loading')
     })
