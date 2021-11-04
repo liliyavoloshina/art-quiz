@@ -42,11 +42,14 @@ export default class extends View {
   }
 
   async loadImages() {
+    const images = []
     for (let i = 0; i < 12; i++) {
       const imageName = this.categories[i].name
       const url = `../img/category/${imageName}.webp`
-      preloadImages(url)
+      images.push(preloadImages(url))
     }
+
+    await Promise.all(images)
 
     console.log('loaded')
   }
