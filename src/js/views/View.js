@@ -27,7 +27,8 @@ export default class {
       { name: 'renaissance', isPlayed: false, results: 0 },
       { name: 'romanticism', isPlayed: false, results: 0 },
       { name: 'symbolism', isPlayed: false, results: 0 },
-      { name: 'avant-garde', isPlayed: false, results: 0 },
+      { name: 'avant garde', isPlayed: false, results: 0 },
+      { name: 'still life', isPlayed: false, results: 0 },
     ]
     const results = JSON.parse(localStorage.getItem(`${type}Results`)) || initialResults
     this.categories = results

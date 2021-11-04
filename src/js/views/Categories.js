@@ -20,6 +20,7 @@ export default class extends View {
     const items = []
     this.categories.forEach((category) => {
       const { isPlayed } = category
+      const imageName = category.name.split(' ').join('-')
       items.push(`
         <div class="category">
           <div class="category__header">
@@ -30,7 +31,7 @@ export default class extends View {
           </div>
           <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link>${category.name}</a>
           <a class="category__image ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
-              <img src="../img/category/${category.name}.jpg" alt="${category.name} quiz">
+              <img src="../img/category/${imageName}.webp" alt="${category.name} quiz">
           </a>
         </div>`)
     })
