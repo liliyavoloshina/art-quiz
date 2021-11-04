@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable class-methods-use-this */
 import View from './View'
-import preloadImages from '../helpers/preloadImages'
+import preloadImage from '../helpers/preloadImage'
 
 export default class extends View {
   constructor(params) {
@@ -46,10 +46,10 @@ export default class extends View {
     for (let i = 0; i < 12; i++) {
       const imageName = this.categories[i].name
       const url = `../img/category/${imageName}.webp`
-      images.push(preloadImages(url))
+      images.push(url)
     }
 
-    await Promise.all(images)
+    await Promise.all(images.map((src) => preloadImage(src)))
 
     console.log('loaded')
   }
