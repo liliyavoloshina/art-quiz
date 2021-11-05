@@ -6,6 +6,7 @@
 .main {
   display: flex;
   align-items: center;
+  height: calc(var(--vh, 1vh) * 60);
   padding: var(--main-p) var(--section-p);
   overflow: hidden;
 }
