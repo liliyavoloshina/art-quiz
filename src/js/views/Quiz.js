@@ -477,8 +477,8 @@ export default class extends View {
 
   async answer(answer) {
     if (this.isWithTimer && this.timer) {
-      this.timer.pauseTimer()
       clearTimeout(this.timerTimeout)
+      this.timer.pauseTimer()
     }
 
     const pagination = document.querySelectorAll('.pag-item')

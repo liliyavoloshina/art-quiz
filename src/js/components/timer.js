@@ -63,6 +63,7 @@ export default class {
     clearTimeout(this.interval)
     this.validateTime(this.disSeconds, this.totalTime)
     this.circleSvg.style.animation = `loop ${this.totalTime}s linear`
+    this.circleSvg.style.strokeDashoffset = '1590'
     this.play()
   }
 

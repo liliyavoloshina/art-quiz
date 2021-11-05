@@ -8,6 +8,12 @@
   --quiz-answers-g: 1em;
 }
 
+@media (min-width: 420px) {
+  :root {
+    --quiz-question-fs: 1.5em;
+  }
+}
+
 @media (min-width: 768px) {
   :root {
     --quiz-row-g: 1em;
