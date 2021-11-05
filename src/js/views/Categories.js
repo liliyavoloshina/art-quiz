@@ -76,7 +76,7 @@ export default class extends View {
         </div>
     </header>
 
-    <main class="main loading">
+    <main class="main main-categories">
         <div class="container">
             <div class="categories">
                 ${this.categoriesHtml}
