@@ -1,20 +1,21 @@
 :root {
-  --settings-row-g: 2em;
-  --settings-image-s: 10em;
+  --settings-row-g: 1em;
+  --settings-block-g: 1em;
+  --settings-block-p: 10px;
   --settings-text-fs: 2em;
   --settings-input-range-w: 95%;
 }
 
 @media (min-width: 420px) {
   :root {
-    --settings-image-s: 20em;
     --settings-input-range-w: 80%;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --settings-image-s: 30em;
+    --settings-block-g: 2em;
+    --settings-block-p: 30px;
     --settings-text-fs: 3em;
     --settings-input-range-w: 50%;
   }
@@ -41,11 +42,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: var(--settings-block-g);
+  padding: var(--settings-block-p);
+  border-radius: 10px;
   background: var(--background-primary);
   box-shadow: var(--shadow);
-  padding: 30px;
-  border-radius: 10px;
 
   &__input {
     display: flex;

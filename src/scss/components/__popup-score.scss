@@ -1,6 +1,6 @@
 :root {
-  --popup-score-s: 60%;
-  --popup-score-p: 1em;
+  --popup-score-s: 90%;
+  --popup-score-p: 2em 1em;
   --popup-score-fs: 0.8em;
 }
 
@@ -26,8 +26,8 @@
 
 .popup-score {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 20%;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -39,6 +39,11 @@
   background: var(--background-primary);
   box-shadow: 0.3rem 0.3rem 0.6rem var(--grey-light);
   transition: 0.4s ease-in;
+
+  @media (min-width: 420px) {
+    top: 50%;
+    left: 50%;
+  }
 
   font-size: var(--popup-score-fs);
 

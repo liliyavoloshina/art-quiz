@@ -6,11 +6,15 @@
 .main {
   display: flex;
   align-items: center;
-  height: calc(var(--vh, 1vh) * 80);
+  height: auto;
   padding: var(--main-p) var(--section-p);
   overflow: hidden;
 
   &-categories {
     height: auto;
+  }
+
+  @media (min-height: 1024px) {
+    height: calc(var(--vh, 1vh) * 80);
   }
 }

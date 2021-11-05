@@ -1,26 +1,45 @@
 :root {
-  --score-item-s: 15em;
-  --score-header-fs: 1.5em;
+  --score-item-s: 8em;
+  --score-item-image-p: 0.5em;
+  --score-header-fs: 1em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --score-item-s: 10em;
+    // --score-item-s: 8em;
+    --score-header-fs: 1.5em;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --score-item-s: 12em;
+    --score-item-s: 10em;
+    --score-item-image-p: 1em;
+    // --score-header-fs: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
     --score-header-fs: 2em;
   }
 }
 
+@media (min-width: 1920px) {
+  :root {
+    --score-item-s: 15em;
+  }
+}
+
 .score-header {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   text-align: center;
   font-size: var(--score-header-fs);
   font-weight: bold;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 2em;
+  }
 }
 
 .score {
@@ -52,7 +71,7 @@
   &__img {
     width: 100%;
     height: 100%;
-    padding: 1em;
+    padding: var(--score-item-image-p);
 
     &.inversed {
       filter: grayscale(100%);
