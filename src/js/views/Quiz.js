@@ -6,6 +6,7 @@ import Confetti from '../components/confetti'
 import generateHint from '../helpers/generateHint'
 import findBtnAnims from '../components/btn-anim'
 import ImagePreloader from '../helpers/ImagePreloader'
+import SliderTransformer from '../helpers/transformSlider'
 
 export default class extends View {
   constructor(params) {
@@ -33,6 +34,8 @@ export default class extends View {
     this.modal = null
 
     this.isModalOpened = false
+
+    this.sliderTransformer = null
   }
 
   async getQuestions() {
@@ -75,18 +78,7 @@ export default class extends View {
   }
 
   showNextImage() {
-    const slider = document.querySelector('#quizImages')
-    const images = slider.querySelectorAll('.image')
-
-    if (this.type === 'artists') {
-      images.forEach((image) => {
-        image.style.transform = `translateY(${this.currentQuestion * -100}%)`
-      })
-    } else {
-      images.forEach((image) => {
-        image.style.transform = `translateY(${this.currentQuestion * -200}%)`
-      })
-    }
+    this.sliderTransformer.transform(this.currentQuestion)
   }
 
   showNextAnswers() {
@@ -567,7 +559,7 @@ export default class extends View {
     this.generateAnswers()
 
     this.initTimer()
-
+    this.sliderTransformer = new SliderTransformer(this.type)
     this.bindListeners()
   }
 
