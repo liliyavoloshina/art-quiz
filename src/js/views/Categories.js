@@ -45,7 +45,7 @@ export default class extends View {
     const images = []
     for (let i = 0; i < 12; i++) {
       const imageName = this.categories[i].name
-      const url = `../img/category/${imageName}.webp`
+      const url = `../img/category/${this.type}/${imageName}.webp`
       images.push(url)
     }
 

@@ -21,6 +21,13 @@
     "genre": "historical"
   },
   {
+    "author": "Vincent van Gogh",
+    "name": "The Starry Night",
+    "year": "1889",
+    "imageNum": "167",
+    "genre": "impressionism"
+  },
+  {
     "author": "Pierre-Auguste Renoir",
     "name": "Horsemen",
     "year": "1873",
@@ -117,13 +124,6 @@
     "year": "1644",
     "imageNum": "34",
     "genre": "baroque"
-  },
-  {
-    "author": "Pierre-Auguste Renoir",
-    "name": "The Large Bathers",
-    "year": "1887",
-    "imageNum": "36",
-    "genre": "impressionism"
   },
   {
     "author": "Bartolomeo Murillo",
@@ -616,10 +616,10 @@
     "genre": "impressionism"
   },
   {
-    "author": "Vincent van Gogh",
-    "name": "The Starry Night",
-    "year": "1889",
-    "imageNum": "167",
+    "author": "Pierre-Auguste Renoir",
+    "name": "The Large Bathers",
+    "year": "1887",
+    "imageNum": "36",
     "genre": "impressionism"
   },
   {
