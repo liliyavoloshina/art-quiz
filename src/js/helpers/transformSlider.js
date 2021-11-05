@@ -23,9 +23,7 @@ class SliderTransformer {
         image.style.transform = `translateY(${questionNumber * -100}%)`
       })
     } else {
-      this.images.forEach((image) => {
-        image.style.transform = `translateY(${questionNumber * this.transformPictures}%)`
-      })
+      this.slider.style.transform = `translateY(${questionNumber * -100}%)`
     }
   }
 

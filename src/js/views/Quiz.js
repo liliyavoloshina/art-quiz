@@ -592,7 +592,9 @@ export default class extends View {
     <div class="container">
       <div class="quiz">
         <div class="quiz__question" id="quizQuestionText"></div>
-        <div class="quiz__images ${this.type === 'pictures' ? 'pictures' : 'artists'}" id="quizImages"></div>
+        <div class="quiz-slider">
+          <div class="quiz__images ${this.type === 'pictures' ? 'pictures' : 'artists'}" id="quizImages"></div>
+        </div>
         <div class="quiz__pag">
           <div class="pag-item"></div>
           <div class="pag-item"></div>
