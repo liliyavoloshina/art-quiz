@@ -10,11 +10,15 @@
   padding: var(--main-p) var(--section-p);
   overflow: hidden;
 
-  &-categories {
-    height: auto;
-  }
-
   @media (min-height: 1024px) {
     height: calc(var(--vh, 1vh) * 80);
   }
+}
+
+.main-categories {
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding: var(--main-p) var(--section-p);
+  overflow: hidden;
 }

@@ -1,9 +1,14 @@
 :root {
-  --footer-fs: 1em;
   --footer-logo-s: 3em;
 }
 
 @media (min-width: 768px) {
+  :root {
+    --footer-fs: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
   :root {
     --footer-fs: 1.5em;
   }
