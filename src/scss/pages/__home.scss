@@ -1,17 +1,21 @@
 :root {
   --home-row-g: 2em;
-  --home-text-fs: 2em;
+  --home-text-fs: 1.5em;
   --home-types-row-g: 2em;
-  --home-type-h: 35vh;
-}
-
-@media (min-width: 420px) {
-  :root {
-    --home-type-h: 60vh;
-  }
+  --home-type-h: 48%;
+  --home-logo-h: 10%;
+  --home-type-p: 20px;
 }
 
 @media (min-width: 768px) {
+  :root {
+    --home-row-g: 5em;
+    --home-type-p: 30px;
+    --home-text-fs: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
   :root {
     --home-row-g: 5em;
   }
@@ -21,10 +25,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--home-row-g);
+  height: 100%;
 
   &-logo {
     width: 17em;
-    height: 5em;
+    height: var(--home-logo-h);
     margin-left: auto;
     margin-right: auto;
     background: url('../img/logo.png') no-repeat;
@@ -35,9 +40,11 @@
 
 .home-types {
   display: flex;
+  justify-content: space-between;
   justify-content: space-evenly;
   gap: 2em;
   flex-wrap: wrap;
+  height: 90%;
 
   @for $i from 1 through 2 {
     &:nth-child(#{$i}) {
@@ -46,14 +53,13 @@
   }
 
   &__type {
-    flex: 1 1 25em;
+    flex: 1 1 48%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: var(--home-type-h);
     background: var(--background-primary);
     box-shadow: var(--shadow);
-    padding: 30px;
+    padding: var(--home-type-p);
     border-radius: 10px;
     text-decoration: none;
     transition: 0.3s ease;
@@ -65,8 +71,8 @@
 
   &__image {
     height: 85%;
-    border-radius: 10px;
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
     pointer-events: none;
 
@@ -82,7 +88,6 @@
   &__text {
     pointer-events: none;
     color: var(--text-dark);
-    line-height: var(--home-text-fs);
     font-size: var(--home-text-fs);
   }
 }
