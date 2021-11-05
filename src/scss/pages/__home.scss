@@ -9,7 +9,6 @@
 
 @media (min-width: 768px) {
   :root {
-    --home-row-g: 2em;
     --home-type-p: 30px;
     --home-text-fs: 2em;
   }
@@ -17,7 +16,7 @@
 
 @media (min-width: 1024px) {
   :root {
-    --home-row-g: 5em;
+    --home-row-g: 3em;
   }
 }
 
@@ -43,7 +42,7 @@
   justify-content: space-between;
   gap: 2em;
   flex-wrap: wrap;
-  height: 90%;
+  height: 80%;
 
   @for $i from 1 through 2 {
     &:nth-child(#{$i}) {

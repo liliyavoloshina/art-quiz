@@ -1,8 +1,6 @@
 :root {
   --quiz-row-g: 1em;
-  --quiz-question-fs: 1.5em;
-  --quiz-images-h: 15em;
-  --quiz-images-pictures-h: 100%;
+  --quiz-question-fs: 1em;
   --quiz-answer-w: 100%;
   --quiz-answer-fs: 1.2em;
   --quiz-pag-s: 0.5em;
@@ -10,16 +8,9 @@
   --quiz-answers-g: 1em;
 }
 
-@media (min-width: 420px) {
-  :root {
-    --quiz-images-h: 20em;
-  }
-}
-
 @media (min-width: 768px) {
   :root {
     --quiz-row-g: 1em;
-    --quiz-images-h: 30em;
     --quiz-pictures-img-p: 0.3em;
     --quiz-answer-w: 40%;
     --quiz-answer-fs: 1.5em;
@@ -41,7 +32,11 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--quiz-row-g);
-  height: 100%;
+  height: calc(var(--vh, 1vh) * 75);
+
+  @media (min-height: 1024px) {
+    height: 100%;
+  }
 
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
@@ -65,12 +60,12 @@
   overflow: hidden;
 
   &.pictures {
-    height: var(--quiz-images-pictures-h);
+    height: 100%;
   }
 
-  // &.pictures {
-  //   height: var(--quiz-images-artists-h);
-  // }
+  &.artists {
+    height: 60%;
+  }
 
   .image {
     position: relative;
@@ -147,8 +142,6 @@
 .quiz__pag {
   display: flex;
   justify-content: space-between;
-  // height: 10%;
-  // height: var(--quiz-pag-h);
   padding: 0 1em;
 
   .pag-item {
