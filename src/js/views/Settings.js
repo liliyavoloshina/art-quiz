@@ -96,7 +96,7 @@ export default class extends View {
                             <label for="soundCheckbox"><span class="material-icons-round">done</span></label>
                         </div>
                     </div>
-                    <div class="settings-block__input">
+                    <div class="settings-block__input regulation">
                         <input class="range" type="range" min="1" id="soundRange">
                     </div>
                     <div class="settings-block__text">music</div>
@@ -108,7 +108,7 @@ export default class extends View {
                             <label for="timerCheckbox"><span class="material-icons-round">done</span></label>
                         </div>
                     </div>
-                    <div class="settings-block__input">
+                    <div class="settings-block__input regulation">
                         <div class="input-number">
                           <button class="input-number__btn" type="number" id="decrTimerBtn"><span class="material-icons-round">remove</span></button>
                           <input class="input-number__input" type="number" id="timerInput" disabled>
