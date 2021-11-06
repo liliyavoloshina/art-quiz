@@ -11,7 +11,7 @@ import SliderTransformer from '../helpers/transformSlider'
 export default class extends View {
   constructor(params) {
     super(params)
-    this.setTitle('artquiz. - quiz')
+    this.setTitle('artquiz. - quiz.')
     this.type = params.type
     this.category = params.category
 
@@ -472,7 +472,7 @@ export default class extends View {
       return
     }
 
-    this.classList.toggle('opened')
+    hintBtn.classList.toggle('opened')
   }
 
   bindListeners() {

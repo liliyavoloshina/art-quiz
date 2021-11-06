@@ -3,6 +3,7 @@ import Settings from './views/Settings'
 import Categories from './views/Categories'
 import Quiz from './views/Quiz'
 import Score from './views/Score'
+import Blitz from './views/Blitz'
 
 // get query from path
 const pathRegex = (path) => new RegExp(`^${path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)')}$`)
@@ -22,6 +23,7 @@ const router = async () => {
     { path: '/categories/:type', View: Categories },
     { path: '/quiz/:type/:category', View: Quiz },
     { path: '/score/:type/:category', View: Score },
+    { path: '/blitz', View: Blitz },
   ]
 
   const potentialMatches = routes.map((route) => ({
