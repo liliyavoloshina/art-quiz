@@ -361,7 +361,7 @@ export default class extends View {
 
     const imageFullscreen = document.querySelector('#imageFullscreen')
 
-    modalFullscreen.style.display = 'block'
+    modalFullscreen.style.display = 'flex'
     imageFullscreen.src = image.src
 
     modalFullscreen.addEventListener('click', () => {
@@ -665,7 +665,9 @@ export default class extends View {
 </div>
 
 <div class="modal-image" id="modalFullscreen">
-    <img class="modal-image__image" id="imageFullscreen">
+    <div class="modal-image__wrapper">
+      <img class="modal-image__image" id="imageFullscreen">
+    </div>
 </div>
 
 <div class="confetti-wrapper hidden" id="quizConfetti"></div>

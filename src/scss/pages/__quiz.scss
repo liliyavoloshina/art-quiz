@@ -84,6 +84,7 @@
       align-items: center;
       border-radius: 10px;
       background: var(--dark);
+      cursor: pointer;
 
       &:hover {
         span[class^='material-icons'] {
