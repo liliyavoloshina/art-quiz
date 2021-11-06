@@ -1,0 +1,34 @@
+.blitz-slider {
+  overflow: hidden;
+}
+
+.blitz__images {
+  display: flex;
+  flex-wrap: wrap;
+  transition: 1s ease;
+  height: 100%;
+
+  .image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: 1s ease;
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: 0.3s;
+      box-sizing: border-box;
+
+      &.disabled {
+        pointer-events: none;
+        cursor: auto;
+      }
+    }
+  }
+}

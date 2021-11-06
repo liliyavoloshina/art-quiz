@@ -7,6 +7,8 @@ import generateHint from '../helpers/generateHint'
 import findBtnAnims from '../components/btn-anim'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/transformSlider'
+import getData from '../helpers/getData'
+import shuffle from '../helpers/shuffle'
 
 export default class extends View {
   constructor(params) {
@@ -43,12 +45,6 @@ export default class extends View {
     this.imageActions = null
 
     this.hintsCount = 0
-  }
-
-  async getQuestions() {
-    const res = await fetch(`/data/${this.type}.json`)
-    const data = await res.json()
-    this.allQuestions = data
   }
 
   async filterQuestions() {
@@ -302,14 +298,6 @@ export default class extends View {
         if (!answers.includes(randomAnswer.author)) {
           answers.push(randomAnswer.author)
         }
-      }
-
-      const shuffle = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1))
-          ;[array[i], array[j]] = [array[j], array[i]]
-        }
-        return array
       }
 
       shuffle(answers)
@@ -573,7 +561,7 @@ export default class extends View {
     this.findElements()
     this.observeHref()
 
-    await this.getQuestions()
+    this.allQuestions = await getData(this.type)
     await this.filterQuestions()
     this.generateQuestion()
     await this.generateImages()
