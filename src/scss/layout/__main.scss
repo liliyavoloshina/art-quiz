@@ -1,6 +1,5 @@
 :root {
   --main-p: 0.5em;
-  // --main-p: 1em;
   --main-mt: 5em;
 }
 
@@ -11,7 +10,7 @@
   padding: var(--main-p) var(--section-p);
   overflow: hidden;
 
-  @media (min-height: 1024px) {
+  @media (min-height: 1000px) {
     height: calc(var(--vh, 1vh) * 80);
   }
 }

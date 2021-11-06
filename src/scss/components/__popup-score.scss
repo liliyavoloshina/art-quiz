@@ -1,33 +1,38 @@
 :root {
-  --popup-score-s: 90%;
+  --popup-score-t: 10%;
+  --popup-score-l: 20%;
+  --popup-score-s: 100%;
   --popup-score-p: 2em 1em;
-  --popup-score-fs: 0.8em;
+  --popup-score-fs: 0.6em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --popup-score-s: 70%;
-    --popup-score-fs: 0.6em;
+    --popup-score-t: 20%;
+    --popup-score-s: 90%;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --popup-score-s: 60%;
+    --popup-score-t: 40%;
+    --popup-score-l: 50%;
+    --popup-score-s: 80%;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --popup-score-s: 80%;
+    --popup-score-l: 30%;
+    --popup-score-s: 90%;
     --popup-score-fs: 0.8em;
   }
 }
 
 .popup-score {
   position: absolute;
-  top: 10%;
-  left: 20%;
+  top: var(--popup-score-t);
+  left: var(--popup-score-l);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -39,11 +44,6 @@
   background: var(--background-primary);
   box-shadow: 0.3rem 0.3rem 0.6rem var(--grey-light);
   transition: 0.4s ease-in;
-
-  @media (min-width: 420px) {
-    top: 50%;
-    left: 50%;
-  }
 
   font-size: var(--popup-score-fs);
 

@@ -22,8 +22,17 @@ body {
 body {
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
-  background-color: var(--background-primary);
   font-family: 'Rubik', sans-serif;
+  background-color: var(--background-primary);
+
+  &::-webkit-scrollbar {
+    width: 0.8em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--grey-medium);
+  }
 }
 
 img::selection {

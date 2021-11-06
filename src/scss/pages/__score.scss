@@ -6,7 +6,14 @@
 
 @media (min-width: 420px) {
   :root {
-    // --score-item-s: 8em;
+    --score-item-s: 8em;
+    --score-header-fs: 1.5em;
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    --score-item-s: 9em;
     --score-header-fs: 1.5em;
   }
 }
@@ -15,7 +22,6 @@
   :root {
     --score-item-s: 10em;
     --score-item-image-p: 1em;
-    // --score-header-fs: 1.5em;
   }
 }
 
