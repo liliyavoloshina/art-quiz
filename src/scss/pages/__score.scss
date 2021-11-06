@@ -14,19 +14,19 @@
 @media (min-width: 500px) {
   :root {
     --score-item-s: 10em;
-    --score-header-fs: 1.5em;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --score-item-s: 10em;
+    --score-item-s: 11em;
     --score-item-image-p: 1em;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
+    --score-item-s: 12em;
     --score-header-fs: 2em;
   }
 }
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
   gap: 0.5em;
 
-  @media (min-width: 768px) {
+  @media (min-width: 890px) {
     gap: 2em;
   }
 

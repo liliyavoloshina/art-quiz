@@ -6,13 +6,10 @@
   --modal-info-fs: 4em;
 }
 
-@media (min-width: 420px) {
+@media (min-width: 768px) {
   :root {
-  }
-}
-
-@media (min-width: 1920px) {
-  :root {
+    --modal-center-w: 30em;
+    --modal-center-h: 40em;
   }
 }
 
