@@ -86,6 +86,10 @@
       background: var(--dark);
       cursor: pointer;
 
+      &.disabled {
+        pointer-events: none;
+      }
+
       &:hover {
         span[class^='material-icons'] {
           color: var(--accent);

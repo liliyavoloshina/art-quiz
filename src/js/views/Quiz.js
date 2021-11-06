@@ -37,6 +37,12 @@ export default class extends View {
 
     this.sliderTransformer = null
     this.fullscreenBtns = null
+
+    this.modalFullscreen = null
+    this.imageFullscreen = null
+    this.imageActions = null
+
+    this.hintsCount = 0
   }
 
   async getQuestions() {
@@ -193,7 +199,7 @@ export default class extends View {
             />
             <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
             <div class="image__hint image__actions" title="Hint">
-              <div class="tooltip btn-anim">
+              <div class="tooltip btn-anim" data-order="${items.length}">
                 <span class="material-icons-round">help_outline</span>
                 <div class="tooltip__content">this picture was painted in ${year}</div>
               </div>
@@ -249,7 +255,7 @@ export default class extends View {
             />
             <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
             <div class="image__hint image__actions" title="Hint">
-              <div class="tooltip btn-anim">
+              <div class="tooltip btn-anim" data-order="${items.length}">
                 <span class="material-icons-round">help_outline</span>
                 <div class="tooltip__content">${hint}</div>
               </div>
@@ -268,6 +274,7 @@ export default class extends View {
     const preloader = new ImagePreloader(srcForPreload)
 
     this.fullscreenBtns = document.querySelectorAll('.image__fullscreen')
+    this.imageActions = document.querySelectorAll('.image__actions')
 
     if (this.type === 'pictures') {
       await preloader.preloadImages('four')
@@ -341,6 +348,7 @@ export default class extends View {
       }
 
       this.imagesEl.forEach((image) => image.classList.remove('disabled'))
+      this.imageActions.forEach((btn) => btn.classList.remove('disabled'))
     }, 1000)
   }
 
@@ -357,26 +365,30 @@ export default class extends View {
 
     const btn = e.target
     const image = btn.previousElementSibling
-    const modalFullscreen = document.querySelector('#modalFullscreen')
+    this.modalFullscreen = document.querySelector('#modalFullscreen')
 
-    const imageFullscreen = document.querySelector('#imageFullscreen')
+    this.imageFullscreen = document.querySelector('#imageFullscreen')
 
-    modalFullscreen.style.display = 'flex'
-    imageFullscreen.src = image.src
+    this.modalFullscreen.style.display = 'flex'
+    this.imageFullscreen.src = image.src
 
-    modalFullscreen.addEventListener('click', () => {
-      imageFullscreen.classList.add('out')
-      setTimeout(() => {
-        if (this.isWithTimer) {
-          this.timer.resumeTimer()
-          clearTimeout(this.timerTimeout)
-          this.setTimeout(this.timer.totalTime + 1)
-        }
-
-        modalFullscreen.style.display = 'none'
-        imageFullscreen.className = 'modal-image__image'
-      }, 400)
+    this.modalFullscreen.addEventListener('click', () => {
+      this.closeFullscreenImage()
     })
+  }
+
+  closeFullscreenImage() {
+    this.imageFullscreen.classList.add('out')
+    setTimeout(() => {
+      if (this.isWithTimer) {
+        this.timer.resumeTimer()
+        clearTimeout(this.timerTimeout)
+        this.setTimeout(this.timer.totalTime + 1)
+      }
+
+      this.modalFullscreen.style.display = 'none'
+      this.imageFullscreen.classList.remove('out')
+    }, 400)
   }
 
   async generateModal() {
@@ -445,7 +457,21 @@ export default class extends View {
     })
   }
 
-  showHint() {
+  showHint(e) {
+    const hintBtn = e.target
+    const order = +hintBtn.dataset.order + 1
+
+    if (this.type === 'pictures') {
+      const hasHints = this.hintsCount * 4 < order
+
+      if (hasHints) {
+        hintBtn.classList.toggle('opened')
+        this.hintsCount++
+      }
+
+      return
+    }
+
     this.classList.toggle('opened')
   }
 
@@ -453,7 +479,7 @@ export default class extends View {
     const hintBtns = document.querySelectorAll('.tooltip')
 
     hintBtns.forEach((btn) => {
-      btn.addEventListener('click', this.showHint)
+      btn.addEventListener('click', (e) => this.showHint(e))
     })
 
     this.fullscreenBtns.forEach((btn) => {
@@ -522,9 +548,11 @@ export default class extends View {
 
     if (this.type === 'artists') {
       this.answersEl.forEach((btn) => (btn.disabled = true))
+      this.answersEl.forEach((btn) => (btn.disabled = true))
     }
 
     this.imagesEl.forEach((image) => image.classList.add('disabled'))
+    this.imageActions.forEach((btn) => btn.classList.add('disabled'))
   }
 
   setTimeout(value) {
