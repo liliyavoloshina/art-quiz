@@ -1,19 +1,19 @@
 :root {
-  --score-item-s: 8em;
+  --score-item-s: 9em;
   --score-item-image-p: 0.5em;
   --score-header-fs: 1em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --score-item-s: 8em;
+    --score-item-s: 9em;
     --score-header-fs: 1.5em;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 500px) {
   :root {
-    --score-item-s: 9em;
+    --score-item-s: 10em;
     --score-header-fs: 1.5em;
   }
 }
@@ -52,7 +52,11 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: 0.5em;
+
+  @media (min-width: 768px) {
+    gap: 2em;
+  }
 
   &__item {
     position: relative;
