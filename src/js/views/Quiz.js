@@ -36,6 +36,7 @@ export default class extends View {
     this.isModalOpened = false
 
     this.sliderTransformer = null
+    this.fullscreenBtns = null
   }
 
   async getQuestions() {
@@ -190,7 +191,8 @@ export default class extends View {
               src="/img/full/${question.imageNum}full.webp"
               alt=""
             />
-            <div class="image__hint">
+            <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
+            <div class="image__hint image__actions" title="Hint">
               <div class="tooltip btn-anim">
                 <span class="material-icons-round">help_outline</span>
                 <div class="tooltip__content">this picture was painted in ${year}</div>
@@ -245,7 +247,8 @@ export default class extends View {
               alt="${name}"
               data-name="${name}"
             />
-            <div class="image__hint">
+            <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
+            <div class="image__hint image__actions" title="Hint">
               <div class="tooltip btn-anim">
                 <span class="material-icons-round">help_outline</span>
                 <div class="tooltip__content">${hint}</div>
@@ -263,6 +266,8 @@ export default class extends View {
     images.innerHTML = imagesHtml
 
     const preloader = new ImagePreloader(srcForPreload)
+
+    this.fullscreenBtns = document.querySelectorAll('.image__fullscreen')
 
     if (this.type === 'pictures') {
       await preloader.preloadImages('four')
@@ -350,7 +355,8 @@ export default class extends View {
       this.timer.pauseTimer()
     }
 
-    const image = e.target
+    const btn = e.target
+    const image = btn.previousElementSibling
     const modalFullscreen = document.querySelector('#modalFullscreen')
 
     const imageFullscreen = document.querySelector('#imageFullscreen')
@@ -427,7 +433,7 @@ export default class extends View {
   stopTimer() {
     if (this.isWithTimer && this.timer) {
       clearTimeout(this.timerTimeout)
-      this.timer.pauseTimer()
+      this.timer.stopTimer()
     }
   }
 
@@ -450,9 +456,9 @@ export default class extends View {
       btn.addEventListener('click', this.showHint)
     })
 
-    // this.imagesEl.forEach((image) => {
-    //   image.addEventListener('click', (e) => this.fullscreenImage(e))
-    // })
+    this.fullscreenBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => this.fullscreenImage(e))
+    })
 
     const modalBtn = document.querySelector('#modalBtn')
     this.answersEl.forEach((el) =>
@@ -478,7 +484,7 @@ export default class extends View {
   async answer(answer) {
     if (this.isWithTimer && this.timer) {
       clearTimeout(this.timerTimeout)
-      this.timer.pauseTimer()
+      this.timer.stopTimer()
     }
 
     const pagination = document.querySelectorAll('.pag-item')
@@ -534,19 +540,6 @@ export default class extends View {
       this.setTimeout(this.timerValue)
     }
   }
-
-  // async loadImages() {
-  //   const images = []
-  //   const thumbs = document.querySelectorAll('.category__image')
-  //   for (let i = 0; i < 12; i++) {
-  //     const imageName = this.categories[i].name
-  //     const url = `../img/category/${imageName}.webp`
-  //     images.push(url)
-  //   }
-
-  //   const preloader = new ImagePreloader(images, thumbs)
-  //   await preloader.preloadImages()
-  // }
 
   async mounted() {
     this.findElements()

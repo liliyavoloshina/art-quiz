@@ -11,4 +11,8 @@ span[class^='material-icons'] {
   &:hover {
     color: var(--accent);
   }
+
+  @media (min-width: 420px) {
+    top: 1.5em;
+  }
 }

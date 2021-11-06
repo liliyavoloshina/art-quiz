@@ -30,6 +30,7 @@
   border: 0.3rem solid var(--grey);
   border-radius: 50%;
   background-color: var(--background-primary);
+  z-index: 1000;
 
   &.hidden {
     display: none;

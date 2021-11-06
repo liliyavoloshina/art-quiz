@@ -3,7 +3,7 @@
 }
 
 .btn-anim {
-  display: inline-block;
+  display: flex;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
 
@@ -17,9 +17,7 @@
     content: '';
     display: block;
     width: 200%;
-    // width: 140%;
     height: 150%;
-    // height: 100%;
     left: -30%;
     z-index: -1000;
     transition: all ease-in-out 0.5s;
@@ -34,7 +32,6 @@
       radial-gradient(circle, transparent 10%, var(--btn-anim-primary) 15%, transparent 20%), radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%),
       radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%), radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%),
       radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%);
-    // background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
     background-size: 25% 25%, 35% 35%, 30% 30%, 35% 35%, 33% 33%, 25% 25%, 30% 30%, 25% 25%, 33% 33%;
   }
 
@@ -45,7 +42,6 @@
       radial-gradient(circle, transparent 10%, var(--btn-anim-primary) 15%, transparent 20%), radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%),
       radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%), radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%),
       radial-gradient(circle, var(--btn-anim-primary) 20%, transparent 20%);
-    // background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
     background-size: 30% 30%, 35% 35%, 33% 33%, 35% 35%, 30% 30%, 25% 25%, 35% 35%;
   }
 

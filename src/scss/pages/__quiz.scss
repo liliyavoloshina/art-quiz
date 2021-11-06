@@ -70,14 +70,6 @@
   transition: 1s ease;
   height: 100%;
 
-  // &.pictures {
-  //   height: 100%;
-  // }
-
-  // &.artists {
-  //   height: 60%;
-  // }
-
   .image {
     position: relative;
     display: flex;
@@ -85,17 +77,34 @@
     border-radius: 10px;
     transition: 1s ease;
 
-    &__hint {
+    &__actions {
       position: absolute;
       top: 1em;
-      left: 1em;
-      z-index: 2;
-      display: none;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      background: var(--dark);
+
+      &:hover {
+        span[class^='material-icons'] {
+          color: var(--accent);
+        }
+      }
 
       @media (min-width: 420px) {
-        top: 2em;
-        left: 2em;
+        top: 1.5em;
       }
+    }
+
+    &__fullscreen {
+      right: 1em;
+      border: none;
+      outline: none;
+    }
+
+    &__hint {
+      left: 1em;
+      z-index: 2;
     }
 
     &.artists {

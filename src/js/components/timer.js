@@ -12,6 +12,7 @@ export default class {
     this.totalTime = this.timerValue
     this.yellow = Math.floor(this.totalTime / 2)
     this.red = Math.floor(this.totalTime / 4)
+    this.oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
   }
 
   pauseTimer() {
@@ -19,13 +20,18 @@ export default class {
       this.isPaused = true
       clearInterval(this.interval)
 
-      const oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
-
-      this.circleSvg.style.animation = 'none'
-      this.circleSvg.style.strokeDashoffset = oldValue
-      // this.circleSvg.style.animationPlayState = 'paused'
-      // this.disSeconds.style.animationPlayState = 'paused'
+      this.circleSvg.style.animationPlayState = 'paused'
+      this.disSeconds.style.animationPlayState = 'paused'
     }
+  }
+
+  stopTimer() {
+    clearInterval(this.interval)
+
+    this.oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
+    this.circleSvg.style.strokeDashoffset = this.oldValue
+
+    this.circleSvg.style.animation = 'none'
   }
 
   playTimer() {
@@ -47,6 +53,7 @@ export default class {
       this.totalTime--
     } else {
       clearTimeout(this.interval)
+      this.circleSvg.style.strokeDashoffset = '0'
       this.circleSvg.style.animation = 'none'
       this.disSeconds.style.animation = 'none'
     }
@@ -56,6 +63,8 @@ export default class {
   setInterval() {
     this.interval = setInterval(() => {
       this.playTimer()
+      this.disSeconds.style.animationPlayState = 'running'
+      this.circleSvg.style.animationPlayState = 'running'
     }, 1000)
   }
 
@@ -77,8 +86,6 @@ export default class {
   play() {
     this.playTimer()
     this.setInterval()
-    this.disSeconds.style.animationPlayState = 'running'
-    this.circleSvg.style.animationPlayState = 'running'
   }
 
   validateTime(element, value) {
