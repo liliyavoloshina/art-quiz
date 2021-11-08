@@ -433,6 +433,8 @@ export default class extends View {
     backBtn.addEventListener('click', () => {
       this.stopTimer()
     })
+
+    window.addEventListener('popstate', () => this.stopTimer())
   }
 
   showHint(e) {
@@ -548,7 +550,6 @@ export default class extends View {
   async mounted() {
     this.findElements()
     this.observeHref()
-
     this.allQuestions = await getData(this.type)
     await this.filterQuestions()
     this.generateQuestion()

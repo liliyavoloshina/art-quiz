@@ -19,7 +19,7 @@ export default class extends View {
     this.playSound = null
     this.timerTimeout = false
     this.timerInterval = false
-    this.totalTime = 60
+    this.totalTime = 10
     this.timeLeft = this.totalTime
   }
 
