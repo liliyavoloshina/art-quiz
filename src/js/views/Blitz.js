@@ -5,6 +5,7 @@ import getData from '../helpers/getData'
 import shuffle from '../helpers/shuffle'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/transformSlider'
+import PlaySound from '../helpers/playSound'
 
 export default class extends View {
   constructor(params) {
@@ -15,6 +16,7 @@ export default class extends View {
     this.questionTextEl = null
     this.shouldBeCorrect = null
     this.sliderTransformer = null
+    this.playSound = null
   }
 
   findElements() {
@@ -113,9 +115,7 @@ export default class extends View {
       answerBtn.classList.add('incorrect')
     }
 
-    if (this.isWithSound) {
-      this.playSound()
-    }
+    this.playSound.play(isCorrect)
 
     this.currentQuestion++
     this.showNextQuestion()
@@ -129,6 +129,7 @@ export default class extends View {
     this.generateQuestion()
 
     this.sliderTransformer = new SliderTransformer('blitz')
+    this.playSound = new PlaySound(this.isWithSound, this.soundValue)
   }
 
   mount() {
