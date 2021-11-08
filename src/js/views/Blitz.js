@@ -132,6 +132,10 @@ export default class extends View {
     clearInterval(this.timerInterval)
     this.timer.stopTimer()
 
+    if (this.timeLeft >= 60) {
+      this.timeLeft = this.totalTime
+    }
+
     this.timer = new Timer(this.timeLeft)
     this.timer.initTimer()
     this.setTimeout(this.timeLeft)

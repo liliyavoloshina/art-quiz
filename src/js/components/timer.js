@@ -36,7 +36,7 @@ export default class {
 
   playTimer() {
     if (this.isPaused) return
-    const seconds = this.totalTime % 60
+    const seconds = this.totalTime === 60 ? 60 : this.totalTime % 60
 
     if (this.totalTime <= this.red) {
       this.circleSvg.style.stroke = 'var(--red)'
