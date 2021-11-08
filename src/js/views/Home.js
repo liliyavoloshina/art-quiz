@@ -32,15 +32,15 @@ export default class extends View {
           <div class="home-types">
             <a class="home-types__type" href="/categories/artists" data-link>
               <div class="home-types__image artist image-loading"></div>
-              <div class="home-types__text">artists quiz</div>
+              <div class="home-types__text" data-langkey="artists-quiz">artists quiz</div>
             </a>
             <a class="home-types__type" href="/categories/pictures" data-link>
               <div class="home-types__image pictures image-loading"></div>
-              <div class="home-types__text">pictures quiz</div>
+              <div class="home-types__text" data-langkey="pictures-quiz">pictures quiz</div>
              </a>
             <a class="home-types__type" href="blitz" data-link>
               <div class="home-types__image blitz-image image-loading"></div>
-              <div class="home-types__text">blitz quiz</div>
+              <div class="home-types__text" data-langkey="blitz-quiz">blitz quiz</div>
              </a>
           </div>
         </div>

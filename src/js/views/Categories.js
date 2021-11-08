@@ -5,7 +5,7 @@ import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
   constructor(params) {
-    super(params)
+    super({ ...params, name: 'categories' })
     this.setTitle('artquiz. - categories')
     this.type = this.params.type
     this.categoriesHtml = ''
@@ -31,7 +31,7 @@ export default class extends View {
           </a>
             <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.isPlayed ? this.getCorrectNumber(category.results) : ''}/10</div>
           </div>
-          <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link>${splittedName}</a>
+          <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link data-langkey="${category.name}">${splittedName}</a>
           <a class="category__image image-loading ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
               <img src="../img/category/${this.type}/${category.name}.webp" alt="${category.name} quiz">
           </a>
@@ -54,6 +54,7 @@ export default class extends View {
   }
 
   async mounted() {
+    this.translatePage()
     const categoryBoxes = document.querySelectorAll('.category')
     categoryBoxes.forEach((box) => {
       box.classList.add('hidden')
@@ -71,7 +72,7 @@ export default class extends View {
         <div class="container">
             <div class="header header-categories">
                 <a href="/" class="header-categories__nav header__nav--left header__nav btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
-                <h1 class="header__title">${this.type}.</h1>
+                <h1 class="header__title" data-langkey="${this.type}">${this.type}.</h1>
             </div>
         </div>
     </header>
