@@ -3,10 +3,9 @@
 export default class {
   constructor(params) {
     this.params = params
-
-    this.categories = []
+    this.results = []
     this.soundStatus = null
-    this.getCategoriesFromStorage()
+    this.getResultsFromStorage()
     this.getSettings()
   }
 
@@ -14,7 +13,7 @@ export default class {
     document.title = title
   }
 
-  getCategoriesFromStorage() {
+  getResultsFromStorage() {
     const { type } = this.params
     const initialResults = [
       { name: 'baroque', isPlayed: false, results: 0 },
@@ -30,8 +29,14 @@ export default class {
       { name: 'avant-garde', isPlayed: false, results: 0 },
       { name: 'still-life', isPlayed: false, results: 0 },
     ]
-    const results = JSON.parse(localStorage.getItem(`${type}Results`)) || initialResults
-    this.categories = results
+    let results = []
+    if (type === 'blitz') {
+      results = JSON.parse(localStorage.getItem(`blitzResults`)) || [{ timesPlayed: 0, wins: 0 }]
+    } else {
+      results = JSON.parse(localStorage.getItem(`${type}Results`)) || initialResults
+    }
+
+    this.results = results
   }
 
   getSettings() {

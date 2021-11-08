@@ -8,11 +8,10 @@ import PlaySound from '../helpers/playSound'
 import Timer from '../components/timer'
 
 export default class extends View {
-  constructor(params) {
-    super(params)
+  constructor() {
+    super({ type: 'blitz' })
     this.setTitle('artquiz. - blitz.')
     this.questions = []
-    this.questionsId = []
     this.currentQuestion = 0
     this.questionTextEl = null
     this.shouldBeCorrect = null
@@ -21,6 +20,7 @@ export default class extends View {
     this.timerInterval = false
     this.totalTime = 5
     this.timeLeft = this.totalTime
+    console.log(this.results)
   }
 
   findElements() {
@@ -66,6 +66,8 @@ export default class extends View {
     const image = document.querySelector('#blitzImage')
     image.src = `/img/full/${this.questions[this.currentQuestion].imageNum}full.webp`
   }
+
+  saveResults() {}
 
   getRandomAuthor(correctAuthor) {
     let randomAuthor = null

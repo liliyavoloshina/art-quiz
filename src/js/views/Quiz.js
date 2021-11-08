@@ -48,6 +48,8 @@ export default class extends View {
     this.hintsCount = 0
 
     this.playSound = null
+
+    console.log(this.results)
   }
 
   async filterQuestions() {
@@ -102,10 +104,10 @@ export default class extends View {
     })
 
     const updatedCategory = { name: this.category, isPlayed: true, results }
-    const categoryToUpdateIdx = this.categories.findIndex((el) => el.name === this.category)
-    this.categories[categoryToUpdateIdx] = updatedCategory
+    const categoryToUpdateIdx = this.results.findIndex((el) => el.name === this.category)
+    this.results[categoryToUpdateIdx] = updatedCategory
 
-    localStorage.setItem(`${this.type}Results`, JSON.stringify(this.categories))
+    localStorage.setItem(`${this.type}Results`, JSON.stringify(this.results))
   }
 
   showResults() {

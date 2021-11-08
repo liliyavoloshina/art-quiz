@@ -10,7 +10,7 @@ export default class extends View {
     this.type = this.params.type
     this.categoriesHtml = ''
     this.categoriesToHtml()
-    this.correctResults = this.categories
+    this.correctResults = this.results
   }
 
   getCorrectNumber(results) {
@@ -20,7 +20,7 @@ export default class extends View {
 
   categoriesToHtml() {
     const items = []
-    this.categories.forEach((category) => {
+    this.results.forEach((category) => {
       const { isPlayed } = category
       const splittedName = category.name.split('-').join(' ')
       items.push(`
@@ -44,7 +44,7 @@ export default class extends View {
   async loadImages() {
     const images = []
     for (let i = 0; i < 12; i++) {
-      const imageName = this.categories[i].name
+      const imageName = this.results[i].name
       const url = `../img/category/${this.type}/${imageName}.webp`
       images.push(url)
     }
