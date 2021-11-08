@@ -4,7 +4,6 @@ import View from './View'
 import getData from '../helpers/getData'
 import shuffle from '../helpers/shuffle'
 import ImagePreloader from '../helpers/ImagePreloader'
-import SliderTransformer from '../helpers/transformSlider'
 import PlaySound from '../helpers/playSound'
 import Timer from '../components/timer'
 
@@ -13,15 +12,15 @@ export default class extends View {
     super(params)
     this.setTitle('artquiz. - blitz.')
     this.questions = []
+    this.questionsId = []
     this.currentQuestion = 0
     this.questionTextEl = null
     this.shouldBeCorrect = null
-    this.sliderTransformer = null
     this.playSound = null
     this.timerTimeout = false
     this.timerInterval = false
-    this.totalTime = 5
-    this.timeLeft = 5
+    this.totalTime = 60
+    this.timeLeft = this.totalTime
   }
 
   findElements() {
@@ -36,44 +35,26 @@ export default class extends View {
   }
 
   async getQuestions() {
-    const q = await getData('all')
-    this.questions = q.splice(0, 10)
-    // shuffle(this.questions)
+    this.questions = await getData('all')
+    shuffle(this.questions)
   }
 
   async generateImages() {
-    const items = []
     const srcForPreload = []
 
     this.questions.forEach(async (question) => {
       srcForPreload.push(`/img/full/${question.imageNum}full.webp`)
-      const item = `
-        <div class="image image-loading">
-            <img
-              class="image__img"
-              src="/img/full/${question.imageNum}full.webp"
-              alt=""
-            />
-          </div>
-        `
-      items.push(item)
     })
-
-    const imagesHtml = items.join('\n')
-    const images = document.querySelector('#blitzImages')
-    images.innerHTML = imagesHtml
 
     const preloader = new ImagePreloader(srcForPreload)
     await preloader.preloadImages()
 
-    const transitionImage = document.querySelector('.image')
-    transitionImage.addEventListener('transitionend', () => {
-      const answers = document.querySelectorAll('.answer')
-      answers.forEach((btn) => {
-        btn.classList.remove('correct')
-        btn.classList.remove('incorrect')
-      })
-    })
+    this.showImage()
+  }
+
+  showImage() {
+    const image = document.querySelector('#blitzImage')
+    image.src = `/img/full/${this.questions[this.currentQuestion].imageNum}full.webp`
   }
 
   getRandomAuthor(correctAuthor) {
@@ -105,7 +86,16 @@ export default class extends View {
   }
 
   showNextQuestion() {
-    this.sliderTransformer.transform(this.currentQuestion)
+    const answers = document.querySelectorAll('.answer')
+
+    setTimeout(() => {
+      answers.forEach((btn) => {
+        btn.classList.remove('correct')
+        btn.classList.remove('incorrect')
+      })
+    }, 500)
+
+    this.showImage()
     this.generateQuestion()
   }
 
@@ -135,7 +125,9 @@ export default class extends View {
   }
 
   updateTimer() {
-    this.timeLeft += 10
+    const addedTime = document.querySelector('#addedTime')
+    addedTime.classList.remove('hidden')
+    this.timeLeft += 5
     clearTimeout(this.timerTimeout)
     clearInterval(this.timerInterval)
     this.timer.stopTimer()
@@ -144,6 +136,10 @@ export default class extends View {
     this.timer.initTimer()
     this.setTimeout(this.timeLeft)
     this.setInterval()
+
+    setTimeout(() => {
+      addedTime.classList.add('hidden')
+    }, 800)
   }
 
   setTimeout(value) {
@@ -165,7 +161,6 @@ export default class extends View {
     await this.generateImages()
     this.generateQuestion()
 
-    this.sliderTransformer = new SliderTransformer('blitz')
     this.playSound = new PlaySound(this.isWithSound, this.soundValue)
     this.timer = new Timer(this.totalTime)
     this.timer.initTimer()
@@ -180,7 +175,7 @@ export default class extends View {
         <div class="header header-quiz">
           <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
           <div class="timer">
-            <div class="timer__added-time" id="addedTime"></div>
+            <div class="timer__added-time hidden" id="addedTime">+5</div>
             <div class="timer__display">
               <div class="display seconds"></div>
             </div>
@@ -203,8 +198,12 @@ export default class extends View {
       <div class="container">
         <div class="blitz">
           <div class="blitz__question" id="blitzQuestion"></div>
-          <div class="blitz-slider">
-            <div class="blitz__images" id="blitzImages"></div>
+          <div class="blitz__image image-loading">
+            <img
+              id="blitzImage"
+              src="/img/full/200full.webp"
+              alt=""
+            />
           </div>
           <div class="blitz__answers" id="blitzAnswers">
             <button class="answer-btn answer" data-answer="true">yes</button>
@@ -222,6 +221,7 @@ export default class extends View {
           <a href="/" class="btn" id="homeBtn" data-link>home</a>
           <a href="/blitz" class="btn" id="nextQuizBtn" data-link>try again?</a>
         </div>
+      </div>
     </div>
     
     <footer>

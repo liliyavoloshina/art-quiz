@@ -36,6 +36,28 @@
     display: none;
   }
 
+  &__added-time {
+    position: absolute;
+    top: 1em;
+    right: calc(var(--header-nav-p) + 4em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--dark);
+    opacity: 1;
+    transition: 1s ease-out;
+    animation: 1s zoom;
+
+    &.hidden {
+      opacity: 0;
+      animation: 1s zoom-out;
+    }
+  }
+
   &__display {
     font-weight: 600;
     font-size: var(--timer-fs);
@@ -83,5 +105,23 @@ circle {
   }
   to {
     stroke-dashoffset: 1590;
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.4);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }
