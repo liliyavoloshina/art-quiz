@@ -74,6 +74,8 @@ export default class extends View {
   }
 
   mounted() {
+    this.translatePage()
+
     this.soundCheckbox = document.querySelector('#soundCheckbox')
     this.timerCheckbox = document.querySelector('#timerCheckbox')
     this.soundRange = document.querySelector('#soundRange')
@@ -96,7 +98,6 @@ export default class extends View {
     }
 
     this.bindListeners()
-    this.translatePage()
   }
 
   mount() {

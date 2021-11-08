@@ -13,7 +13,7 @@ import PlaySound from '../helpers/playSound'
 
 export default class extends View {
   constructor(params) {
-    super(params)
+    super({ params, name: 'quiz' })
     this.setTitle('artquiz. - quiz.')
     this.type = params.type
     this.category = params.category
@@ -118,16 +118,16 @@ export default class extends View {
     sound.volume = this.soundValue
 
     if (correctNum === 10) {
-      resultsText.textContent = 'are you an art expert?!'
+      resultsText.textContent = this.langValue === 'en' ? 'are you an art expert?!' : 'да ты эксперт!'
       sound.src = '/audio/applause.wav'
     } else if (correctNum >= 6 && correctNum < 10) {
-      resultsText.textContent = 'wow, you are on fire!'
+      resultsText.textContent = this.langValue === 'en' ? 'wow, you are on fire!' : 'потрясающе!'
       sound.src = '/audio/applause.wav'
     } else if (correctNum < 6 && correctNum >= 3) {
-      resultsText.textContent = 'you can do better!'
+      resultsText.textContent = this.langValue === 'en' ? 'you can do better!' : 'ты можешь лучше!'
       sound.src = '/audio/failure.wav'
     } else {
-      resultsText.textContent = 'maybe another time?'
+      resultsText.textContent = this.langValue === 'en' ? 'maybe another time?' : 'в другой раз повезет...'
       sound.src = '/audio/failure.wav'
     }
 
@@ -161,10 +161,10 @@ export default class extends View {
 
   generateQuestion() {
     if (this.type === 'artists') {
-      this.questionTextEl.textContent = `who is the author of this picture?`
+      this.questionTextEl.textContent = this.langValue === 'en' ? `who is the author of this picture?` : 'кто автор этой картины?'
     } else {
       const artistName = this.questions[this.currentQuestion].author
-      this.questionTextEl.textContent = `which is ${artistName} picture?`
+      this.questionTextEl.textContent = this.langValue === 'en' ? `which is ${artistName} picture?` : `какую картину нарисовал ${artistName}?`
     }
   }
 
@@ -187,7 +187,7 @@ export default class extends View {
             <div class="image__hint image__actions" title="Hint">
               <div class="tooltip btn-anim" data-order="${items.length}">
                 <span class="material-icons-round">help_outline</span>
-                <div class="tooltip__content">this picture was painted in ${year}</div>
+                <div class="tooltip__content"><span data-langkey="year-hint">this picture was painted in</span> ${year}</div>
               </div>
             </div>
           </div>
@@ -398,13 +398,13 @@ export default class extends View {
     }
 
     if (this.type === 'artists') {
-      modalFirstLineEl.textContent = `"${currentName}" was created`
-      modalSecondLineEl.textContent = `by ${currentAuthor}`
-      modalYearEl.textContent = `in ${currentYear}`
+      modalFirstLineEl.textContent = this.langValue === 'en' ? `"${currentName}" was created` : `"${currentName}" нарисовал`
+      modalSecondLineEl.textContent = this.langValue === 'en' ? `by ${currentAuthor}` : `${currentAuthor}`
+      modalYearEl.textContent = this.langValue === 'en' ? `in ${currentYear}` : `в ${currentYear} году`
     } else {
-      modalFirstLineEl.textContent = `${currentAuthor} created`
+      modalFirstLineEl.textContent = this.langValue === 'en' ? `${currentAuthor} created` : `${currentAuthor} нарисовал`
       modalSecondLineEl.textContent = `"${currentName}"`
-      modalYearEl.textContent = `in ${currentYear}`
+      modalYearEl.textContent = this.langValue === 'en' ? `in ${currentYear}` : `в ${currentYear} году`
     }
 
     const preloader = new ImagePreloader()
@@ -440,6 +440,11 @@ export default class extends View {
   showHint(e) {
     const hintBtn = e.target
     const order = +hintBtn.dataset.order + 1
+
+    if (hintBtn.classList.contains('opened')) {
+      hintBtn.classList.toggle('opened')
+      return
+    }
 
     if (this.type === 'pictures') {
       const hasHints = this.hintsCount * 4 < order
@@ -560,6 +565,8 @@ export default class extends View {
     this.sliderTransformer = new SliderTransformer(this.type)
     this.playSound = new PlaySound(this.isWithSound, this.soundValue)
     this.bindListeners()
+
+    this.translatePage()
   }
 
   mount() {
