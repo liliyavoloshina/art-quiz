@@ -47,10 +47,14 @@
     height: 2em;
     font-size: 1em;
     font-weight: bold;
-    color: var(--dark);
+    color: var(--green);
     opacity: 1;
-    transition: 1s ease-out;
+    transition: opacity 1s ease-out;
     animation: 1s zoom;
+
+    &.incorrect {
+      color: var(--red);
+    }
 
     &.hidden {
       opacity: 0;

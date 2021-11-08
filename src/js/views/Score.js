@@ -12,7 +12,7 @@ export default class extends View {
 
   async scoreToHtml() {
     const items = []
-    const scoreCategory = this.categories.find((el) => el.name === this.category)
+    const scoreCategory = this.results.find((el) => el.name === this.category)
     const { results } = scoreCategory
     if (scoreCategory.isPlayed) {
       results.forEach((item) => {

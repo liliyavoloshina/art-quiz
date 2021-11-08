@@ -20,7 +20,7 @@ export default class extends View {
     this.playSound = null
     this.timerTimeout = false
     this.timerInterval = false
-    this.totalTime = 5
+    this.totalTime = 30
     this.timeLeft = this.totalTime
   }
 
@@ -118,12 +118,18 @@ export default class extends View {
     if (isCorrect) {
       answerBtn.classList.add('correct')
       this.correctAnswers++
-      this.updateTimer()
+      this.updateTimer('correct')
     } else {
       answerBtn.classList.add('incorrect')
+      this.updateTimer('wrong')
     }
 
     this.playSound.play(isCorrect)
+
+    if (this.currentQuestion === 239) {
+      this.showResults()
+      return
+    }
 
     this.currentQuestion++
     this.showNextQuestion()
@@ -131,7 +137,6 @@ export default class extends View {
 
   updateResults() {
     this.results.push({ wins: this.correctAnswers })
-    console.log(this.results)
     localStorage.setItem(`blitzResults`, JSON.stringify(this.results))
   }
 
@@ -177,13 +182,21 @@ export default class extends View {
     this.timer.stopTimer()
   }
 
-  updateTimer() {
+  updateTimer(type) {
     const addedTime = document.querySelector('#addedTime')
     addedTime.classList.remove('hidden')
-    this.timeLeft += 2
+    if (type === 'correct') {
+      this.timeLeft += 2
+      addedTime.classList.remove('incorrect')
+      addedTime.textContent = '+2'
+    } else {
+      this.timeLeft -= 2
+      addedTime.textContent = '-2'
+      addedTime.classList.add('incorrect')
+    }
     this.stopTimer()
 
-    if (this.timeLeft >= 60) {
+    if (this.timeLeft >= 30) {
       this.timeLeft = this.totalTime
     }
 
@@ -231,7 +244,7 @@ export default class extends View {
         <div class="header header-quiz">
           <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
           <div class="timer">
-            <div class="timer__added-time hidden" id="addedTime">+2</div>
+            <div class="timer__added-time hidden" id="addedTime"></div>
             <div class="timer__display">
               <div class="display seconds"></div>
             </div>
