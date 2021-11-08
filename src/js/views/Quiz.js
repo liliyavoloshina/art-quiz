@@ -427,7 +427,7 @@ export default class extends View {
     }
   }
 
-  observeHref() {
+  observeLocation() {
     const backBtn = document.querySelector('#backBtn')
 
     backBtn.addEventListener('click', () => {
@@ -549,7 +549,7 @@ export default class extends View {
 
   async mounted() {
     this.findElements()
-    this.observeHref()
+    this.observeLocation()
     this.allQuestions = await getData(this.type)
     await this.filterQuestions()
     this.generateQuestion()

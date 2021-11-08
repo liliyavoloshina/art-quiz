@@ -19,7 +19,7 @@ export default class extends View {
     this.playSound = null
     this.timerTimeout = false
     this.timerInterval = false
-    this.totalTime = 10
+    this.totalTime = 5
     this.timeLeft = this.totalTime
   }
 
@@ -32,6 +32,16 @@ export default class extends View {
     answerBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => this.answer(e))
     })
+  }
+
+  observeLocation() {
+    const backBtn = document.querySelector('#backBtn')
+
+    backBtn.addEventListener('click', () => {
+      this.stopTimer()
+    })
+
+    window.addEventListener('popstate', () => this.stopTimer())
   }
 
   async getQuestions() {
@@ -124,13 +134,17 @@ export default class extends View {
     clearInterval(this.timerInterval)
   }
 
+  stopTimer() {
+    clearTimeout(this.timerTimeout)
+    clearInterval(this.timerInterval)
+    this.timer.stopTimer()
+  }
+
   updateTimer() {
     const addedTime = document.querySelector('#addedTime')
     addedTime.classList.remove('hidden')
     this.timeLeft += 5
-    clearTimeout(this.timerTimeout)
-    clearInterval(this.timerInterval)
-    this.timer.stopTimer()
+    this.stopTimer()
 
     if (this.timeLeft >= 60) {
       this.timeLeft = this.totalTime
@@ -160,6 +174,7 @@ export default class extends View {
 
   async mounted() {
     this.findElements()
+    this.observeLocation()
     this.bind()
     await this.getQuestions()
     await this.generateImages()
