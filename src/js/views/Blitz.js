@@ -6,6 +6,7 @@ import shuffle from '../helpers/shuffle'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/transformSlider'
 import PlaySound from '../helpers/playSound'
+import Timer from '../components/timer'
 
 export default class extends View {
   constructor(params) {
@@ -17,6 +18,10 @@ export default class extends View {
     this.shouldBeCorrect = null
     this.sliderTransformer = null
     this.playSound = null
+    this.timerTimeout = false
+    this.timerInterval = false
+    this.totalTime = 5
+    this.timeLeft = 5
   }
 
   findElements() {
@@ -111,6 +116,7 @@ export default class extends View {
 
     if (isCorrect) {
       answerBtn.classList.add('correct')
+      this.updateTimer()
     } else {
       answerBtn.classList.add('incorrect')
     }
@@ -119,6 +125,37 @@ export default class extends View {
 
     this.currentQuestion++
     this.showNextQuestion()
+  }
+
+  showResults() {
+    const modalResults = document.querySelector('#modalResult')
+    modalResults.classList.remove('hidden')
+    clearTimeout(this.timerTimeout)
+    clearInterval(this.timerInterval)
+  }
+
+  updateTimer() {
+    this.timeLeft += 10
+    clearTimeout(this.timerTimeout)
+    clearInterval(this.timerInterval)
+    this.timer.stopTimer()
+
+    this.timer = new Timer(this.timeLeft)
+    this.timer.initTimer()
+    this.setTimeout(this.timeLeft)
+    this.setInterval()
+  }
+
+  setTimeout(value) {
+    this.timerTimeout = setTimeout(() => {
+      this.showResults()
+    }, value * 1000)
+  }
+
+  setInterval() {
+    this.timerInterval = setInterval(() => {
+      this.timeLeft--
+    }, 1000)
   }
 
   async mounted() {
@@ -130,6 +167,10 @@ export default class extends View {
 
     this.sliderTransformer = new SliderTransformer('blitz')
     this.playSound = new PlaySound(this.isWithSound, this.soundValue)
+    this.timer = new Timer(this.totalTime)
+    this.timer.initTimer()
+    this.setTimeout(this.totalTime)
+    this.setInterval()
   }
 
   mount() {
@@ -139,6 +180,7 @@ export default class extends View {
         <div class="header header-quiz">
           <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
           <div class="timer">
+            <div class="timer__added-time" id="addedTime"></div>
             <div class="timer__display">
               <div class="display seconds"></div>
             </div>
@@ -171,6 +213,16 @@ export default class extends View {
         </div>
       </div>
     </main>
+
+    <div class="modal-center hidden" id="modalResult">
+      <div class="modal-center__content">
+        <div class="modal-center__title" id="resultsText"></div>
+        <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
+        <div class="modal-center__actions">
+          <a href="/" class="btn" id="homeBtn" data-link>home</a>
+          <a href="/blitz" class="btn" id="nextQuizBtn" data-link>try again?</a>
+        </div>
+    </div>
     
     <footer>
       <div class="container">
