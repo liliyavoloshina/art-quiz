@@ -60,6 +60,10 @@
   &__info {
     text-align: center;
     font-size: var(--modal-info-fs);
+
+    &-blitz {
+      font-size: 2.5em;
+    }
   }
 
   .btn {

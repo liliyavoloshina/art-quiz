@@ -6,12 +6,14 @@ import shuffle from '../helpers/shuffle'
 import ImagePreloader from '../helpers/ImagePreloader'
 import PlaySound from '../helpers/playSound'
 import Timer from '../components/timer'
+import Confetti from '../components/confetti'
 
 export default class extends View {
   constructor() {
     super({ type: 'blitz' })
     this.setTitle('artquiz. - blitz.')
     this.questions = []
+    this.correctAnswers = 0
     this.currentQuestion = 0
     this.questionTextEl = null
     this.shouldBeCorrect = null
@@ -20,7 +22,6 @@ export default class extends View {
     this.timerInterval = false
     this.totalTime = 5
     this.timeLeft = this.totalTime
-    console.log(this.results)
   }
 
   findElements() {
@@ -66,8 +67,6 @@ export default class extends View {
     const image = document.querySelector('#blitzImage')
     image.src = `/img/full/${this.questions[this.currentQuestion].imageNum}full.webp`
   }
-
-  saveResults() {}
 
   getRandomAuthor(correctAuthor) {
     let randomAuthor = null
@@ -118,6 +117,7 @@ export default class extends View {
 
     if (isCorrect) {
       answerBtn.classList.add('correct')
+      this.correctAnswers++
       this.updateTimer()
     } else {
       answerBtn.classList.add('incorrect')
@@ -129,11 +129,46 @@ export default class extends View {
     this.showNextQuestion()
   }
 
+  updateResults() {
+    this.results.push({ wins: this.correctAnswers })
+    console.log(this.results)
+    localStorage.setItem(`blitzResults`, JSON.stringify(this.results))
+  }
+
   showResults() {
+    this.updateResults()
     const modalResults = document.querySelector('#modalResult')
+    const resultsText = document.querySelector('#resultsText')
+    const correctAnswersCount = document.querySelector('#correctAnswersCount')
+    const record = document.querySelector('#record')
+    const maxResults = this.results.filter((el) => el.wins > this.correctAnswers)
+
+    const sound = new Audio()
+    sound.volume = this.soundValue
+
+    let recordText
+    if (maxResults.length > 0) {
+      recordText = `you did worse this time...`
+      sound.src = '/audio/failure.wav'
+    } else {
+      recordText = `this is your record!`
+      sound.src = '/audio/applause.wav'
+
+      const confettiWrapper = document.querySelector('.confetti-wrapper')
+      confettiWrapper.classList.remove('hidden')
+      const confetti = new Confetti(confettiWrapper)
+      confetti.init()
+    }
+
+    if (this.isWithSound) {
+      sound.play()
+    }
+
+    record.textContent = recordText
+    correctAnswersCount.textContent = `and answer ${this.correctAnswers} correct!`
+    resultsText.textContent = `you played ${this.results.length} times`
     modalResults.classList.remove('hidden')
-    clearTimeout(this.timerTimeout)
-    clearInterval(this.timerInterval)
+    this.stopTimer()
   }
 
   stopTimer() {
@@ -145,7 +180,7 @@ export default class extends View {
   updateTimer() {
     const addedTime = document.querySelector('#addedTime')
     addedTime.classList.remove('hidden')
-    this.timeLeft += 5
+    this.timeLeft += 2
     this.stopTimer()
 
     if (this.timeLeft >= 60) {
@@ -196,7 +231,7 @@ export default class extends View {
         <div class="header header-quiz">
           <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
           <div class="timer">
-            <div class="timer__added-time hidden" id="addedTime">+5</div>
+            <div class="timer__added-time hidden" id="addedTime">+2</div>
             <div class="timer__display">
               <div class="display seconds"></div>
             </div>
@@ -236,8 +271,11 @@ export default class extends View {
 
     <div class="modal-center hidden" id="modalResult">
       <div class="modal-center__content">
-        <div class="modal-center__title" id="resultsText"></div>
-        <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
+        <div class="modal-center__title" id="record"></div>
+        <div class="modal-center__info modal-center__info-blitz">
+          <div id="resultsText"></div>
+          <div id="correctAnswersCount"></div> 
+        </div>
         <div class="modal-center__actions">
           <a href="/" class="btn" id="homeBtn" data-link>home</a>
           <a href="/blitz" class="btn" id="nextQuizBtn" data-link>try again?</a>
@@ -254,6 +292,8 @@ export default class extends View {
         </div>
       </div>
     </footer>
+
+    <div class="confetti-wrapper hidden" id="quizConfetti"></div>
     `
   }
 }

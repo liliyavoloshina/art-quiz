@@ -31,7 +31,7 @@ export default class {
     ]
     let results = []
     if (type === 'blitz') {
-      results = JSON.parse(localStorage.getItem(`blitzResults`)) || [{ timesPlayed: 0, wins: 0 }]
+      results = JSON.parse(localStorage.getItem(`blitzResults`)) || []
     } else {
       results = JSON.parse(localStorage.getItem(`${type}Results`)) || initialResults
     }

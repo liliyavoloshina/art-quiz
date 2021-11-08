@@ -48,8 +48,6 @@ export default class extends View {
     this.hintsCount = 0
 
     this.playSound = null
-
-    console.log(this.results)
   }
 
   async filterQuestions() {
