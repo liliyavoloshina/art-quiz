@@ -117,6 +117,20 @@ export default class extends View {
                     </div>
                     <div class="settings-block__text">timer</div>
                 </div>
+                <div class="settings-block">
+                    <div class="settings-block__input-radios regulation"><span>en</span><span>ru</span></div>
+                    <div class="settings-block__input-radios regulation">
+                      <div class="radio">
+                        <input id="swicthLangEn" type="radio" name="radio" value="en" checked>
+                        <label for="swicthLangEn"></label>
+                      </div>
+                      <div class="radio">
+                        <input id="swicthLangRu" type="radio" name="radio" value="ru">
+                        <label for="swicthLangRu"></label>
+                      </div>
+                    </div>
+                    <div class="settings-block__text">language</div>
+                </div>
             </div>
         </div>
     </main>

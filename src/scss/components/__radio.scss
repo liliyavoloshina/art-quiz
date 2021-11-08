@@ -1,0 +1,43 @@
+.radio {
+  input {
+    display: none;
+  }
+
+  & input:checked {
+    & ~ label {
+      box-shadow: var(--inner-shadow);
+
+      &::after {
+        background: var(--accent);
+      }
+    }
+  }
+
+  label {
+    box-shadow: var(--shadow);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+
+    &:hover {
+      &::after {
+        background: var(--accent);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--grey);
+      border-radius: 50%;
+      transition: 0.3s ease;
+    }
+  }
+}

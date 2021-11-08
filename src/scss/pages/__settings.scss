@@ -55,6 +55,13 @@
     align-items: center;
   }
 
+  &__input-radios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2em;
+  }
+
   .regulation {
     width: var(--settings-input-range-w);
   }
