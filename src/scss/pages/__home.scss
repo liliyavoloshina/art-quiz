@@ -44,7 +44,7 @@
   flex-wrap: wrap;
   gap: 1em;
 
-  @for $i from 1 through 2 {
+  @for $i from 1 through 3 {
     &:nth-child(#{$i}) {
       @include page-animation($i, 0.2s);
     }

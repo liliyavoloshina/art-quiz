@@ -143,8 +143,6 @@
       border-radius: 20px;
       transition: 0.3s;
       box-sizing: border-box;
-      // z-index: 1;
-      // cursor: pointer;
 
       &.disabled {
         pointer-events: none;
@@ -195,45 +193,10 @@
   }
 
   .answer-btn {
-    flex: 1 1 var(--quiz-answer-w);
-    padding: 1em;
-    font-size: var(--quiz-answer-fs);
-    background-color: var(--background-primary);
-    text-align: left;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    border-radius: 10px;
-
-    @for $i from 1 through 4 {
+    @for $i from 1 through 2 {
       &:nth-child(#{$i}).hidden {
         animation: slide-in-slide-out $i * 0.3s ease;
       }
-    }
-
-    &:hover {
-      box-shadow: var(--inner-shadow);
-    }
-
-    &.correct {
-      color: #fff;
-      background-color: var(--green);
-      animation: zoom-in-zoom-out 1s ease;
-    }
-
-    &.incorrect {
-      color: #fff;
-      background-color: var(--red);
-      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-    }
-
-    &:disabled:hover {
-      box-shadow: var(--shadow);
-    }
-
-    &:disabled {
-      cursor: auto;
     }
   }
 }

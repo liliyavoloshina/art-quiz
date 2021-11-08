@@ -2,7 +2,7 @@
 class SliderTransformer {
   constructor(type) {
     this.type = type
-    this.slider = document.querySelector('#quizImages')
+    this.slider = document.querySelector('#quizImages') || document.querySelector('#blitzImages')
     this.images = this.slider.querySelectorAll('.image')
     this.transformPictures = -200
     this.bind()
@@ -18,7 +18,7 @@ class SliderTransformer {
   }
 
   transform(questionNumber) {
-    if (this.type === 'artists') {
+    if (this.type === 'artists' || this.type === 'blitz') {
       this.images.forEach((image) => {
         image.style.transform = `translateY(${questionNumber * -100}%)`
       })

@@ -9,6 +9,7 @@ import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/transformSlider'
 import getData from '../helpers/getData'
 import shuffle from '../helpers/shuffle'
+import PlaySound from '../helpers/playSound'
 
 export default class extends View {
   constructor(params) {
@@ -45,23 +46,12 @@ export default class extends View {
     this.imageActions = null
 
     this.hintsCount = 0
+
+    this.playSound = null
   }
 
   async filterQuestions() {
     this.questions = this.allQuestions.filter((question) => question.genre === this.category)
-  }
-
-  playSound() {
-    const sound = new Audio()
-    sound.volume = this.soundValue
-
-    if (this.isCorrect) {
-      sound.src = '/audio/correct.wav'
-    } else {
-      sound.src = '/audio/incorrect.wav'
-    }
-
-    sound.play()
   }
 
   nextQuestion() {
@@ -523,9 +513,7 @@ export default class extends View {
       answer.classList.add('incorrect')
     }
 
-    if (this.isWithSound) {
-      this.playSound()
-    }
+    this.playSound.play(this.isCorrect)
 
     if (this.currentQuestion !== 10) {
       await this.generateModal()
@@ -569,6 +557,7 @@ export default class extends View {
 
     this.initTimer()
     this.sliderTransformer = new SliderTransformer(this.type)
+    this.playSound = new PlaySound(this.isWithSound, this.soundValue)
     this.bindListeners()
   }
 
