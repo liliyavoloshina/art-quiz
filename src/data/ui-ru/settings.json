@@ -1,3 +1,6 @@
 {
-  "header-settings": "настройки"
+  "header": "настройки",
+  "music": "музыка",
+  "timer": "время",
+  "language": "язык"
 }

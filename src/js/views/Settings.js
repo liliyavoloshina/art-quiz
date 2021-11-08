@@ -105,7 +105,7 @@ export default class extends View {
         <div class="container">
             <div class="header header-settings">
                 <a href="/" class="header-settings__nav header__nav header__nav--left btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
-                <h1 class="header__title" data-langkey="header-settings">settings.</h1>
+                <h1 class="header__title" data-langkey="header">settings.</h1>
             </div>
         </div>
     </header>
@@ -123,7 +123,7 @@ export default class extends View {
                     <div class="settings-block__input regulation">
                         <input class="range" type="range" min="1" id="soundRange">
                     </div>
-                    <div class="settings-block__text">music</div>
+                    <div class="settings-block__text" data-langkey="music">music</div>
                 </div>
                 <div class="settings-block">
                     <div class="settings-block__input">
@@ -139,7 +139,7 @@ export default class extends View {
                           <button class="input-number__btn" type="number" id="incrTimerBtn"><span class="material-icons-round">add</span></button>
                         </div>
                     </div>
-                    <div class="settings-block__text">timer</div>
+                    <div class="settings-block__text" data-langkey="timer">timer</div>
                 </div>
                 <div class="settings-block">
                     <div class="settings-block__input-radios regulation"><span>en</span><span>ru</span></div>
@@ -153,7 +153,7 @@ export default class extends View {
                         <label for="swicthLangRu"></label>
                       </div>
                     </div>
-                    <div class="settings-block__text">language</div>
+                    <div class="settings-block__text" data-langkey="language">language</div>
                 </div>
             </div>
         </div>

@@ -1,3 +1,6 @@
 {
-  "header-settings": "settings"
+  "header": "settings",
+  "music": "music",
+  "timer": "timer",
+  "language": "language"
 }
