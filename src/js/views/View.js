@@ -4,7 +4,6 @@ export default class {
   constructor(params) {
     this.params = params
     this.results = []
-    this.soundStatus = null
     this.getResultsFromStorage()
     this.getSettings()
   }
@@ -44,6 +43,7 @@ export default class {
     this.isWithTimer = JSON.parse(localStorage.getItem('isWithTimer') || true)
     this.soundValue = JSON.parse(localStorage.getItem('soundValue') || 0.5)
     this.timerValue = JSON.parse(localStorage.getItem('timerValue') || 30)
+    this.langValue = JSON.parse(localStorage.getItem('langValue') || 'en')
   }
 
   mount() {

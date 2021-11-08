@@ -57,6 +57,14 @@ export default class extends View {
     this.decrTimerBtn.addEventListener('click', () => {
       this.changeTimerValue('decr')
     })
+
+    this.swicthLangEn.addEventListener('change', () => {
+      this.updateSettings('langValue', 'en')
+    })
+
+    this.swicthLangRu.addEventListener('change', () => {
+      this.updateSettings('langValue', 'ru')
+    })
   }
 
   mounted() {
@@ -66,12 +74,21 @@ export default class extends View {
     this.decrTimerBtn = document.querySelector('#decrTimerBtn')
     this.incrTimerBtn = document.querySelector('#incrTimerBtn')
     this.timerInput = document.querySelector('#timerInput')
+    this.swicthLangEn = document.querySelector('#swicthLangEn')
+    this.swicthLangRu = document.querySelector('#swicthLangRu')
 
     this.soundCheckbox.checked = this.isWithSound
     this.timerCheckbox.checked = this.isWithTimer
 
     this.soundRange.value = this.soundValue * 100
     this.timerInput.value = this.timerValue
+
+    if (this.langValue === 'en') {
+      this.swicthLangEn.checked = true
+    } else {
+      this.swicthLangRu.checked = true
+    }
+
     this.bindListeners()
   }
 
@@ -121,7 +138,7 @@ export default class extends View {
                     <div class="settings-block__input-radios regulation"><span>en</span><span>ru</span></div>
                     <div class="settings-block__input-radios regulation">
                       <div class="radio">
-                        <input id="swicthLangEn" type="radio" name="radio" value="en" checked>
+                        <input id="swicthLangEn" type="radio" name="radio" value="en">
                         <label for="swicthLangEn"></label>
                       </div>
                       <div class="radio">
