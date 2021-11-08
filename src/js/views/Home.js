@@ -3,12 +3,13 @@ import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
-  constructor(params) {
-    super(params)
+  constructor() {
+    super({ name: 'home' })
     this.setTitle('artquiz. - home')
   }
 
   async mounted() {
+    this.translatePage()
     const imagesSrc = ['../img/artists.webp', '../img/pictures.webp', '../img/logo.png']
     const preloader = new ImagePreloader(imagesSrc)
     await preloader.preloadImages()

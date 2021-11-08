@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this, no-useless-constructor, no-empty-function */
+import Translator from '../helpers/Translator'
 
 export default class {
   constructor(params) {
@@ -43,7 +44,12 @@ export default class {
     this.isWithTimer = JSON.parse(localStorage.getItem('isWithTimer') || true)
     this.soundValue = JSON.parse(localStorage.getItem('soundValue') || 0.5)
     this.timerValue = JSON.parse(localStorage.getItem('timerValue') || 30)
-    this.langValue = JSON.parse(localStorage.getItem('langValue') || 'en')
+    this.langValue = localStorage.getItem('langValue') || 'en'
+  }
+
+  translatePage() {
+    const translator = new Translator(this.langValue, this.params.name)
+    translator.translate()
   }
 
   mount() {

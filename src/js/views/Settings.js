@@ -2,8 +2,8 @@
 import View from './View'
 
 export default class extends View {
-  constructor(params) {
-    super(params)
+  constructor() {
+    super({ name: 'settings' })
     this.setTitle('artquiz. - settings')
     this.soundCheckbox = null
     this.timerCheckbox = null
@@ -11,6 +11,12 @@ export default class extends View {
 
   updateSettings(name, value) {
     localStorage.setItem(name, value)
+  }
+
+  updateLang(value) {
+    localStorage.setItem('langValue', value)
+    this.langValue = value
+    this.translatePage()
   }
 
   changeTimerValue(type) {
@@ -59,11 +65,11 @@ export default class extends View {
     })
 
     this.swicthLangEn.addEventListener('change', () => {
-      this.updateSettings('langValue', 'en')
+      this.updateLang('en')
     })
 
     this.swicthLangRu.addEventListener('change', () => {
-      this.updateSettings('langValue', 'ru')
+      this.updateLang('ru')
     })
   }
 
@@ -90,6 +96,7 @@ export default class extends View {
     }
 
     this.bindListeners()
+    this.translatePage()
   }
 
   mount() {
@@ -98,7 +105,7 @@ export default class extends View {
         <div class="container">
             <div class="header header-settings">
                 <a href="/" class="header-settings__nav header__nav header__nav--left btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
-                <h1 class="header__title">settings.</h1>
+                <h1 class="header__title" data-langkey="header-settings">settings.</h1>
             </div>
         </div>
     </header>
