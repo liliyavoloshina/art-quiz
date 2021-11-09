@@ -19,7 +19,7 @@
 
 .timer {
   position: absolute;
-  top: 1em;
+  top: 0.5em;
   right: var(--header-nav-p);
   display: flex;
   align-items: center;
@@ -32,20 +32,24 @@
   background-color: var(--background-primary);
   z-index: 1000;
 
+  @media (min-width: 768px) {
+    top: 1em;
+  }
+
   &.hidden {
     display: none;
   }
 
   &__added-time {
     position: absolute;
-    top: 1em;
-    right: calc(var(--header-nav-p) + 4em);
+    top: 0;
+    right: calc(var(--header-nav-p) + 1em);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2em;
     height: 2em;
-    font-size: 1em;
+    font-size: 2em;
     font-weight: bold;
     color: var(--green);
     opacity: 1;

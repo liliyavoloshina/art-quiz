@@ -42,7 +42,7 @@ export default class extends View {
                   <img src="/img/small/${item.imageNum}full.webp" alt="${item.name}" />
                 </div>
                 <div class="popup-score hidden">
-                    <div class="popup-score__name">${item.name}</div>
+                    <div class="popup-score__name">"${item.name}"</div>
                     <div class="popup-score__author">${item.author}</div>
                     <div class="popup-score__year">${item.year}</div>
                 </div>
@@ -59,7 +59,7 @@ export default class extends View {
                     <img src="/img/small/${item.imageNum}full.webp" alt="${item.name}" />
                 </div>
                 <div class="popup-score hidden">
-                    <div class="popup-score__name">${item.name}</div>
+                    <div class="popup-score__name">"${item.name}"</div>
                     <div class="popup-score__author">${item.author}</div>
                     <div class="popup-score__year">${item.year}</div>
                 </div>

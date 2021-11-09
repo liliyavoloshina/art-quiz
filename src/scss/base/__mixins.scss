@@ -15,6 +15,12 @@
   }
 }
 
+@mixin text-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 @keyframes slide-out {
   0% {
     transform: translateY(-100%);

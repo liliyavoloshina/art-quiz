@@ -1,27 +1,14 @@
 :root {
-  --popup-score-t: 10%;
-  --popup-score-l: 10%;
-  --popup-score-s: 100%;
+  --popup-score-t: 20%;
+  --popup-score-l: 20%;
+  --popup-score-s: 80%;
   --popup-score-p: 2em 1em;
-  --popup-score-fs: 0.9em;
-}
-
-@media (min-width: 420px) {
-  :root {
-    --popup-score-l: 20%;
-  }
+  --popup-score-fs: 1em;
 }
 
 @media (min-width: 768px) {
   :root {
-    --popup-score-t: 20%;
-    --popup-score-l: 20%;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --popup-score-l: 20%;
+    --popup-score-fs: 1.5em;
   }
 }
 
@@ -36,24 +23,13 @@
   width: var(--popup-score-s);
   height: var(--popup-score-s);
   padding: var(--popup-score-p);
+  font-size: var(--popup-score-fs);
   border-radius: 100%;
   background: var(--background-primary);
   box-shadow: 0.3rem 0.3rem 0.6rem var(--grey-light);
   transition: 0.4s ease-in;
 
-  font-size: var(--popup-score-fs);
-
   &.hidden {
     transform: scale(0) rotate(190deg);
-  }
-
-  &__title {
-    text-align: center;
-    font-size: var(--popup-score-fs);
-  }
-
-  &__info {
-    text-align: center;
-    font-size: var(--popup-score-fs);
   }
 }

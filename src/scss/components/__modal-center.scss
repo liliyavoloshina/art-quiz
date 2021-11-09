@@ -3,13 +3,14 @@
   --modal-center-h: 30em;
   --modal-center-p: 2em 1em;
   --modal-title-fs: 2em;
-  --modal-info-fs: 4em;
+  --modal-info-fs: 2em;
 }
 
 @media (min-width: 768px) {
   :root {
     --modal-center-w: 30em;
     --modal-center-h: 40em;
+    --modal-info-fs: 4em;
   }
 }
 
@@ -62,7 +63,11 @@
     font-size: var(--modal-info-fs);
 
     &-blitz {
-      font-size: 2.5em;
+      font-size: 1.5em;
+
+      @media (min-width: 768px) {
+        font-size: 2.5em;
+      }
     }
   }
 

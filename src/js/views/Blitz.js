@@ -10,7 +10,7 @@ import Confetti from '../components/confetti'
 
 export default class extends View {
   constructor(params) {
-    super(params)
+    super({ ...params, type: 'blitz' })
     const title = this.langValue === 'en' ? 'blitz' : 'быстрая игра'
     this.setTitle(`artquiz. - ${title}.`)
     this.questions = []
@@ -21,7 +21,7 @@ export default class extends View {
     this.playSound = null
     this.timerTimeout = false
     this.timerInterval = false
-    this.totalTime = 30
+    this.totalTime = 5
     this.timeLeft = this.totalTime
   }
 
@@ -96,7 +96,7 @@ export default class extends View {
       artistName = this.getRandomAuthor(correctAuthor)
     }
 
-    this.questionTextEl.textContent = `is ${artistName} author of this picture?`
+    this.questionTextEl.textContent = this.langValue === 'en' ? `is ${artistName} author of this picture?` : `${artistName} написал эту картину?`
   }
 
   showNextQuestion() {
@@ -149,17 +149,17 @@ export default class extends View {
     const resultsText = document.querySelector('#resultsText')
     const correctAnswersCount = document.querySelector('#correctAnswersCount')
     const record = document.querySelector('#record')
-    const maxResults = this.results.filter((el) => el.wins > this.correctAnswers)
+    const isNotMax = this.results.some((el) => el.wins > this.correctAnswers)
 
     const sound = new Audio()
     sound.volume = this.soundValue
 
     let recordText
-    if (maxResults.length > 0) {
-      recordText = `you did worse this time...`
+    if (isNotMax) {
+      recordText = this.langValue === 'en' ? `you can do better!` : `ты можешь лучше!`
       sound.src = '/audio/failure.wav'
     } else {
-      recordText = `this is your record!`
+      recordText = this.langValue === 'en' ? `this is your record!` : 'это твой рекорд!'
       sound.src = '/audio/applause.wav'
 
       const confettiWrapper = document.querySelector('.confetti-wrapper')
@@ -173,8 +173,8 @@ export default class extends View {
     }
 
     record.textContent = recordText
-    correctAnswersCount.textContent = `and answer ${this.correctAnswers} correct!`
-    resultsText.textContent = `you played ${this.results.length} times`
+    resultsText.textContent = this.langValue === 'en' ? `this is your ${this.results.length} time` : `это твоя ${this.results.length} игра`
+    correctAnswersCount.textContent = this.langValue === 'en' ? `and you answer ${this.correctAnswers} correct!` : `и ты ответил на ${this.correctAnswers} вопросов правильно!`
     modalResults.classList.remove('hidden')
     this.stopTimer()
   }
@@ -240,6 +240,7 @@ export default class extends View {
     this.timer.initTimer()
     this.setTimeout(this.totalTime)
     this.setInterval()
+    this.translatePage()
   }
 
   mount() {
@@ -268,7 +269,7 @@ export default class extends View {
       </div>
     </header>
 
-    <main class="main">
+    <main class="main main-fullheight">
       <div class="container">
         <div class="blitz">
           <div class="blitz__question" id="blitzQuestion"></div>
@@ -280,8 +281,8 @@ export default class extends View {
             />
           </div>
           <div class="blitz__answers" id="blitzAnswers">
-            <button class="answer-btn answer" data-answer="true">yes</button>
-            <button class="answer-btn answer" data-answer="">no</button>
+            <button class="answer-btn answer" data-answer="true" data-langkey="yes">yes</button>
+            <button class="answer-btn answer" data-answer="" data-langkey="no">no</button>
           </div>
         </div>
       </div>
@@ -295,8 +296,8 @@ export default class extends View {
           <div id="correctAnswersCount"></div> 
         </div>
         <div class="modal-center__actions">
-          <a href="/" class="btn" id="homeBtn" data-link>home</a>
-          <a href="/blitz" class="btn" id="nextQuizBtn" data-link>try again?</a>
+          <a href="/" class="btn" id="homeBtn" data-link data-langkey="home">home</a>
+          <a href="/blitz" class="btn" id="nextQuizBtn" data-link data-langkey="try-again">try again?</a>
         </div>
       </div>
     </div>

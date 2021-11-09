@@ -1,5 +1,4 @@
 :root {
-  --main-p: 0.5em;
   --main-mt: 5em;
 }
 
@@ -7,11 +6,11 @@
   display: flex;
   align-items: center;
   height: auto;
-  padding: var(--main-p) var(--section-p);
+  padding: 0.8em var(--section-p);
   overflow: hidden;
 
-  @media (min-height: 1000px) {
-    height: calc(var(--vh, 1vh) * 80);
+  &-fullheight {
+    height: calc(var(--vh, 1vh) * 75);
   }
 }
 

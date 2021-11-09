@@ -38,9 +38,9 @@
   height: calc(var(--vh, 1vh) * 5);
   padding: var(--header-p) var(--section-p);
 
-  @media (min-width: 1024px) {
-    height: calc(var(--vh, 1vh) * 10);
-  }
+  // @media (min-width: 1024px) {
+  // height: calc(var(--vh, 1vh) * 10);
+  // }
 
   &__nav {
     position: absolute;

@@ -23,5 +23,8 @@
   "year-hint": "this picture was painted in",
   "next": "next",
   "next-quiz": "next quiz",
-  "home": "home"
+  "home": "home",
+  "yes": "yes",
+  "no": "no",
+  "try-again": "try again"
 }

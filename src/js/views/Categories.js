@@ -1,5 +1,4 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable class-methods-use-this */
+/* eslint-disable class-methods-use-this, no-plusplus */
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 

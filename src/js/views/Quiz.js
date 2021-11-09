@@ -165,7 +165,7 @@ export default class extends View {
       this.questionTextEl.textContent = this.langValue === 'en' ? `who is the author of this picture?` : 'кто автор этой картины?'
     } else {
       const artistName = this.questions[this.currentQuestion].author
-      this.questionTextEl.textContent = this.langValue === 'en' ? `which is ${artistName} picture?` : `какую картину нарисовал ${artistName}?`
+      this.questionTextEl.textContent = this.langValue === 'en' ? `which is ${artistName} picture?` : `какую картину написал ${artistName}?`
     }
   }
 
@@ -399,11 +399,11 @@ export default class extends View {
     }
 
     if (this.type === 'artists') {
-      modalFirstLineEl.textContent = this.langValue === 'en' ? `"${currentName}" was created` : `"${currentName}" нарисовал`
+      modalFirstLineEl.textContent = this.langValue === 'en' ? `"${currentName}" was created` : `"${currentName}" написал`
       modalSecondLineEl.textContent = this.langValue === 'en' ? `by ${currentAuthor}` : `${currentAuthor}`
       modalYearEl.textContent = this.langValue === 'en' ? `in ${currentYear}` : `в ${currentYear} году`
     } else {
-      modalFirstLineEl.textContent = this.langValue === 'en' ? `${currentAuthor} created` : `${currentAuthor} нарисовал`
+      modalFirstLineEl.textContent = this.langValue === 'en' ? `${currentAuthor} created` : `${currentAuthor} написал`
       modalSecondLineEl.textContent = `"${currentName}"`
       modalYearEl.textContent = this.langValue === 'en' ? `in ${currentYear}` : `в ${currentYear} году`
     }
@@ -595,7 +595,7 @@ export default class extends View {
     </div>
   </header>
 
-  <main class="main">
+  <main class="main main-fullheight">
     <div class="container">
       <div class="quiz">
         <div class="quiz__question" id="quizQuestionText"></div>

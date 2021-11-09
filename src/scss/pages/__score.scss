@@ -1,58 +1,29 @@
 :root {
-  --score-item-s: 9em;
-  --score-item-image-p: 0.5em;
+  --score-item-s: 13em;
+  --score-item-image-p: 1em;
   --score-header-fs: 1em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --score-item-s: 9em;
+    --score-item-s: 15em;
+    --score-item-image-p: 1.5em;
     --score-header-fs: 1.5em;
   }
 }
 
-@media (min-width: 500px) {
-  :root {
-    --score-item-s: 10em;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --score-item-s: 11em;
-    --score-item-image-p: 1em;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --score-item-s: 12em;
-    --score-header-fs: 2em;
-  }
-}
-
-@media (min-width: 1920px) {
-  :root {
-    --score-item-s: 15em;
-  }
-}
-
 .score-header {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   text-align: center;
   font-size: var(--score-header-fs);
   font-weight: bold;
-
-  @media (min-width: 1024px) {
-    margin-bottom: 2em;
-  }
 }
 
 .score {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 1em;
 
   @media (min-width: 890px) {
     gap: 2em;
