@@ -46,7 +46,9 @@ export default class extends View {
   }
 
   async getQuestions() {
-    this.questions = await getData('all')
+    const artists = await getData('artists', this.langValue)
+    const pictures = await getData('pictures', this.langValue)
+    this.questions = [...artists, ...pictures]
     shuffle(this.questions)
   }
 
