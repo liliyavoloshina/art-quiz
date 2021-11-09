@@ -555,7 +555,7 @@ export default class extends View {
   async mounted() {
     this.findElements()
     this.observeLocation()
-    this.allQuestions = await getData(this.type)
+    this.allQuestions = await getData(this.type, this.langValue)
     await this.filterQuestions()
     this.generateQuestion()
     await this.generateImages()
