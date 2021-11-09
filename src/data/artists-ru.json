@@ -17,6 +17,7 @@
     "author": "Василий Суриков",
     "name": "Взятие снежного городка",
     "year": "1891",
+    "imageNum": "27",
     "genre": "realism"
   },
   {
@@ -342,8 +343,8 @@
     "genre": "historical"
   },
   {
-    "author": "Илья Репин",
-    "name": "Иван Грозный и сын его Иван",
+    "author": "Виктор Васнецов",
+    "name": "Царь Иван Васильевич Грозный",
     "year": "1896",
     "imageNum": "150",
     "genre": "historical"
@@ -671,9 +672,9 @@
     "genre": "modernism"
   },
   {
-    "author": "Анри Матисс",
-    "name": "Танец",
-    "year": "1910",
+    "author": "Эдвард Хоппер",
+    "name": "Полуночники",
+    "year": "1942",
     "imageNum": "41",
     "genre": "modernism"
   },
