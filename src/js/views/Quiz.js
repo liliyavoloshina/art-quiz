@@ -662,7 +662,7 @@ export default class extends View {
       </div>
     </div>
     <div class="modal__btn">
-      <button class="btn-lg" id="modalBtn">next</button>
+      <button class="btn-lg" id="modalBtn" data-langkey="next">next</button>
     </div>
   </div>
 
@@ -671,8 +671,8 @@ export default class extends View {
       <div class="modal-center__title" id="resultsText"></div>
       <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
       <div class="modal-center__actions">
-        <a href="/" class="btn" id="homeBtn" data-link>home</a>
-        <a href="/categories/${this.type}" class="btn" id="nextQuizBtn" data-link>next quiz</a>
+        <a href="/" class="btn" id="homeBtn" data-langkey="home" data-link>home</a>
+        <a href="/categories/${this.type}" class="btn" id="nextQuizBtn" data-langkey="next-quiz" data-link>next quiz</a>
       </div>
   </div>
 </div>

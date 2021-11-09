@@ -3,11 +3,26 @@ import View from './View'
 
 export default class extends View {
   constructor(params) {
-    super(params)
+    super({ ...params, name: 'score' })
     this.setTitle('artquiz. - score')
     this.type = this.params.type
     this.category = this.params.category
     this.totalScore = 0
+  }
+
+  async setHeader() {
+    const scoreHeader = document.querySelector('#scoreHeader')
+    let categoryHeader
+    let typeHeader
+    if (this.langValue === 'en') {
+      categoryHeader = this.category
+      typeHeader = this.type
+      scoreHeader.textContent = `${categoryHeader} ${typeHeader}`
+    } else {
+      categoryHeader = this.translator.data[this.category]
+      typeHeader = this.type === 'pictures' ? 'картины' : 'художники'
+      scoreHeader.textContent = `${typeHeader} ${categoryHeader}`
+    }
   }
 
   async scoreToHtml() {
@@ -75,6 +90,8 @@ export default class extends View {
   async mounted() {
     this.scoreHtml = document.querySelector('#scoreHtml')
     await this.scoreToHtml()
+    await this.translatePage()
+    this.setHeader()
 
     const totalScore = document.querySelector('#totalScore')
     totalScore.textContent = this.totalScore
@@ -87,14 +104,14 @@ export default class extends View {
       <div class="container">
         <div class="header header-score">
           <a href="/" class="header-score__nav header__nav--left header__nav btn" data-link><span class="material-icons-round">home</span></a>
-          <h1 class="header__title">score.</h1>
+          <h1 class="header__title" data-langkey="score">score.</h1>
         </div>
       </div>
     </header>
 
     <main class="main">
       <div class="container">
-        <div class="score-header" id="scoreHeader">${this.category} ${this.type}: <span id="totalScore"></span>/10</div>
+        <div class="score-header"><span id="scoreHeader"></span>: <span id="totalScore"></span>/10</div>
         <div class="score" id="scoreHtml"></div>
       </div>
     </main>

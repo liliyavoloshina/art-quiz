@@ -177,9 +177,11 @@ export default class extends View {
   }
 
   stopTimer() {
-    clearTimeout(this.timerTimeout)
-    clearInterval(this.timerInterval)
-    this.timer.stopTimer()
+    if (this.timer) {
+      clearTimeout(this.timerTimeout)
+      clearInterval(this.timerInterval)
+      this.timer.stopTimer()
+    }
   }
 
   updateTimer(type) {

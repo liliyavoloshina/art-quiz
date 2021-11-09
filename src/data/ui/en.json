@@ -1,4 +1,12 @@
 {
+  "artists-quiz": "artists quiz",
+  "pictures-quiz": "pictures quiz",
+  "blitz-quiz": "blitz quiz",
+  "header": "settings",
+  "music": "music",
+  "timer": "timer",
+  "language": "language",
+  "score": "score",
   "pictures": "pictures",
   "baroque": "baroque",
   "historical": "historical",
@@ -11,5 +19,9 @@
   "romanticism": "romanticism",
   "symbolism": "symbolism",
   "avant-garde": "avant-garde",
-  "still-life": "still-life"
+  "still-life": "still-life",
+  "year-hint": "this picture was painted in",
+  "next": "next",
+  "next-quiz": "next quiz",
+  "home": "home"
 }

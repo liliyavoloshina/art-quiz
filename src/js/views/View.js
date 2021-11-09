@@ -7,6 +7,7 @@ export default class {
     this.results = []
     this.getResultsFromStorage()
     this.getSettings()
+    this.translator = null
   }
 
   setTitle(title) {
@@ -47,9 +48,9 @@ export default class {
     this.langValue = localStorage.getItem('langValue') || 'en'
   }
 
-  translatePage() {
-    const translator = new Translator(this.langValue, this.params.name)
-    translator.translate()
+  async translatePage() {
+    this.translator = new Translator(this.langValue, this.params.name)
+    await this.translator.translate()
   }
 
   mount() {

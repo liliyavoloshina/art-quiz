@@ -1,13 +1,12 @@
 /* eslint-disable no-param-reassign */
 export default class Translator {
-  constructor(lang, pageName) {
+  constructor(lang) {
     this.lang = lang || 'en'
-    this.pageName = pageName
     this.elements = document.querySelectorAll('[data-langkey]')
   }
 
   async loadLang() {
-    const res = await fetch(`/data/ui-${this.lang}/${this.pageName}.json`)
+    const res = await fetch(`/data/ui/${this.lang}.json`)
     this.data = await res.json()
   }
 
