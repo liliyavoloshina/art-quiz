@@ -3,8 +3,9 @@ import View from './View'
 
 export default class extends View {
   constructor(params) {
-    super({ ...params, name: 'score' })
-    this.setTitle('artquiz. - score')
+    super(params)
+    const title = this.langValue === 'en' ? 'score' : 'результаты'
+    this.setTitle(`artquiz. - ${title}.`)
     this.type = this.params.type
     this.category = this.params.category
     this.totalScore = 0

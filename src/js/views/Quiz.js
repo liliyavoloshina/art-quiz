@@ -13,8 +13,9 @@ import PlaySound from '../helpers/playSound'
 
 export default class extends View {
   constructor(params) {
-    super({ params, name: 'quiz' })
-    this.setTitle('artquiz. - quiz.')
+    super(params)
+    const title = this.langValue === 'en' ? 'quiz' : 'игра'
+    this.setTitle(`artquiz. - ${title}.`)
     this.type = params.type
     this.category = params.category
 

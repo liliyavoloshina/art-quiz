@@ -49,7 +49,7 @@ export default class {
   }
 
   async translatePage() {
-    this.translator = new Translator(this.langValue, this.params.name)
+    this.translator = new Translator(this.langValue)
     await this.translator.translate()
   }
 

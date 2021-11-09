@@ -9,9 +9,10 @@ import Timer from '../components/timer'
 import Confetti from '../components/confetti'
 
 export default class extends View {
-  constructor() {
-    super({ type: 'blitz' })
-    this.setTitle('artquiz. - blitz.')
+  constructor(params) {
+    super(params)
+    const title = this.langValue === 'en' ? 'blitz' : 'быстрая игра'
+    this.setTitle(`artquiz. - ${title}.`)
     this.questions = []
     this.correctAnswers = 0
     this.currentQuestion = 0

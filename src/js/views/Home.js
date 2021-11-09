@@ -3,9 +3,10 @@ import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
-  constructor() {
-    super({ name: 'home' })
-    this.setTitle('artquiz. - home')
+  constructor(params) {
+    super(params)
+    const title = this.langValue === 'en' ? 'home' : 'главная'
+    this.setTitle(`artquiz. - ${title}.`)
   }
 
   async mounted() {

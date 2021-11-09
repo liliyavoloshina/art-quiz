@@ -2,9 +2,10 @@
 import View from './View'
 
 export default class extends View {
-  constructor() {
-    super({ name: 'settings' })
-    this.setTitle('artquiz. - settings')
+  constructor(params) {
+    super(params)
+    const title = this.langValue === 'en' ? 'settings' : 'настройки'
+    this.setTitle(`artquiz. - ${title}.`)
     this.soundCheckbox = null
     this.timerCheckbox = null
   }

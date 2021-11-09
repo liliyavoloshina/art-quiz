@@ -5,8 +5,9 @@ import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
   constructor(params) {
-    super({ ...params, name: 'categories' })
-    this.setTitle('artquiz. - categories')
+    super(params)
+    const title = this.langValue === 'en' ? 'categories' : 'категории'
+    this.setTitle(`artquiz. - ${title}.`)
     this.type = this.params.type
     this.categoriesHtml = ''
     this.categoriesToHtml()
