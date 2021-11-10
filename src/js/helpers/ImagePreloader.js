@@ -36,7 +36,6 @@ export default class {
       await Promise.all(this.arr.map((src) => this.preloadImage(src)))
       this.hideThumbs()
     } else if (type === 'four') {
-      console.log(this.arr.length)
       const fourGroup = this.arr.splice(0, 4)
       if (this.arr.length > 0) {
         await Promise.all(fourGroup.map((src) => this.preloadImage(src)))

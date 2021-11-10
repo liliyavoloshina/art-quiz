@@ -24,7 +24,7 @@ export default class extends View {
     this.picturesImages = []
     this.timerTimeout = false
     this.isModalOpened = false
-    this.hintsCount = 0
+    this.isHintUsed = false
   }
 
   async filterQuestions() {
@@ -34,6 +34,7 @@ export default class extends View {
   nextQuestion() {
     this.rightAnswer = ''
     this.isCorrect = false
+    this.isHintUsed = false
     this.closeModal()
 
     if (this.currentQuestion !== 10) {
@@ -162,7 +163,7 @@ export default class extends View {
             />
             <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
             <div class="image__hint image__actions" title="Hint">
-              <div class="tooltip btn-anim" data-order="${items.length}">
+              <div class="tooltip btn-anim">
                 <span class="material-icons-round">help_outline</span>
                 <div class="tooltip__content"><span data-langkey="year-hint">this picture was painted in</span> ${year}</div>
               </div>
@@ -408,24 +409,9 @@ export default class extends View {
   }
 
   showHint(hintBtn) {
-    const order = +hintBtn.dataset.order + 1
+    if (this.type === 'pictures' && this.isHintUsed) return
 
-    if (hintBtn.classList.contains('opened')) {
-      hintBtn.classList.toggle('opened')
-      return
-    }
-
-    if (this.type === 'pictures') {
-      const hasHints = this.hintsCount * 4 < order
-
-      if (hasHints) {
-        hintBtn.classList.toggle('opened')
-        this.hintsCount++
-      }
-
-      return
-    }
-
+    this.isHintUsed = true
     hintBtn.classList.toggle('opened')
   }
 
