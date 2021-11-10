@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+
 import View from './View'
 
 export default class extends View {
@@ -15,6 +16,7 @@ export default class extends View {
     const scoreHeader = document.querySelector('#scoreHeader')
     let categoryHeader
     let typeHeader
+
     if (this.langValue === 'en') {
       categoryHeader = this.category
       typeHeader = this.type
@@ -30,6 +32,7 @@ export default class extends View {
     const items = []
     const scoreCategory = this.results.find((el) => el.name === this.category)
     const { results } = scoreCategory
+
     if (scoreCategory.isPlayed) {
       results.forEach((item) => {
         const { isCorrect } = item
@@ -51,22 +54,13 @@ export default class extends View {
         )
       })
     } else {
-      await this.getFullCategory()
-      this.scoreCategory.forEach((item) => {
-        items.push(
-          `<div class="score__item">
-                <div class="score__img inversed">
-                    <img src="/img/small/${item.imageNum}full.webp" alt="${item.name}" />
-                </div>
-                <div class="popup-score hidden">
-                    <div class="popup-score__name">"${item.name}"</div>
-                    <div class="popup-score__author">${item.author}</div>
-                    <div class="popup-score__year">${item.year}</div>
-                </div>
-            </div>
-                `
-        )
-      })
+      items.push(`
+      <div class="restrictive-message">
+        <h2 class="restrictive-message__title">You have no access to this page</h2>
+        <p class="restrictive-message__info">You should play this category first :)</p>
+      </div>
+      
+      `)
     }
 
     this.scoreHtml.innerHTML = items.join('\n')

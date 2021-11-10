@@ -1,0 +1,29 @@
+:root {
+  --restrictive-message-title-fs: 2em;
+  --restrictive-message-info-fs: 1.5em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --restrictive-message-title-fs: 2.5em;
+    --restrictive-message-info-fs: 2em;
+  }
+}
+
+.restrictive-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+  height: calc(var(--vh, 1vh) * 75);
+
+  &__title {
+    font-size: var(--restrictive-message-title-fs);
+    color: var(--red);
+  }
+
+  &__info {
+    font-size: var(--restrictive-message-info-fs);
+  }
+}

@@ -10,10 +10,10 @@ export default class extends View {
   }
 
   async mounted() {
-    this.translatePage()
     const imagesSrc = ['../img/artists.webp', '../img/pictures.webp', '../img/logo.png']
     const preloader = new ImagePreloader(imagesSrc)
     await preloader.preloadImages()
+    this.translatePage()
   }
 
   mount() {
