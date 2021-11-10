@@ -23,7 +23,7 @@
   border-radius: 10px;
 
   @for $i from 1 through 12 {
-    &:nth-child(#{$i}).hidden {
+    &:nth-child(#{$i}) {
       @include page-animation($i, 0.2s);
     }
   }

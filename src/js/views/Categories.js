@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this, no-plusplus */
+
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 
@@ -8,8 +9,6 @@ export default class extends View {
     const title = this.langValue === 'en' ? 'categories' : 'категории'
     this.setTitle(`artquiz. - ${title}.`)
     this.type = this.params.type
-    this.categoriesHtml = ''
-    this.categoriesToHtml()
     this.correctResults = this.results
   }
 
@@ -20,9 +19,11 @@ export default class extends View {
 
   categoriesToHtml() {
     const items = []
+
     this.results.forEach((category) => {
       const { isPlayed } = category
       const splittedName = category.name.split('-').join(' ')
+      
       items.push(`
         <div class="category">
           <div class="category__header">
@@ -38,7 +39,8 @@ export default class extends View {
         </div>`)
     })
 
-    this.categoriesHtml = items.join('\n')
+    const categoriesContainer = document.querySelector('#categoriesContainer')
+    categoriesContainer.innerHTML = items.join('\n')
   }
 
   async loadImages() {
@@ -54,15 +56,8 @@ export default class extends View {
   }
 
   async mounted() {
+    this.categoriesToHtml()
     this.translatePage()
-    const categoryBoxes = document.querySelectorAll('.category')
-    categoryBoxes.forEach((box) => {
-      box.classList.add('hidden')
-      box.addEventListener('animationend', () => {
-        box.classList.remove('hidden')
-      })
-    })
-
     await this.loadImages()
   }
 
@@ -79,9 +74,7 @@ export default class extends View {
 
     <main class="main">
         <div class="container">
-            <div class="categories">
-                ${this.categoriesHtml}
-            </div>
+            <div class="categories" id="categoriesContainer"></div>
         </div>
     </main>
 
