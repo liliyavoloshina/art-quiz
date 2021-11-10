@@ -15,9 +15,6 @@ export default class extends View {
     this.questions = []
     this.correctAnswers = 0
     this.currentQuestion = 0
-    this.questionTextEl = null
-    this.shouldBeCorrect = null
-    this.playSound = null
     this.timerTimeout = false
     this.timerInterval = false
     this.totalTime = 5
@@ -67,6 +64,9 @@ export default class extends View {
 
   showImage() {
     const image = document.querySelector('#blitzImage')
+
+    if (!image) return
+
     image.src = `/img/full/${this.questions[this.currentQuestion].imageNum}full.webp`
   }
 
@@ -103,10 +103,12 @@ export default class extends View {
 
     setTimeout(() => {
       answers.forEach((btn) => {
+        btn.disabled = false
+        btn.classList.remove('disabled')
         btn.classList.remove('correct')
         btn.classList.remove('incorrect')
       })
-    }, 500)
+    }, 200)
 
     this.showImage()
     this.generateQuestion()
@@ -125,6 +127,9 @@ export default class extends View {
       answerBtn.classList.add('incorrect')
       this.updateTimer('wrong')
     }
+
+    answerBtn.classList.add('disabled')
+    answerBtn.disabled = true
 
     this.playSound.play(isCorrect)
 

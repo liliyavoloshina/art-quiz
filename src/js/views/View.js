@@ -7,7 +7,6 @@ export default class {
     this.results = []
     this.getResultsFromStorage()
     this.getSettings()
-    this.translator = null
   }
 
   setTitle(title) {
@@ -30,7 +29,9 @@ export default class {
       { name: 'avant-garde', isPlayed: false, results: 0 },
       { name: 'still-life', isPlayed: false, results: 0 },
     ]
+
     let results = []
+
     if (type === 'blitz') {
       results = JSON.parse(localStorage.getItem(`blitzResults`)) || []
     } else {
