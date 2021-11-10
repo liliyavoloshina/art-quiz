@@ -3,13 +3,10 @@
 import View from './View'
 import Timer from '../components/Timer'
 import Confetti from '../components/Confetti'
-import generateHint from '../helpers/generateHint'
-import findBtnAnims from '../components/btn-anim'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
-import getData from '../helpers/getData'
-import shuffle from '../helpers/shuffle'
 import PlaySound from '../helpers/PlaySound'
+import { setAnimatedBtns, generateHint, shuffle, getData } from '../helpers/utils'
 
 export default class extends View {
   constructor(params) {
@@ -471,7 +468,7 @@ export default class extends View {
       }
     })
 
-    findBtnAnims()
+    setAnimatedBtns()
   }
 
   async answer(answer) {

@@ -1,12 +1,11 @@
 /* eslint-disable class-methods-use-this, no-plusplus */
 
 import View from './View'
-import getData from '../helpers/getData'
-import shuffle from '../helpers/shuffle'
 import ImagePreloader from '../helpers/ImagePreloader'
 import PlaySound from '../helpers/PlaySound'
 import Timer from '../components/Timer'
 import Confetti from '../components/Confetti'
+import { shuffle, getData } from '../helpers/utils'
 
 export default class extends View {
   constructor(params) {
