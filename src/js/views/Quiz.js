@@ -6,7 +6,7 @@ import Confetti from '../components/Confetti'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
 import PlaySound from '../helpers/PlaySound'
-import { setAnimatedBtns, generateHint, shuffle, getData } from '../helpers/utils'
+import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
 
 export default class extends View {
   constructor(params) {
@@ -188,11 +188,6 @@ export default class extends View {
 
       const randomIndexes = []
 
-      function getRandomIdx(min, max) {
-        const rand = min + Math.random() * (max + 1 - min)
-        return Math.floor(rand)
-      }
-
       for (let i = 0; i < 40; i += 4) {
         const randomIdx = getRandomIdx(i, i + 3)
         randomIndexes.push(randomIdx)
@@ -208,6 +203,7 @@ export default class extends View {
         const { author, name } = this.allQuestions.find((el) => el.imageNum === image.imageNum)
         const hint = generateHint(author)
         srcForPreload.push(`/img/full/${image.imageNum}full.webp`)
+
         const item = `
         <div class="image pictures image-loading">
             <img
@@ -230,8 +226,7 @@ export default class extends View {
       })
     }
 
-    const imagesHtml = items.join('\n')
-    this.imagesSlider.innerHTML = imagesHtml
+    this.imagesSlider.innerHTML = items.join('\n')
 
     const preloader = new ImagePreloader(srcForPreload)
 

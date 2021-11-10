@@ -25,15 +25,24 @@ export default class {
     el.classList.remove('one-image-loading')
   }
 
-  async preloadImages(type = 'all') {
-    if (type === 'all') {
-      await Promise.all(this.arr.map((src) => this.preloadImage(src)))
-    } else if (type === 'four') {
-      const fourGroup = this.arr.slice(0, 4)
-      await Promise.all(fourGroup.map((src) => this.preloadImage(src)))
-    }
+  hideThumbs() {
     this.thumbs.forEach((thumb) => {
       thumb.classList.remove('image-loading')
     })
+  }
+
+  async preloadImages(type = 'all') {
+    if (type === 'all') {
+      await Promise.all(this.arr.map((src) => this.preloadImage(src)))
+      this.hideThumbs()
+    } else if (type === 'four') {
+      console.log(this.arr.length)
+      const fourGroup = this.arr.splice(0, 4)
+      if (this.arr.length > 0) {
+        await Promise.all(fourGroup.map((src) => this.preloadImage(src)))
+        this.hideThumbs()
+        this.preloadImages('four')
+      }
+    }
   }
 }

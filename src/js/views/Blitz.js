@@ -57,7 +57,7 @@ export default class extends View {
     })
 
     const preloader = new ImagePreloader(srcForPreload)
-    await preloader.preloadImages()
+    await preloader.preloadImages('four')
 
     this.showImage()
   }
@@ -66,6 +66,8 @@ export default class extends View {
     const image = document.querySelector('#blitzImage')
 
     if (!image) return
+
+    console.log(this.questions[this.currentQuestion])
 
     image.src = `/img/full/${this.questions[this.currentQuestion].imageNum}full.webp`
   }

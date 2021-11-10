@@ -35,7 +35,6 @@ const generateHint = (name) => {
   return hint.join(' ')
 }
 
-
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -50,4 +49,9 @@ const getData = async (type, lang) => {
   return data
 }
 
-export {setAnimatedBtns, generateHint, shuffle, getData}
+const getRandomIdx = (min, max) => {
+  const idx = min + Math.random() * (max + 1 - min)
+  return Math.floor(idx)
+}
+
+export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx }
