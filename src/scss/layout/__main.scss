@@ -1,12 +1,18 @@
 :root {
-  --main-mt: 5em;
+  --main-p: 0 0.5em 1em;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --main-p: 0.8em 2em;
+  }
 }
 
 .main {
   display: flex;
   align-items: center;
   height: auto;
-  padding: 0.8em var(--section-p);
+  padding: var(--main-p);
   overflow: hidden;
 
   &-fullheight {

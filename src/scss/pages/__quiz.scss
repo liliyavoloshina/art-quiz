@@ -1,15 +1,14 @@
 :root {
   --quiz-row-g: 1em;
   --quiz-question-fs: 1em;
-  --quiz-answer-w: 100%;
-  --quiz-answer-fs: 1.2em;
   --quiz-pag-s: 0.5em;
   --quiz-pictures-img-p: 0.2em;
-  --quiz-answers-g: 1em;
+  --quiz-answers-g: 0.5em;
 }
 
 @media (min-width: 420px) {
   :root {
+    --quiz-answers-g: 1em;
     --quiz-question-fs: 1.5em;
   }
 }
@@ -19,8 +18,6 @@
     --quiz-row-g: 1em;
     --quiz-pictures-img-p: 0.3em;
     --quiz-question-fs: 1.5em;
-    --quiz-answer-w: 40%;
-    --quiz-answer-fs: 1.5em;
     --quiz-pag-s: 1em;
     --quiz-answers-g: 1em;
   }
@@ -30,7 +27,6 @@
   :root {
     --quiz-question-fs: 2em;
     --quiz-answers-g: 0.5em;
-    --quiz-answer-fs: 1.7em;
   }
 }
 

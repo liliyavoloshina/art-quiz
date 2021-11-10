@@ -1,6 +1,29 @@
+:root {
+  --quiz-answer-w: 40%;
+  --quiz-answer-h: 4em;
+  --quiz-answer-p: 0.8em;
+  --quiz-answer-fs: 1em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --quiz-answer-w: 40%;
+    --quiz-answer-p: 1em;
+    --quiz-answer-fs: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --quiz-answers-g: 0.5em;
+    --quiz-answer-fs: 1.7em;
+  }
+}
+
 .answer-btn {
   flex: 1 1 var(--quiz-answer-w);
-  padding: 1em;
+  height: 4em;
+  padding: var(--quiz-answer-p);
   font-size: var(--quiz-answer-fs);
   background-color: var(--background-primary);
   text-align: left;

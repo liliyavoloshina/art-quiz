@@ -21,7 +21,7 @@
 }
 
 .btn-lg {
-  width: 10em;
+  width: 50%;
   padding: 10px;
   font-size: var(--btn-lg-fs);
   font-weight: 700;
@@ -33,6 +33,7 @@
   text-decoration: none;
   transition: all 1.5s linear;
   background-color: white;
+  box-shadow: var(--shadow);
 
   &:hover {
     box-shadow: var(--inner-shadow);

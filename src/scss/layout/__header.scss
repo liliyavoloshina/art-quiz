@@ -35,12 +35,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(var(--vh, 1vh) * 5);
+  height: calc(var(--vh, 1vh) * 10);
   padding: var(--header-p) var(--section-p);
-
-  // @media (min-width: 1024px) {
-  // height: calc(var(--vh, 1vh) * 10);
-  // }
 
   &__nav {
     position: absolute;

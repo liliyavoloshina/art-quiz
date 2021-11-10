@@ -3,12 +3,15 @@
   --home-text-fs: 1.5em;
   --home-types-row-g: 2em;
   --home-type-h: 48%;
-  --home-logo-h: 10%;
+  --home-logo-w: 10em;
+  --home-logo-h: 5em;
   --home-type-p: 20px;
 }
 
 @media (min-width: 768px) {
   :root {
+    --home-logo-w: 17em;
+    --home-logo-h: 5em;
     --home-type-p: 30px;
     --home-text-fs: 2em;
   }
@@ -28,11 +31,11 @@
   height: 100%;
 
   &-logo {
-    width: 17em;
+    width: var(--home-logo-w);
     height: var(--home-logo-h);
     margin-left: auto;
     margin-right: auto;
-    background: url('../img/logo.png') no-repeat;
+    background: url('../img/logo.png') no-repeat center;
     background-size: contain;
     @include heading-animation;
   }

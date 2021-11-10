@@ -43,6 +43,10 @@ img::selection {
   background: var(--grey-light);
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;

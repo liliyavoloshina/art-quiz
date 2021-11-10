@@ -1,13 +1,14 @@
 :root {
-  --modal-h: 40em;
+  --modal-h: 80vh;
   --modal-icon-s: 7em;
   --modal-icon-fs: 3em;
   --modal-image-h: 13em;
-  --modal-text-fs: 1.2em;
+  --modal-text-fs: 0.9em;
 }
 
 @media (min-width: 420px) {
   :root {
+    --modal-h: 30em;
     --modal-text-fs: 1.5em;
   }
 }
@@ -19,7 +20,6 @@
   transform: translateX(50%);
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
   width: 100%;
   height: var(--modal-h);
   border-radius: 10px;
@@ -81,6 +81,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3em;
+    padding: 2em 0;
   }
 }
