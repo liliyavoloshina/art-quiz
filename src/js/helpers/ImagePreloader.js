@@ -1,6 +1,6 @@
 /* eslint-disable no-new, class-methods-use-this */
 
-class ImagePreloader {
+export default class {
   constructor(arrOfImages) {
     this.arr = arrOfImages
     this.thumbs = document.querySelectorAll('.image-loading')
@@ -37,5 +37,3 @@ class ImagePreloader {
     })
   }
 }
-
-export default ImagePreloader

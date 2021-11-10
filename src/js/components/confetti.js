@@ -1,4 +1,4 @@
-export default class {
+export default class Confetti {
   constructor(el) {
     this.el = el
     this.containerEl = null

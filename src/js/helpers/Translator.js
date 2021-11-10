@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-export default class Translator {
+
+export default class {
   constructor(lang) {
     this.lang = lang || 'en'
     this.elements = document.querySelectorAll('[data-langkey]')

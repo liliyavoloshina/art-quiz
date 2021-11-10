@@ -1,4 +1,4 @@
-class VhSetter {
+export default class {
   constructor() {
     this.vh = window.innerHeight * 0.01
     this.bind()
@@ -15,5 +15,3 @@ class VhSetter {
     })
   }
 }
-
-export default VhSetter

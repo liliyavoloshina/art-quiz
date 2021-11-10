@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-class SliderTransformer {
+
+export default class {
   constructor(type) {
     this.type = type
     this.slider = document.querySelector('#quizImages') || document.querySelector('#blitzImages')
@@ -31,5 +32,3 @@ class SliderTransformer {
     window.addEventListener('resize', () => this.calculateView())
   }
 }
-
-export default SliderTransformer

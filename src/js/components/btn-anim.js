@@ -8,11 +8,9 @@ const animateButton = (e) => {
   }, 700)
 }
 
-const findBtnAnims = () => {
+export default () => {
   const btns = document.querySelectorAll('.btn-anim')
   btns.forEach((btn) => {
     btn.addEventListener('click', animateButton)
   })
 }
-
-export default findBtnAnims

@@ -1,4 +1,4 @@
-class AudioPreloader {
+export default class {
   constructor() {
     this.audio = ['/audio/applause.wav', '/audio/correct.wav', '/audio/failure.wav', '/audio/incorrect.wav']
   }
@@ -11,5 +11,3 @@ class AudioPreloader {
     })
   }
 }
-
-export default AudioPreloader

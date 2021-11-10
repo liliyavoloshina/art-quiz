@@ -4,9 +4,9 @@ import View from './View'
 import getData from '../helpers/getData'
 import shuffle from '../helpers/shuffle'
 import ImagePreloader from '../helpers/ImagePreloader'
-import PlaySound from '../helpers/playSound'
-import Timer from '../components/timer'
-import Confetti from '../components/confetti'
+import PlaySound from '../helpers/PlaySound'
+import Timer from '../components/Timer'
+import Confetti from '../components/Confetti'
 
 export default class extends View {
   constructor(params) {

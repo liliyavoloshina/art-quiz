@@ -1,15 +1,15 @@
 /* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign, no-inner-declarations */
 
 import View from './View'
-import Timer from '../components/timer'
-import Confetti from '../components/confetti'
+import Timer from '../components/Timer'
+import Confetti from '../components/Confetti'
 import generateHint from '../helpers/generateHint'
 import findBtnAnims from '../components/btn-anim'
 import ImagePreloader from '../helpers/ImagePreloader'
-import SliderTransformer from '../helpers/transformSlider'
+import SliderTransformer from '../helpers/SliderTransformer'
 import getData from '../helpers/getData'
 import shuffle from '../helpers/shuffle'
-import PlaySound from '../helpers/playSound'
+import PlaySound from '../helpers/PlaySound'
 
 export default class extends View {
   constructor(params) {
