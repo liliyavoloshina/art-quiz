@@ -6,12 +6,6 @@
   --popup-score-fs: 1em;
 }
 
-@media (min-width: 768px) {
-  :root {
-    --popup-score-fs: 1.5em;
-  }
-}
-
 .popup-score {
   position: absolute;
   top: var(--popup-score-t);

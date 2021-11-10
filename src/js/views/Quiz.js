@@ -18,37 +18,16 @@ export default class extends View {
     this.setTitle(`artquiz. - ${title}.`)
     this.type = params.type
     this.category = params.category
-
     this.allQuestions = []
     this.questions = []
     this.correctAnswers = []
-
     this.currentQuestion = 0
     this.rightAnswer = ''
     this.isCorrect = false
-
     this.picturesImages = []
     this.timerTimeout = false
-
-    this.crossmarkCheck = null
-    this.checkmarkCheck = null
-    this.imagesEl = null
-    this.questionTextEl = null
-    this.answersEl = null
-    this.modal = null
-
     this.isModalOpened = false
-
-    this.sliderTransformer = null
-    this.fullscreenBtns = null
-
-    this.modalFullscreen = null
-    this.imageFullscreen = null
-    this.imageActions = null
-
     this.hintsCount = 0
-
-    this.playSound = null
   }
 
   async filterQuestions() {
@@ -255,12 +234,10 @@ export default class extends View {
     }
 
     const imagesHtml = items.join('\n')
-    const images = document.querySelector('#quizImages')
-    images.innerHTML = imagesHtml
+    this.imagesSlider.innerHTML = imagesHtml
 
     const preloader = new ImagePreloader(srcForPreload)
 
-    this.fullscreenBtns = document.querySelectorAll('.image__fullscreen')
     this.imageActions = document.querySelectorAll('.image__actions')
 
     if (this.type === 'pictures') {
@@ -336,13 +313,12 @@ export default class extends View {
     this.isModalOpened = true
   }
 
-  fullscreenImage(e) {
+  fullscreenImage(btn) {
     if (this.isWithTimer && this.timer) {
       clearTimeout(this.timerTimeout)
       this.timer.pauseTimer()
     }
 
-    const btn = e.target
     const image = btn.previousElementSibling
     this.modalFullscreen = document.querySelector('#modalFullscreen')
 
@@ -419,6 +395,7 @@ export default class extends View {
     this.questionTextEl = document.querySelector('#quizQuestionText')
 
     this.modal = document.querySelector('.modal')
+    this.imagesSlider = document.querySelector('#quizImages')
   }
 
   stopTimer() {
@@ -438,8 +415,7 @@ export default class extends View {
     window.addEventListener('popstate', () => this.stopTimer())
   }
 
-  showHint(e) {
-    const hintBtn = e.target
+  showHint(hintBtn) {
     const order = +hintBtn.dataset.order + 1
 
     if (hintBtn.classList.contains('opened')) {
@@ -462,23 +438,28 @@ export default class extends View {
   }
 
   bindListeners() {
-    const hintBtns = document.querySelectorAll('.tooltip')
+    const quizContainer = document.querySelector('#quizContainer')
 
-    hintBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => this.showHint(e))
-    })
+    quizContainer.addEventListener('click', (e) => {
+      const target = e.target
+      const isAnswer = target.classList.contains('answer')
+      const isTooltip = target.classList.contains('tooltip')
+      const isFullscreen = target.classList.contains('image__fullscreen')
 
-    this.fullscreenBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => this.fullscreenImage(e))
+      if (isAnswer) {
+        this.answer(target)
+      }
+
+      if (isTooltip) {
+        this.showHint(target)
+      }
+
+      if (isFullscreen) {
+        this.fullscreenImage(target)
+      }
     })
 
     const modalBtn = document.querySelector('#modalBtn')
-    this.answersEl.forEach((el) =>
-      el.addEventListener('click', (e) => {
-        this.answer(e.target)
-      })
-    )
-
     modalBtn.addEventListener('click', () => {
       this.nextQuestion()
     })
@@ -597,7 +578,7 @@ export default class extends View {
 
   <main class="main main-fullheight">
     <div class="container">
-      <div class="quiz">
+      <div class="quiz" id="quizContainer">
         <div class="quiz__question" id="quizQuestionText"></div>
         <div class="quiz-slider">
           <div class="quiz__images ${this.type === 'pictures' ? 'pictures' : 'artists'}" id="quizImages"></div>

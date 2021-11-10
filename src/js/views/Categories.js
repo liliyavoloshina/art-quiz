@@ -72,12 +72,12 @@ export default class extends View {
         <div class="container">
             <div class="header header-categories">
                 <a href="/" class="header-categories__nav header__nav--left header__nav btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
-                <h1 class="header__title" data-langkey="${this.type}">${this.type}.</h1>
+                <h1 class="header__title"><span data-langkey="${this.type}"></span>.</h1>
             </div>
         </div>
     </header>
 
-    <main class="main-categories">
+    <main class="main">
         <div class="container">
             <div class="categories">
                 ${this.categoriesHtml}
