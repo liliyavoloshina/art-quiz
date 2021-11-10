@@ -59,31 +59,26 @@ export default class extends View {
         <h2 class="restrictive-message__title">You have no access to this page</h2>
         <p class="restrictive-message__info">You should play this category first :)</p>
       </div>
-      
       `)
     }
 
-    this.scoreHtml.innerHTML = items.join('\n')
+    this.scoreContainer.innerHTML = items.join('\n')
   }
 
   bindListeners() {
-    const items = document.querySelectorAll('.score__item')
-    items.forEach((item) => {
-      const popup = item.querySelector('.popup-score')
-      item.addEventListener('click', () => {
+    this.scoreContainer.addEventListener('click', (e) => {
+      const target = e.target
+      const isScoreItem = target.classList.contains('score__item')
+
+      if (isScoreItem) {
+        const popup = target.querySelector('.popup-score')
         popup.classList.toggle('hidden')
-      })
+      }
     })
   }
 
-  async getFullCategory() {
-    const res = await fetch(`/data/${this.type}.json`)
-    const data = await res.json()
-    this.scoreCategory = data.filter((el) => el.genre === this.category)
-  }
-
   async mounted() {
-    this.scoreHtml = document.querySelector('#scoreHtml')
+    this.scoreContainer = document.querySelector('#scoreContainer')
     await this.scoreToHtml()
     await this.translatePage()
     this.setHeader()
@@ -107,7 +102,7 @@ export default class extends View {
     <main class="main">
       <div class="container">
         <div class="score-header"><span id="scoreHeader"></span>: <span id="totalScore"></span>/10</div>
-        <div class="score" id="scoreHtml"></div>
+        <div class="score" id="scoreContainer"></div>
       </div>
     </main>
 

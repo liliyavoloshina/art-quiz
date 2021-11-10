@@ -22,6 +22,7 @@
   background: var(--background-primary);
   box-shadow: 0.3rem 0.3rem 0.6rem var(--grey-light);
   transition: 0.4s ease-in;
+  pointer-events: none;
 
   &.hidden {
     transform: scale(0) rotate(190deg);
