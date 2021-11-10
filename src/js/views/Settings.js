@@ -6,8 +6,6 @@ export default class extends View {
     super(params)
     const title = this.langValue === 'en' ? 'settings' : 'настройки'
     this.setTitle(`artquiz. - ${title}.`)
-    this.soundCheckbox = null
-    this.timerCheckbox = null
   }
 
   updateSettings(name, value) {
@@ -34,9 +32,13 @@ export default class extends View {
     }
 
     this.timerInput.classList.add('changed')
-    this.timerInput.addEventListener('transitionend', () => {
+
+    const transitionEndCallback = () => {
+      this.timerInput.removeEventListener('animationend', transitionEndCallback)
       this.timerInput.classList.remove('changed')
-    })
+    }
+
+    this.timerInput.addEventListener('animationend', transitionEndCallback)
 
     this.timerInput.value = this.timerValue
 
@@ -75,8 +77,6 @@ export default class extends View {
   }
 
   mounted() {
-    this.translatePage()
-
     this.soundCheckbox = document.querySelector('#soundCheckbox')
     this.timerCheckbox = document.querySelector('#timerCheckbox')
     this.soundRange = document.querySelector('#soundRange')
@@ -99,6 +99,7 @@ export default class extends View {
     }
 
     this.bindListeners()
+    this.translatePage()
   }
 
   mount() {

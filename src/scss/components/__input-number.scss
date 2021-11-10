@@ -21,10 +21,8 @@
     font-family: inherit;
     color: var(--grey);
 
-    transition: 0.5s ease;
-
     &.changed {
-      color: var(--accent);
+      animation: color-fade 1s;
     }
 
     &::-webkit-inner-spin-button,
@@ -77,5 +75,17 @@
     &:hover {
       color: var(--accent);
     }
+  }
+}
+
+@keyframes color-fade {
+  0% {
+    color: var(--grey);
+  }
+  50% {
+    color: var(--accent);
+  }
+  100% {
+    color: var(--grey);
   }
 }
