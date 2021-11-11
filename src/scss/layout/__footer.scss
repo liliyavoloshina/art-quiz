@@ -18,14 +18,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // height: auto;
   height: calc(var(--vh, 1vh) * 8);
-
   padding: 0 1em;
-
-  // @media (min-width: 1024px) {
-  //   height: calc(var(--vh, 1vh) * 10);
-  // }
 
   @media (min-width: 768px) {
     padding: 2em 2em;
