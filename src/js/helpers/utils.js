@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus, no-param-reassign */
+
 const animateButton = (e) => {
   e.preventDefault()
   e.target.classList.remove('animate')

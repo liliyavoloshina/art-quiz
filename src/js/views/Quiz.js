@@ -419,7 +419,7 @@ export default class extends View {
     const quizContainer = document.querySelector('#quizContainer')
 
     quizContainer.addEventListener('click', (e) => {
-      const target = e.target
+      const { target } = e
       const isAnswer = target.classList.contains('answer')
       const isTooltip = target.classList.contains('tooltip')
       const isFullscreen = target.classList.contains('image__fullscreen')

@@ -67,7 +67,7 @@ export default class extends View {
 
   bindListeners() {
     this.scoreContainer.addEventListener('click', (e) => {
-      const target = e.target
+      const { target } = e
       const isScoreItem = target.classList.contains('score__item')
 
       if (isScoreItem) {

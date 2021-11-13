@@ -1,12 +1,13 @@
 {
   "version": "0.1.0",
-  "description": "My new js application",
+  "description": "ArtQuiz",
   "private": true,
   "name": "art-quiz",
   "scripts": {
     "start": "webpack serve --env development",
     "build": "webpack",
-    "lint": "eslint --fix **/*",
+    "lint": "eslint **/*.js",
+    "lint-fix": "eslint --fix **/*",
     "format": "prettier -w ."
   },
   "devDependencies": {
