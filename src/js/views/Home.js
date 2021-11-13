@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
+import HeaderBtn from '../../components/HeaderBtn'
 
 export default class extends View {
   constructor(params) {
@@ -14,15 +15,20 @@ export default class extends View {
     const preloader = new ImagePreloader(imagesSrc)
     await preloader.preloadImages()
     this.translatePage()
+    const btnPlace = document.querySelector('#header')
+    const btn = HeaderBtn({
+      onClick: () => console.log('btn!!!'),
+      title: 'btn',
+      className: 'btn',
+    })
+    btnPlace.append(btn)
   }
 
   mount() {
     return `
     <header>
       <div class="container">
-        <div class="header header-home">
-            <a href="/settings" class="header-home__nav header__nav--right header__nav btn" title="Settings" data-link><span class="material-icons-round">settings</span></a>
-        </div>
+        <div class="header header-home" id="header"></div>
       </div>
     </header>
 

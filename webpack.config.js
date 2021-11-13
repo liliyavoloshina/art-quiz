@@ -39,6 +39,13 @@ module.exports = ({ development }) => ({
   module: {
     rules: [
       {
+        test: /\.(html)$/,
+        include: path.join(__dirname, 'src/components'),
+        use: {
+          loader: 'html-loader',
+        },
+      },
+      {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg|webp)$/i,
         type: 'asset/resource',
       },
@@ -56,7 +63,6 @@ module.exports = ({ development }) => ({
       },
       {
         test: /\.s[ac]ss$/i,
-        include: path.resolve(__dirname, './src/scss/'),
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
@@ -77,13 +83,7 @@ module.exports = ({ development }) => ({
           from: '**/*',
           context: path.resolve(__dirname, './src'),
           globOptions: {
-            ignore: [
-              '**/*.js',
-              '**/*.ts',
-              '**/*.scss',
-              '**/*.sass',
-              '**/*.html',
-            ],
+            ignore: ['**/*.js', '**/*.ts', '**/*.scss', '**/*.sass', '**/*.html'],
           },
           noErrorOnMissing: true,
           force: true,
