@@ -1,0 +1,40 @@
+.checkbox {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+
+  input {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    align-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+
+    &:hover ion-icon {
+      color: var(--accent);
+    }
+
+    ion-icon {
+      color: var(--grey);
+      font-size: 1.5rem;
+      transition: 1s ease;
+    }
+  }
+
+  & input:checked {
+    & ~ label {
+      box-shadow: var(--inner-shadow);
+      ion-icon {
+        color: var(--accent);
+      }
+    }
+  }
+}

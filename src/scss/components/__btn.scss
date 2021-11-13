@@ -21,21 +21,10 @@
   transition: all 1.5s linear;
   color: var(--dark);
 
-  span[class^='material-icons'] {
-    pointer-events: none;
-    color: var(--grey);
-    font-size: var(--btn-fs);
-    transition: 0.6s ease;
-
-    &:hover {
-      color: var(--accent);
-    }
-  }
-
   &:hover {
     box-shadow: var(--inner-shadow);
 
-    span[class^='material-icons'] {
+    ion-icon {
       color: var(--accent);
     }
   }

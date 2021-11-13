@@ -1,7 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
-import HeaderBtn from '../../components/HeaderBtn'
 
 export default class extends View {
   constructor(params) {
@@ -14,21 +13,19 @@ export default class extends View {
     const imagesSrc = ['../img/artists.webp', '../img/pictures.webp', '../img/logo.png']
     const preloader = new ImagePreloader(imagesSrc)
     await preloader.preloadImages()
+
     this.translatePage()
-    const btnPlace = document.querySelector('#header')
-    const btn = HeaderBtn({
-      onClick: () => console.log('btn!!!'),
-      title: 'btn',
-      className: 'btn',
-    })
-    btnPlace.append(btn)
   }
 
   mount() {
     return `
     <header>
       <div class="container">
-        <div class="header header-home" id="header"></div>
+        <div class="header header-home">
+          <a href="/settings" class="header-home__nav header__nav header__nav--right btn-sm" data-link>
+            <ion-icon name="settings"></ion-icon>
+          </a>
+        </div>
       </div>
     </header>
 
@@ -57,9 +54,9 @@ export default class extends View {
     <footer>
       <div class="container">
         <div class="footer">
-            <a class="footer__github" href="https://github.com/liliyavoloshina">liliyavoloshina</a>
-            <div class="footer__year">© 2021</div>
-            <a class="footer__school" href="https://rs.school/js/" title="Rolling Scopes School"></a>
+          <a class="footer__github" href="https://github.com/liliyavoloshina">liliyavoloshina</a>
+          <div class="footer__year">© 2021</div>
+          <a class="footer__school" href="https://rs.school/js/" title="Rolling Scopes School"></a>
         </div>
       </div>
     </footer>

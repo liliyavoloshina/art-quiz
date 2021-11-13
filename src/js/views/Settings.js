@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import View from './View'
+import Checkbox from '../../components/Checkbox'
 
 export default class extends View {
   constructor(params) {
@@ -46,10 +47,6 @@ export default class extends View {
   }
 
   bindListeners() {
-    this.soundCheckbox.addEventListener('change', (e) => {
-      this.updateSettings('isWithSound', e.target.checked)
-    })
-
     this.timerCheckbox.addEventListener('change', (e) => {
       this.updateSettings('isWithTimer', e.target.checked)
     })
@@ -77,7 +74,10 @@ export default class extends View {
   }
 
   mounted() {
-    this.soundCheckbox = document.querySelector('#soundCheckbox')
+    const soundCheckboxContainer = document.querySelector('#soundCheckboxContainer')
+    const soundCheckbox = new Checkbox('soundCheckbox', 'isWithSound', this.isWithSound)
+    soundCheckbox.mount(soundCheckboxContainer)
+
     this.timerCheckbox = document.querySelector('#timerCheckbox')
     this.soundRange = document.querySelector('#soundRange')
     this.decrTimerBtn = document.querySelector('#decrTimerBtn')
@@ -86,7 +86,6 @@ export default class extends View {
     this.swicthLangEn = document.querySelector('#swicthLangEn')
     this.swicthLangRu = document.querySelector('#swicthLangRu')
 
-    this.soundCheckbox.checked = this.isWithSound
     this.timerCheckbox.checked = this.isWithTimer
 
     this.soundRange.value = this.soundValue * 100
@@ -107,7 +106,7 @@ export default class extends View {
     <header>
         <div class="container">
             <div class="header header-settings">
-                <a href="/" class="header-settings__nav header__nav header__nav--left btn" title="Back" data-link><span class="material-icons-round">chevron_left</span></a>
+                <a href="/" class="header-settings__nav header__nav header__nav--left btn" title="back" data-link><ion-icon name="chevron-back-outline"></ion-icon></a>
                 <h1 class="header__title" data-langkey="header">settings.</h1>
             </div>
         </div>
@@ -117,12 +116,7 @@ export default class extends View {
         <div class="container container-settings">
             <div class="settings">
                 <div class="settings-block">
-                    <div class="settings-block__input">
-                        <div class="checkbox">
-                            <input id="soundCheckbox" type="checkbox">
-                            <label for="soundCheckbox"><span class="material-icons-round">done</span></label>
-                        </div>
-                    </div>
+                    <div class="settings-block__input" id="soundCheckboxContainer"></div>
                     <div class="settings-block__input regulation">
                         <input class="range" type="range" min="1" id="soundRange">
                     </div>
@@ -132,14 +126,14 @@ export default class extends View {
                     <div class="settings-block__input">
                         <div class="checkbox">
                             <input id="timerCheckbox" type="checkbox">
-                            <label for="timerCheckbox"><span class="material-icons-round">done</span></label>
+                            <label for="timerCheckbox"><ion-icon name="checkmark-sharp"></ion-icon></label>
                         </div>
                     </div>
                     <div class="settings-block__input regulation">
                         <div class="input-number">
-                          <button class="input-number__btn" type="number" id="decrTimerBtn"><span class="material-icons-round">remove</span></button>
+                          <button class="input-number__btn" type="number" id="decrTimerBtn"><ion-icon name="remove-sharp"></ion-icon></button>
                           <input class="input-number__input" type="number" id="timerInput" disabled>
-                          <button class="input-number__btn" type="number" id="incrTimerBtn"><span class="material-icons-round">add</span></button>
+                          <button class="input-number__btn" type="number" id="incrTimerBtn"><ion-icon name="add-sharp"></ion-icon></button>
                         </div>
                     </div>
                     <div class="settings-block__text" data-langkey="timer">timer</div>

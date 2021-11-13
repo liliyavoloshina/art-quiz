@@ -56,4 +56,8 @@ const getRandomIdx = (min, max) => {
   return Math.floor(idx)
 }
 
-export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx }
+const setToLocalStorage = (name, value) => {
+  localStorage.setItem(name, value)
+}
+
+export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx, setToLocalStorage }

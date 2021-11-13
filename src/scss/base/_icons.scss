@@ -1,4 +1,4 @@
-span[class^='material-icons'] {
+ion-icon {
   pointer-events: none;
   color: var(--grey);
   font-size: var(--btn-fs);
@@ -6,13 +6,5 @@ span[class^='material-icons'] {
 
   &::selection {
     background: transparent;
-  }
-
-  &:hover {
-    color: var(--accent);
-  }
-
-  @media (min-width: 420px) {
-    top: 1.5em;
   }
 }
