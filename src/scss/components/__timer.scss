@@ -1,31 +1,16 @@
 :root {
-  --timer-w: 4em;
-  --timer-fs: 1.1em;
   --timer-circle-yellow: #ffcd00;
-}
-
-@media (min-width: 420px) {
-  :root {
-    --timer-w: 4em;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --timer-w: 5.5em;
-    --timer-pauses-fs: 1.2em;
-  }
 }
 
 .timer {
   position: absolute;
-  top: 0.5em;
+  top: 1.5em;
   right: var(--header-nav-p);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--timer-w);
-  height: var(--timer-w);
+  width: 4em;
+  height: 4em;
   margin-left: auto;
   border: 0.2rem solid var(--grey);
   border-radius: 50%;
@@ -43,18 +28,22 @@
   &__added-time {
     position: absolute;
     top: 0;
-    right: calc(var(--header-nav-p) + 1em);
+    right: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2em;
     height: 2em;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
     color: var(--green);
     opacity: 1;
     transition: opacity 1s ease-out;
     animation: 1s zoom;
+
+    @media (min-width: 768px) {
+      font-size: 2em;
+    }
 
     &.incorrect {
       color: var(--red);
@@ -68,7 +57,7 @@
 
   &__display {
     font-weight: 600;
-    font-size: var(--timer-fs);
+    font-size: 1.1em;
     display: flex;
   }
 }
@@ -90,8 +79,8 @@
 }
 
 .circle {
-  width: var(--timer-w);
-  height: var(--timer-w);
+  width: 4em;
+  height: 4em;
   position: absolute;
 }
 
