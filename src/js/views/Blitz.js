@@ -6,6 +6,7 @@ import PlaySound from '../helpers/PlaySound'
 import Timer from '../components/Timer'
 import Confetti from '../components/Confetti'
 import { shuffle, getData } from '../helpers/utils'
+import { IMAGES_ALL_COUNT, TIME_FOR_BLITZ } from '../helpers/constants'
 
 export default class extends View {
   constructor(params) {
@@ -17,7 +18,7 @@ export default class extends View {
     this.currentQuestion = 0
     this.timerTimeout = false
     this.timerInterval = false
-    this.totalTime = 5
+    this.totalTime = TIME_FOR_BLITZ
     this.timeLeft = this.totalTime
   }
 
@@ -34,12 +35,28 @@ export default class extends View {
 
   observeLocation() {
     const backBtn = document.querySelector('#backBtn')
+    const homeBtn = document.querySelector('#homeBtn')
+    const nextQuizBtn = document.querySelector('#nextQuizBtn')
 
     backBtn.addEventListener('click', () => {
       this.stopTimer()
     })
 
-    window.addEventListener('popstate', () => this.stopTimer())
+    homeBtn.addEventListener('click', () => {
+      this.soundResults.pause()
+    })
+
+    nextQuizBtn.addEventListener('click', () => {
+      this.soundResults.pause()
+    })
+
+    window.addEventListener('popstate', () => {
+      this.stopTimer()
+
+      if (this.soundResults) {
+        this.soundResults.pause()
+      }
+    })
   }
 
   async getQuestions() {
@@ -133,7 +150,7 @@ export default class extends View {
 
     this.playSound.play(isCorrect)
 
-    if (this.currentQuestion === 239) {
+    if (this.currentQuestion === IMAGES_ALL_COUNT) {
       this.showResults()
       return
     }
@@ -155,25 +172,23 @@ export default class extends View {
     const record = document.querySelector('#record')
     const isNotMax = this.results.some((el) => el.wins > this.correctAnswers)
 
-    const sound = new Audio()
-    sound.volume = this.soundValue
+    this.soundResults = new Audio()
+    this.soundResults.volume = this.soundValue
 
     let recordText
     if (isNotMax) {
       recordText = this.langValue === 'en' ? `you can do better!` : `ты можешь лучше!`
-      sound.src = '/audio/failure.wav'
+      this.soundResults.src = '/audio/failure.wav'
     } else {
       recordText = this.langValue === 'en' ? `this is your record!` : 'это твой рекорд!'
-      sound.src = '/audio/applause.wav'
+      this.soundResults.src = '/audio/applause.wav'
 
-      const confettiWrapper = document.querySelector('.confetti-wrapper')
-      confettiWrapper.classList.remove('hidden')
-      const confetti = new Confetti(confettiWrapper)
+      const confetti = new Confetti()
       confetti.init()
     }
 
     if (this.isWithSound) {
-      sound.play()
+      this.soundResults.play()
     }
 
     record.textContent = recordText
@@ -194,6 +209,7 @@ export default class extends View {
   updateTimer(type) {
     const addedTime = document.querySelector('#addedTime')
     addedTime.classList.remove('hidden')
+
     if (type === 'correct') {
       this.timeLeft += 2
       addedTime.classList.remove('incorrect')
@@ -205,7 +221,7 @@ export default class extends View {
     }
     this.stopTimer()
 
-    if (this.timeLeft >= 30) {
+    if (this.timeLeft >= TIME_FOR_BLITZ) {
       this.timeLeft = this.totalTime
     }
 

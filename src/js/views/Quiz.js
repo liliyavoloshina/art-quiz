@@ -93,37 +93,28 @@ export default class extends View {
     const correctAnswersCount = document.querySelector('#correctAnswersCount')
     const correctNum = this.correctAnswers.length
 
-    const sound = new Audio()
-    sound.volume = this.soundValue
+    this.soundResults = new Audio()
+    this.soundResults.volume = this.soundValue
 
     if (correctNum === QUIZ_QUESTIONS_COUNT) {
       resultsText.textContent = this.langValue === 'en' ? 'are you an art expert?!' : 'да ты эксперт!'
-      sound.src = '/audio/applause.wav'
+      this.soundResults.src = '/audio/applause.wav'
     } else if (correctNum > QUIZ_QUESTIONS_COUNT / 2 && correctNum < QUIZ_QUESTIONS_COUNT) {
       resultsText.textContent = this.langValue === 'en' ? 'wow, you are on fire!' : 'потрясающе!'
-      sound.src = '/audio/applause.wav'
+      this.soundResults.src = '/audio/applause.wav'
     } else {
       resultsText.textContent = this.langValue === 'en' ? 'you can do better!' : 'ты можешь лучше!'
-      sound.src = '/audio/failure.wav'
+      this.soundResults.src = '/audio/failure.wav'
     }
 
     if (this.isWithSound) {
-      sound.play()
+      this.soundResults.play()
     }
 
     this.setResultsToStorage()
 
     correctAnswersCount.textContent = correctNum
     modalResult.classList.remove('hidden')
-
-    const nextQuizBtn = document.querySelector('#nextQuizBtn')
-    const homeBtn = document.querySelector('#homeBtn')
-    nextQuizBtn.addEventListener('click', () => {
-      sound.pause()
-    })
-    homeBtn.addEventListener('click', () => {
-      sound.pause()
-    })
 
     if (correctNum > QUIZ_QUESTIONS_COUNT / 2) {
       modalResult.addEventListener('transitionend', () => {
@@ -252,7 +243,9 @@ export default class extends View {
 
       while (answers.length < QUIZ_ANSWERS_COUNT) {
         const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
+        console.log(randomAnswer.author, 'randomAnswer.author')
         if (!answers.includes(randomAnswer.author)) {
+          console.log('pushed')
           answers.push(randomAnswer.author)
         }
       }
@@ -400,12 +393,28 @@ export default class extends View {
 
   observeLocation() {
     const backBtn = document.querySelector('#backBtn')
+    const nextQuizBtn = document.querySelector('#nextQuizBtn')
+    const homeBtn = document.querySelector('#homeBtn')
+
+    nextQuizBtn.addEventListener('click', () => {
+      this.soundResults.pause()
+    })
+
+    homeBtn.addEventListener('click', () => {
+      this.soundResults.pause()
+    })
 
     backBtn.addEventListener('click', () => {
       this.stopTimer()
     })
 
-    window.addEventListener('popstate', () => this.stopTimer())
+    window.addEventListener('popstate', () => {
+      this.stopTimer()
+
+      if (this.soundResults) {
+        this.soundResults.pause()
+      }
+    })
   }
 
   showHint(hintBtn) {
