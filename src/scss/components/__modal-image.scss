@@ -1,5 +1,5 @@
 .modal-image {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 99;
   left: 0;
@@ -22,6 +22,10 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  &.hidden {
+    display: none;
   }
 
   &::-webkit-scrollbar {

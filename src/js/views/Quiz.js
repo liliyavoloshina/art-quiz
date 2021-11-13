@@ -7,6 +7,7 @@ import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
 import PlaySound from '../helpers/PlaySound'
 import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
+import { QUIZ_TYPES } from '../helpers/constants'
 
 export default class extends View {
   constructor(params) {
@@ -53,7 +54,7 @@ export default class extends View {
   }
 
   showNextAnswers() {
-    if (this.type === 'artists') {
+    if (this.type === QUIZ_TYPES.artists) {
       this.questionTextEl.classList.add('hidden')
       this.questionTextEl.addEventListener('animationend', () => {
         this.questionTextEl.classList.remove('hidden')
@@ -138,7 +139,7 @@ export default class extends View {
   }
 
   generateQuestion() {
-    if (this.type === 'artists') {
+    if (this.type === QUIZ_TYPES.artists) {
       this.questionTextEl.textContent = this.langValue === 'en' ? `who is the author of this picture?` : 'кто автор этой картины?'
     } else {
       const artistName = this.questions[this.currentQuestion].author
@@ -150,7 +151,7 @@ export default class extends View {
     const items = []
     const srcForPreload = []
 
-    if (this.type === 'artists') {
+    if (this.type === QUIZ_TYPES.artists) {
       const { year } = this.questions[this.currentQuestion]
       this.questions.forEach(async (question) => {
         srcForPreload.push(`/img/full/${question.imageNum}full.webp`)
@@ -233,15 +234,15 @@ export default class extends View {
 
     this.imageActions = document.querySelectorAll('.image__actions')
 
-    if (this.type === 'pictures') {
-      await preloader.preloadImages('four')
-    } else {
+    if (this.type === QUIZ_TYPES.artists) {
       await preloader.preloadImages()
+    } else {
+      await preloader.preloadImages('four')
     }
 
     this.imagesEl = document.querySelectorAll('.image__img')
 
-    if (this.type === 'pictures') {
+    if (this.type === QUIZ_TYPES.pictures) {
       this.answersEl = document.querySelectorAll('.answer')
     }
   }
@@ -249,7 +250,7 @@ export default class extends View {
   generateAnswers() {
     const answers = []
 
-    if (this.type === 'artists') {
+    if (this.type === QUIZ_TYPES.artists) {
       const rightAnswer = this.questions[this.currentQuestion].author
       this.rightAnswer = rightAnswer
       answers.push(rightAnswer)
@@ -292,7 +293,7 @@ export default class extends View {
     this.isModalOpened = false
 
     setTimeout(() => {
-      if (this.type === 'artists') {
+      if (this.type === QUIZ_TYPES.artists) {
         this.answersEl.forEach((btn) => (btn.disabled = false))
       }
 
@@ -317,7 +318,7 @@ export default class extends View {
 
     this.imageFullscreen = document.querySelector('#imageFullscreen')
 
-    this.modalFullscreen.style.display = 'flex'
+    this.modalFullscreen.classList.remove('hidden')
     this.imageFullscreen.src = image.src
 
     this.modalFullscreen.addEventListener('click', () => {
@@ -334,7 +335,7 @@ export default class extends View {
         this.setTimeout(this.timer.totalTime + 1)
       }
 
-      this.modalFullscreen.style.display = 'none'
+      this.modalFullscreen.classList.add('hidden')
       this.imageFullscreen.classList.remove('out')
     }, 400)
   }
@@ -637,7 +638,7 @@ export default class extends View {
   </div>
 </div>
 
-<div class="modal-image" id="modalFullscreen">
+<div class="modal-image hidden" id="modalFullscreen">
     <div class="modal-image__wrapper">
       <img class="modal-image__image" id="imageFullscreen">
     </div>
