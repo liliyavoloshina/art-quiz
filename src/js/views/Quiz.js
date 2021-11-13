@@ -287,18 +287,22 @@ export default class extends View {
     })
   }
 
+  disableAnswer() {
+    if (this.type === QUIZ_TYPES.artists) {
+      this.answersEl.forEach((btn) => (btn.disabled = !btn.disabled))
+    }
+
+    this.imagesEl.forEach((image) => image.classList.toggle('disabled'))
+    this.imageActions.forEach((btn) => btn.classList.toggle('disabled'))
+  }
+
   closeModal() {
     this.modal.classList.add('hidden')
 
     this.isModalOpened = false
 
     setTimeout(() => {
-      if (this.type === QUIZ_TYPES.artists) {
-        this.answersEl.forEach((btn) => (btn.disabled = false))
-      }
-
-      this.imagesEl.forEach((image) => image.classList.remove('disabled'))
-      this.imageActions.forEach((btn) => btn.classList.remove('disabled'))
+      this.disableAnswer()
     }, 1000)
   }
 
@@ -368,7 +372,7 @@ export default class extends View {
       this.crossmarkCheck.classList.add('animated')
     }
 
-    if (this.type === 'artists') {
+    if (this.type === QUIZ_TYPES.artists) {
       modalFirstLineEl.textContent = this.langValue === 'en' ? `"${currentName}" was created` : `"${currentName}" написал`
       modalSecondLineEl.textContent = this.langValue === 'en' ? `by ${currentAuthor}` : `${currentAuthor}`
       modalYearEl.textContent = this.langValue === 'en' ? `in ${currentYear}` : `в ${currentYear} году`
@@ -410,7 +414,7 @@ export default class extends View {
   }
 
   showHint(hintBtn) {
-    if (this.type === 'pictures' && this.isHintUsed) return
+    if (this.type === QUIZ_TYPES.pictures && this.isHintUsed) return
 
     this.isHintUsed = true
     hintBtn.classList.toggle('opened')
@@ -461,7 +465,7 @@ export default class extends View {
 
     const pagination = document.querySelectorAll('.pag-item')
     let answerText
-    if (this.type === 'artists') {
+    if (this.type === QUIZ_TYPES.artists) {
       answerText = answer === 'timeout' ? 'timeout' : answer.innerHTML
     } else {
       answerText = answer.dataset ? answer.dataset.name : 'timeout'
@@ -490,13 +494,7 @@ export default class extends View {
 
     this.currentQuestion++
 
-    if (this.type === 'artists') {
-      this.answersEl.forEach((btn) => (btn.disabled = true))
-      this.answersEl.forEach((btn) => (btn.disabled = true))
-    }
-
-    this.imagesEl.forEach((image) => image.classList.add('disabled'))
-    this.imageActions.forEach((btn) => btn.classList.add('disabled'))
+    this.disableAnswer()
   }
 
   setTimeout(value) {
