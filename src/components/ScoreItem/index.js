@@ -9,39 +9,25 @@ class ScoreItem {
     this.year = item.year
   }
 
-  generateImage() {
-    const scoreImage = document.createElement('div')
-    scoreImage.classList.add('score__img', 'image-loading')
-    if (!this.isCorrect) scoreImage.classList.add('inversed')
-
-    const image = document.createElement('img')
-    image.src = `/img/small/${this.imageNum}full.webp`
-    image.alt = ''
-
-    scoreImage.append(image)
-
-    return scoreImage
-  }
-
-  generatePopup() {
+  generate() {
     return `
+    <div class="score__img ${!this.isCorrect ? 'inversed' : ''}">
+      <img src="/img/small/${this.imageNum}full.webp" alt="${this.name}" />
+    </div>
+    <div class="popup-score hidden">
       <div class="popup-score__name">"${this.name}"</div>
       <div class="popup-score__author">${this.author}</div>
       <div class="popup-score__year">${this.year}</div>
-      `
+    </div>
+    `
   }
 
   mount(parent) {
     const element = document.createElement('div')
     element.classList.add('score__item')
 
-    element.append(this.generateImage())
+    element.innerHTML = this.generate()
 
-    const popup = document.createElement('div')
-    popup.classList.add('popup-score', 'hidden')
-    popup.innerHTML = this.generatePopup()
-
-    element.append(popup)
     parent.append(element)
   }
 }

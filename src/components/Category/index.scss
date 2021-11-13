@@ -40,6 +40,11 @@
 
   &__header {
     display: flex;
+
+    &.hidden {
+      display: none;
+      visibility: hidden;
+    }
   }
 
   &__score {
@@ -48,13 +53,6 @@
       font-size: var(--btn-fs);
       color: var(--yellow);
       transition: 0.6s ease;
-    }
-  }
-
-  &__score,
-  &__results {
-    &.hidden {
-      opacity: 0;
     }
   }
 
