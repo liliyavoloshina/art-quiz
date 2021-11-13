@@ -32,10 +32,10 @@ export default class extends View {
 
   async scoreToHtml() {
     const imageSrc = []
-    const scoreCategory = this.results.find((el) => el.name === this.category)
-    const { results } = scoreCategory
+    const scoreCategory = this.results.find((el) => el.name === this.category && el.isPlayed)
 
-    if (scoreCategory.isPlayed) {
+    if (scoreCategory) {
+      const { results } = scoreCategory
       results.forEach((item) => {
         const { isCorrect } = item
         if (isCorrect) {
@@ -50,8 +50,8 @@ export default class extends View {
     } else {
       this.scoreContainer.innerHTML = `
       <div class="restrictive-message">
-        <h2 class="restrictive-message__title">You have no access to this page</h2>
-        <p class="restrictive-message__info">You should play this category first :)</p>
+        <h2 class="restrictive-message__title" data-langkey="res-mes-title"></h2>
+        <p class="restrictive-message__info" data-langkey="res-mes-info"></p>
       </div>
       `
     }

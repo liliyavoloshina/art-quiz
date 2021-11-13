@@ -27,5 +27,7 @@
   "home": "home",
   "yes": "yes",
   "no": "no",
-  "try-again": "try again"
+  "try-again": "try again",
+  "res-mes-title": "You have no access to this page",
+  "res-mes-info": "You should play this category first :)"
 }

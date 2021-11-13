@@ -24,26 +24,11 @@ class ScoreItem {
   }
 
   generatePopup() {
-    const popup = document.createElement('div')
-    popup.classList.add('popup-score', 'hidden')
-
-    const popupName = document.createElement('div')
-    popupName.classList.add('popup-score__name')
-    popupName.textContent = this.name
-
-    const popupAuthor = document.createElement('div')
-    popupAuthor.classList.add('popup-score__author')
-    popupAuthor.textContent = this.author
-
-    const popupYear = document.createElement('div')
-    popupYear.classList.add('popup-score__year')
-    popupYear.textContent = this.year
-
-    popup.append(popupName)
-    popup.append(popupAuthor)
-    popup.append(popupYear)
-
-    return popup
+    return `
+      <div class="popup-score__name">"${this.name}"</div>
+      <div class="popup-score__author">${this.author}</div>
+      <div class="popup-score__year">${this.year}</div>
+      `
   }
 
   mount(parent) {
@@ -51,8 +36,12 @@ class ScoreItem {
     element.classList.add('score__item')
 
     element.append(this.generateImage())
-    element.append(this.generatePopup())
 
+    const popup = document.createElement('div')
+    popup.classList.add('popup-score', 'hidden')
+    popup.innerHTML = this.generatePopup()
+
+    element.append(popup)
     parent.append(element)
   }
 }
