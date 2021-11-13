@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 
 import View from './View'
+import ScoreItem from '../../components/ScoreItem'
 
 export default class extends View {
   constructor(params) {
@@ -39,30 +40,18 @@ export default class extends View {
         if (isCorrect) {
           this.totalScore += 1
         }
-        items.push(
-          `<div class="score__item">
-                <div class="score__img ${!isCorrect ? 'inversed' : ''}">
-                  <img src="/img/small/${item.imageNum}full.webp" alt="${item.name}" />
-                </div>
-                <div class="popup-score hidden">
-                    <div class="popup-score__name">"${item.name}"</div>
-                    <div class="popup-score__author">${item.author}</div>
-                    <div class="popup-score__year">${item.year}</div>
-                </div>
-            </div>
-                `
-        )
+
+        const scoreItem = new ScoreItem()
+        scoreItem.mount(this.scoreContainer)
       })
     } else {
-      items.push(`
+      this.scoreContainer.innerHTML = `
       <div class="restrictive-message">
         <h2 class="restrictive-message__title">You have no access to this page</h2>
         <p class="restrictive-message__info">You should play this category first :)</p>
       </div>
-      `)
+      `
     }
-
-    this.scoreContainer.innerHTML = items.join('\n')
   }
 
   bindListeners() {
