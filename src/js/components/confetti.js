@@ -1,7 +1,8 @@
 export default class Confetti {
-  constructor(el) {
-    this.el = el
+  constructor() {
     this.containerEl = null
+    this.el = document.querySelector('.confetti-wrapper')
+    this.el.classList.remove('hidden')
 
     this.confettiFrequency = 3
     this.confettiSize = 15

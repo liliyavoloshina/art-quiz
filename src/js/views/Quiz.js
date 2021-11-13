@@ -7,7 +7,7 @@ import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
 import PlaySound from '../helpers/PlaySound'
 import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
-import { QUIZ_TYPES } from '../helpers/constants'
+import { QUIZ_TYPES, QUIZ_QUESTIONS_COUNT, QUIZ_IMAGES_ALL, QUIZ_ANSWERS_COUNT } from '../helpers/constants'
 
 export default class extends View {
   constructor(params) {
@@ -38,7 +38,7 @@ export default class extends View {
     this.isHintUsed = false
     this.closeModal()
 
-    if (this.currentQuestion !== 10) {
+    if (this.currentQuestion !== QUIZ_QUESTIONS_COUNT) {
       this.generateQuestion()
       this.showNextImage()
       this.showNextAnswers()
@@ -96,17 +96,14 @@ export default class extends View {
     const sound = new Audio()
     sound.volume = this.soundValue
 
-    if (correctNum === 10) {
+    if (correctNum === QUIZ_QUESTIONS_COUNT) {
       resultsText.textContent = this.langValue === 'en' ? 'are you an art expert?!' : 'да ты эксперт!'
       sound.src = '/audio/applause.wav'
-    } else if (correctNum >= 6 && correctNum < 10) {
+    } else if (correctNum > QUIZ_QUESTIONS_COUNT / 2 && correctNum < QUIZ_QUESTIONS_COUNT) {
       resultsText.textContent = this.langValue === 'en' ? 'wow, you are on fire!' : 'потрясающе!'
       sound.src = '/audio/applause.wav'
-    } else if (correctNum < 6 && correctNum >= 3) {
-      resultsText.textContent = this.langValue === 'en' ? 'you can do better!' : 'ты можешь лучше!'
-      sound.src = '/audio/failure.wav'
     } else {
-      resultsText.textContent = this.langValue === 'en' ? 'maybe another time?' : 'в другой раз повезет...'
+      resultsText.textContent = this.langValue === 'en' ? 'you can do better!' : 'ты можешь лучше!'
       sound.src = '/audio/failure.wav'
     }
 
@@ -128,11 +125,9 @@ export default class extends View {
       sound.pause()
     })
 
-    if (correctNum >= 6) {
+    if (correctNum > QUIZ_QUESTIONS_COUNT / 2) {
       modalResult.addEventListener('transitionend', () => {
-        const confettiWrapper = document.querySelector('.confetti-wrapper')
-        confettiWrapper.classList.remove('hidden')
-        const confetti = new Confetti(confettiWrapper)
+        const confetti = new Confetti()
         confetti.init()
       })
     }
@@ -176,7 +171,7 @@ export default class extends View {
     } else {
       const randomImages = []
 
-      while (randomImages.length < 30) {
+      while (randomImages.length < QUIZ_IMAGES_ALL - 10) {
         const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
         const randomImageAuthor = randomImage.author
         const randomImageImageNum = randomImage.imageNum
@@ -190,7 +185,7 @@ export default class extends View {
 
       const randomIndexes = []
 
-      for (let i = 0; i < 40; i += 4) {
+      for (let i = 0; i < QUIZ_IMAGES_ALL; i += QUIZ_ANSWERS_COUNT) {
         const randomIdx = getRandomIdx(i, i + 3)
         randomIndexes.push(randomIdx)
       }
@@ -255,7 +250,7 @@ export default class extends View {
       this.rightAnswer = rightAnswer
       answers.push(rightAnswer)
 
-      while (answers.length < 4) {
+      while (answers.length < QUIZ_ANSWERS_COUNT) {
         const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
         if (!answers.includes(randomAnswer.author)) {
           answers.push(randomAnswer.author)
@@ -270,10 +265,10 @@ export default class extends View {
       this.rightAnswer = rightAnswer
       let currentAnswers = []
 
-      if (this.picturesImages.length === 4) {
+      if (this.picturesImages.length === QUIZ_ANSWERS_COUNT) {
         currentAnswers = this.picturesImages
       } else {
-        currentAnswers = this.picturesImages.splice(0, 4)
+        currentAnswers = this.picturesImages.splice(0, QUIZ_ANSWERS_COUNT)
       }
 
       currentAnswers.forEach((answer) => {
@@ -487,7 +482,7 @@ export default class extends View {
 
     this.playSound.play(this.isCorrect)
 
-    if (this.currentQuestion !== 10) {
+    if (this.currentQuestion !== QUIZ_QUESTIONS_COUNT) {
       await this.generateModal()
       this.openModal()
     }
