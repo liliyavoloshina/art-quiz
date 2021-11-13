@@ -1,16 +1,13 @@
 /* eslint-disable class-methods-use-this */
 import View from './View'
 import Checkbox from '../../components/Checkbox'
+import { setToLocalStorage } from '../helpers/utils'
 
 export default class extends View {
   constructor(params) {
     super(params)
     const title = this.langValue === 'en' ? 'settings' : 'настройки'
     this.setTitle(`artquiz. - ${title}.`)
-  }
-
-  updateSettings(name, value) {
-    localStorage.setItem(name, value)
   }
 
   updateLang(value) {
@@ -43,17 +40,13 @@ export default class extends View {
 
     this.timerInput.value = this.timerValue
 
-    this.updateSettings('timerValue', this.timerValue)
+    setToLocalStorage('timerValue', this.timerValue)
   }
 
   bindListeners() {
-    this.timerCheckbox.addEventListener('change', (e) => {
-      this.updateSettings('isWithTimer', e.target.checked)
-    })
-
     this.soundRange.addEventListener('input', (e) => {
       const volumeForAudio = (e.target.value * 0.01).toFixed(2)
-      this.updateSettings('soundValue', volumeForAudio)
+      setToLocalStorage('soundValue', volumeForAudio)
     })
 
     this.incrTimerBtn.addEventListener('click', () => {
@@ -78,15 +71,16 @@ export default class extends View {
     const soundCheckbox = new Checkbox('soundCheckbox', 'isWithSound', this.isWithSound)
     soundCheckbox.mount(soundCheckboxContainer)
 
-    this.timerCheckbox = document.querySelector('#timerCheckbox')
+    const timerCheckboxContainer = document.querySelector('#timerCheckboxContainer')
+    const timerCheckbox = new Checkbox('timerCheckbox', 'isWithTimer', this.isWithTimer)
+    timerCheckbox.mount(timerCheckboxContainer)
+
     this.soundRange = document.querySelector('#soundRange')
     this.decrTimerBtn = document.querySelector('#decrTimerBtn')
     this.incrTimerBtn = document.querySelector('#incrTimerBtn')
     this.timerInput = document.querySelector('#timerInput')
     this.swicthLangEn = document.querySelector('#swicthLangEn')
     this.swicthLangRu = document.querySelector('#swicthLangRu')
-
-    this.timerCheckbox.checked = this.isWithTimer
 
     this.soundRange.value = this.soundValue * 100
     this.timerInput.value = this.timerValue
@@ -123,12 +117,7 @@ export default class extends View {
                     <div class="settings-block__text" data-langkey="music">music</div>
                 </div>
                 <div class="settings-block">
-                    <div class="settings-block__input">
-                        <div class="checkbox">
-                            <input id="timerCheckbox" type="checkbox">
-                            <label for="timerCheckbox"><ion-icon name="checkmark-sharp"></ion-icon></label>
-                        </div>
-                    </div>
+                    <div class="settings-block__input" id="timerCheckboxContainer"></div>
                     <div class="settings-block__input regulation">
                         <div class="input-number">
                           <button class="input-number__btn" type="number" id="decrTimerBtn"><ion-icon name="remove-sharp"></ion-icon></button>

@@ -1,7 +1,6 @@
-import htmlToElement from '../htmlToElement'
+import { setToLocalStorage, htmlToElement } from '../../js/helpers/utils'
 import checkboxHTML from './index.html'
 import './index.scss'
-import { setToLocalStorage } from '../../js/helpers/utils'
 
 class Checkbox {
   constructor(id, name, checked) {

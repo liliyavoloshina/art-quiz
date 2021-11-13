@@ -63,7 +63,17 @@ module.exports = ({ development }) => ({
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: path.join(__dirname, 'src/scss/base/_base-dir.scss'),
+            },
+          },
+        ],
       },
     ],
   },

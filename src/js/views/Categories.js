@@ -2,6 +2,7 @@
 
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
+import Category from '../../components/Category'
 
 export default class extends View {
   constructor(params) {
@@ -13,34 +14,22 @@ export default class extends View {
   }
 
   getCorrectNumber(results) {
+    if (!results) return null
     const correctResults = results.filter((item) => item.isCorrect)
     return correctResults.length
   }
 
   categoriesToHtml() {
-    const items = []
+    const categoriesContainer = document.querySelector('#categoriesContainer')
 
     this.results.forEach((category) => {
       const { isPlayed } = category
       const splittedName = category.name.split('-').join(' ')
-      
-      items.push(`
-        <div class="category">
-          <div class="category__header">
-          <a class="category__score btn ${!isPlayed ? 'hidden' : ''}" href="/score/${this.type}/${category.name}" data-link>
-            <span class="material-icons-round">star</span>
-          </a>
-            <div class="category__results ${!isPlayed ? 'hidden' : ''}">${category.isPlayed ? this.getCorrectNumber(category.results) : ''}/10</div>
-          </div>
-          <a class="category__name ${isPlayed ? 'played' : ''}" href="/quiz/${this.type}/${category.name}" data-link data-langkey="${category.name}">${splittedName}</a>
-          <a class="category__image image-loading ${!isPlayed ? 'inversed' : ''}"  href="/quiz/${this.type}/${category.name}" data-link>
-              <img src="../img/category/${this.type}/${category.name}.webp" alt="${category.name} quiz">
-          </a>
-        </div>`)
-    })
+      const correctNumber = this.getCorrectNumber(category.results)
 
-    const categoriesContainer = document.querySelector('#categoriesContainer')
-    categoriesContainer.innerHTML = items.join('\n')
+      const categoryCard = new Category(isPlayed, this.type, category.name, correctNumber, splittedName)
+      categoryCard.mount(categoriesContainer)
+    })
   }
 
   async loadImages() {

@@ -22,7 +22,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-home">
-          <a href="/settings" class="header-home__nav header__nav header__nav--right btn-sm" data-link>
+          <a href="/settings" class="header-home__nav header__nav header__nav--right btn" data-link>
             <ion-icon name="settings"></ion-icon>
           </a>
         </div>

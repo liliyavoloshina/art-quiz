@@ -60,4 +60,10 @@ const setToLocalStorage = (name, value) => {
   localStorage.setItem(name, value)
 }
 
-export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx, setToLocalStorage }
+const htmlToElement = (html) => {
+  const template = document.createElement('template')
+  template.innerHTML = html
+  return template.content.firstChild
+}
+
+export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx, setToLocalStorage, htmlToElement }
