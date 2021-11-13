@@ -2,6 +2,7 @@
 
 import View from './View'
 import ScoreItem from '../../components/ScoreItem'
+import ImagePreloader from '../helpers/ImagePreloader'
 
 export default class extends View {
   constructor(params) {
@@ -30,7 +31,7 @@ export default class extends View {
   }
 
   async scoreToHtml() {
-    const items = []
+    const imageSrc = []
     const scoreCategory = this.results.find((el) => el.name === this.category)
     const { results } = scoreCategory
 
@@ -41,7 +42,9 @@ export default class extends View {
           this.totalScore += 1
         }
 
-        const scoreItem = new ScoreItem()
+        imageSrc.push(`/img/small/${item.imageNum}full.webp`)
+
+        const scoreItem = new ScoreItem(isCorrect, item)
         scoreItem.mount(this.scoreContainer)
       })
     } else {
@@ -52,6 +55,9 @@ export default class extends View {
       </div>
       `
     }
+
+    const preloader = new ImagePreloader(imageSrc)
+    await preloader.preloadImages()
   }
 
   bindListeners() {
