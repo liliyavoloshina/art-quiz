@@ -2,7 +2,6 @@
   --quiz-row-g: 1em;
   --quiz-question-fs: 1em;
   --quiz-pag-s: 0.5em;
-  --quiz-pictures-img-p: 0.2em;
   --quiz-answers-g: 0.5em;
 }
 
@@ -16,7 +15,6 @@
 @media (min-width: 768px) {
   :root {
     --quiz-row-g: 1em;
-    --quiz-pictures-img-p: 0.3em;
     --quiz-question-fs: 1.5em;
     --quiz-pag-s: 1em;
     --quiz-answers-g: 1em;

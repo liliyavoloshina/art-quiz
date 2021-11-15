@@ -155,9 +155,9 @@ export default class extends View {
         const randomImage = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
         const randomImageAuthor = randomImage.author
         const randomImageImageNum = randomImage.imageNum
-
         const isWillAddLater = this.questions.some((question) => question.imageNum === randomImageImageNum)
         const isExist = !!randomImages.find((el) => el.author === randomImageAuthor)
+
         if (isExist === false && isWillAddLater === false) {
           randomImages.push(randomImage)
         }
@@ -215,9 +215,8 @@ export default class extends View {
 
       while (answers.length < QUIZ_ANSWERS_COUNT) {
         const randomAnswer = this.allQuestions[Math.floor(Math.random() * this.allQuestions.length)]
-        console.log(randomAnswer.author, 'randomAnswer.author')
+
         if (!answers.includes(randomAnswer.author)) {
-          console.log('pushed')
           answers.push(randomAnswer.author)
         }
       }
