@@ -268,7 +268,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-quiz">
-          <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
+          <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><ion-icon name="home"></ion-icon></a>
           <div class="timer">
             <div class="timer__added-time hidden" id="addedTime"></div>
             <div class="timer__display">
