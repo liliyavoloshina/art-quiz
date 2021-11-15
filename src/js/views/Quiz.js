@@ -1,7 +1,6 @@
 /* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign, no-inner-declarations */
 
 import View from './View'
-import Timer from '../components/Timer'
 import Confetti from '../components/Confetti'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
@@ -9,6 +8,7 @@ import PlaySound from '../helpers/PlaySound'
 import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
 import { QUIZ_TYPES, QUIZ_QUESTIONS_COUNT, QUIZ_IMAGES_ALL, QUIZ_ANSWERS_COUNT } from '../helpers/constants'
 import QuizImage from '../../components/QuizImage'
+import Timer from '../../components/Timer'
 
 export default class extends View {
   constructor(params) {
@@ -44,7 +44,10 @@ export default class extends View {
       this.showNextImage()
       this.showNextAnswers()
       this.generateAnswers()
-      this.initTimer()
+
+      if (this.isWithTimer) {
+        this.initTimer()
+      }
     } else {
       this.showResults()
     }
@@ -478,12 +481,10 @@ export default class extends View {
     }, value * 1000)
   }
 
+  // how to call answer function from Timer class when its timeout???
   initTimer() {
-    if (this.isWithTimer) {
-      this.timer = new Timer(this.timerValue)
-      this.timer.initTimer()
-      this.setTimeout(this.timerValue)
-    }
+    this.timer.initTimer()
+    this.setTimeout(this.timerValue)
   }
 
   async mounted() {
@@ -495,7 +496,14 @@ export default class extends View {
     await this.generateImages()
     this.generateAnswers()
 
-    this.initTimer()
+    if (this.isWithTimer) {
+      const header = document.querySelector('#header')
+      this.timer = new Timer(this.timerValue)
+      this.timer.mount(header)
+
+      this.initTimer()
+    }
+
     this.sliderTransformer = new SliderTransformer(this.type)
     this.playSound = new PlaySound(this.isWithSound, this.soundValue)
     this.bindListeners()
@@ -506,27 +514,12 @@ export default class extends View {
   mount() {
     return `
     <header>
-    <div class="container">
-      <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><ion-icon name="home"></ion-icon></a>
-        <div class="timer ${this.isWithTimer ? '' : 'hidden'}">
-          <div class="timer__display">
-           <div class="display seconds"></div>
-          </div>
-          <svg
-          class="circle"
-          x="0px"
-          y="0px"
-          width="500px"
-          height="500px"
-          viewBox="0 0 521.17 521.17"
-          >
-          <circle cx="260.59" cy="260.59" r="253.09" stroke-width="18" fill="none"/>
-          </svg>
+      <div class="container">
+        <div class="header header-quiz" id="header">
+          <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><ion-icon name="home"></ion-icon></a>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
   <main class="main main-fullheight">
     <div class="container">

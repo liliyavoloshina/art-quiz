@@ -3,7 +3,7 @@
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 import PlaySound from '../helpers/PlaySound'
-import Timer from '../components/Timer'
+import Timer from '../../components/Timer'
 import Confetti from '../components/Confetti'
 import { shuffle, getData } from '../helpers/utils'
 import { IMAGES_ALL_COUNT, TIME_FOR_BLITZ } from '../helpers/constants'
@@ -24,6 +24,7 @@ export default class extends View {
 
   findElements() {
     this.questionTextEl = document.querySelector('#blitzQuestion')
+    this.header = document.querySelector('#header')
   }
 
   bind() {
@@ -219,14 +220,15 @@ export default class extends View {
       addedTime.textContent = '-2'
       addedTime.classList.add('incorrect')
     }
+
     this.stopTimer()
 
     if (this.timeLeft >= TIME_FOR_BLITZ) {
       this.timeLeft = this.totalTime
     }
 
-    this.timer = new Timer(this.timeLeft)
-    this.timer.initTimer()
+    this.destroyTimer()
+    this.initTimer()
     this.setTimeout(this.timeLeft)
     this.setInterval()
 
@@ -247,6 +249,17 @@ export default class extends View {
     }, 1000)
   }
 
+  destroyTimer() {
+    const timer = document.querySelector('.timer')
+    this.header.removeChild(timer)
+  }
+
+  initTimer() {
+    this.timer = new Timer(this.timeLeft, 'blitz')
+    this.timer.mount(this.header)
+    this.timer.initTimer()
+  }
+
   async mounted() {
     this.findElements()
     this.observeLocation()
@@ -256,8 +269,8 @@ export default class extends View {
     this.generateQuestion()
 
     this.playSound = new PlaySound(this.isWithSound, this.soundValue)
-    this.timer = new Timer(this.totalTime)
-    this.timer.initTimer()
+
+    this.initTimer()
     this.setTimeout(this.totalTime)
     this.setInterval()
     this.translatePage()
@@ -267,24 +280,8 @@ export default class extends View {
     return `
     <header>
       <div class="container">
-        <div class="header header-quiz">
+        <div class="header header-quiz" id="header">
           <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><ion-icon name="home"></ion-icon></a>
-          <div class="timer">
-            <div class="timer__added-time hidden" id="addedTime"></div>
-            <div class="timer__display">
-              <div class="display seconds"></div>
-            </div>
-            <svg
-            class="circle"
-            x="0px"
-            y="0px"
-            width="500px"
-            height="500px"
-            viewBox="0 0 521.17 521.17"
-            >
-              <circle cx="260.59" cy="260.59" r="253.09" stroke-width="18" fill="none"/>
-            </svg>
-          </div>
         </div>
       </div>
     </header>

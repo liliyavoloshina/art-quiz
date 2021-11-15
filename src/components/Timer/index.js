@@ -1,18 +1,11 @@
 /* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign */
 
-export default class {
-  constructor(val) {
-    this.timerValue = val
-    this.timer = document.querySelector('.timer')
-    this.disSeconds = document.querySelector('.seconds')
-    this.circleSvg = document.querySelector('circle')
+import './index.scss'
 
-    this.interval = false
-    this.isPaused = false
-    this.totalTime = this.timerValue
-    this.yellow = Math.floor(this.totalTime / 2)
-    this.red = Math.floor(this.totalTime / 4)
-    this.oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
+export default class {
+  constructor(val, type = '') {
+    this.timerValue = val
+    this.type = type
   }
 
   pauseTimer() {
@@ -69,6 +62,11 @@ export default class {
   }
 
   initTimer() {
+    this.interval = false
+    this.isPaused = false
+    this.totalTime = this.timerValue
+    this.yellow = Math.floor(this.totalTime / 2)
+    this.red = Math.floor(this.totalTime / 4)
     clearTimeout(this.interval)
     this.validateTime(this.disSeconds, this.totalTime)
     this.circleSvg.style.animation = `loop ${this.totalTime}s linear`
@@ -90,5 +88,37 @@ export default class {
 
   validateTime(element, value) {
     element.innerHTML = value < 10 ? `0${value}` : value
+  }
+
+  generate() {
+    return `
+    <div class="timer__display">
+      <div class="display seconds"></div>
+    </div>
+    <svg class="circle" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 521.17 521.17">
+      <circle cx="260.59" cy="260.59" r="253.09" stroke-width="18" fill="none" />
+    </svg>
+    `
+  }
+
+  mount(parent) {
+    const element = document.createElement('div')
+    element.classList.add('timer')
+
+    element.innerHTML = this.generate()
+
+    parent.append(element)
+
+    if (this.type === 'blitz') {
+      const addedTime = document.createElement('div')
+      addedTime.classList.add('timer__added-time', 'hidden')
+      addedTime.id = 'addedTime'
+      parent.prepend(addedTime)
+    }
+
+    this.timer = document.querySelector('.timer')
+    this.disSeconds = document.querySelector('.seconds')
+    this.circleSvg = document.querySelector('circle')
+    this.oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
   }
 }
