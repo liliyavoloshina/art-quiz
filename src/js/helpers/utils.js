@@ -27,14 +27,19 @@ const transformName = (name) => {
   return transformed.join('')
 }
 
-const generateHint = (name) => {
-  const splitted = name.split(' ')
-  const hint = []
-  splitted.forEach((el) => {
-    const transformed = transformName(el)
-    hint.push(transformed)
-  })
-  return hint.join(' ')
+const generateHint = (type, lang = 'en', value) => {
+  if (type === 'artists') {
+    const hint = lang === 'en' ? `this picture was painted in ${value}` : `эта картина нарисована в ${value}`
+    return hint
+  } else {
+    const splitted = value.split(' ')
+    const hint = []
+    splitted.forEach((el) => {
+      const transformed = transformName(el)
+      hint.push(transformed)
+    })
+    return hint.join(' ')
+  }
 }
 
 const shuffle = (array) => {

@@ -8,6 +8,7 @@ import SliderTransformer from '../helpers/SliderTransformer'
 import PlaySound from '../helpers/PlaySound'
 import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
 import { QUIZ_TYPES, QUIZ_QUESTIONS_COUNT, QUIZ_IMAGES_ALL, QUIZ_ANSWERS_COUNT } from '../helpers/constants'
+import QuizImage from '../../components/QuizImage'
 
 export default class extends View {
   constructor(params) {
@@ -134,30 +135,18 @@ export default class extends View {
   }
 
   async generateImages() {
-    const items = []
     const srcForPreload = []
 
     if (this.type === QUIZ_TYPES.artists) {
-      const { year } = this.questions[this.currentQuestion]
-      this.questions.forEach(async (question) => {
-        srcForPreload.push(`/img/full/${question.imageNum}full.webp`)
-        const item = `
-        <div class="image artists image-loading">
-            <img
-              class="image__img"
-              src="/img/full/${question.imageNum}full.webp"
-              alt=""
-            />
-            <div class="image__fullscreen image__actions" title="Fullscreen"><ion-icon name="search-outline"></ion-icon></div>
-            <div class="image__hint image__actions" title="Hint">
-              <div class="tooltip btn-anim">
-                <ion-icon name="help-circle-outline"></ion-icon>
-                <div class="tooltip__content"><span data-langkey="year-hint">this picture was painted in</span> ${year}</div>
-              </div>
-            </div>
-          </div>
-        `
-        items.push(item)
+      this.questions.forEach((question) => {
+        const imageNum = question.imageNum
+        const year = this.questions[this.currentQuestion].year
+        const hint = generateHint(QUIZ_TYPES.artists, this.langValue, year)
+
+        srcForPreload.push(`/img/full/${imageNum}full.webp`)
+
+        const quizImage = new QuizImage(this.type, imageNum, hint)
+        quizImage.mount(this.imagesSlider)
       })
     } else {
       const randomImages = []
@@ -188,33 +177,16 @@ export default class extends View {
       this.picturesImages = randomImages
 
       randomImages.forEach((image) => {
-        const { author, name } = this.allQuestions.find((el) => el.imageNum === image.imageNum)
-        const hint = generateHint(author)
-        srcForPreload.push(`/img/full/${image.imageNum}full.webp`)
+        const imageNum = image.imageNum
+        const { author, name } = this.allQuestions.find((el) => el.imageNum === imageNum)
+        const hint = generateHint(QUIZ_TYPES.pictures, this.langValue, author)
 
-        const item = `
-        <div class="image pictures image-loading">
-            <img
-              class="image__img answer"
-              src="/img/full/${image.imageNum}full.webp"
-              alt="${name}"
-              data-name="${name}"
-            />
-            <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
-            <div class="image__hint image__actions" title="Hint">
-              <div class="tooltip btn-anim" data-order="${items.length}">
-                <span class="material-icons-round">help_outline</span>
-                <div class="tooltip__content">${hint}</div>
-              </div>
-            </div>
-          </div>
-        `
+        srcForPreload.push(`/img/full/${imageNum}full.webp`)
 
-        items.push(item)
+        const quizImage = new QuizImage(this.type, imageNum, hint, name)
+        quizImage.mount(this.imagesSlider)
       })
     }
-
-    this.imagesSlider.innerHTML = items.join('\n')
 
     const preloader = new ImagePreloader(srcForPreload)
 
@@ -537,7 +509,7 @@ export default class extends View {
     <header>
     <div class="container">
       <div class="header header-quiz">
-        <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><span class="material-icons-round">home</span></a>
+        <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><ion-icon name="home"></ion-icon></a>
         <div class="timer ${this.isWithTimer ? '' : 'hidden'}">
           <div class="timer__display">
            <div class="display seconds"></div>

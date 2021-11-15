@@ -38,6 +38,7 @@ export default class extends View {
       const { results } = scoreCategory
       results.forEach((item) => {
         const { isCorrect } = item
+
         if (isCorrect) {
           this.totalScore += 1
         }
