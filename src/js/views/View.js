@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this, no-useless-constructor, no-empty-function */
+
 import Translator from '../helpers/Translator'
 
 export default class {

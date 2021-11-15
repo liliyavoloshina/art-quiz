@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+
 import View from './View'
 import Checkbox from '../../components/Checkbox'
 import { setToLocalStorage } from '../helpers/utils'

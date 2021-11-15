@@ -88,7 +88,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-score">
-          <a href="/" class="header-score__nav header__nav--left header__nav btn" data-link><span class="material-icons-round">home</span></a>
+          <a href="/" class="header-score__nav header__nav--left header__nav btn" data-link><ion-icon name="home"></ion-icon></a>
           <h1 class="header__title" data-langkey="score">score.</h1>
         </div>
       </div>

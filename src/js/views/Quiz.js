@@ -148,10 +148,10 @@ export default class extends View {
               src="/img/full/${question.imageNum}full.webp"
               alt=""
             />
-            <div class="image__fullscreen image__actions" title="Fullscreen"><span class="material-icons-round">fullscreen</span></div>
+            <div class="image__fullscreen image__actions" title="Fullscreen"><ion-icon name="search-outline"></ion-icon></div>
             <div class="image__hint image__actions" title="Hint">
               <div class="tooltip btn-anim">
-                <span class="material-icons-round">help_outline</span>
+                <ion-icon name="help-circle-outline"></ion-icon>
                 <div class="tooltip__content"><span data-langkey="year-hint">this picture was painted in</span> ${year}</div>
               </div>
             </div>
