@@ -8,21 +8,21 @@
 @media (min-width: 768px) {
   :root {
     --quiz-answer-w: 40%;
+    --quiz-answer-h: 3em;
     --quiz-answer-p: 1em;
-    --quiz-answer-fs: 1.5em;
+    --quiz-answer-fs: 1.3em;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --quiz-answers-g: 0.5em;
-    --quiz-answer-fs: 1.7em;
+    --quiz-answer-fs: 1.3em;
   }
 }
 
 .answer-btn {
   flex: 1 1 var(--quiz-answer-w);
-  height: 4em;
+  height: var(--quiz-answer-h);
   padding: var(--quiz-answer-p);
   font-size: var(--quiz-answer-fs);
   background-color: var(--background-primary);

@@ -2,12 +2,10 @@
   --quiz-row-g: 1em;
   --quiz-question-fs: 1em;
   --quiz-pag-s: 0.5em;
-  --quiz-answers-g: 0.5em;
 }
 
 @media (min-width: 420px) {
   :root {
-    --quiz-answers-g: 1em;
     --quiz-question-fs: 1.5em;
   }
 }
@@ -17,14 +15,12 @@
     --quiz-row-g: 1em;
     --quiz-question-fs: 1.5em;
     --quiz-pag-s: 1em;
-    --quiz-answers-g: 1em;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
     --quiz-question-fs: 2em;
-    --quiz-answers-g: 0.5em;
   }
 }
 
@@ -85,7 +81,7 @@
 .quiz__answers {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--quiz-answers-g);
+  gap: 0.5em;
 
   &.hidden {
     display: none;
