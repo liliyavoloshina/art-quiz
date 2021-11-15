@@ -4,7 +4,7 @@ import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 import PlaySound from '../helpers/PlaySound'
 import Timer from '../../components/Timer'
-import Confetti from '../components/Confetti'
+import Confetti from '../../components/Confetti'
 import { shuffle, getData } from '../helpers/utils'
 import { IMAGES_ALL_COUNT, TIME_FOR_BLITZ } from '../helpers/constants'
 
@@ -185,6 +185,7 @@ export default class extends View {
       this.soundResults.src = '/audio/applause.wav'
 
       const confetti = new Confetti()
+      confetti.mount()
       confetti.init()
     }
 
@@ -328,8 +329,6 @@ export default class extends View {
         </div>
       </div>
     </footer>
-
-    <div class="confetti-wrapper hidden" id="quizConfetti"></div>
     `
   }
 }

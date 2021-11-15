@@ -1,7 +1,6 @@
 /* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign, no-inner-declarations */
 
 import View from './View'
-import Confetti from '../components/Confetti'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
 import PlaySound from '../helpers/PlaySound'
@@ -9,6 +8,7 @@ import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '.
 import { QUIZ_TYPES, QUIZ_QUESTIONS_COUNT, QUIZ_IMAGES_ALL, QUIZ_ANSWERS_COUNT } from '../helpers/constants'
 import QuizImage from '../../components/QuizImage'
 import Timer from '../../components/Timer'
+import Confetti from '../../components/Confetti'
 
 export default class extends View {
   constructor(params) {
@@ -123,6 +123,7 @@ export default class extends View {
     if (correctNum > QUIZ_QUESTIONS_COUNT / 2) {
       modalResult.addEventListener('transitionend', () => {
         const confetti = new Confetti()
+        confetti.mount()
         confetti.init()
       })
     }

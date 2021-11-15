@@ -1,8 +1,8 @@
-export default class Confetti {
+import './index.scss'
+
+class Confetti {
   constructor() {
     this.containerEl = null
-    this.el = document.querySelector('.confetti-wrapper')
-    this.el.classList.remove('hidden')
 
     this.confettiFrequency = 3
     this.confettiSize = 15
@@ -48,4 +48,17 @@ export default class Confetti {
       this.containerEl.appendChild(confettiEl)
     }, 25)
   }
+
+  mount() {
+    const element = document.createElement('div')
+    element.classList.add('confetti-wrapper', 'hidden')
+    element.id = 'quizConfetti'
+
+    document.querySelector('#app').append(element)
+
+    this.el = document.querySelector('.confetti-wrapper')
+    this.el.classList.remove('hidden')
+  }
 }
+
+export default Confetti
