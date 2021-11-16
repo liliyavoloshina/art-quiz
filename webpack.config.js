@@ -30,7 +30,7 @@ module.exports = ({ development }) => ({
   },
   context: path.resolve(__dirname, 'src'),
   output: {
-    publicPath: '/',
+    publicPath: './',
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: '[file]',
