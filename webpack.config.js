@@ -30,7 +30,7 @@ module.exports = ({ development }) => ({
   },
   context: path.resolve(__dirname, 'src'),
   output: {
-    publicPath: '/',
+    publicPath: './',
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: '[file]',
@@ -96,7 +96,6 @@ module.exports = ({ development }) => ({
           noErrorOnMissing: true,
           force: true,
         },
-        // { from: 'data/images.json', to: 'data/images.json' },
       ],
     }),
     new CleanWebpackPlugin(),
