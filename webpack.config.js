@@ -1,4 +1,3 @@
-const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -79,13 +78,12 @@ module.exports = ({ development }) => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]-[chunkhash].css',
-      chunkFilename: '[name]-[chunkhash].chunk.js',
+      filename: '[name].[chunkhash].css',
+      chunkFilename: '[name].[chunkhash].js',
     }),
     new HtmlWebpackPlugin({
-      title: 'Art Quiz',
+      title: 'artquiz.',
       template: './index.html',
-      inject: false,
     }),
     new CopyPlugin({
       patterns: [
