@@ -3,7 +3,7 @@
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
-import PlaySound from '../helpers/PlaySound'
+// import PlaySound from '../helpers/PlaySound'
 import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
 import { QUIZ_TYPES, QUIZ_QUESTIONS_COUNT, QUIZ_IMAGES_ALL, QUIZ_ANSWERS_COUNT } from '../helpers/constants'
 import QuizImage from '../../components/QuizImage'
