@@ -282,7 +282,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-quiz" id="header">
-          <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link><ion-icon name="home"></ion-icon></a>
+          <a href="/" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" data-link title="back"><ion-icon name="chevron-back-outline"></ion-icon></a>
         </div>
       </div>
     </header>
