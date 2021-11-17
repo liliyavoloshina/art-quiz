@@ -97,6 +97,7 @@ module.exports = ({ development }) => ({
           noErrorOnMissing: true,
           force: true,
         },
+        { from: path.resolve(__dirname, 'netlify.toml') },
       ],
     }),
     new CleanWebpackPlugin(),
