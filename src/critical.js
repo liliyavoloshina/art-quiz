@@ -1,2 +1,5 @@
 import './scss/critical.scss'
-// import './js/helpers/logging'
+import { audioPreload, vhSet } from './js/helpers/utils'
+audioPreload()
+vhSet()
+import './js/helpers/logging'

@@ -16,16 +16,7 @@ const getParams = (match) => {
   return Object.fromEntries(keys.map((key, i) => [key, values[i]]))
 }
 
-// const projectName = 'weird-spa'
-// const devPath = 'http://localhost:8080'
-// const prodPath = `/liliyavoloshina-JSFE2021Q3/${projectName}`
-// const prodOrigin = 'https://rolling-scopes-school.github.io'
-
-// const isDev = window.location.origin === devPath ? true : false
-
 const router = async () => {
-  // const pathWithoutHost = isDev ? window.location.pathname : window.location.pathname.replace(prodPath, '')
-
   const routes = [
     { path: '/', View: Home },
     { path: '/settings', View: Settings },
@@ -38,18 +29,15 @@ const router = async () => {
   const potentialMatches = routes.map((route) => ({
     route,
     result: window.location.pathname.match(pathRegex(route.path)),
-    // result: pathWithoutHost.match(pathRegex(route.path)),
   }))
 
   let match = potentialMatches.find((potentialMatch) => {
-    console.log(potentialMatch)
     return potentialMatch.result !== null
   })
 
   if (!match) {
     match = { route: routes[0], result: [window.location.pathname] }
     window.location.pathname = '/'
-    // window.location.pathname = isDev ? '/' : prodPath
   }
 
   const view = new match.route.View(getParams(match))
@@ -69,11 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('[data-link]')) {
       e.preventDefault()
-      // const isToHome = e.target.href === prodOrigin ? true : false
-      // const navLink = isToHome ? `${prodOrigin}${prodPath}` : e.target.href
-      // console.log(navLink, 'navLink')
-      // console.log(e.target.href, 'e.target.href')
-      // navigateTo(navLink)
       navigateTo(e.target.href)
     }
   })
