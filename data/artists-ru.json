@@ -1,0 +1,842 @@
+[
+  {
+    "author": "Павел Федотов",
+    "name": "Сватовство майора",
+    "year": "1852",
+    "imageNum": "0",
+    "genre": "realism"
+  },
+  {
+    "author": "Василий Перов",
+    "name": "Приезд гувернантки в купеческий дом",
+    "year": "1866",
+    "imageNum": "5",
+    "genre": "realism"
+  },
+  {
+    "author": "Василий Суриков",
+    "name": "Взятие снежного городка",
+    "year": "1891",
+    "imageNum": "27",
+    "genre": "realism"
+  },
+  {
+    "author": "Николай Богданов-Бельский",
+    "name": "Устный счёт",
+    "year": "1895",
+    "imageNum": "39",
+    "genre": "realism"
+  },
+  {
+    "author": "Александр Маковский",
+    "name": "Надоела",
+    "year": "1897",
+    "imageNum": "61",
+    "genre": "realism"
+  },
+  {
+    "author": "Илья Репин",
+    "name": "Приготовление к экзамену",
+    "year": "1864",
+    "imageNum": "122",
+    "genre": "realism"
+  },
+  {
+    "author": "Константин Маковский",
+    "name": "Гадание",
+    "year": "1890",
+    "imageNum": "133",
+    "genre": "realism"
+  },
+  {
+    "author": "Илья Репин",
+    "name": "Не ждали",
+    "year": "1888",
+    "imageNum": "176",
+    "genre": "realism"
+  },
+  {
+    "author": "Василий Перов",
+    "name": "Сельский крестный ход на Пасхе",
+    "year": "1861",
+    "imageNum": "44",
+    "genre": "realism"
+  },
+  {
+    "author": "Анри де Тулуз-Лотрек",
+    "name": "Угол Мулен де ла Галет",
+    "year": "1892",
+    "imageNum": "76",
+    "genre": "realism"
+  },
+  {
+    "author": "Тициан",
+    "name": "Кающаяся Мария Магдалина",
+    "year": "1565",
+    "imageNum": "77",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Рафаэль",
+    "name": "Мадонна в зелени",
+    "year": "1506",
+    "imageNum": "89",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Альбрехт Дюрер",
+    "name": "Праздник венков из роз",
+    "year": "1506",
+    "imageNum": "120",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Леонардо да Винчи",
+    "name": "Мадонна Литта",
+    "year": "1491",
+    "imageNum": "125",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Питер Брейгель",
+    "name": "Охотники на снегу",
+    "year": "1565",
+    "imageNum": "151",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Франческо Баккьякка",
+    "name": "Мадонна с младенцем",
+    "year": "1520",
+    "imageNum": "155",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Корреджо",
+    "name": "Даная",
+    "year": "1530",
+    "imageNum": "185",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Рафаэль",
+    "name": "Сикстинская Мадонна",
+    "year": "1520",
+    "imageNum": "188",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Микеланджело",
+    "name": "Сотворение Адама",
+    "year": "1511",
+    "imageNum": "6",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Веронезе",
+    "name": "Марс и Венера",
+    "year": "1560",
+    "imageNum": "12",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Виктор Васнецов",
+    "name": "Аленушка",
+    "year": "1881",
+    "imageNum": "13",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Клод Моне",
+    "name": "Весна",
+    "year": "1872",
+    "imageNum": "14",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Константин Маковский",
+    "name": "Дети, бегущие от грозы",
+    "year": "1872",
+    "imageNum": "24",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Джон Уильям Уотерхаус",
+    "name": "Волшебница Шалот",
+    "year": "1888",
+    "imageNum": "35",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Теодор Жерико",
+    "name": "Плот \"Медузы\"",
+    "year": "1819",
+    "imageNum": "69",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Алексей Венецианов",
+    "name": "Спящий пастушок",
+    "year": "1826",
+    "imageNum": "74",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Карл Брюллов",
+    "name": "Всадница",
+    "year": "1832",
+    "imageNum": "80",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Алексей Венецианов",
+    "name": "На пашне. Весна",
+    "year": "1820",
+    "imageNum": "103",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Василий Поленов",
+    "name": "Переправа через реку",
+    "year": "1872",
+    "imageNum": "111",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Эжен Делакруа",
+    "name": "Свобода, ведущая народ",
+    "year": "1830",
+    "imageNum": "130",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Иван Крамской",
+    "name": "Неизвестная",
+    "year": "1883",
+    "imageNum": "141",
+    "genre": "portrait"
+  },
+  {
+    "author": "Рафаэль",
+    "name": "Дама с единорогом",
+    "year": "1506",
+    "imageNum": "144",
+    "genre": "portrait"
+  },
+  {
+    "author": "Тициан",
+    "name": "Конный портрет Карла V",
+    "year": "1548",
+    "imageNum": "147",
+    "genre": "portrait"
+  },
+  {
+    "author": "Пьер Огюст Ренуар",
+    "name": "Портрет Жанны Самари",
+    "year": "1877",
+    "imageNum": "179",
+    "genre": "portrait"
+  },
+  {
+    "author": "Жан Энгр",
+    "name": "Большая одалиска",
+    "year": "1814",
+    "imageNum": "187",
+    "genre": "portrait"
+  },
+  {
+    "author": "Константин Маковский",
+    "name": "Портрет графини Софьи",
+    "year": "1890",
+    "imageNum": "4",
+    "genre": "portrait"
+  },
+  {
+    "author": "Ян ван Эйк",
+    "name": "Портрет четы Арнольфини",
+    "year": "1434",
+    "imageNum": "22",
+    "genre": "portrait"
+  },
+  {
+    "author": "Владимир Боровиковский",
+    "name": "Портрет Лопухиной",
+    "year": "1797",
+    "imageNum": "30",
+    "genre": "portrait"
+  },
+  {
+    "author": "Карл Лемох",
+    "name": "Варька",
+    "year": "1893",
+    "imageNum": "46",
+    "genre": "portrait"
+  },
+  {
+    "author": "Густав Климт",
+    "name": "Золотая Адель",
+    "year": "1907",
+    "imageNum": "50",
+    "genre": "portrait"
+  },
+  {
+    "author": "Вильгельм фон Каульбах",
+    "name": "Разрушение Иерусалима",
+    "year": "1846",
+    "imageNum": "52",
+    "genre": "historical"
+  },
+  {
+    "author": "Василий Суриков",
+    "name": "Утро стрелецкой казни",
+    "year": "1881",
+    "imageNum": "55",
+    "genre": "historical"
+  },
+  {
+    "author": "Веласкес",
+    "name": "Менины",
+    "year": "1656",
+    "imageNum": "62",
+    "genre": "historical"
+  },
+  {
+    "author": "Веласкес",
+    "name": "Бахус",
+    "year": "1628",
+    "imageNum": "67",
+    "genre": "historical"
+  },
+  {
+    "author": "Илья Репин",
+    "name": "Крестный ход",
+    "year": "1883",
+    "imageNum": "73",
+    "genre": "historical"
+  },
+  {
+    "author": "Карл Брюллов",
+    "name": "Последний день Помпеи",
+    "year": "1833",
+    "imageNum": "113",
+    "genre": "historical"
+  },
+  {
+    "author": "Эль Греко",
+    "name": "Изгнание торгующих из храма",
+    "year": "1600",
+    "imageNum": "121",
+    "genre": "historical"
+  },
+  {
+    "author": "Веласкес",
+    "name": "Кузница вулкана",
+    "year": "1630",
+    "imageNum": "142",
+    "genre": "historical"
+  },
+  {
+    "author": "Илья Репин",
+    "name": "Запорожцы",
+    "year": "1891",
+    "imageNum": "143",
+    "genre": "historical"
+  },
+  {
+    "author": "Виктор Васнецов",
+    "name": "Царь Иван Васильевич Грозный",
+    "year": "1896",
+    "imageNum": "150",
+    "genre": "historical"
+  },
+  {
+    "author": "Михаил Врубель",
+    "name": "Демон сидящий",
+    "year": "1890",
+    "imageNum": "163",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Пабло Пикассо",
+    "name": "Завтрак слепого",
+    "year": "1903",
+    "imageNum": "165",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Илья Репин",
+    "name": "Садко",
+    "year": "1876",
+    "imageNum": "180",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Карлос Швабе",
+    "name": "Гробокопатель и ангел смерти",
+    "year": "1895",
+    "imageNum": "186",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Виктор Васнецов",
+    "name": "Иван-царевич на Сером Волке",
+    "year": "1888",
+    "imageNum": "199",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Эдвард Мунк",
+    "name": "Мадонна",
+    "year": "1894",
+    "imageNum": "42",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Виктор Васнецов",
+    "name": "Богатыри",
+    "year": "1898",
+    "imageNum": "51",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Джеймс Энсор",
+    "name": "Маски, противостоящие смерти",
+    "year": "1897",
+    "imageNum": "54",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Густав Климт",
+    "name": "Смерть и жизнь",
+    "year": "1908",
+    "imageNum": "85",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Михаил Нестеров",
+    "name": "Видение отроку Варфоломею",
+    "year": "1890",
+    "imageNum": "88",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Караваджо",
+    "name": "Лютнист",
+    "year": "1596",
+    "imageNum": "91",
+    "genre": "baroque"
+  },
+  {
+    "author": "Жан Батист Грёз",
+    "name": "Избалованное дитя",
+    "year": "1765",
+    "imageNum": "94",
+    "genre": "baroque"
+  },
+  {
+    "author": "Луи Лагрене",
+    "name": "Марс и Венера",
+    "year": "1770",
+    "imageNum": "107",
+    "genre": "baroque"
+  },
+  {
+    "author": "Ян Вермеер",
+    "name": "Молочница",
+    "year": "1660",
+    "imageNum": "115",
+    "genre": "baroque"
+  },
+  {
+    "author": "Франсуа Буше",
+    "name": "Купание Дианы",
+    "year": "1742",
+    "imageNum": "177",
+    "genre": "baroque"
+  },
+  {
+    "author": "Питер Пауль Рубенс",
+    "name": "Похищение Орфии Бореем",
+    "year": "1615",
+    "imageNum": "190",
+    "genre": "baroque"
+  },
+  {
+    "author": "Рембрандт",
+    "name": "Ночной дозор",
+    "year": "1642",
+    "imageNum": "195",
+    "genre": "baroque"
+  },
+  {
+    "author": "Жан Фрагонар",
+    "name": "Качели",
+    "year": "1767",
+    "imageNum": "16",
+    "genre": "baroque"
+  },
+  {
+    "author": "Бартоломео Мурильо",
+    "name": "Мадонна с четками",
+    "year": "1655",
+    "imageNum": "20",
+    "genre": "baroque"
+  },
+  {
+    "author": "Караваджо",
+    "name": "Обращение Савла",
+    "year": "1601",
+    "imageNum": "119",
+    "genre": "baroque"
+  },
+  {
+    "author": "Василий Поленов",
+    "name": "Бабушкин сад",
+    "year": "1878",
+    "imageNum": "131",
+    "genre": "landscape"
+  },
+  {
+    "author": "Джон Констебл",
+    "name": "Вид на собор в Солсбери из епископского сада",
+    "year": "1823",
+    "imageNum": "166",
+    "genre": "landscape"
+  },
+  {
+    "author": "Исаак Левитан",
+    "name": "Золотая осень",
+    "year": "1895",
+    "imageNum": "173",
+    "genre": "landscape"
+  },
+  {
+    "author": "Архип Куинджи",
+    "name": "На острове Валааме",
+    "year": "1873",
+    "imageNum": "174",
+    "genre": "landscape"
+  },
+  {
+    "author": "Алексей Венецианов",
+    "name": "На жатве. Лето",
+    "year": "1827",
+    "imageNum": "193",
+    "genre": "landscape"
+  },
+  {
+    "author": "Фёдор Васильев",
+    "name": "Мокрый луг",
+    "year": "1872",
+    "imageNum": "10",
+    "genre": "landscape"
+  },
+  {
+    "author": "Иван Шишкин",
+    "name": "Ручей в берёзовом лесу",
+    "year": "1883",
+    "imageNum": "28",
+    "genre": "landscape"
+  },
+  {
+    "author": "Василий Верещагин",
+    "name": "Апофеоз войны",
+    "year": "1817",
+    "imageNum": "81",
+    "genre": "landscape"
+  },
+  {
+    "author": "Алексей Саврасов",
+    "name": "Грачи прилетели",
+    "year": "1871",
+    "imageNum": "83",
+    "genre": "landscape"
+  },
+  {
+    "author": "Архип Куинджи",
+    "name": "Украинская ночь",
+    "year": "1876",
+    "imageNum": "191",
+    "genre": "landscape"
+  },
+  {
+    "author": "Эдгар Дега",
+    "name": "Танцовщицы у станка",
+    "year": "1877",
+    "imageNum": "192",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Пьер Огюст Ренуар",
+    "name": "Две сестры",
+    "year": "1881",
+    "imageNum": "194",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Поль Гоген",
+    "name": "Откуда мы пришли? Кто мы? Куда мы идём?",
+    "year": "1898",
+    "imageNum": "19",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Пьер Огюст Ренуар",
+    "name": "Две девушки",
+    "year": "1892",
+    "imageNum": "60",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Клод Моне",
+    "name": "Впечатление. Восходящее солнце",
+    "year": "1872",
+    "imageNum": "68",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Пьер Огюст Ренуар",
+    "name": "Бал в Мулен де ла Галетт",
+    "year": "1876",
+    "imageNum": "140",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Мэри Кэссетт",
+    "name": "Лидия Кассат сидит в ложе, опершись на руки",
+    "year": "1879",
+    "imageNum": "98",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Винсент ван Гог",
+    "name": "Подсолнухи",
+    "year": "1888",
+    "imageNum": "117",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Пьер Огюст Ренуар",
+    "name": "Мост в Шату",
+    "year": "1875",
+    "imageNum": "134",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Эдуар Мане",
+    "name": "Бар в «Фоли-Бержер»",
+    "year": "1882",
+    "imageNum": "196",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Жорж Сёра",
+    "name": "Модели",
+    "year": "1887",
+    "imageNum": "175",
+    "genre": "modernism"
+  },
+  {
+    "author": "Жан Метцингер",
+    "name": "Две обнаженные в экзотическом пейзажеВикипедия",
+    "year": "1905",
+    "imageNum": "182",
+    "genre": "modernism"
+  },
+  {
+    "author": "Василий Кандинский",
+    "name": "На белом II",
+    "year": "1923",
+    "imageNum": "184",
+    "genre": "modernism"
+  },
+  {
+    "author": "Пабло Пикассо",
+    "name": "Герника",
+    "year": "1937",
+    "imageNum": "18",
+    "genre": "modernism"
+  },
+  {
+    "author": "Рене Магритт",
+    "name": "Сын человеческий",
+    "year": "1964",
+    "imageNum": "31",
+    "genre": "modernism"
+  },
+  {
+    "author": "Сальвадор Дали",
+    "name": "Постоянство памяти",
+    "year": "1931",
+    "imageNum": "59",
+    "genre": "modernism"
+  },
+  {
+    "author": "Эдвард Хоппер",
+    "name": "Полуночники",
+    "year": "1942",
+    "imageNum": "41",
+    "genre": "modernism"
+  },
+  {
+    "author": "Пит Мондриан",
+    "name": "Композиция с красным, жёлтым и синим",
+    "year": "1921",
+    "imageNum": "57",
+    "genre": "modernism"
+  },
+  {
+    "author": "Пабло Пикассо",
+    "name": "Авиньонские девицы",
+    "year": "1907",
+    "imageNum": "86",
+    "genre": "modernism"
+  },
+  {
+    "author": "Марк Шагал",
+    "name": "Я и деревня",
+    "year": "1911",
+    "imageNum": "153",
+    "genre": "modernism"
+  },
+  {
+    "author": "Лоуренс Аткинсон",
+    "name": "Озеро",
+    "year": "1915",
+    "imageNum": "200",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Соня Делоне",
+    "name": "Ритм",
+    "year": "1938",
+    "imageNum": "201",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Оскар Шлеммер",
+    "name": "Баухаус Лестница",
+    "year": "1932",
+    "imageNum": "202",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Аристарх Лентулов",
+    "name": "Василий Блаженный",
+    "year": "1913",
+    "imageNum": "203",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Казимир Малевич",
+    "name": "Точильщик",
+    "year": "1912",
+    "imageNum": "204",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Роберт Фальк",
+    "name": "Лиза в кресле",
+    "year": "1910",
+    "imageNum": "205",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Владимир Татлин",
+    "name": "Продавец рыб",
+    "year": "1911",
+    "imageNum": "206",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Ольга Розанова",
+    "name": "Леди в розовом",
+    "year": "1911",
+    "imageNum": "207",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Давид Какабадзе",
+    "name": "Красная гора",
+    "year": "1944",
+    "imageNum": "208",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Василий Ермилов",
+    "name": "Хлеб",
+    "year": "1914",
+    "imageNum": "209",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Поль Сезанн",
+    "name": "Натюрморт с корзиной яблок",
+    "year": "1895",
+    "imageNum": "230",
+    "genre": "still-life"
+  },
+  {
+    "author": "Караваджо",
+    "name": "Натюрморт с фруктами",
+    "year": "1610",
+    "imageNum": "231",
+    "genre": "still-life"
+  },
+  {
+    "author": "Ханс Боллонгир",
+    "name": "Цветочный натюрморт",
+    "year": "1639",
+    "imageNum": "232",
+    "genre": "still-life"
+  },
+  {
+    "author": "Винсент ван Гог",
+    "name": "Ваза с красными маками",
+    "year": "1886",
+    "imageNum": "233",
+    "genre": "still-life"
+  },
+  {
+    "author": "Филипп де Шампань",
+    "name": "Натюрморт с черепом",
+    "year": "1671",
+    "imageNum": "234",
+    "genre": "still-life"
+  },
+  {
+    "author": "Поль Гоген",
+    "name": "Натюрморт с профилем Лаваля",
+    "year": "1886",
+    "imageNum": "235",
+    "genre": "still-life"
+  },
+  {
+    "author": "Антуан Воллон",
+    "name": "Кусок масла",
+    "year": "1885",
+    "imageNum": "236",
+    "genre": "still-life"
+  },
+  {
+    "author": "Луис Мелендес",
+    "name": "Натюрморт с дыней и грушами",
+    "year": "1772",
+    "imageNum": "237",
+    "genre": "still-life"
+  },
+  {
+    "author": "Питер Клас",
+    "name": "Натюрморт с пирогом из индейки",
+    "year": "1627",
+    "imageNum": "238",
+    "genre": "still-life"
+  },
+  {
+    "author": "Самюэл ван Хогстратен",
+    "name": "Натюрморт с оптической иллюзией",
+    "year": "1664",
+    "imageNum": "239",
+    "genre": "still-life"
+  }
+]

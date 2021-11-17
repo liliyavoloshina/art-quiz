@@ -1,0 +1,842 @@
+[
+  {
+    "author": "Pavel Fedotov",
+    "name": "The Major Makes a Proposal",
+    "year": "1852",
+    "imageNum": "0",
+    "genre": "realism"
+  },
+  {
+    "author": "Vasily Perov",
+    "name": "A Governess Arriving at a Merchant's House",
+    "year": "1866",
+    "imageNum": "5",
+    "genre": "realism"
+  },
+  {
+    "author": "Vasily Surikov",
+    "name": "The Capture of Snow Town",
+    "year": "1891",
+    "imageNum": "27",
+    "genre": "realism"
+  },
+  {
+    "author": "Nikolay Bogdanov-Belsky",
+    "name": "Mental Arithmetic",
+    "year": "1895",
+    "imageNum": "39",
+    "genre": "realism"
+  },
+  {
+    "author": "Alexander Makovsky",
+    "name": "Tired",
+    "year": "1897",
+    "imageNum": "61",
+    "genre": "realism"
+  },
+  {
+    "author": "Ilya Repin",
+    "name": "Preparation for the Examination",
+    "year": "1864",
+    "imageNum": "122",
+    "genre": "realism"
+  },
+  {
+    "author": "Konstantin Makovsky",
+    "name": "Christmastide Divination",
+    "year": "1890",
+    "imageNum": "133",
+    "genre": "realism"
+  },
+  {
+    "author": "Ilya Repin",
+    "name": "Did not wait",
+    "year": "1888",
+    "imageNum": "176",
+    "genre": "realism"
+  },
+  {
+    "author": "Vasily Perov",
+    "name": "Easter Procession",
+    "year": "1861",
+    "imageNum": "44",
+    "genre": "realism"
+  },
+  {
+    "author": "Henri de Toulouse-Lautrec",
+    "name": "A Corner of the Moulin de la Galette",
+    "year": "1892",
+    "imageNum": "76",
+    "genre": "realism"
+  },
+  {
+    "author": "Titian",
+    "name": "Penitent Magdalene",
+    "year": "1565",
+    "imageNum": "77",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Raphael",
+    "name": "Madonna of the Meadow",
+    "year": "1506",
+    "imageNum": "89",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Albrecht Dürer",
+    "name": "Feast of Rose Garlands",
+    "year": "1506",
+    "imageNum": "120",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Leonardo da Vinci",
+    "name": "Madonna Litta",
+    "year": "1491",
+    "imageNum": "125",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Pieter Bruegel the Elder",
+    "name": "The Hunters in the Snow",
+    "year": "1565",
+    "imageNum": "151",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Francesco Bacchiacca",
+    "name": "Madonna and Child",
+    "year": "1520",
+    "imageNum": "155",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Antonio da Correggio",
+    "name": "Danaë",
+    "year": "1530",
+    "imageNum": "185",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Raphael",
+    "name": "Sistine Madonna",
+    "year": "1520",
+    "imageNum": "188",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Michelangelo",
+    "name": "The Creation of Adam",
+    "year": "1511",
+    "imageNum": "6",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Paolo Veronese",
+    "name": "Mars and Venus United by Love",
+    "year": "1560",
+    "imageNum": "12",
+    "genre": "renaissance"
+  },
+  {
+    "author": "Viktor Vasnetsov",
+    "name": "Alenushka",
+    "year": "1881",
+    "imageNum": "13",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Claude Monet",
+    "name": "Springtime",
+    "year": "1872",
+    "imageNum": "14",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Konstantin Makovsky",
+    "name": "Children running from a Thunderstorm",
+    "year": "1872",
+    "imageNum": "24",
+    "genre": "romanticism"
+  },
+  {
+    "author": "John William Waterhouse",
+    "name": "The Lady of Shalott",
+    "year": "1888",
+    "imageNum": "35",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Théodore Géricault",
+    "name": "The Raft of the Medusa",
+    "year": "1819",
+    "imageNum": "69",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Alexey Venetsianov",
+    "name": "Sleeping Shepherd Boy",
+    "year": "1826",
+    "imageNum": "74",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Karl Bryullov",
+    "name": "Horsewoman",
+    "year": "1832",
+    "imageNum": "80",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Alexey Venetsianov",
+    "name": "Spring, On Ploughed Land",
+    "year": "1820",
+    "imageNum": "103",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Vasily Polenov",
+    "name": "Crossing of the River Oyat",
+    "year": "1872",
+    "imageNum": "111",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Eugène Delacroix",
+    "name": "Liberty Leading the People",
+    "year": "1830",
+    "imageNum": "130",
+    "genre": "romanticism"
+  },
+  {
+    "author": "Ivan Kramskoi",
+    "name": "Portrait of an Unknown Woman",
+    "year": "1883",
+    "imageNum": "141",
+    "genre": "portrait"
+  },
+  {
+    "author": "Raphael",
+    "name": "Portrait of Young Woman with Unicorn",
+    "year": "1506",
+    "imageNum": "144",
+    "genre": "portrait"
+  },
+  {
+    "author": "Titian",
+    "name": "Equestrian Portrait of Charles V",
+    "year": "1548",
+    "imageNum": "147",
+    "genre": "portrait"
+  },
+  {
+    "author": "Pierre-Auguste Renoir",
+    "name": "Portrait of Jeanne Samary",
+    "year": "1877",
+    "imageNum": "179",
+    "genre": "portrait"
+  },
+  {
+    "author": "Jean Ingres",
+    "name": "La Grande Odalisque",
+    "year": "1814",
+    "imageNum": "187",
+    "genre": "portrait"
+  },
+  {
+    "author": "Konstantin Makovsky",
+    "name": "Portrait of S. L. Stroganova",
+    "year": "1890",
+    "imageNum": "4",
+    "genre": "portrait"
+  },
+  {
+    "author": "Jan van Eyck",
+    "name": "Arnolfini Portrait",
+    "year": "1434",
+    "imageNum": "22",
+    "genre": "portrait"
+  },
+  {
+    "author": "Vladimir Borovikovsky",
+    "name": "Portrait of Maria Lopukhina",
+    "year": "1797",
+    "imageNum": "30",
+    "genre": "portrait"
+  },
+  {
+    "author": "Kirill Lemokh",
+    "name": "Varka",
+    "year": "1893",
+    "imageNum": "46",
+    "genre": "portrait"
+  },
+  {
+    "author": "Gustav Klimt",
+    "name": "Lady in Gold",
+    "year": "1907",
+    "imageNum": "50",
+    "genre": "portrait"
+  },
+  {
+    "author": "Wilhelm von Kaulbach",
+    "name": "Destruction of Jerusalem",
+    "year": "1846",
+    "imageNum": "52",
+    "genre": "historical"
+  },
+  {
+    "author": "Vasily Surikov",
+    "name": "The Morning of the Streltsy Execution",
+    "year": "1881",
+    "imageNum": "55",
+    "genre": "historical"
+  },
+  {
+    "author": "Diego Velázquez",
+    "name": "Las Meninas",
+    "year": "1656",
+    "imageNum": "62",
+    "genre": "historical"
+  },
+  {
+    "author": "Diego Velázquez",
+    "name": "Triumph of Bacchus",
+    "year": "1628",
+    "imageNum": "67",
+    "genre": "historical"
+  },
+  {
+    "author": "Ilya Repin",
+    "name": "Procession",
+    "year": "1883",
+    "imageNum": "73",
+    "genre": "historical"
+  },
+  {
+    "author": "Karl Bryullov",
+    "name": "The Last Day of Pompeii",
+    "year": "1833",
+    "imageNum": "113",
+    "genre": "historical"
+  },
+  {
+    "author": "El Greco",
+    "name": "The Expulsion of Merchants from the Temple",
+    "year": "1600",
+    "imageNum": "121",
+    "genre": "historical"
+  },
+  {
+    "author": "Diego Velázquez",
+    "name": "Forge of the Volcano",
+    "year": "1630",
+    "imageNum": "142",
+    "genre": "historical"
+  },
+  {
+    "author": "Ilya Repin",
+    "name": "Zaporozhian Cossacks",
+    "year": "1891",
+    "imageNum": "143",
+    "genre": "historical"
+  },
+  {
+    "author": "Viktor Vasnetsov",
+    "name": "Tsar Ivan the Terrible",
+    "year": "1896",
+    "imageNum": "150",
+    "genre": "historical"
+  },
+  {
+    "author": "Mikhail Vrubel",
+    "name": "The Demon Seated",
+    "year": "1890",
+    "imageNum": "163",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Pablo Picasso",
+    "name": "The Blind Man's Meal",
+    "year": "1903",
+    "imageNum": "165",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Ilya Repin",
+    "name": "Sadko",
+    "year": "1876",
+    "imageNum": "180",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Carlos Schwabe",
+    "name": "Death and the Grave Digger",
+    "year": "1895",
+    "imageNum": "186",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Viktor Vasnetsov",
+    "name": "Ivan Tsarevich Riding the Grey Wolf",
+    "year": "1888",
+    "imageNum": "199",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Edvard Munch",
+    "name": "Madonna",
+    "year": "1894",
+    "imageNum": "42",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Viktor Vasnetsov",
+    "name": "Bogatyrs",
+    "year": "1898",
+    "imageNum": "51",
+    "genre": "symbolism"
+  },
+  {
+    "author": "James Ensor",
+    "name": "Death and the Masks",
+    "year": "1897",
+    "imageNum": "54",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Gustav Klimt",
+    "name": "Death and Life",
+    "year": "1908",
+    "imageNum": "85",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Mikhail Nesterov",
+    "name": "The Vision to the Youth Bartholomew",
+    "year": "1890",
+    "imageNum": "88",
+    "genre": "symbolism"
+  },
+  {
+    "author": "Caravaggio",
+    "name": "Lute Player",
+    "year": "1596",
+    "imageNum": "91",
+    "genre": "baroque"
+  },
+  {
+    "author": "Jean-Baptiste Greuze",
+    "name": "Spoiled Child",
+    "year": "1765",
+    "imageNum": "94",
+    "genre": "baroque"
+  },
+  {
+    "author": "Louis Lagrenée",
+    "name": "Mars and Venus",
+    "year": "1770",
+    "imageNum": "107",
+    "genre": "baroque"
+  },
+  {
+    "author": "Jan Vermeer",
+    "name": "The Milkmaid",
+    "year": "1660",
+    "imageNum": "115",
+    "genre": "baroque"
+  },
+  {
+    "author": "François Boucher",
+    "name": "Diana Bathing",
+    "year": "1742",
+    "imageNum": "177",
+    "genre": "baroque"
+  },
+  {
+    "author": "Peter Paul Rubens",
+    "name": "The Rape of Orithyia by Boreas",
+    "year": "1615",
+    "imageNum": "190",
+    "genre": "baroque"
+  },
+  {
+    "author": "Rembrandt",
+    "name": "The Night Watch",
+    "year": "1642",
+    "imageNum": "195",
+    "genre": "baroque"
+  },
+  {
+    "author": "Jean-Honoré Fragonard",
+    "name": "The Swing",
+    "year": "1767",
+    "imageNum": "16",
+    "genre": "baroque"
+  },
+  {
+    "author": "Bartolomeo Murillo",
+    "name": "The Virgin of the Rosary",
+    "year": "1655",
+    "imageNum": "20",
+    "genre": "baroque"
+  },
+  {
+    "author": "Caravaggio",
+    "name": "Conversion of Saul",
+    "year": "1601",
+    "imageNum": "119",
+    "genre": "baroque"
+  },
+  {
+    "author": "Vasily Polenov",
+    "name": "Grandma's Garden",
+    "year": "1878",
+    "imageNum": "131",
+    "genre": "landscape"
+  },
+  {
+    "author": "John Constable",
+    "name": "Salisbury Cathedral from the Bishop's Grounds",
+    "year": "1823",
+    "imageNum": "166",
+    "genre": "landscape"
+  },
+  {
+    "author": "Isaac Levitan",
+    "name": "Golden Autumn",
+    "year": "1895",
+    "imageNum": "173",
+    "genre": "landscape"
+  },
+  {
+    "author": "Arkhip Kuindzhi",
+    "name": "On a Valaam Island",
+    "year": "1873",
+    "imageNum": "174",
+    "genre": "landscape"
+  },
+  {
+    "author": "Alexey Venetsianov",
+    "name": "Summer, Reaping",
+    "year": "1827",
+    "imageNum": "193",
+    "genre": "landscape"
+  },
+  {
+    "author": "Fyodor Vasilyev",
+    "name": "Wet Meadow",
+    "year": "1872",
+    "imageNum": "10",
+    "genre": "landscape"
+  },
+  {
+    "author": "Ivan Shishkin",
+    "name": "Stream in a Birch Forest",
+    "year": "1883",
+    "imageNum": "28",
+    "genre": "landscape"
+  },
+  {
+    "author": "Vasily Vereshchagin",
+    "name": "The Apotheosis of War",
+    "year": "1817",
+    "imageNum": "81",
+    "genre": "landscape"
+  },
+  {
+    "author": "Alexey Savrasov",
+    "name": "The Rooks Have Come Back",
+    "year": "1871",
+    "imageNum": "83",
+    "genre": "landscape"
+  },
+  {
+    "author": "Arkhip Kuindzhi",
+    "name": "Evening in Ukraine",
+    "year": "1876",
+    "imageNum": "191",
+    "genre": "landscape"
+  },
+  {
+    "author": "Edgar Degas",
+    "name": "Dancers at the Barre",
+    "year": "1877",
+    "imageNum": "192",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Pierre-Auguste Renoir",
+    "name": "Two Sisters",
+    "year": "1881",
+    "imageNum": "194",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Paul Gauguin",
+    "name": "Where Do We Come From? What Are We? Where Are We Going?",
+    "year": "1898",
+    "imageNum": "19",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Pierre-Auguste Renoir",
+    "name": "Two Girls",
+    "year": "1892",
+    "imageNum": "60",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Claude Mone",
+    "name": "Impression, Sunrise",
+    "year": "1872",
+    "imageNum": "68",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Pierre-Auguste Renoir",
+    "name": "Dance at Le Moulin de la Galette",
+    "year": "1876",
+    "imageNum": "140",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Mary Cassatt",
+    "name": "Lydia Leaning on Her Arms",
+    "year": "1879",
+    "imageNum": "98",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Vincent van Gogh",
+    "name": "Sunflowers",
+    "year": "1888",
+    "imageNum": "117",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Pierre-Auguste Renoir",
+    "name": "Bridge at Chatou",
+    "year": "1875",
+    "imageNum": "134",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Édouard Manet",
+    "name": "A Bar at the Folies-Bergère",
+    "year": "1882",
+    "imageNum": "196",
+    "genre": "impressionism"
+  },
+  {
+    "author": "Georges Seurat",
+    "name": "Models",
+    "year": "1887",
+    "imageNum": "175",
+    "genre": "modernism"
+  },
+  {
+    "author": "Jean Metzinger",
+    "name": "Two Nudes in an Exotic Landscape",
+    "year": "1905",
+    "imageNum": "182",
+    "genre": "modernism"
+  },
+  {
+    "author": "Vassily Kandinsky",
+    "name": "On White II",
+    "year": "1923",
+    "imageNum": "184",
+    "genre": "modernism"
+  },
+  {
+    "author": "Pablo Picasso",
+    "name": "Guernica",
+    "year": "1937",
+    "imageNum": "18",
+    "genre": "modernism"
+  },
+  {
+    "author": "René Magritte",
+    "name": "The Son of Man",
+    "year": "1964",
+    "imageNum": "31",
+    "genre": "modernism"
+  },
+  {
+    "author": "Salvador Dalí",
+    "name": "The Persistence of Memory",
+    "year": "1931",
+    "imageNum": "59",
+    "genre": "modernism"
+  },
+  {
+    "author": "Edward Hopper",
+    "name": "Nighthawks",
+    "year": "1942",
+    "imageNum": "41",
+    "genre": "modernism"
+  },
+  {
+    "author": "Piet Mondrian",
+    "name": "Composition C with Red, Yellow and Blue",
+    "year": "1921",
+    "imageNum": "57",
+    "genre": "modernism"
+  },
+  {
+    "author": "Pablo Picasso",
+    "name": "Les Demoiselles d'Avignon",
+    "year": "1907",
+    "imageNum": "86",
+    "genre": "modernism"
+  },
+  {
+    "author": "Marc Chagall",
+    "name": "I and the Village",
+    "year": "1911",
+    "imageNum": "153",
+    "genre": "modernism"
+  },
+  {
+    "author": "Lawrence Atkinson",
+    "name": "The Lake",
+    "year": "1915",
+    "imageNum": "200",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Sonia Delaunay",
+    "name": "Rythme",
+    "year": "1938",
+    "imageNum": "201",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Oskar Schlemmer",
+    "name": "Bauhaus Stairway",
+    "year": "1932",
+    "imageNum": "202",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Aristarkh Lentulov",
+    "name": "Saint Basil's Cathedral",
+    "year": "1913",
+    "imageNum": "203",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Kazimir Malevich",
+    "name": "The Knifegrinder",
+    "year": "1912",
+    "imageNum": "204",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Robert Falk",
+    "name": "Lisa in a Chair",
+    "year": "1910",
+    "imageNum": "205",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Vladimir Tatlin",
+    "name": "The Fishmonger",
+    "year": "1911",
+    "imageNum": "206",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Olga Rozanova",
+    "name": "Lady in pink",
+    "year": "1911",
+    "imageNum": "207",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "David Kakabadze",
+    "name": "Red mountain",
+    "year": "1944",
+    "imageNum": "208",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Vasyl Yermylov",
+    "name": "Bread",
+    "year": "1914",
+    "imageNum": "209",
+    "genre": "avant-garde"
+  },
+  {
+    "author": "Paul Cézanne",
+    "name": "The Basket of Apples",
+    "year": "1895",
+    "imageNum": "230",
+    "genre": "still-life"
+  },
+  {
+    "author": "Caravaggio",
+    "name": "Still Life with Fruit",
+    "year": "1610",
+    "imageNum": "231",
+    "genre": "still-life"
+  },
+  {
+    "author": "Hans Bollongier",
+    "name": "Flower Piece",
+    "year": "1639",
+    "imageNum": "232",
+    "genre": "still-life"
+  },
+  {
+    "author": "Vincent van Gogh",
+    "name": "Vase with Poppies",
+    "year": "1886",
+    "imageNum": "233",
+    "genre": "still-life"
+  },
+  {
+    "author": "Philippe de Champaigne",
+    "name": "Still-Life with a Skull",
+    "year": "1671",
+    "imageNum": "234",
+    "genre": "still-life"
+  },
+  {
+    "author": "Paul Gauguin",
+    "name": "Still Life with Profile of Laval",
+    "year": "1886",
+    "imageNum": "235",
+    "genre": "still-life"
+  },
+  {
+    "author": "Antoine Vollon",
+    "name": "Mound of Butter",
+    "year": "1885",
+    "imageNum": "236",
+    "genre": "still-life"
+  },
+  {
+    "author": "Luis Meléndez",
+    "name": "Still Life with Melon and Pears",
+    "year": "1772",
+    "imageNum": "237",
+    "genre": "still-life"
+  },
+  {
+    "author": "Pieter Claesz",
+    "name": "Still Life with a Turkey Pie",
+    "year": "1627",
+    "imageNum": "238",
+    "genre": "still-life"
+  },
+  {
+    "author": "Samuel Hoogstraten",
+    "name": "Trompe-l'oeil Still Life",
+    "year": "1664",
+    "imageNum": "239",
+    "genre": "still-life"
+  }
+]
