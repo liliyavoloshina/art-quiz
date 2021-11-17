@@ -71,4 +71,24 @@ const htmlToElement = (html) => {
   return template.content.firstChild
 }
 
-export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx, setToLocalStorage, htmlToElement }
+const audioPreload = () => {
+  const audios = ['/audio/applause.wav', '/audio/correct.wav', '/audio/failure.wav', '/audio/incorrect.wav']
+
+  audios.forEach((audioSrc) => {
+    const audio = new Audio()
+    audio.src = audioSrc
+    audio.load()
+  })
+}
+
+const vhSet = () => {
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+
+  window.addEventListener('resize', () => {
+    vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  })
+}
+
+export { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx, setToLocalStorage, htmlToElement, audioPreload, vhSet }
