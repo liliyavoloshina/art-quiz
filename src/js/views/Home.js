@@ -22,7 +22,7 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-home">
-          <a href="/settings" class="header-home__nav header__nav header__nav--right btn" data-link>
+          <a href="settings" class="header-home__nav header__nav header__nav--right btn" data-link>
             <ion-icon name="settings"></ion-icon>
           </a>
         </div>
@@ -42,7 +42,7 @@ export default class extends View {
               <div class="home-types__image pictures image-loading"></div>
               <div class="home-types__text" data-langkey="pictures-quiz">pictures quiz</div>
              </a>
-            <a class="home-types__type" href="blitz" data-link>
+            <a class="home-types__type" href="/blitz" data-link>
               <div class="home-types__image blitz-image image-loading"></div>
               <div class="home-types__text" data-langkey="blitz-quiz">blitz quiz</div>
              </a>

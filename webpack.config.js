@@ -30,7 +30,8 @@ module.exports = ({ development }) => ({
   },
   context: path.resolve(__dirname, 'src'),
   output: {
-    publicPath: './',
+    publicPath: development ? '/' : './',
+    // publicPath: '/',
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: '[file]',
@@ -82,7 +83,7 @@ module.exports = ({ development }) => ({
       chunkFilename: '[name].[chunkhash].js',
     }),
     new HtmlWebpackPlugin({
-      publicPath: './',
+      publicPath: development ? '/' : './',
       template: './index.html',
     }),
     new CopyPlugin({
