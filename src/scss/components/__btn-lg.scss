@@ -1,5 +1,6 @@
 :root {
   --btn-lg-fs: 1em;
+  --btn-lg-w: 50%;
 }
 
 @media (min-width: 420px) {
@@ -10,18 +11,14 @@
 
 @media (min-width: 768px) {
   :root {
+    --btn-lg-w: 30%;
     --btn-lg-fs: 1.2em;
   }
 }
 
-@media (min-width: 1920px) {
-  :root {
-    --btn-lg-fs: 2em;
-  }
-}
 
 .btn-lg {
-  width: 50%;
+  width: var(--btn-lg-w);
   padding: 1em;
   font-size: var(--btn-lg-fs);
   font-weight: 700;
