@@ -1,8 +1,7 @@
-/* eslint-disable class-methods-use-this */
-
 import View from './View'
 import ScoreItem from '../../components/ScoreItem'
 import ImagePreloader from '../helpers/ImagePreloader'
+import { getData } from '../helpers/utils'
 
 export default class extends View {
   constructor(params) {
@@ -32,11 +31,9 @@ export default class extends View {
 
   async scoreToHtml() {
     const imageSrc = []
-    const scoreCategory = this.results.find((el) => el.name === this.category && el.isPlayed)
 
-    if (scoreCategory) {
-      const { results } = scoreCategory
-      results.forEach((item) => {
+    if (this.scoreResults) {
+      this.scoreResults.forEach((item) => {
         const { isCorrect } = item
 
         if (isCorrect) {
@@ -73,8 +70,15 @@ export default class extends View {
     })
   }
 
+  async getScoreResults() {
+    const resultsFromStorage = JSON.parse(localStorage.getItem(`${this.type}Results`)).find(res => res.name === this.category).results
+    const data = await getData(this.type, this.langValue)
+    this.scoreResults = resultsFromStorage.map(el => ({...data.find(full => full.imageNum === el.imageNum), isCorrect: el.isCorrect}))
+  }
+
   async mounted() {
     this.scoreContainer = document.querySelector('#scoreContainer')
+    await this.getScoreResults()
     await this.scoreToHtml()
     await this.translatePage()
     this.setHeader()
