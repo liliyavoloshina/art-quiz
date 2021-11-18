@@ -27,7 +27,11 @@ class QuizImage {
     const element = document.createElement('div')
     element.classList.add('image', 'image-loading')
 
-    this.type === 'artists' ? element.classList.add('artists') : element.classList.add('pictures')
+    if (this.type === 'artists') {
+      element.classList.add('artists')
+    } else {
+      element.classList.add('pictures')
+    }
 
     element.innerHTML = this.generate()
 

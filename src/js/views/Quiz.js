@@ -143,8 +143,8 @@ export default class extends View {
 
     if (this.type === QUIZ_TYPES.artists) {
       this.questions.forEach((question) => {
-        const imageNum = question.imageNum
-        const year = this.questions[this.currentQuestion].year
+        const {imageNum} = question
+        const {year} = this.questions[this.currentQuestion]
         const hint = generateHint(QUIZ_TYPES.artists, this.langValue, year)
 
         srcForPreload.push(`/img/full/${imageNum}full.webp`)
@@ -181,7 +181,7 @@ export default class extends View {
       this.picturesImages = randomImages
 
       randomImages.forEach((image) => {
-        const imageNum = image.imageNum
+        const {imageNum} = image
         const { author, name } = this.allQuestions.find((el) => el.imageNum === imageNum)
         const hint = generateHint(QUIZ_TYPES.pictures, this.langValue, author)
 

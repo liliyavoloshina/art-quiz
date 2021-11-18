@@ -31,9 +31,7 @@ const router = async () => {
     result: window.location.pathname.match(pathRegex(route.path)),
   }))
 
-  let match = potentialMatches.find((potentialMatch) => {
-    return potentialMatch.result !== null
-  })
+  let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null)
 
   if (!match) {
     match = { route: routes[0], result: [window.location.pathname] }
