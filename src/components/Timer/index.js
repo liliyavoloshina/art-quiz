@@ -24,10 +24,7 @@ export default class {
     this.oldValue = getComputedStyle(this.circleSvg).getPropertyValue('stroke-dashoffset')
     this.circleSvg.style.strokeDashoffset = this.oldValue
 
-    console.log(this.oldValue)
-
     this.circleSvg.style.animation = 'none'
-    this.circleSvg.style.stroke = 'var(--grey-light)'
   }
 
   playTimer() {

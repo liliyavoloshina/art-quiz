@@ -171,7 +171,7 @@ export default class extends View {
     const resultsText = document.querySelector('#resultsText')
     const correctAnswersCount = document.querySelector('#correctAnswersCount')
     const record = document.querySelector('#record')
-    const isNotMax = this.results.some((el) => el.wins > this.correctAnswers)
+    const isNotMax = this.results.some((el) => el.wins > this.correctAnswers || this.correctAnswers === 0)
 
     this.soundResults = new Audio()
     this.soundResults.volume = this.soundValue
