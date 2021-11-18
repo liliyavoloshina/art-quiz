@@ -393,7 +393,8 @@ export default class extends View {
   }
 
   showHint(hintBtn) {
-    if (this.type === QUIZ_TYPES.pictures && this.isHintUsed) return
+
+    if (this.type === QUIZ_TYPES.pictures && this.isHintUsed && !hintBtn.classList.contains('opened')) return
 
     this.isHintUsed = true
     hintBtn.classList.toggle('opened')
