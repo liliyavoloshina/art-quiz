@@ -2,13 +2,14 @@
   --modal-h: 80vh;
   --modal-icon-s: 7em;
   --modal-icon-fs: 3em;
-  --modal-image-h: 13em;
+  --modal-image-h: 8em;
   --modal-text-fs: 0.9em;
 }
 
 @media (min-width: 420px) {
   :root {
     --modal-h: 40em;
+    --modal-image-h: 13em;
     --modal-text-fs: 1.5em;
   }
 }

@@ -30,7 +30,6 @@ module.exports = ({ development }) => ({
   },
   context: path.resolve(__dirname, 'src'),
   output: {
-    // publicPath: development ? '/' : './',
     publicPath: '/',
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -77,13 +76,15 @@ module.exports = ({ development }) => ({
       },
     ],
   },
+  optimization: {
+    minimize: true,
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash].css',
       chunkFilename: '[name].[chunkhash].js',
     }),
     new HtmlWebpackPlugin({
-      // publicPath: development ? '/' : './',
       template: './index.html',
     }),
     new CopyPlugin({
