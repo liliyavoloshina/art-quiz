@@ -10,7 +10,7 @@ class QuizImage {
 
   generate() {
     return `
-    <img class="image__img" src="/img/full/${this.imageNum}full.webp" />
+    <img class="image__img" src="/img/full/${this.imageNum}full.webp" width="500" height="500" />
     <div class="image__fullscreen image__actions" title="zoom image">
       <ion-icon name="search-outline"></ion-icon>
     </div>
