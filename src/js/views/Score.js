@@ -94,6 +94,7 @@ export default class extends View {
       <div class="container">
         <div class="header header-score">
           <a href="/categories/${this.type}" class="header-score__nav header__nav--left header__nav btn" title="back" data-link><ion-icon name="chevron-back-outline"></ion-icon></a>
+          <a href="/" class="header-quiz__nav header__nav header__nav--right btn" title="home" data-link><ion-icon name="home"></ion-icon></a>
           <h1 class="header__title" data-langkey="score">score.</h1>
         </div>
       </div>

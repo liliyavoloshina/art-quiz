@@ -366,29 +366,29 @@ export default class extends View {
     }
   }
 
+  stopTimerAndSounds() {
+    this.stopTimer()
+    if (this.soundResults) {
+      this.soundResults.pause()
+    }
+  }
+
   observeLocation() {
-    const backBtn = document.querySelector('#backBtn')
+    const backBtn = document.querySelectorAll('.back-link')
     const nextQuizBtn = document.querySelector('#nextQuizBtn')
-    const homeBtn = document.querySelector('#homeBtn')
 
     nextQuizBtn.addEventListener('click', () => {
-      this.soundResults.pause()
+      this.stopTimerAndSounds()
     })
 
-    homeBtn.addEventListener('click', () => {
-      this.soundResults.pause()
-    })
-
-    backBtn.addEventListener('click', () => {
-      this.stopTimer()
+    backBtn.forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.stopTimerAndSounds()
+      })
     })
 
     window.addEventListener('popstate', () => {
-      this.stopTimer()
-
-      if (this.soundResults) {
-        this.soundResults.pause()
-      }
+      this.stopTimerAndSounds()
     })
   }
 
@@ -518,9 +518,8 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-quiz" id="header">
-          <a href="/categories/${
-            this.type
-          }" class="header-quiz__nav header__nav header__nav--left btn" id="backBtn" title="back" data-link><ion-icon name="chevron-back-outline"></ion-icon></a>
+          <a href="/categories/${this.type}" class="header-quiz__nav header__nav header__nav--left btn back-link" title="back" data-link><ion-icon name="chevron-back-outline"></ion-icon></a>
+          <a href="/" class="header-quiz__nav header__nav header__nav--right btn back-link" title="home" data-link><ion-icon name="home"></ion-icon></a>
         </div>
       </div>
     </header>
@@ -602,7 +601,7 @@ export default class extends View {
       <div class="modal-center__title" id="resultsText"></div>
       <div class="modal-center__info"><span id="correctAnswersCount"></span>/10</div>
       <div class="modal-center__actions">
-        <a href="/" class="btn" id="homeBtn" data-langkey="home" data-link>home</a>
+        <a href="/" class="btn back-link" data-langkey="home" data-link>home</a>
         <a href="/categories/${this.type}" class="btn" id="nextQuizBtn" data-langkey="next-quiz" data-link>next quiz</a>
       </div>
   </div>
