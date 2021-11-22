@@ -31,7 +31,8 @@
   &__added-time {
     position: absolute;
     top: 0.4em;
-    right: 3em;
+    right: 55%;
+    transform: translateX(55%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,6 +47,8 @@
 
     @media (min-width: 768px) {
       font-size: 2em;
+      right: 50%;
+      transform: translateX(50%);
     }
 
     &.incorrect {

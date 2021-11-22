@@ -235,7 +235,7 @@ export default class extends View {
 
     setTimeout(() => {
       addedTime.classList.add('hidden')
-    }, 800)
+    }, 1000)
   }
 
   setTimeout(value) {
