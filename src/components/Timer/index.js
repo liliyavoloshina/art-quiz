@@ -110,7 +110,9 @@ export default class {
 
     parent.append(element)
 
-    if (this.type === 'blitz') {
+    const isAddedTimePresent = !!document.querySelector('#addedTime')
+
+    if (this.type === 'blitz' && !isAddedTimePresent) {
       const addedTime = document.createElement('div')
       addedTime.classList.add('timer__added-time', 'hidden')
       addedTime.id = 'addedTime'

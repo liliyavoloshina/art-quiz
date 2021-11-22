@@ -1,4 +1,4 @@
-/* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign, no-return-assign, no-inner-declarations */
+/* eslint-disable no-plusplus, no-param-reassign, no-return-assign */
 
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
