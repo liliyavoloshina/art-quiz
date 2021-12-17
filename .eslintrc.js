@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: ['prettier', 'html'],
   rules: {
+    'linebreak-style': 'off',
     'class-methods-use-this': 'off',
     'no-plusplus': 'off',
     'no-param-reassign': 'off',
