@@ -1,5 +1,3 @@
-import './index.scss'
-
 class ScoreItem {
   constructor(isCorrect, item) {
     this.isCorrect = isCorrect
