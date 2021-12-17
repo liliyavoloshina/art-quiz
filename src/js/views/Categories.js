@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this, no-plusplus */
-
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 import Category from '../../components/Category'

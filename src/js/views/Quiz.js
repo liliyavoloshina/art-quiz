@@ -1,9 +1,7 @@
-/* eslint-disable no-plusplus, no-param-reassign, no-return-assign */
-
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
 import SliderTransformer from '../helpers/SliderTransformer'
-import PlaySound from '../helpers/PlaySound'
+import PlaySound from '../helpers/playSound'
 import { setAnimatedBtns, generateHint, shuffle, getData, getRandomIdx } from '../helpers/utils'
 import { QUIZ_TYPES, QUIZ_QUESTIONS_COUNT, QUIZ_IMAGES_ALL, QUIZ_ANSWERS_COUNT } from '../helpers/constants'
 import QuizImage from '../../components/QuizImage'
@@ -143,8 +141,8 @@ export default class extends View {
 
     if (this.type === QUIZ_TYPES.artists) {
       this.questions.forEach((question) => {
-        const {imageNum} = question
-        const {year} = this.questions[this.currentQuestion]
+        const { imageNum } = question
+        const { year } = this.questions[this.currentQuestion]
         const hint = generateHint(QUIZ_TYPES.artists, this.langValue, year)
 
         srcForPreload.push(`/img/full/${imageNum}full.webp`)
@@ -181,7 +179,7 @@ export default class extends View {
       this.picturesImages = randomImages
 
       randomImages.forEach((image) => {
-        const {imageNum} = image
+        const { imageNum } = image
         const { author, name } = this.allQuestions.find((el) => el.imageNum === imageNum)
         const hint = generateHint(QUIZ_TYPES.pictures, this.langValue, author)
 
@@ -381,7 +379,7 @@ export default class extends View {
       this.stopTimerAndSounds()
     })
 
-    backBtn.forEach(btn => {
+    backBtn.forEach((btn) => {
       btn.addEventListener('click', () => {
         this.stopTimerAndSounds()
       })
@@ -393,7 +391,6 @@ export default class extends View {
   }
 
   showHint(hintBtn) {
-
     if (this.type === QUIZ_TYPES.pictures && this.isHintUsed && !hintBtn.classList.contains('opened')) return
 
     this.isHintUsed = true
@@ -518,7 +515,9 @@ export default class extends View {
     <header>
       <div class="container">
         <div class="header header-quiz" id="header">
-          <a href="/categories/${this.type}" class="header-quiz__nav header__nav header__nav--left btn back-link" title="back" data-link><ion-icon name="chevron-back-outline"></ion-icon></a>
+          <a href="/categories/${
+            this.type
+          }" class="header-quiz__nav header__nav header__nav--left btn back-link" title="back" data-link><ion-icon name="chevron-back-outline"></ion-icon></a>
           <a href="/" class="header-quiz__nav header__nav header__nav--right btn back-link" title="home" data-link><ion-icon name="home"></ion-icon></a>
         </div>
       </div>
