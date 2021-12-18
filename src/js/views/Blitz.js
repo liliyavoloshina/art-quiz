@@ -1,8 +1,6 @@
-/* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign */
-
 import View from './View'
 import ImagePreloader from '../helpers/ImagePreloader'
-import PlaySound from '../helpers/PlaySound'
+import PlaySound from '../helpers/playSound'
 import Timer from '../../components/Timer'
 import Confetti from '../../components/Confetti'
 import { shuffle, getData } from '../helpers/utils'

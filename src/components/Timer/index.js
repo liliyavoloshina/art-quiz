@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this, no-plusplus, no-param-reassign */
-
 import './index.scss'
 
 export default class {

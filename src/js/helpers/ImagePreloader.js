@@ -1,5 +1,3 @@
-/* eslint-disable no-new, class-methods-use-this */
-
 export default class {
   constructor(arrOfImages) {
     this.arr = arrOfImages

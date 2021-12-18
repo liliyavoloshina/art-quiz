@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus, no-param-reassign */
-
 const animateButton = (e) => {
   e.preventDefault()
   e.target.classList.remove('animate')
@@ -32,7 +30,7 @@ const generateHint = (type, lang = 'en', value) => {
     const hint = lang === 'en' ? `this picture was painted in ${value}` : `эта картина нарисована в ${value}`
     return hint
   }
-  
+
   const splitted = value.split(' ')
   const hint = []
   splitted.forEach((el) => {

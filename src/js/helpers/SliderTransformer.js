@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 export default class {
   constructor(type) {
     this.type = type

@@ -1,5 +1,4 @@
 # art-quiz
-
 An interactive quiz where you can test your knowledge of fine arts.  
 It includes:  
 1. Artists quiz - answer who is the author of the picture
